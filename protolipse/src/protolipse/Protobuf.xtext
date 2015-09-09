@@ -1,0 +1,161 @@
+grammar protolipse.Protobuf with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate protobuf "http://protolipse/Protobuf"
+
+Proto:
+	(syntax=Syntax)?
+	(statements+=Statement)*;
+
+Statement:
+	Package | Import | ComplexType | Extend | Service | Option; //TODO: annotation_entry | doc_entry 
+
+
+//annotation_entry
+//         :AT Var ( '(' annotation_keyval ( ',' annotation_keyval )* ')' )?
+//annotation_keyval
+//         :Var_full '=' ( VarReserved | ID | FULL_ID | NUMFLOAT | NUMINT | NUMDOUBLE | 'true' | FALSE | STRING )
+//doc_entry
+//         :DOC
+Syntax:
+	'syntax' '=' name=STRING ';';
+
+Package:
+	'package' name=Var_full ';';
+
+Import:
+	'import' importURI=STRING ';';
+
+Option:
+	'option' source=[MessageField|Var_full] '=' value=Value ';'; //TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |
+//TODO: groups
+Value:
+	SimpleValueLink;
+
+SimpleValueLink:
+	NumberLink | BooleanLink | StringLink;
+
+StringLink:
+	target=STRING;
+
+BooleanLink:
+	target=BOOL;
+
+NumberLink:
+	IntLink | DoubleLink;
+
+IntLink:
+	target=NUMINT;
+
+DoubleLink:
+	target=NUMDOUBLE;
+
+enum BOOL:
+	true | false;
+
+ComplexType:
+	Enum | ExtensibleType;
+
+ExtensibleType:
+	Message | Group;
+
+Message:
+	'message' name=ID '{' elements+=MessageElement* '}';
+
+MessageElement:
+	Message | IndexedElement | Enum | Service | Extend | ExtensionRange | Option; //TODO: | annotation_entry | doc_entry 
+	
+IndexedElement:
+	MessageField | Group;
+
+ExtensionRange:
+	'extensions' from=NUMINT ('to' to=NUMINT)? ';'; //TODO: to='max'
+	
+MessageField:
+	modifier=Modifier type=TypeLink name=Var '=' index=NUMINT options=FieldOptions? ';'; //TODO: ignore_block
+	
+Group:
+	modifier=Modifier 'group' name=Var '=' index=NUMINT '{' elements+=MessageField* '}';
+
+enum Modifier:
+	optional | required | repeated;
+
+TypeLink:
+	=> ScalarTypeLink | ComplexTypeLink;
+
+ComplexTypeLink:
+	target=[ComplexType|Var_full];
+
+ScalarTypeLink:
+	target=ScalarType;
+
+enum ScalarType:
+	int32 | int64 | uint32 | uint64 | sint32 | sint64 | fixed32 | fixed64 | sfixed32 | sfixed64 | float |
+	double | bool | string | bytes;
+
+FieldOptions:
+	'[' options+=FieldOption (',' options+=FieldOption)* ']';
+
+FieldOption:
+	DefaultValueFieldOption | NativeFieldOption;
+	
+DefaultValueFieldOption:
+	=> 'default' '=' value=Value;
+
+NativeFieldOption:
+	source=OptionSource '=' value=Value;
+
+OptionSource:
+	target=[IndexedElement|Var_full];
+
+Enum:
+	'enum' name=ID '{' elements+=EnumElement* '}';
+
+EnumElement:
+	EnumField | Option;
+
+EnumField:
+	name=ID '=' index=NUMINT ('[' options+=FieldOption (',' options+=FieldOption)* ']')? ';';
+
+Service:
+	'service' name=ID '{' elements+=ServiceElement+ '}' (';')?;
+
+ServiceElement:
+	Rpc | Option;
+
+Rpc:
+	'rpc' name=ID '(' argType=MessageLink ')' 'returns' '(' returnType=MessageLink ')' ('{' options+=Option* '}')? (';')+;
+
+MessageLink:
+	target=[Message|FULL_ID]; //TODO: VOID 'void'
+	
+Extend:
+	'extend' type=[Message|FULL_ID] '{' elements+=MessageElement* '}' (';')?; //TODO: type group?
+	
+Var_full:
+	FULL_ID | Var;
+
+Var:
+	ID | VarReserved;
+
+FULL_ID:
+	ID ('.' ID)+;
+
+VarReserved:
+	'to' | 'package' | 'syntax' | 'import' | 'option' | 'message' | 'service' | 'enum' | 'required' | 'optional' |
+	'repeated' | 'extensions' | 'extend' | 'group' | 'rpc' | 'returns' | 'int32' | 'int64' | 'uint32' | 'uint64' |
+	'sint32' | 'sint64' | 'fixed32' | 'fixed64' | 'sfixed32' | 'sfixed64' | 'float' | 'double' | 'bool' | 'string' |
+	'bytes' | 'default' | 'max' | 'void';
+
+terminal NUMDOUBLE returns ecore::EDouble:
+	NUMINT '.' INT;
+
+	//HEX returns ecore::ELong: '-'? '0' ( 'x' | 'X' ) HEX_DIGIT+;
+EXP returns ecore::ELong:
+	NUMINT ('e' | 'E') NUMINT;
+
+terminal NUMINT returns ecore::EInt:
+	'0' | '-'? '1'..'9' INT*;
+
+//terminal HEX_DIGIT returns ecore::ELong: '0'..'9' | 'a'..'f' | 'A'..'F';

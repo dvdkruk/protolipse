@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/protolipse/src-gen" editDirectory="/protolipse.edit/src"
+    editorDirectory="/protolipse.editor/src" modelPluginID="protolipse" forceOverwrite="true"
+    modelName="Protobuf" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="protolipse.edit" editorPluginID="protolipse.editor"
+    runtimeVersion="2.11">
+  <genPackages prefix="Protobuf" basePackage="protolipse" disposableProviderFactory="true"
+      fileExtensions="proto" ecorePackage="Protobuf.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Protobuf.ecore#//BOOL">
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//BOOL/true"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//BOOL/false"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Protobuf.ecore#//Modifier">
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//Modifier/optional"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//Modifier/required"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//Modifier/repeated"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Protobuf.ecore#//ScalarType">
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/int32"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/int64"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/uint32"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/uint64"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/sint32"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/sint64"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/fixed32"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/fixed64"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/sfixed32"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/sfixed64"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/bool"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/bytes"/>
+    </genEnums>
+    <genClasses ecoreClass="Protobuf.ecore#//Proto">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Proto/syntax"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Proto/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Statement"/>
+    <genClasses ecoreClass="Protobuf.ecore#//Syntax">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Syntax/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Package/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Import/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Option">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Option/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Option/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Value"/>
+    <genClasses ecoreClass="Protobuf.ecore#//SimpleValueLink"/>
+    <genClasses ecoreClass="Protobuf.ecore#//StringLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//StringLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//BooleanLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//BooleanLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//NumberLink"/>
+    <genClasses ecoreClass="Protobuf.ecore#//IntLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IntLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//DoubleLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//DoubleLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//ComplexType"/>
+    <genClasses ecoreClass="Protobuf.ecore#//ExtensibleType"/>
+    <genClasses ecoreClass="Protobuf.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Message/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Message/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//MessageElement"/>
+    <genClasses ecoreClass="Protobuf.ecore#//IndexedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IndexedElement/modifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IndexedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IndexedElement/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//ExtensionRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//ExtensionRange/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//ExtensionRange/to"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//MessageField">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//MessageField/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//MessageField/options"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Group">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Group/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//TypeLink"/>
+    <genClasses ecoreClass="Protobuf.ecore#//ComplexTypeLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//ComplexTypeLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//ScalarTypeLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//ScalarTypeLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//FieldOptions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//FieldOptions/options"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//FieldOption">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//FieldOption/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//DefaultValueFieldOption"/>
+    <genClasses ecoreClass="Protobuf.ecore#//NativeFieldOption">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//NativeFieldOption/source"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//OptionSource">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//OptionSource/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Enum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Enum/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Enum/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//EnumElement"/>
+    <genClasses ecoreClass="Protobuf.ecore#//EnumField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//EnumField/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//EnumField/index"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//EnumField/options"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Service/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Service/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//ServiceElement"/>
+    <genClasses ecoreClass="Protobuf.ecore#//Rpc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Rpc/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Rpc/argType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Rpc/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Rpc/options"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//MessageLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//MessageLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Extend">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Extend/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Extend/elements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
