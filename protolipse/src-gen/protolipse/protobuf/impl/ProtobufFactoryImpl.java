@@ -41,6 +41,7 @@ import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufFactory;
 import protolipse.protobuf.ProtobufPackage;
+import protolipse.protobuf.PublicImport;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarType;
 import protolipse.protobuf.ScalarTypeLink;
@@ -52,6 +53,7 @@ import protolipse.protobuf.StringLink;
 import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
+import protolipse.protobuf.WeakImport;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,6 +112,8 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.SYNTAX: return createSyntax();
       case ProtobufPackage.PACKAGE: return createPackage();
       case ProtobufPackage.IMPORT: return createImport();
+      case ProtobufPackage.PUBLIC_IMPORT: return createPublicImport();
+      case ProtobufPackage.WEAK_IMPORT: return createWeakImport();
       case ProtobufPackage.OPTION: return createOption();
       case ProtobufPackage.VALUE: return createValue();
       case ProtobufPackage.SIMPLE_VALUE_LINK: return createSimpleValueLink();
@@ -243,6 +247,28 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     ImportImpl import_ = new ImportImpl();
     return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PublicImport createPublicImport()
+  {
+    PublicImportImpl publicImport = new PublicImportImpl();
+    return publicImport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WeakImport createWeakImport()
+  {
+    WeakImportImpl weakImport = new WeakImportImpl();
+    return weakImport;
   }
 
   /**

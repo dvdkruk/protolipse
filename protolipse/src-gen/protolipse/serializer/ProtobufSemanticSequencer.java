@@ -26,7 +26,6 @@ import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensionRange;
 import protolipse.protobuf.FieldOptions;
 import protolipse.protobuf.Group;
-import protolipse.protobuf.Import;
 import protolipse.protobuf.IntLink;
 import protolipse.protobuf.Message;
 import protolipse.protobuf.MessageField;
@@ -36,11 +35,13 @@ import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
+import protolipse.protobuf.PublicImport;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
 import protolipse.protobuf.StringLink;
 import protolipse.protobuf.Syntax;
+import protolipse.protobuf.WeakImport;
 import protolipse.services.ProtobufGrammarAccess;
 
 @SuppressWarnings("all")
@@ -85,9 +86,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case ProtobufPackage.GROUP:
 				sequence_Group(context, (Group) semanticObject); 
 				return; 
-			case ProtobufPackage.IMPORT:
-				sequence_Import(context, (Import) semanticObject); 
-				return; 
 			case ProtobufPackage.INT_LINK:
 				sequence_IntLink(context, (IntLink) semanticObject); 
 				return; 
@@ -115,6 +113,9 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case ProtobufPackage.PROTO:
 				sequence_Proto(context, (Proto) semanticObject); 
 				return; 
+			case ProtobufPackage.PUBLIC_IMPORT:
+				sequence_PublicImport(context, (PublicImport) semanticObject); 
+				return; 
 			case ProtobufPackage.RPC:
 				sequence_Rpc(context, (Rpc) semanticObject); 
 				return; 
@@ -129,6 +130,9 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case ProtobufPackage.SYNTAX:
 				sequence_Syntax(context, (Syntax) semanticObject); 
+				return; 
+			case ProtobufPackage.WEAK_IMPORT:
+				sequence_WeakImport(context, (WeakImport) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -270,22 +274,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     importURI=STRING
-	 */
-	protected void sequence_Import(EObject context, Import semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.IMPORT__IMPORT_URI));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0(), semanticObject.getImportURI());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     target=NUMINT
 	 */
 	protected void sequence_IntLink(EObject context, IntLink semanticObject) {
@@ -415,6 +403,22 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
+	 *     importURI=STRING
+	 */
+	protected void sequence_PublicImport(EObject context, PublicImport semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.IMPORT__IMPORT_URI));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPublicImportAccess().getImportURISTRINGTerminalRuleCall_2_0(), semanticObject.getImportURI());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID argType=MessageLink returnType=MessageLink options+=Option*)
 	 */
 	protected void sequence_Rpc(EObject context, Rpc semanticObject) {
@@ -475,6 +479,22 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSyntaxAccess().getNameSTRINGTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     importURI=STRING
+	 */
+	protected void sequence_WeakImport(EObject context, WeakImport semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.IMPORT__IMPORT_URI));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWeakImportAccess().getImportURISTRINGTerminalRuleCall_2_0(), semanticObject.getImportURI());
 		feeder.finish();
 	}
 }

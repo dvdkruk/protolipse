@@ -36,6 +36,7 @@ import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
+import protolipse.protobuf.PublicImport;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
@@ -46,6 +47,7 @@ import protolipse.protobuf.StringLink;
 import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
+import protolipse.protobuf.WeakImport;
 
 /**
  * <!-- begin-user-doc -->
@@ -134,6 +136,16 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
+      }
+      @Override
+      public Adapter casePublicImport(PublicImport object)
+      {
+        return createPublicImportAdapter();
+      }
+      @Override
+      public Adapter caseWeakImport(WeakImport object)
+      {
+        return createWeakImportAdapter();
       }
       @Override
       public Adapter caseOption(Option object)
@@ -393,6 +405,36 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.PublicImport <em>Public Import</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.PublicImport
+   * @generated
+   */
+  public Adapter createPublicImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.WeakImport <em>Weak Import</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.WeakImport
+   * @generated
+   */
+  public Adapter createWeakImportAdapter()
   {
     return null;
   }

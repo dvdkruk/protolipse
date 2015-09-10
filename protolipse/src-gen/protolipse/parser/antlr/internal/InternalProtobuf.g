@@ -313,31 +313,126 @@ ruleImport returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getImportAccess().getPublicImportParserRuleCall_0()); 
+    }
+    this_PublicImport_0=rulePublicImport
+    { 
+        $current = $this_PublicImport_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getImportAccess().getWeakImportParserRuleCall_1()); 
+    }
+    this_WeakImport_1=ruleWeakImport
+    { 
+        $current = $this_WeakImport_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRulePublicImport
+entryRulePublicImport returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPublicImportRule()); }
+	 iv_rulePublicImport=rulePublicImport 
+	 { $current=$iv_rulePublicImport.current; } 
+	 EOF 
+;
+
+// Rule PublicImport
+rulePublicImport returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 (	otherlv_0='import' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getPublicImportAccess().getImportKeyword_0());
+    }
+	otherlv_1='public' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getPublicImportAccess().getPublicKeyword_1());
     }
 (
 (
-		lv_importURI_1_0=RULE_STRING
+		lv_importURI_2_0=RULE_STRING
 		{
-			newLeafNode(lv_importURI_1_0, grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_importURI_2_0, grammarAccess.getPublicImportAccess().getImportURISTRINGTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getImportRule());
+	            $current = createModelElement(grammarAccess.getPublicImportRule());
 	        }
        		setWithLastConsumed(
        			$current, 
        			"importURI",
-        		lv_importURI_1_0, 
+        		lv_importURI_2_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_2=';' 
+)	otherlv_3=';' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getImportAccess().getSemicolonKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getPublicImportAccess().getSemicolonKeyword_3());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleWeakImport
+entryRuleWeakImport returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getWeakImportRule()); }
+	 iv_ruleWeakImport=ruleWeakImport 
+	 { $current=$iv_ruleWeakImport.current; } 
+	 EOF 
+;
+
+// Rule WeakImport
+ruleWeakImport returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='import' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getWeakImportAccess().getImportKeyword_0());
+    }
+	otherlv_1='weak' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getWeakImportAccess().getWeakKeyword_1());
+    }
+(
+(
+		lv_importURI_2_0=RULE_STRING
+		{
+			newLeafNode(lv_importURI_2_0, grammarAccess.getWeakImportAccess().getImportURISTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWeakImportRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"importURI",
+        		lv_importURI_2_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_3=';' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getWeakImportAccess().getSemicolonKeyword_3());
     }
 )
 ;

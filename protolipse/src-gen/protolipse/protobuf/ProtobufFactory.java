@@ -68,6 +68,24 @@ public interface ProtobufFactory extends EFactory
   Import createImport();
 
   /**
+   * Returns a new object of class '<em>Public Import</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Public Import</em>'.
+   * @generated
+   */
+  PublicImport createPublicImport();
+
+  /**
+   * Returns a new object of class '<em>Weak Import</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Weak Import</em>'.
+   * @generated
+   */
+  WeakImport createWeakImport();
+
+  /**
    * Returns a new object of class '<em>Option</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

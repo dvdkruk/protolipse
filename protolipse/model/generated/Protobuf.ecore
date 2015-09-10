@@ -17,6 +17,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PublicImport" eSuperTypes="#//Import"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WeakImport" eSuperTypes="#//Import"/>
   <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//Statement #//MessageElement #//EnumElement #//ServiceElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//MessageField"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"

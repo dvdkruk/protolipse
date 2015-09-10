@@ -47,6 +47,8 @@
     <genClasses ecoreClass="Protobuf.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Import/importURI"/>
     </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//PublicImport"/>
+    <genClasses ecoreClass="Protobuf.ecore#//WeakImport"/>
     <genClasses ecoreClass="Protobuf.ecore#//Option">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Option/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Option/value"/>

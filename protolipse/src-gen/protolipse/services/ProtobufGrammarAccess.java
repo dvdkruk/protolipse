@@ -151,30 +151,86 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPublicImportParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cWeakImportParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Import:
-		//	"import" importURI=STRING ";";
+		//	PublicImport | WeakImport;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"import" importURI=STRING ";"
+		//PublicImport | WeakImport
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//PublicImport
+		public RuleCall getPublicImportParserRuleCall_0() { return cPublicImportParserRuleCall_0; }
+
+		//WeakImport
+		public RuleCall getWeakImportParserRuleCall_1() { return cWeakImportParserRuleCall_1; }
+	}
+
+	public class PublicImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PublicImport");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cPublicKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cImportURIAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_2_0 = (RuleCall)cImportURIAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//PublicImport:
+		//	"import" "public" importURI=STRING ";";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"import" "public" importURI=STRING ";"
 		public Group getGroup() { return cGroup; }
 
 		//"import"
 		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
 
+		//"public"
+		public Keyword getPublicKeyword_1() { return cPublicKeyword_1; }
+
 		//importURI=STRING
-		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
+		public Assignment getImportURIAssignment_2() { return cImportURIAssignment_2; }
 
 		//STRING
-		public RuleCall getImportURISTRINGTerminalRuleCall_1_0() { return cImportURISTRINGTerminalRuleCall_1_0; }
+		public RuleCall getImportURISTRINGTerminalRuleCall_2_0() { return cImportURISTRINGTerminalRuleCall_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class WeakImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "WeakImport");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cWeakKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cImportURIAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_2_0 = (RuleCall)cImportURIAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//WeakImport:
+		//	"import" "weak" importURI=STRING ";";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"import" "weak" importURI=STRING ";"
+		public Group getGroup() { return cGroup; }
+
+		//"import"
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
+
+		//"weak"
+		public Keyword getWeakKeyword_1() { return cWeakKeyword_1; }
+
+		//importURI=STRING
+		public Assignment getImportURIAssignment_2() { return cImportURIAssignment_2; }
+
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_2_0() { return cImportURISTRINGTerminalRuleCall_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
 	public class OptionElements extends AbstractParserRuleElementFinder {
@@ -1683,6 +1739,8 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	private final SyntaxElements pSyntax;
 	private final PackageElements pPackage;
 	private final ImportElements pImport;
+	private final PublicImportElements pPublicImport;
+	private final WeakImportElements pWeakImport;
 	private final OptionElements pOption;
 	private final ValueElements pValue;
 	private final SimpleValueLinkElements pSimpleValueLink;
@@ -1741,6 +1799,8 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSyntax = new SyntaxElements();
 		this.pPackage = new PackageElements();
 		this.pImport = new ImportElements();
+		this.pPublicImport = new PublicImportElements();
+		this.pWeakImport = new WeakImportElements();
 		this.pOption = new OptionElements();
 		this.pValue = new ValueElements();
 		this.pSimpleValueLink = new SimpleValueLinkElements();
@@ -1861,13 +1921,33 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Import:
-	//	"import" importURI=STRING ";";
+	//	PublicImport | WeakImport;
 	public ImportElements getImportAccess() {
 		return pImport;
 	}
 	
 	public ParserRule getImportRule() {
 		return getImportAccess().getRule();
+	}
+
+	//PublicImport:
+	//	"import" "public" importURI=STRING ";";
+	public PublicImportElements getPublicImportAccess() {
+		return pPublicImport;
+	}
+	
+	public ParserRule getPublicImportRule() {
+		return getPublicImportAccess().getRule();
+	}
+
+	//WeakImport:
+	//	"import" "weak" importURI=STRING ";";
+	public WeakImportElements getWeakImportAccess() {
+		return pWeakImport;
+	}
+	
+	public ParserRule getWeakImportRule() {
+		return getWeakImportAccess().getRule();
 	}
 
 	////TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |

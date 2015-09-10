@@ -39,6 +39,7 @@ import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufFactory;
 import protolipse.protobuf.ProtobufPackage;
+import protolipse.protobuf.PublicImport;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarType;
 import protolipse.protobuf.ScalarTypeLink;
@@ -50,6 +51,7 @@ import protolipse.protobuf.StringLink;
 import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
+import protolipse.protobuf.WeakImport;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,6 +95,20 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass importEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass publicImportEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass weakImportEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -507,6 +523,26 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
   public EAttribute getImport_ImportURI()
   {
     return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPublicImport()
+  {
+    return publicImportEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWeakImport()
+  {
+    return weakImportEClass;
   }
 
   /**
@@ -1284,6 +1320,10 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORT_URI);
 
+    publicImportEClass = createEClass(PUBLIC_IMPORT);
+
+    weakImportEClass = createEClass(WEAK_IMPORT);
+
     optionEClass = createEClass(OPTION);
     createEReference(optionEClass, OPTION__SOURCE);
     createEReference(optionEClass, OPTION__VALUE);
@@ -1424,6 +1464,8 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     // Add supertypes to classes
     packageEClass.getESuperTypes().add(this.getStatement());
     importEClass.getESuperTypes().add(this.getStatement());
+    publicImportEClass.getESuperTypes().add(this.getImport());
+    weakImportEClass.getESuperTypes().add(this.getImport());
     optionEClass.getESuperTypes().add(this.getStatement());
     optionEClass.getESuperTypes().add(this.getMessageElement());
     optionEClass.getESuperTypes().add(this.getEnumElement());
@@ -1472,6 +1514,10 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(publicImportEClass, PublicImport.class, "PublicImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(weakImportEClass, WeakImport.class, "WeakImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOption_Source(), this.getMessageField(), null, "source", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

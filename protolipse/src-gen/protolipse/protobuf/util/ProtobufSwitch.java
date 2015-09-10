@@ -34,6 +34,7 @@ import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
+import protolipse.protobuf.PublicImport;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
@@ -44,6 +45,7 @@ import protolipse.protobuf.StringLink;
 import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
+import protolipse.protobuf.WeakImport;
 
 /**
  * <!-- begin-user-doc -->
@@ -142,6 +144,24 @@ public class ProtobufSwitch<T> extends Switch<T>
         Import import_ = (Import)theEObject;
         T result = caseImport(import_);
         if (result == null) result = caseStatement(import_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.PUBLIC_IMPORT:
+      {
+        PublicImport publicImport = (PublicImport)theEObject;
+        T result = casePublicImport(publicImport);
+        if (result == null) result = caseImport(publicImport);
+        if (result == null) result = caseStatement(publicImport);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.WEAK_IMPORT:
+      {
+        WeakImport weakImport = (WeakImport)theEObject;
+        T result = caseWeakImport(weakImport);
+        if (result == null) result = caseImport(weakImport);
+        if (result == null) result = caseStatement(weakImport);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -504,6 +524,38 @@ public class ProtobufSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseImport(Import object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Public Import</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Public Import</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePublicImport(PublicImport object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Weak Import</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Weak Import</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWeakImport(WeakImport object)
   {
     return null;
   }

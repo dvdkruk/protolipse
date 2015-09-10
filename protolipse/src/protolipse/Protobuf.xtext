@@ -25,7 +25,14 @@ Package:
 	'package' name=Var_full ';';
 
 Import:
-	'import' importURI=STRING ';';
+	PublicImport | WeakImport;
+	
+PublicImport:
+	'import' 'public' importURI=STRING ';';
+	
+WeakImport:
+	'import' 'weak' importURI=STRING ';';	
+	
 
 Option:
 	'option' source=[MessageField|Var_full] '=' value=Value ';'; //TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |

@@ -38,6 +38,7 @@ public class ProtobufParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
+					put(grammarAccess.getImportAccess().getAlternatives(), "rule__Import__Alternatives");
 					put(grammarAccess.getSimpleValueLinkAccess().getAlternatives(), "rule__SimpleValueLink__Alternatives");
 					put(grammarAccess.getNumberLinkAccess().getAlternatives(), "rule__NumberLink__Alternatives");
 					put(grammarAccess.getComplexTypeAccess().getAlternatives(), "rule__ComplexType__Alternatives");
@@ -58,7 +59,8 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProtoAccess().getGroup(), "rule__Proto__Group__0");
 					put(grammarAccess.getSyntaxAccess().getGroup(), "rule__Syntax__Group__0");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
-					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
+					put(grammarAccess.getPublicImportAccess().getGroup(), "rule__PublicImport__Group__0");
+					put(grammarAccess.getWeakImportAccess().getGroup(), "rule__WeakImport__Group__0");
 					put(grammarAccess.getOptionAccess().getGroup(), "rule__Option__Group__0");
 					put(grammarAccess.getMessageAccess().getGroup(), "rule__Message__Group__0");
 					put(grammarAccess.getExtensionRangeAccess().getGroup(), "rule__ExtensionRange__Group__0");
@@ -84,7 +86,8 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProtoAccess().getStatementsAssignment_1(), "rule__Proto__StatementsAssignment_1");
 					put(grammarAccess.getSyntaxAccess().getNameAssignment_2(), "rule__Syntax__NameAssignment_2");
 					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
-					put(grammarAccess.getImportAccess().getImportURIAssignment_1(), "rule__Import__ImportURIAssignment_1");
+					put(grammarAccess.getPublicImportAccess().getImportURIAssignment_2(), "rule__PublicImport__ImportURIAssignment_2");
+					put(grammarAccess.getWeakImportAccess().getImportURIAssignment_2(), "rule__WeakImport__ImportURIAssignment_2");
 					put(grammarAccess.getOptionAccess().getSourceAssignment_1(), "rule__Option__SourceAssignment_1");
 					put(grammarAccess.getOptionAccess().getValueAssignment_3(), "rule__Option__ValueAssignment_3");
 					put(grammarAccess.getEnumLinkAccess().getTargetAssignment(), "rule__EnumLink__TargetAssignment");
