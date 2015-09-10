@@ -281,6 +281,34 @@ finally {
 
 
 
+// Entry rule entryRuleEnumLink
+entryRuleEnumLink 
+:
+{ before(grammarAccess.getEnumLinkRule()); }
+	 ruleEnumLink
+{ after(grammarAccess.getEnumLinkRule()); } 
+	 EOF 
+;
+
+// Rule EnumLink
+ruleEnumLink
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getEnumLinkAccess().getTargetAssignment()); }
+(rule__EnumLink__TargetAssignment)
+{ after(grammarAccess.getEnumLinkAccess().getTargetAssignment()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleStringLink
 entryRuleStringLink 
 :
@@ -1332,6 +1360,12 @@ rule__SimpleValueLink__Alternatives
 { before(grammarAccess.getSimpleValueLinkAccess().getStringLinkParserRuleCall_2()); }
 	ruleStringLink
 { after(grammarAccess.getSimpleValueLinkAccess().getStringLinkParserRuleCall_2()); }
+)
+
+    |(
+{ before(grammarAccess.getSimpleValueLinkAccess().getEnumLinkParserRuleCall_3()); }
+	ruleEnumLink
+{ after(grammarAccess.getSimpleValueLinkAccess().getEnumLinkParserRuleCall_3()); }
 )
 
 ;
@@ -5408,6 +5442,25 @@ rule__Option__ValueAssignment_3
 (
 { before(grammarAccess.getOptionAccess().getValueValueParserRuleCall_3_0()); }
 	ruleValue{ after(grammarAccess.getOptionAccess().getValueValueParserRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EnumLink__TargetAssignment
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getEnumLinkAccess().getTargetEnumFieldCrossReference_0()); }
+(
+{ before(grammarAccess.getEnumLinkAccess().getTargetEnumFieldIDTerminalRuleCall_0_1()); }
+	RULE_ID{ after(grammarAccess.getEnumLinkAccess().getTargetEnumFieldIDTerminalRuleCall_0_1()); }
+)
+{ after(grammarAccess.getEnumLinkAccess().getTargetEnumFieldCrossReference_0()); }
 )
 
 ;

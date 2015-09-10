@@ -14,6 +14,7 @@ import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
+import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -167,6 +168,15 @@ public class ProtobufSwitch<T> extends Switch<T>
         SimpleValueLink simpleValueLink = (SimpleValueLink)theEObject;
         T result = caseSimpleValueLink(simpleValueLink);
         if (result == null) result = caseValue(simpleValueLink);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.ENUM_LINK:
+      {
+        EnumLink enumLink = (EnumLink)theEObject;
+        T result = caseEnumLink(enumLink);
+        if (result == null) result = caseSimpleValueLink(enumLink);
+        if (result == null) result = caseValue(enumLink);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -542,6 +552,22 @@ public class ProtobufSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSimpleValueLink(SimpleValueLink object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Link</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Link</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumLink(EnumLink object)
   {
     return null;
   }

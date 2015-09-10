@@ -241,12 +241,13 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNumberLinkParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBooleanLinkParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cStringLinkParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEnumLinkParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//SimpleValueLink:
-		//	NumberLink | BooleanLink | StringLink;
+		//	NumberLink | BooleanLink | StringLink | EnumLink;
 		@Override public ParserRule getRule() { return rule; }
 
-		//NumberLink | BooleanLink | StringLink
+		//NumberLink | BooleanLink | StringLink | EnumLink
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//NumberLink
@@ -257,6 +258,29 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 		//StringLink
 		public RuleCall getStringLinkParserRuleCall_2() { return cStringLinkParserRuleCall_2; }
+
+		//EnumLink
+		public RuleCall getEnumLinkParserRuleCall_3() { return cEnumLinkParserRuleCall_3; }
+	}
+
+	public class EnumLinkElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EnumLink");
+		private final Assignment cTargetAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cTargetEnumFieldCrossReference_0 = (CrossReference)cTargetAssignment.eContents().get(0);
+		private final RuleCall cTargetEnumFieldIDTerminalRuleCall_0_1 = (RuleCall)cTargetEnumFieldCrossReference_0.eContents().get(1);
+		
+		//EnumLink:
+		//	target=[EnumField];
+		@Override public ParserRule getRule() { return rule; }
+
+		//target=[EnumField]
+		public Assignment getTargetAssignment() { return cTargetAssignment; }
+
+		//[EnumField]
+		public CrossReference getTargetEnumFieldCrossReference_0() { return cTargetEnumFieldCrossReference_0; }
+
+		//ID
+		public RuleCall getTargetEnumFieldIDTerminalRuleCall_0_1() { return cTargetEnumFieldIDTerminalRuleCall_0_1; }
 	}
 
 	public class StringLinkElements extends AbstractParserRuleElementFinder {
@@ -1662,6 +1686,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	private final OptionElements pOption;
 	private final ValueElements pValue;
 	private final SimpleValueLinkElements pSimpleValueLink;
+	private final EnumLinkElements pEnumLink;
 	private final StringLinkElements pStringLink;
 	private final BooleanLinkElements pBooleanLink;
 	private final NumberLinkElements pNumberLink;
@@ -1719,6 +1744,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOption = new OptionElements();
 		this.pValue = new ValueElements();
 		this.pSimpleValueLink = new SimpleValueLinkElements();
+		this.pEnumLink = new EnumLinkElements();
 		this.pStringLink = new StringLinkElements();
 		this.pBooleanLink = new BooleanLinkElements();
 		this.pNumberLink = new NumberLinkElements();
@@ -1867,13 +1893,23 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleValueLink:
-	//	NumberLink | BooleanLink | StringLink;
+	//	NumberLink | BooleanLink | StringLink | EnumLink;
 	public SimpleValueLinkElements getSimpleValueLinkAccess() {
 		return pSimpleValueLink;
 	}
 	
 	public ParserRule getSimpleValueLinkRule() {
 		return getSimpleValueLinkAccess().getRule();
+	}
+
+	//EnumLink:
+	//	target=[EnumField];
+	public EnumLinkElements getEnumLinkAccess() {
+		return pEnumLink;
+	}
+	
+	public ParserRule getEnumLinkRule() {
+		return getEnumLinkAccess().getRule();
 	}
 
 	//StringLink:

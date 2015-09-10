@@ -16,6 +16,7 @@ import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
+import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -148,6 +149,11 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSimpleValueLink(SimpleValueLink object)
       {
         return createSimpleValueLinkAdapter();
+      }
+      @Override
+      public Adapter caseEnumLink(EnumLink object)
+      {
+        return createEnumLinkAdapter();
       }
       @Override
       public Adapter caseStringLink(StringLink object)
@@ -432,6 +438,21 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSimpleValueLinkAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.EnumLink <em>Enum Link</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.EnumLink
+   * @generated
+   */
+  public Adapter createEnumLinkAdapter()
   {
     return null;
   }

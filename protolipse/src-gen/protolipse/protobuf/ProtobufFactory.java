@@ -95,6 +95,15 @@ public interface ProtobufFactory extends EFactory
   SimpleValueLink createSimpleValueLink();
 
   /**
+   * Returns a new object of class '<em>Enum Link</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Link</em>'.
+   * @generated
+   */
+  EnumLink createEnumLink();
+
+  /**
    * Returns a new object of class '<em>String Link</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

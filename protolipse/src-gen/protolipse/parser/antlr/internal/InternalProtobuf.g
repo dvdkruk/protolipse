@@ -485,6 +485,50 @@ ruleSimpleValueLink returns [EObject current=null]
         $current = $this_StringLink_2.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getSimpleValueLinkAccess().getEnumLinkParserRuleCall_3()); 
+    }
+    this_EnumLink_3=ruleEnumLink
+    { 
+        $current = $this_EnumLink_3.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleEnumLink
+entryRuleEnumLink returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEnumLinkRule()); }
+	 iv_ruleEnumLink=ruleEnumLink 
+	 { $current=$iv_ruleEnumLink.current; } 
+	 EOF 
+;
+
+// Rule EnumLink
+ruleEnumLink returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEnumLinkRule());
+	        }
+        }
+	otherlv_0=RULE_ID
+	{
+		newLeafNode(otherlv_0, grammarAccess.getEnumLinkAccess().getTargetEnumFieldCrossReference_0()); 
+	}
+
+)
 )
 ;
 

@@ -34,7 +34,10 @@ Value:
 	SimpleValueLink;
 
 SimpleValueLink:
-	NumberLink | BooleanLink | StringLink;
+	NumberLink | BooleanLink | StringLink | EnumLink;
+
+EnumLink:
+	target=[EnumField|ID];
 
 StringLink:
 	target=STRING;

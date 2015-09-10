@@ -53,6 +53,9 @@
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//Value"/>
     <genClasses ecoreClass="Protobuf.ecore#//SimpleValueLink"/>
+    <genClasses ecoreClass="Protobuf.ecore#//EnumLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//EnumLink/target"/>
+    </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//StringLink">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//StringLink/target"/>
     </genClasses>

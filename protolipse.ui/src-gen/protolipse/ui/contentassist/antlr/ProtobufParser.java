@@ -87,6 +87,7 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getImportAccess().getImportURIAssignment_1(), "rule__Import__ImportURIAssignment_1");
 					put(grammarAccess.getOptionAccess().getSourceAssignment_1(), "rule__Option__SourceAssignment_1");
 					put(grammarAccess.getOptionAccess().getValueAssignment_3(), "rule__Option__ValueAssignment_3");
+					put(grammarAccess.getEnumLinkAccess().getTargetAssignment(), "rule__EnumLink__TargetAssignment");
 					put(grammarAccess.getStringLinkAccess().getTargetAssignment(), "rule__StringLink__TargetAssignment");
 					put(grammarAccess.getBooleanLinkAccess().getTargetAssignment(), "rule__BooleanLink__TargetAssignment");
 					put(grammarAccess.getIntLinkAccess().getTargetAssignment(), "rule__IntLink__TargetAssignment");

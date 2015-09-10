@@ -21,6 +21,7 @@ import protolipse.protobuf.ComplexTypeLink;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumField;
+import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensionRange;
 import protolipse.protobuf.FieldOptions;
@@ -68,6 +69,9 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case ProtobufPackage.ENUM_FIELD:
 				sequence_EnumField(context, (EnumField) semanticObject); 
+				return; 
+			case ProtobufPackage.ENUM_LINK:
+				sequence_EnumLink(context, (EnumLink) semanticObject); 
 				return; 
 			case ProtobufPackage.EXTEND:
 				sequence_Extend(context, (Extend) semanticObject); 
@@ -200,6 +204,22 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_EnumField(EObject context, EnumField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     target=[EnumField|ID]
+	 */
+	protected void sequence_EnumLink(EObject context, EnumLink semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.ENUM_LINK__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.ENUM_LINK__TARGET));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getEnumLinkAccess().getTargetEnumFieldIDTerminalRuleCall_0_1(), semanticObject.getTarget());
+		feeder.finish();
 	}
 	
 	

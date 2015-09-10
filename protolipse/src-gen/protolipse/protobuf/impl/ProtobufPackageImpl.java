@@ -17,6 +17,7 @@ import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
+import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -113,6 +114,13 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass simpleValueLinkEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass enumLinkEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -549,6 +557,26 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
   public EClass getSimpleValueLink()
   {
     return simpleValueLinkEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEnumLink()
+  {
+    return enumLinkEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnumLink_Target()
+  {
+    return (EReference)enumLinkEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1264,6 +1292,9 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     simpleValueLinkEClass = createEClass(SIMPLE_VALUE_LINK);
 
+    enumLinkEClass = createEClass(ENUM_LINK);
+    createEReference(enumLinkEClass, ENUM_LINK__TARGET);
+
     stringLinkEClass = createEClass(STRING_LINK);
     createEAttribute(stringLinkEClass, STRING_LINK__TARGET);
 
@@ -1398,6 +1429,7 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     optionEClass.getESuperTypes().add(this.getEnumElement());
     optionEClass.getESuperTypes().add(this.getServiceElement());
     simpleValueLinkEClass.getESuperTypes().add(this.getValue());
+    enumLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     stringLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     booleanLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     numberLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
@@ -1448,6 +1480,9 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(simpleValueLinkEClass, SimpleValueLink.class, "SimpleValueLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(enumLinkEClass, EnumLink.class, "EnumLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumLink_Target(), this.getEnumField(), null, "target", null, 0, 1, EnumLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringLinkEClass, StringLink.class, "StringLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLink_Target(), ecorePackage.getEString(), "target", null, 0, 1, StringLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -19,6 +19,7 @@ import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
+import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -112,6 +113,7 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.OPTION: return createOption();
       case ProtobufPackage.VALUE: return createValue();
       case ProtobufPackage.SIMPLE_VALUE_LINK: return createSimpleValueLink();
+      case ProtobufPackage.ENUM_LINK: return createEnumLink();
       case ProtobufPackage.STRING_LINK: return createStringLink();
       case ProtobufPackage.BOOLEAN_LINK: return createBooleanLink();
       case ProtobufPackage.NUMBER_LINK: return createNumberLink();
@@ -274,6 +276,17 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     SimpleValueLinkImpl simpleValueLink = new SimpleValueLinkImpl();
     return simpleValueLink;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumLink createEnumLink()
+  {
+    EnumLinkImpl enumLink = new EnumLinkImpl();
+    return enumLink;
   }
 
   /**

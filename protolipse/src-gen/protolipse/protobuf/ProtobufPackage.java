@@ -273,6 +273,34 @@ public interface ProtobufPackage extends EPackage
   int SIMPLE_VALUE_LINK_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link protolipse.protobuf.impl.EnumLinkImpl <em>Enum Link</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see protolipse.protobuf.impl.EnumLinkImpl
+   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumLink()
+   * @generated
+   */
+  int ENUM_LINK = 8;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_LINK__TARGET = SIMPLE_VALUE_LINK_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Enum Link</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_LINK_FEATURE_COUNT = SIMPLE_VALUE_LINK_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link protolipse.protobuf.impl.StringLinkImpl <em>String Link</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -280,7 +308,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getStringLink()
    * @generated
    */
-  int STRING_LINK = 8;
+  int STRING_LINK = 9;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -308,7 +336,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getBooleanLink()
    * @generated
    */
-  int BOOLEAN_LINK = 9;
+  int BOOLEAN_LINK = 10;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -336,7 +364,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getNumberLink()
    * @generated
    */
-  int NUMBER_LINK = 10;
+  int NUMBER_LINK = 11;
 
   /**
    * The number of structural features of the '<em>Number Link</em>' class.
@@ -355,7 +383,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getIntLink()
    * @generated
    */
-  int INT_LINK = 11;
+  int INT_LINK = 12;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -383,7 +411,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getDoubleLink()
    * @generated
    */
-  int DOUBLE_LINK = 12;
+  int DOUBLE_LINK = 13;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -411,7 +439,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getComplexType()
    * @generated
    */
-  int COMPLEX_TYPE = 13;
+  int COMPLEX_TYPE = 14;
 
   /**
    * The number of structural features of the '<em>Complex Type</em>' class.
@@ -430,7 +458,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getExtensibleType()
    * @generated
    */
-  int EXTENSIBLE_TYPE = 14;
+  int EXTENSIBLE_TYPE = 15;
 
   /**
    * The number of structural features of the '<em>Extensible Type</em>' class.
@@ -449,7 +477,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessage()
    * @generated
    */
-  int MESSAGE = 15;
+  int MESSAGE = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -486,7 +514,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageElement()
    * @generated
    */
-  int MESSAGE_ELEMENT = 16;
+  int MESSAGE_ELEMENT = 17;
 
   /**
    * The number of structural features of the '<em>Message Element</em>' class.
@@ -505,7 +533,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getIndexedElement()
    * @generated
    */
-  int INDEXED_ELEMENT = 17;
+  int INDEXED_ELEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -551,7 +579,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getExtensionRange()
    * @generated
    */
-  int EXTENSION_RANGE = 18;
+  int EXTENSION_RANGE = 19;
 
   /**
    * The feature id for the '<em><b>From</b></em>' attribute.
@@ -588,7 +616,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageField()
    * @generated
    */
-  int MESSAGE_FIELD = 19;
+  int MESSAGE_FIELD = 20;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -652,7 +680,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getGroup()
    * @generated
    */
-  int GROUP = 20;
+  int GROUP = 21;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -707,7 +735,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getTypeLink()
    * @generated
    */
-  int TYPE_LINK = 21;
+  int TYPE_LINK = 22;
 
   /**
    * The number of structural features of the '<em>Type Link</em>' class.
@@ -726,7 +754,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getComplexTypeLink()
    * @generated
    */
-  int COMPLEX_TYPE_LINK = 22;
+  int COMPLEX_TYPE_LINK = 23;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -754,7 +782,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getScalarTypeLink()
    * @generated
    */
-  int SCALAR_TYPE_LINK = 23;
+  int SCALAR_TYPE_LINK = 24;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -782,7 +810,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getFieldOptions()
    * @generated
    */
-  int FIELD_OPTIONS = 24;
+  int FIELD_OPTIONS = 25;
 
   /**
    * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -810,7 +838,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getFieldOption()
    * @generated
    */
-  int FIELD_OPTION = 25;
+  int FIELD_OPTION = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -838,7 +866,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getDefaultValueFieldOption()
    * @generated
    */
-  int DEFAULT_VALUE_FIELD_OPTION = 26;
+  int DEFAULT_VALUE_FIELD_OPTION = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -866,7 +894,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getNativeFieldOption()
    * @generated
    */
-  int NATIVE_FIELD_OPTION = 27;
+  int NATIVE_FIELD_OPTION = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -903,7 +931,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getOptionSource()
    * @generated
    */
-  int OPTION_SOURCE = 28;
+  int OPTION_SOURCE = 29;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -931,7 +959,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnum()
    * @generated
    */
-  int ENUM = 29;
+  int ENUM = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -968,7 +996,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumElement()
    * @generated
    */
-  int ENUM_ELEMENT = 30;
+  int ENUM_ELEMENT = 31;
 
   /**
    * The number of structural features of the '<em>Enum Element</em>' class.
@@ -987,7 +1015,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumField()
    * @generated
    */
-  int ENUM_FIELD = 31;
+  int ENUM_FIELD = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1033,7 +1061,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 32;
+  int SERVICE = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1070,7 +1098,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getServiceElement()
    * @generated
    */
-  int SERVICE_ELEMENT = 33;
+  int SERVICE_ELEMENT = 34;
 
   /**
    * The number of structural features of the '<em>Service Element</em>' class.
@@ -1089,7 +1117,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getRpc()
    * @generated
    */
-  int RPC = 34;
+  int RPC = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1144,7 +1172,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageLink()
    * @generated
    */
-  int MESSAGE_LINK = 35;
+  int MESSAGE_LINK = 36;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1172,7 +1200,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getExtend()
    * @generated
    */
-  int EXTEND = 36;
+  int EXTEND = 37;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1209,7 +1237,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getBOOL()
    * @generated
    */
-  int BOOL = 37;
+  int BOOL = 38;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.Modifier <em>Modifier</em>}' enum.
@@ -1219,7 +1247,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getModifier()
    * @generated
    */
-  int MODIFIER = 38;
+  int MODIFIER = 39;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.ScalarType <em>Scalar Type</em>}' enum.
@@ -1229,7 +1257,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getScalarType()
    * @generated
    */
-  int SCALAR_TYPE = 39;
+  int SCALAR_TYPE = 40;
 
 
   /**
@@ -1388,6 +1416,27 @@ public interface ProtobufPackage extends EPackage
    * @generated
    */
   EClass getSimpleValueLink();
+
+  /**
+   * Returns the meta object for class '{@link protolipse.protobuf.EnumLink <em>Enum Link</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Link</em>'.
+   * @see protolipse.protobuf.EnumLink
+   * @generated
+   */
+  EClass getEnumLink();
+
+  /**
+   * Returns the meta object for the reference '{@link protolipse.protobuf.EnumLink#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target</em>'.
+   * @see protolipse.protobuf.EnumLink#getTarget()
+   * @see #getEnumLink()
+   * @generated
+   */
+  EReference getEnumLink_Target();
 
   /**
    * Returns the meta object for class '{@link protolipse.protobuf.StringLink <em>String Link</em>}'.
@@ -2241,6 +2290,24 @@ public interface ProtobufPackage extends EPackage
      * @generated
      */
     EClass SIMPLE_VALUE_LINK = eINSTANCE.getSimpleValueLink();
+
+    /**
+     * The meta object literal for the '{@link protolipse.protobuf.impl.EnumLinkImpl <em>Enum Link</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see protolipse.protobuf.impl.EnumLinkImpl
+     * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumLink()
+     * @generated
+     */
+    EClass ENUM_LINK = eINSTANCE.getEnumLink();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_LINK__TARGET = eINSTANCE.getEnumLink_Target();
 
     /**
      * The meta object literal for the '{@link protolipse.protobuf.impl.StringLinkImpl <em>String Link</em>}' class.

@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalProtobufParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_NUMINT", "RULE_NUMDOUBLE", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'syntax'", "'='", "';'", "'package'", "'import'", "'option'", "'message'", "'{'", "'}'", "'extensions'", "'to'", "'group'", "'['", "','", "']'", "'default'", "'enum'", "'service'", "'rpc'", "'('", "')'", "'returns'", "'extend'", "'.'", "'required'", "'optional'", "'repeated'", "'int32'", "'int64'", "'uint32'", "'uint64'", "'sint32'", "'sint64'", "'fixed32'", "'fixed64'", "'sfixed32'", "'sfixed64'", "'float'", "'double'", "'bool'", "'string'", "'bytes'", "'max'", "'void'", "'true'", "'false'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_NUMINT", "RULE_NUMDOUBLE", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'syntax'", "'='", "';'", "'package'", "'import'", "'option'", "'message'", "'{'", "'}'", "'extensions'", "'to'", "'group'", "'['", "','", "']'", "'default'", "'enum'", "'service'", "'rpc'", "'('", "')'", "'returns'", "'extend'", "'.'", "'required'", "'optional'", "'repeated'", "'int32'", "'int64'", "'uint32'", "'uint64'", "'sint32'", "'sint64'", "'fixed32'", "'fixed64'", "'sfixed32'", "'sfixed64'", "'float'", "'double'", "'bool'", "'string'", "'bytes'", "'max'", "'void'", "'true'", "'false'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -41,8 +41,8 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     public static final int T__52=52;
     public static final int T__53=53;
     public static final int T__54=54;
-    public static final int RULE_NUMDOUBLE=6;
-    public static final int RULE_ID=7;
+    public static final int RULE_NUMDOUBLE=7;
+    public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -56,7 +56,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     public static final int T__20=20;
     public static final int T__21=21;
     public static final int RULE_STRING=4;
-    public static final int RULE_NUMINT=5;
+    public static final int RULE_NUMINT=6;
     public static final int RULE_SL_COMMENT=10;
     public static final int T__37=37;
     public static final int T__38=38;
@@ -1242,7 +1242,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSimpleValueLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:455:1: ruleSimpleValueLink returns [EObject current=null] : (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:455:1: ruleSimpleValueLink returns [EObject current=null] : (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink | this_EnumLink_3= ruleEnumLink ) ;
     public final EObject ruleSimpleValueLink() throws RecognitionException {
         EObject current = null;
 
@@ -1252,15 +1252,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
         EObject this_StringLink_2 = null;
 
+        EObject this_EnumLink_3 = null;
+
 
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:458:28: ( (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:459:1: (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:458:28: ( (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink | this_EnumLink_3= ruleEnumLink ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:459:1: (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink | this_EnumLink_3= ruleEnumLink )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:459:1: (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink )
-            int alt4=3;
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:459:1: (this_NumberLink_0= ruleNumberLink | this_BooleanLink_1= ruleBooleanLink | this_StringLink_2= ruleStringLink | this_EnumLink_3= ruleEnumLink )
+            int alt4=4;
             switch ( input.LA(1) ) {
             case RULE_NUMINT:
             case RULE_NUMDOUBLE:
@@ -1277,6 +1279,11 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             case RULE_STRING:
                 {
                 alt4=3;
+                }
+                break;
+            case RULE_ID:
+                {
+                alt4=4;
                 }
                 break;
             default:
@@ -1354,6 +1361,28 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 4 :
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:490:5: this_EnumLink_3= ruleEnumLink
+                    {
+                    if ( state.backtracking==0 ) {
+                       
+                              newCompositeNode(grammarAccess.getSimpleValueLinkAccess().getEnumLinkParserRuleCall_3()); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleEnumLink_in_ruleSimpleValueLink1158);
+                    this_EnumLink_3=ruleEnumLink();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+                       
+                              current = this_EnumLink_3; 
+                              afterParserOrEnumRuleCall();
+                          
+                    }
+
+                    }
+                    break;
 
             }
 
@@ -1376,8 +1405,105 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSimpleValueLink"
 
 
+    // $ANTLR start "entryRuleEnumLink"
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:506:1: entryRuleEnumLink returns [EObject current=null] : iv_ruleEnumLink= ruleEnumLink EOF ;
+    public final EObject entryRuleEnumLink() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleEnumLink = null;
+
+
+        try {
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:507:2: (iv_ruleEnumLink= ruleEnumLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:508:2: iv_ruleEnumLink= ruleEnumLink EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getEnumLinkRule()); 
+            }
+            pushFollow(FOLLOW_ruleEnumLink_in_entryRuleEnumLink1193);
+            iv_ruleEnumLink=ruleEnumLink();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleEnumLink; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumLink1203); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEnumLink"
+
+
+    // $ANTLR start "ruleEnumLink"
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:515:1: ruleEnumLink returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    public final EObject ruleEnumLink() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+
+         enterRule(); 
+            
+        try {
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:518:28: ( ( (otherlv_0= RULE_ID ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:519:1: ( (otherlv_0= RULE_ID ) )
+            {
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:519:1: ( (otherlv_0= RULE_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:520:1: (otherlv_0= RULE_ID )
+            {
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:520:1: (otherlv_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:521:3: otherlv_0= RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+
+              			if (current==null) {
+              	            current = createModelElement(grammarAccess.getEnumLinkRule());
+              	        }
+                      
+            }
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumLink1247); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              		newLeafNode(otherlv_0, grammarAccess.getEnumLinkAccess().getTargetEnumFieldCrossReference_0()); 
+              	
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEnumLink"
+
+
     // $ANTLR start "entryRuleStringLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:496:1: entryRuleStringLink returns [EObject current=null] : iv_ruleStringLink= ruleStringLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:540:1: entryRuleStringLink returns [EObject current=null] : iv_ruleStringLink= ruleStringLink EOF ;
     public final EObject entryRuleStringLink() throws RecognitionException {
         EObject current = null;
 
@@ -1385,13 +1511,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:497:2: (iv_ruleStringLink= ruleStringLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:498:2: iv_ruleStringLink= ruleStringLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:541:2: (iv_ruleStringLink= ruleStringLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:542:2: iv_ruleStringLink= ruleStringLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleStringLink_in_entryRuleStringLink1166);
+            pushFollow(FOLLOW_ruleStringLink_in_entryRuleStringLink1282);
             iv_ruleStringLink=ruleStringLink();
 
             state._fsp--;
@@ -1399,7 +1525,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStringLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLink1176); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLink1292); if (state.failed) return current;
 
             }
 
@@ -1417,7 +1543,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:505:1: ruleStringLink returns [EObject current=null] : ( (lv_target_0_0= RULE_STRING ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:549:1: ruleStringLink returns [EObject current=null] : ( (lv_target_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLink() throws RecognitionException {
         EObject current = null;
 
@@ -1426,16 +1552,16 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:508:28: ( ( (lv_target_0_0= RULE_STRING ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:509:1: ( (lv_target_0_0= RULE_STRING ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:552:28: ( ( (lv_target_0_0= RULE_STRING ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:553:1: ( (lv_target_0_0= RULE_STRING ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:509:1: ( (lv_target_0_0= RULE_STRING ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:510:1: (lv_target_0_0= RULE_STRING )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:553:1: ( (lv_target_0_0= RULE_STRING ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:554:1: (lv_target_0_0= RULE_STRING )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:510:1: (lv_target_0_0= RULE_STRING )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:511:3: lv_target_0_0= RULE_STRING
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:554:1: (lv_target_0_0= RULE_STRING )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:555:3: lv_target_0_0= RULE_STRING
             {
-            lv_target_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLink1217); if (state.failed) return current;
+            lv_target_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLink1333); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_target_0_0, grammarAccess.getStringLinkAccess().getTargetSTRINGTerminalRuleCall_0()); 
@@ -1479,7 +1605,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:535:1: entryRuleBooleanLink returns [EObject current=null] : iv_ruleBooleanLink= ruleBooleanLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:579:1: entryRuleBooleanLink returns [EObject current=null] : iv_ruleBooleanLink= ruleBooleanLink EOF ;
     public final EObject entryRuleBooleanLink() throws RecognitionException {
         EObject current = null;
 
@@ -1487,13 +1613,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:536:2: (iv_ruleBooleanLink= ruleBooleanLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:537:2: iv_ruleBooleanLink= ruleBooleanLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:580:2: (iv_ruleBooleanLink= ruleBooleanLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:581:2: iv_ruleBooleanLink= ruleBooleanLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleBooleanLink_in_entryRuleBooleanLink1257);
+            pushFollow(FOLLOW_ruleBooleanLink_in_entryRuleBooleanLink1373);
             iv_ruleBooleanLink=ruleBooleanLink();
 
             state._fsp--;
@@ -1501,7 +1627,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleBooleanLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLink1267); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLink1383); if (state.failed) return current;
 
             }
 
@@ -1519,7 +1645,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:544:1: ruleBooleanLink returns [EObject current=null] : ( (lv_target_0_0= ruleBOOL ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:588:1: ruleBooleanLink returns [EObject current=null] : ( (lv_target_0_0= ruleBOOL ) ) ;
     public final EObject ruleBooleanLink() throws RecognitionException {
         EObject current = null;
 
@@ -1529,21 +1655,21 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:547:28: ( ( (lv_target_0_0= ruleBOOL ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:548:1: ( (lv_target_0_0= ruleBOOL ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:591:28: ( ( (lv_target_0_0= ruleBOOL ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:592:1: ( (lv_target_0_0= ruleBOOL ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:548:1: ( (lv_target_0_0= ruleBOOL ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:549:1: (lv_target_0_0= ruleBOOL )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:592:1: ( (lv_target_0_0= ruleBOOL ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:593:1: (lv_target_0_0= ruleBOOL )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:549:1: (lv_target_0_0= ruleBOOL )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:550:3: lv_target_0_0= ruleBOOL
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:593:1: (lv_target_0_0= ruleBOOL )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:594:3: lv_target_0_0= ruleBOOL
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getBooleanLinkAccess().getTargetBOOLEnumRuleCall_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleBOOL_in_ruleBooleanLink1312);
+            pushFollow(FOLLOW_ruleBOOL_in_ruleBooleanLink1428);
             lv_target_0_0=ruleBOOL();
 
             state._fsp--;
@@ -1587,7 +1713,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumberLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:574:1: entryRuleNumberLink returns [EObject current=null] : iv_ruleNumberLink= ruleNumberLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:618:1: entryRuleNumberLink returns [EObject current=null] : iv_ruleNumberLink= ruleNumberLink EOF ;
     public final EObject entryRuleNumberLink() throws RecognitionException {
         EObject current = null;
 
@@ -1595,13 +1721,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:575:2: (iv_ruleNumberLink= ruleNumberLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:576:2: iv_ruleNumberLink= ruleNumberLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:619:2: (iv_ruleNumberLink= ruleNumberLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:620:2: iv_ruleNumberLink= ruleNumberLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleNumberLink_in_entryRuleNumberLink1347);
+            pushFollow(FOLLOW_ruleNumberLink_in_entryRuleNumberLink1463);
             iv_ruleNumberLink=ruleNumberLink();
 
             state._fsp--;
@@ -1609,7 +1735,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumberLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLink1357); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLink1473); if (state.failed) return current;
 
             }
 
@@ -1627,7 +1753,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:583:1: ruleNumberLink returns [EObject current=null] : (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:627:1: ruleNumberLink returns [EObject current=null] : (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink ) ;
     public final EObject ruleNumberLink() throws RecognitionException {
         EObject current = null;
 
@@ -1639,10 +1765,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:586:28: ( (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:587:1: (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:630:28: ( (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:631:1: (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:587:1: (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:631:1: (this_IntLink_0= ruleIntLink | this_DoubleLink_1= ruleDoubleLink )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1661,14 +1787,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:588:5: this_IntLink_0= ruleIntLink
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:632:5: this_IntLink_0= ruleIntLink
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getNumberLinkAccess().getIntLinkParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIntLink_in_ruleNumberLink1404);
+                    pushFollow(FOLLOW_ruleIntLink_in_ruleNumberLink1520);
                     this_IntLink_0=ruleIntLink();
 
                     state._fsp--;
@@ -1683,14 +1809,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:598:5: this_DoubleLink_1= ruleDoubleLink
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:642:5: this_DoubleLink_1= ruleDoubleLink
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getNumberLinkAccess().getDoubleLinkParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleDoubleLink_in_ruleNumberLink1431);
+                    pushFollow(FOLLOW_ruleDoubleLink_in_ruleNumberLink1547);
                     this_DoubleLink_1=ruleDoubleLink();
 
                     state._fsp--;
@@ -1727,7 +1853,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:614:1: entryRuleIntLink returns [EObject current=null] : iv_ruleIntLink= ruleIntLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:658:1: entryRuleIntLink returns [EObject current=null] : iv_ruleIntLink= ruleIntLink EOF ;
     public final EObject entryRuleIntLink() throws RecognitionException {
         EObject current = null;
 
@@ -1735,13 +1861,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:615:2: (iv_ruleIntLink= ruleIntLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:616:2: iv_ruleIntLink= ruleIntLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:659:2: (iv_ruleIntLink= ruleIntLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:660:2: iv_ruleIntLink= ruleIntLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIntLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleIntLink_in_entryRuleIntLink1466);
+            pushFollow(FOLLOW_ruleIntLink_in_entryRuleIntLink1582);
             iv_ruleIntLink=ruleIntLink();
 
             state._fsp--;
@@ -1749,7 +1875,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIntLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntLink1476); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntLink1592); if (state.failed) return current;
 
             }
 
@@ -1767,7 +1893,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:623:1: ruleIntLink returns [EObject current=null] : ( (lv_target_0_0= RULE_NUMINT ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:667:1: ruleIntLink returns [EObject current=null] : ( (lv_target_0_0= RULE_NUMINT ) ) ;
     public final EObject ruleIntLink() throws RecognitionException {
         EObject current = null;
 
@@ -1776,16 +1902,16 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:626:28: ( ( (lv_target_0_0= RULE_NUMINT ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:627:1: ( (lv_target_0_0= RULE_NUMINT ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:670:28: ( ( (lv_target_0_0= RULE_NUMINT ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:671:1: ( (lv_target_0_0= RULE_NUMINT ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:627:1: ( (lv_target_0_0= RULE_NUMINT ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:628:1: (lv_target_0_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:671:1: ( (lv_target_0_0= RULE_NUMINT ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:672:1: (lv_target_0_0= RULE_NUMINT )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:628:1: (lv_target_0_0= RULE_NUMINT )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:629:3: lv_target_0_0= RULE_NUMINT
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:672:1: (lv_target_0_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:673:3: lv_target_0_0= RULE_NUMINT
             {
-            lv_target_0_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleIntLink1517); if (state.failed) return current;
+            lv_target_0_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleIntLink1633); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_target_0_0, grammarAccess.getIntLinkAccess().getTargetNUMINTTerminalRuleCall_0()); 
@@ -1829,7 +1955,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDoubleLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:653:1: entryRuleDoubleLink returns [EObject current=null] : iv_ruleDoubleLink= ruleDoubleLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:697:1: entryRuleDoubleLink returns [EObject current=null] : iv_ruleDoubleLink= ruleDoubleLink EOF ;
     public final EObject entryRuleDoubleLink() throws RecognitionException {
         EObject current = null;
 
@@ -1837,13 +1963,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:654:2: (iv_ruleDoubleLink= ruleDoubleLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:655:2: iv_ruleDoubleLink= ruleDoubleLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:698:2: (iv_ruleDoubleLink= ruleDoubleLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:699:2: iv_ruleDoubleLink= ruleDoubleLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDoubleLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleDoubleLink_in_entryRuleDoubleLink1557);
+            pushFollow(FOLLOW_ruleDoubleLink_in_entryRuleDoubleLink1673);
             iv_ruleDoubleLink=ruleDoubleLink();
 
             state._fsp--;
@@ -1851,7 +1977,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDoubleLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDoubleLink1567); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDoubleLink1683); if (state.failed) return current;
 
             }
 
@@ -1869,7 +1995,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDoubleLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:662:1: ruleDoubleLink returns [EObject current=null] : ( (lv_target_0_0= RULE_NUMDOUBLE ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:706:1: ruleDoubleLink returns [EObject current=null] : ( (lv_target_0_0= RULE_NUMDOUBLE ) ) ;
     public final EObject ruleDoubleLink() throws RecognitionException {
         EObject current = null;
 
@@ -1878,16 +2004,16 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:665:28: ( ( (lv_target_0_0= RULE_NUMDOUBLE ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:666:1: ( (lv_target_0_0= RULE_NUMDOUBLE ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:709:28: ( ( (lv_target_0_0= RULE_NUMDOUBLE ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:710:1: ( (lv_target_0_0= RULE_NUMDOUBLE ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:666:1: ( (lv_target_0_0= RULE_NUMDOUBLE ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:667:1: (lv_target_0_0= RULE_NUMDOUBLE )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:710:1: ( (lv_target_0_0= RULE_NUMDOUBLE ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:711:1: (lv_target_0_0= RULE_NUMDOUBLE )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:667:1: (lv_target_0_0= RULE_NUMDOUBLE )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:668:3: lv_target_0_0= RULE_NUMDOUBLE
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:711:1: (lv_target_0_0= RULE_NUMDOUBLE )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:712:3: lv_target_0_0= RULE_NUMDOUBLE
             {
-            lv_target_0_0=(Token)match(input,RULE_NUMDOUBLE,FOLLOW_RULE_NUMDOUBLE_in_ruleDoubleLink1608); if (state.failed) return current;
+            lv_target_0_0=(Token)match(input,RULE_NUMDOUBLE,FOLLOW_RULE_NUMDOUBLE_in_ruleDoubleLink1724); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_target_0_0, grammarAccess.getDoubleLinkAccess().getTargetNUMDOUBLETerminalRuleCall_0()); 
@@ -1931,7 +2057,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComplexType"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:692:1: entryRuleComplexType returns [EObject current=null] : iv_ruleComplexType= ruleComplexType EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:736:1: entryRuleComplexType returns [EObject current=null] : iv_ruleComplexType= ruleComplexType EOF ;
     public final EObject entryRuleComplexType() throws RecognitionException {
         EObject current = null;
 
@@ -1939,13 +2065,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:693:2: (iv_ruleComplexType= ruleComplexType EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:694:2: iv_ruleComplexType= ruleComplexType EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:737:2: (iv_ruleComplexType= ruleComplexType EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:738:2: iv_ruleComplexType= ruleComplexType EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getComplexTypeRule()); 
             }
-            pushFollow(FOLLOW_ruleComplexType_in_entryRuleComplexType1648);
+            pushFollow(FOLLOW_ruleComplexType_in_entryRuleComplexType1764);
             iv_ruleComplexType=ruleComplexType();
 
             state._fsp--;
@@ -1953,7 +2079,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleComplexType; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexType1658); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexType1774); if (state.failed) return current;
 
             }
 
@@ -1971,7 +2097,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComplexType"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:701:1: ruleComplexType returns [EObject current=null] : (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:745:1: ruleComplexType returns [EObject current=null] : (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType ) ;
     public final EObject ruleComplexType() throws RecognitionException {
         EObject current = null;
 
@@ -1983,10 +2109,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:704:28: ( (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:705:1: (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:748:28: ( (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:749:1: (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:705:1: (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:749:1: (this_Enum_0= ruleEnum | this_ExtensibleType_1= ruleExtensibleType )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2005,14 +2131,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:706:5: this_Enum_0= ruleEnum
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:750:5: this_Enum_0= ruleEnum
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getComplexTypeAccess().getEnumParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleEnum_in_ruleComplexType1705);
+                    pushFollow(FOLLOW_ruleEnum_in_ruleComplexType1821);
                     this_Enum_0=ruleEnum();
 
                     state._fsp--;
@@ -2027,14 +2153,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:716:5: this_ExtensibleType_1= ruleExtensibleType
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:760:5: this_ExtensibleType_1= ruleExtensibleType
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getComplexTypeAccess().getExtensibleTypeParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExtensibleType_in_ruleComplexType1732);
+                    pushFollow(FOLLOW_ruleExtensibleType_in_ruleComplexType1848);
                     this_ExtensibleType_1=ruleExtensibleType();
 
                     state._fsp--;
@@ -2071,7 +2197,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExtensibleType"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:732:1: entryRuleExtensibleType returns [EObject current=null] : iv_ruleExtensibleType= ruleExtensibleType EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:776:1: entryRuleExtensibleType returns [EObject current=null] : iv_ruleExtensibleType= ruleExtensibleType EOF ;
     public final EObject entryRuleExtensibleType() throws RecognitionException {
         EObject current = null;
 
@@ -2079,13 +2205,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:733:2: (iv_ruleExtensibleType= ruleExtensibleType EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:734:2: iv_ruleExtensibleType= ruleExtensibleType EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:777:2: (iv_ruleExtensibleType= ruleExtensibleType EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:778:2: iv_ruleExtensibleType= ruleExtensibleType EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExtensibleTypeRule()); 
             }
-            pushFollow(FOLLOW_ruleExtensibleType_in_entryRuleExtensibleType1767);
+            pushFollow(FOLLOW_ruleExtensibleType_in_entryRuleExtensibleType1883);
             iv_ruleExtensibleType=ruleExtensibleType();
 
             state._fsp--;
@@ -2093,7 +2219,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExtensibleType; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExtensibleType1777); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExtensibleType1893); if (state.failed) return current;
 
             }
 
@@ -2111,7 +2237,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExtensibleType"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:741:1: ruleExtensibleType returns [EObject current=null] : (this_Message_0= ruleMessage | this_Group_1= ruleGroup ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:785:1: ruleExtensibleType returns [EObject current=null] : (this_Message_0= ruleMessage | this_Group_1= ruleGroup ) ;
     public final EObject ruleExtensibleType() throws RecognitionException {
         EObject current = null;
 
@@ -2123,10 +2249,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:744:28: ( (this_Message_0= ruleMessage | this_Group_1= ruleGroup ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:745:1: (this_Message_0= ruleMessage | this_Group_1= ruleGroup )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:788:28: ( (this_Message_0= ruleMessage | this_Group_1= ruleGroup ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:789:1: (this_Message_0= ruleMessage | this_Group_1= ruleGroup )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:745:1: (this_Message_0= ruleMessage | this_Group_1= ruleGroup )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:789:1: (this_Message_0= ruleMessage | this_Group_1= ruleGroup )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2145,14 +2271,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:746:5: this_Message_0= ruleMessage
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:790:5: this_Message_0= ruleMessage
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getExtensibleTypeAccess().getMessageParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleMessage_in_ruleExtensibleType1824);
+                    pushFollow(FOLLOW_ruleMessage_in_ruleExtensibleType1940);
                     this_Message_0=ruleMessage();
 
                     state._fsp--;
@@ -2167,14 +2293,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:756:5: this_Group_1= ruleGroup
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:800:5: this_Group_1= ruleGroup
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getExtensibleTypeAccess().getGroupParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGroup_in_ruleExtensibleType1851);
+                    pushFollow(FOLLOW_ruleGroup_in_ruleExtensibleType1967);
                     this_Group_1=ruleGroup();
 
                     state._fsp--;
@@ -2211,7 +2337,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMessage"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:772:1: entryRuleMessage returns [EObject current=null] : iv_ruleMessage= ruleMessage EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:816:1: entryRuleMessage returns [EObject current=null] : iv_ruleMessage= ruleMessage EOF ;
     public final EObject entryRuleMessage() throws RecognitionException {
         EObject current = null;
 
@@ -2219,13 +2345,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:773:2: (iv_ruleMessage= ruleMessage EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:774:2: iv_ruleMessage= ruleMessage EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:817:2: (iv_ruleMessage= ruleMessage EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:818:2: iv_ruleMessage= ruleMessage EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMessageRule()); 
             }
-            pushFollow(FOLLOW_ruleMessage_in_entryRuleMessage1886);
+            pushFollow(FOLLOW_ruleMessage_in_entryRuleMessage2002);
             iv_ruleMessage=ruleMessage();
 
             state._fsp--;
@@ -2233,7 +2359,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMessage; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMessage1896); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMessage2012); if (state.failed) return current;
 
             }
 
@@ -2251,7 +2377,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMessage"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:781:1: ruleMessage returns [EObject current=null] : (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:825:1: ruleMessage returns [EObject current=null] : (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' ) ;
     public final EObject ruleMessage() throws RecognitionException {
         EObject current = null;
 
@@ -2265,25 +2391,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:784:28: ( (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:785:1: (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:828:28: ( (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:829:1: (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:785:1: (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:785:3: otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:829:1: (otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:829:3: otherlv_0= 'message' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleMessage1933); if (state.failed) return current;
+            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleMessage2049); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getMessageAccess().getMessageKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:789:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:790:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:833:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:834:1: (lv_name_1_0= RULE_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:790:1: (lv_name_1_0= RULE_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:791:3: lv_name_1_0= RULE_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:834:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:835:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMessage1950); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMessage2066); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_1_0, grammarAccess.getMessageAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -2307,13 +2433,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleMessage1967); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleMessage2083); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getMessageAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:811:1: ( (lv_elements_3_0= ruleMessageElement ) )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:855:1: ( (lv_elements_3_0= ruleMessageElement ) )*
             loop8:
             do {
                 int alt8=2;
@@ -2326,17 +2452,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:812:1: (lv_elements_3_0= ruleMessageElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:856:1: (lv_elements_3_0= ruleMessageElement )
             	    {
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:812:1: (lv_elements_3_0= ruleMessageElement )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:813:3: lv_elements_3_0= ruleMessageElement
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:856:1: (lv_elements_3_0= ruleMessageElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:857:3: lv_elements_3_0= ruleMessageElement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getMessageAccess().getElementsMessageElementParserRuleCall_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleMessageElement_in_ruleMessage1988);
+            	    pushFollow(FOLLOW_ruleMessageElement_in_ruleMessage2104);
             	    lv_elements_3_0=ruleMessageElement();
 
             	    state._fsp--;
@@ -2366,7 +2492,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleMessage2001); if (state.failed) return current;
+            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleMessage2117); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getMessageAccess().getRightCurlyBracketKeyword_4());
@@ -2395,7 +2521,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMessageElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:841:1: entryRuleMessageElement returns [EObject current=null] : iv_ruleMessageElement= ruleMessageElement EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:885:1: entryRuleMessageElement returns [EObject current=null] : iv_ruleMessageElement= ruleMessageElement EOF ;
     public final EObject entryRuleMessageElement() throws RecognitionException {
         EObject current = null;
 
@@ -2403,13 +2529,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:842:2: (iv_ruleMessageElement= ruleMessageElement EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:843:2: iv_ruleMessageElement= ruleMessageElement EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:886:2: (iv_ruleMessageElement= ruleMessageElement EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:887:2: iv_ruleMessageElement= ruleMessageElement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMessageElementRule()); 
             }
-            pushFollow(FOLLOW_ruleMessageElement_in_entryRuleMessageElement2037);
+            pushFollow(FOLLOW_ruleMessageElement_in_entryRuleMessageElement2153);
             iv_ruleMessageElement=ruleMessageElement();
 
             state._fsp--;
@@ -2417,7 +2543,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMessageElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMessageElement2047); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMessageElement2163); if (state.failed) return current;
 
             }
 
@@ -2435,7 +2561,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMessageElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:850:1: ruleMessageElement returns [EObject current=null] : (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:894:1: ruleMessageElement returns [EObject current=null] : (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption ) ;
     public final EObject ruleMessageElement() throws RecognitionException {
         EObject current = null;
 
@@ -2457,10 +2583,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:853:28: ( (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:854:1: (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:897:28: ( (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:898:1: (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:854:1: (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:898:1: (this_Message_0= ruleMessage | this_IndexedElement_1= ruleIndexedElement | this_Enum_2= ruleEnum | this_Service_3= ruleService | this_Extend_4= ruleExtend | this_ExtensionRange_5= ruleExtensionRange | this_Option_6= ruleOption )
             int alt9=7;
             switch ( input.LA(1) ) {
             case 19:
@@ -2510,14 +2636,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             switch (alt9) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:855:5: this_Message_0= ruleMessage
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:899:5: this_Message_0= ruleMessage
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getMessageParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleMessage_in_ruleMessageElement2094);
+                    pushFollow(FOLLOW_ruleMessage_in_ruleMessageElement2210);
                     this_Message_0=ruleMessage();
 
                     state._fsp--;
@@ -2532,14 +2658,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:865:5: this_IndexedElement_1= ruleIndexedElement
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:909:5: this_IndexedElement_1= ruleIndexedElement
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getIndexedElementParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIndexedElement_in_ruleMessageElement2121);
+                    pushFollow(FOLLOW_ruleIndexedElement_in_ruleMessageElement2237);
                     this_IndexedElement_1=ruleIndexedElement();
 
                     state._fsp--;
@@ -2554,14 +2680,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:875:5: this_Enum_2= ruleEnum
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:919:5: this_Enum_2= ruleEnum
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getEnumParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleEnum_in_ruleMessageElement2148);
+                    pushFollow(FOLLOW_ruleEnum_in_ruleMessageElement2264);
                     this_Enum_2=ruleEnum();
 
                     state._fsp--;
@@ -2576,14 +2702,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:885:5: this_Service_3= ruleService
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:929:5: this_Service_3= ruleService
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getServiceParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleService_in_ruleMessageElement2175);
+                    pushFollow(FOLLOW_ruleService_in_ruleMessageElement2291);
                     this_Service_3=ruleService();
 
                     state._fsp--;
@@ -2598,14 +2724,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:895:5: this_Extend_4= ruleExtend
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:939:5: this_Extend_4= ruleExtend
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getExtendParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExtend_in_ruleMessageElement2202);
+                    pushFollow(FOLLOW_ruleExtend_in_ruleMessageElement2318);
                     this_Extend_4=ruleExtend();
 
                     state._fsp--;
@@ -2620,14 +2746,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:905:5: this_ExtensionRange_5= ruleExtensionRange
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:949:5: this_ExtensionRange_5= ruleExtensionRange
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getExtensionRangeParserRuleCall_5()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExtensionRange_in_ruleMessageElement2229);
+                    pushFollow(FOLLOW_ruleExtensionRange_in_ruleMessageElement2345);
                     this_ExtensionRange_5=ruleExtensionRange();
 
                     state._fsp--;
@@ -2642,14 +2768,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:915:5: this_Option_6= ruleOption
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:959:5: this_Option_6= ruleOption
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getMessageElementAccess().getOptionParserRuleCall_6()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleOption_in_ruleMessageElement2256);
+                    pushFollow(FOLLOW_ruleOption_in_ruleMessageElement2372);
                     this_Option_6=ruleOption();
 
                     state._fsp--;
@@ -2686,7 +2812,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIndexedElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:931:1: entryRuleIndexedElement returns [EObject current=null] : iv_ruleIndexedElement= ruleIndexedElement EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:975:1: entryRuleIndexedElement returns [EObject current=null] : iv_ruleIndexedElement= ruleIndexedElement EOF ;
     public final EObject entryRuleIndexedElement() throws RecognitionException {
         EObject current = null;
 
@@ -2694,13 +2820,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:932:2: (iv_ruleIndexedElement= ruleIndexedElement EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:933:2: iv_ruleIndexedElement= ruleIndexedElement EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:976:2: (iv_ruleIndexedElement= ruleIndexedElement EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:977:2: iv_ruleIndexedElement= ruleIndexedElement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIndexedElementRule()); 
             }
-            pushFollow(FOLLOW_ruleIndexedElement_in_entryRuleIndexedElement2291);
+            pushFollow(FOLLOW_ruleIndexedElement_in_entryRuleIndexedElement2407);
             iv_ruleIndexedElement=ruleIndexedElement();
 
             state._fsp--;
@@ -2708,7 +2834,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIndexedElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIndexedElement2301); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIndexedElement2417); if (state.failed) return current;
 
             }
 
@@ -2726,7 +2852,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIndexedElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:940:1: ruleIndexedElement returns [EObject current=null] : (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:984:1: ruleIndexedElement returns [EObject current=null] : (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup ) ;
     public final EObject ruleIndexedElement() throws RecognitionException {
         EObject current = null;
 
@@ -2738,22 +2864,22 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:943:28: ( (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:944:1: (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:987:28: ( (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:988:1: (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:944:1: (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:988:1: (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup )
             int alt10=2;
             alt10 = dfa10.predict(input);
             switch (alt10) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:945:5: this_MessageField_0= ruleMessageField
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:989:5: this_MessageField_0= ruleMessageField
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getIndexedElementAccess().getMessageFieldParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleMessageField_in_ruleIndexedElement2348);
+                    pushFollow(FOLLOW_ruleMessageField_in_ruleIndexedElement2464);
                     this_MessageField_0=ruleMessageField();
 
                     state._fsp--;
@@ -2768,14 +2894,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:955:5: this_Group_1= ruleGroup
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:999:5: this_Group_1= ruleGroup
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getIndexedElementAccess().getGroupParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGroup_in_ruleIndexedElement2375);
+                    pushFollow(FOLLOW_ruleGroup_in_ruleIndexedElement2491);
                     this_Group_1=ruleGroup();
 
                     state._fsp--;
@@ -2812,7 +2938,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExtensionRange"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:971:1: entryRuleExtensionRange returns [EObject current=null] : iv_ruleExtensionRange= ruleExtensionRange EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1015:1: entryRuleExtensionRange returns [EObject current=null] : iv_ruleExtensionRange= ruleExtensionRange EOF ;
     public final EObject entryRuleExtensionRange() throws RecognitionException {
         EObject current = null;
 
@@ -2820,13 +2946,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:972:2: (iv_ruleExtensionRange= ruleExtensionRange EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:973:2: iv_ruleExtensionRange= ruleExtensionRange EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1016:2: (iv_ruleExtensionRange= ruleExtensionRange EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1017:2: iv_ruleExtensionRange= ruleExtensionRange EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExtensionRangeRule()); 
             }
-            pushFollow(FOLLOW_ruleExtensionRange_in_entryRuleExtensionRange2410);
+            pushFollow(FOLLOW_ruleExtensionRange_in_entryRuleExtensionRange2526);
             iv_ruleExtensionRange=ruleExtensionRange();
 
             state._fsp--;
@@ -2834,7 +2960,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExtensionRange; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExtensionRange2420); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExtensionRange2536); if (state.failed) return current;
 
             }
 
@@ -2852,7 +2978,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExtensionRange"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:980:1: ruleExtensionRange returns [EObject current=null] : (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1024:1: ruleExtensionRange returns [EObject current=null] : (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' ) ;
     public final EObject ruleExtensionRange() throws RecognitionException {
         EObject current = null;
 
@@ -2865,25 +2991,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:983:28: ( (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:984:1: (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1027:28: ( (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1028:1: (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:984:1: (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:984:3: otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1028:1: (otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1028:3: otherlv_0= 'extensions' ( (lv_from_1_0= RULE_NUMINT ) ) (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )? otherlv_4= ';'
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleExtensionRange2457); if (state.failed) return current;
+            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleExtensionRange2573); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getExtensionRangeAccess().getExtensionsKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:988:1: ( (lv_from_1_0= RULE_NUMINT ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:989:1: (lv_from_1_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1032:1: ( (lv_from_1_0= RULE_NUMINT ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1033:1: (lv_from_1_0= RULE_NUMINT )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:989:1: (lv_from_1_0= RULE_NUMINT )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:990:3: lv_from_1_0= RULE_NUMINT
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1033:1: (lv_from_1_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1034:3: lv_from_1_0= RULE_NUMINT
             {
-            lv_from_1_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleExtensionRange2474); if (state.failed) return current;
+            lv_from_1_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleExtensionRange2590); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_from_1_0, grammarAccess.getExtensionRangeAccess().getFromNUMINTTerminalRuleCall_1_0()); 
@@ -2907,7 +3033,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1006:2: (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1050:2: (otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) ) )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2916,21 +3042,21 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1006:4: otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1050:4: otherlv_2= 'to' ( (lv_to_3_0= RULE_NUMINT ) )
                     {
-                    otherlv_2=(Token)match(input,23,FOLLOW_23_in_ruleExtensionRange2492); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,23,FOLLOW_23_in_ruleExtensionRange2608); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getExtensionRangeAccess().getToKeyword_2_0());
                           
                     }
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1010:1: ( (lv_to_3_0= RULE_NUMINT ) )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1011:1: (lv_to_3_0= RULE_NUMINT )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1054:1: ( (lv_to_3_0= RULE_NUMINT ) )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1055:1: (lv_to_3_0= RULE_NUMINT )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1011:1: (lv_to_3_0= RULE_NUMINT )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1012:3: lv_to_3_0= RULE_NUMINT
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1055:1: (lv_to_3_0= RULE_NUMINT )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1056:3: lv_to_3_0= RULE_NUMINT
                     {
-                    lv_to_3_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleExtensionRange2509); if (state.failed) return current;
+                    lv_to_3_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleExtensionRange2625); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_to_3_0, grammarAccess.getExtensionRangeAccess().getToNUMINTTerminalRuleCall_2_1_0()); 
@@ -2960,7 +3086,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleExtensionRange2528); if (state.failed) return current;
+            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleExtensionRange2644); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getExtensionRangeAccess().getSemicolonKeyword_3());
@@ -2989,7 +3115,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMessageField"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1040:1: entryRuleMessageField returns [EObject current=null] : iv_ruleMessageField= ruleMessageField EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1084:1: entryRuleMessageField returns [EObject current=null] : iv_ruleMessageField= ruleMessageField EOF ;
     public final EObject entryRuleMessageField() throws RecognitionException {
         EObject current = null;
 
@@ -2997,13 +3123,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1041:2: (iv_ruleMessageField= ruleMessageField EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1042:2: iv_ruleMessageField= ruleMessageField EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1085:2: (iv_ruleMessageField= ruleMessageField EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1086:2: iv_ruleMessageField= ruleMessageField EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMessageFieldRule()); 
             }
-            pushFollow(FOLLOW_ruleMessageField_in_entryRuleMessageField2564);
+            pushFollow(FOLLOW_ruleMessageField_in_entryRuleMessageField2680);
             iv_ruleMessageField=ruleMessageField();
 
             state._fsp--;
@@ -3011,7 +3137,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMessageField; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMessageField2574); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMessageField2690); if (state.failed) return current;
 
             }
 
@@ -3029,7 +3155,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMessageField"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1049:1: ruleMessageField returns [EObject current=null] : ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1093:1: ruleMessageField returns [EObject current=null] : ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' ) ;
     public final EObject ruleMessageField() throws RecognitionException {
         EObject current = null;
 
@@ -3048,24 +3174,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1052:28: ( ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1053:1: ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1096:28: ( ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1097:1: ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1053:1: ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1053:2: ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1097:1: ( ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1097:2: ( (lv_modifier_0_0= ruleModifier ) ) ( (lv_type_1_0= ruleTypeLink ) ) ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) ( (lv_options_5_0= ruleFieldOptions ) )? otherlv_6= ';'
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1053:2: ( (lv_modifier_0_0= ruleModifier ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1054:1: (lv_modifier_0_0= ruleModifier )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1097:2: ( (lv_modifier_0_0= ruleModifier ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1098:1: (lv_modifier_0_0= ruleModifier )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1054:1: (lv_modifier_0_0= ruleModifier )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1055:3: lv_modifier_0_0= ruleModifier
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1098:1: (lv_modifier_0_0= ruleModifier )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1099:3: lv_modifier_0_0= ruleModifier
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getMessageFieldAccess().getModifierModifierEnumRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleModifier_in_ruleMessageField2620);
+            pushFollow(FOLLOW_ruleModifier_in_ruleMessageField2736);
             lv_modifier_0_0=ruleModifier();
 
             state._fsp--;
@@ -3089,18 +3215,18 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1071:2: ( (lv_type_1_0= ruleTypeLink ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1072:1: (lv_type_1_0= ruleTypeLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1115:2: ( (lv_type_1_0= ruleTypeLink ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1116:1: (lv_type_1_0= ruleTypeLink )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1072:1: (lv_type_1_0= ruleTypeLink )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1073:3: lv_type_1_0= ruleTypeLink
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1116:1: (lv_type_1_0= ruleTypeLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1117:3: lv_type_1_0= ruleTypeLink
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getMessageFieldAccess().getTypeTypeLinkParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeLink_in_ruleMessageField2641);
+            pushFollow(FOLLOW_ruleTypeLink_in_ruleMessageField2757);
             lv_type_1_0=ruleTypeLink();
 
             state._fsp--;
@@ -3124,18 +3250,18 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1089:2: ( (lv_name_2_0= ruleVar ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1090:1: (lv_name_2_0= ruleVar )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1133:2: ( (lv_name_2_0= ruleVar ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1134:1: (lv_name_2_0= ruleVar )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1090:1: (lv_name_2_0= ruleVar )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1091:3: lv_name_2_0= ruleVar
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1134:1: (lv_name_2_0= ruleVar )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1135:3: lv_name_2_0= ruleVar
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getMessageFieldAccess().getNameVarParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleVar_in_ruleMessageField2662);
+            pushFollow(FOLLOW_ruleVar_in_ruleMessageField2778);
             lv_name_2_0=ruleVar();
 
             state._fsp--;
@@ -3159,19 +3285,19 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleMessageField2674); if (state.failed) return current;
+            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleMessageField2790); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getMessageFieldAccess().getEqualsSignKeyword_3());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1111:1: ( (lv_index_4_0= RULE_NUMINT ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1112:1: (lv_index_4_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1155:1: ( (lv_index_4_0= RULE_NUMINT ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1156:1: (lv_index_4_0= RULE_NUMINT )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1112:1: (lv_index_4_0= RULE_NUMINT )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1113:3: lv_index_4_0= RULE_NUMINT
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1156:1: (lv_index_4_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1157:3: lv_index_4_0= RULE_NUMINT
             {
-            lv_index_4_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleMessageField2691); if (state.failed) return current;
+            lv_index_4_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleMessageField2807); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_index_4_0, grammarAccess.getMessageFieldAccess().getIndexNUMINTTerminalRuleCall_4_0()); 
@@ -3195,7 +3321,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1129:2: ( (lv_options_5_0= ruleFieldOptions ) )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1173:2: ( (lv_options_5_0= ruleFieldOptions ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -3204,17 +3330,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1130:1: (lv_options_5_0= ruleFieldOptions )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1174:1: (lv_options_5_0= ruleFieldOptions )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1130:1: (lv_options_5_0= ruleFieldOptions )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1131:3: lv_options_5_0= ruleFieldOptions
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1174:1: (lv_options_5_0= ruleFieldOptions )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1175:3: lv_options_5_0= ruleFieldOptions
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getMessageFieldAccess().getOptionsFieldOptionsParserRuleCall_5_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFieldOptions_in_ruleMessageField2717);
+                    pushFollow(FOLLOW_ruleFieldOptions_in_ruleMessageField2833);
                     lv_options_5_0=ruleFieldOptions();
 
                     state._fsp--;
@@ -3241,7 +3367,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleMessageField2730); if (state.failed) return current;
+            otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleMessageField2846); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getMessageFieldAccess().getSemicolonKeyword_6());
@@ -3270,7 +3396,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGroup"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1159:1: entryRuleGroup returns [EObject current=null] : iv_ruleGroup= ruleGroup EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1203:1: entryRuleGroup returns [EObject current=null] : iv_ruleGroup= ruleGroup EOF ;
     public final EObject entryRuleGroup() throws RecognitionException {
         EObject current = null;
 
@@ -3278,13 +3404,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1160:2: (iv_ruleGroup= ruleGroup EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1161:2: iv_ruleGroup= ruleGroup EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1204:2: (iv_ruleGroup= ruleGroup EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1205:2: iv_ruleGroup= ruleGroup EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGroupRule()); 
             }
-            pushFollow(FOLLOW_ruleGroup_in_entryRuleGroup2766);
+            pushFollow(FOLLOW_ruleGroup_in_entryRuleGroup2882);
             iv_ruleGroup=ruleGroup();
 
             state._fsp--;
@@ -3292,7 +3418,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGroup; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGroup2776); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGroup2892); if (state.failed) return current;
 
             }
 
@@ -3310,7 +3436,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGroup"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1168:1: ruleGroup returns [EObject current=null] : ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1212:1: ruleGroup returns [EObject current=null] : ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' ) ;
     public final EObject ruleGroup() throws RecognitionException {
         EObject current = null;
 
@@ -3329,24 +3455,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1171:28: ( ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1172:1: ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1215:28: ( ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1216:1: ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1172:1: ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1172:2: ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1216:1: ( ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1216:2: ( (lv_modifier_0_0= ruleModifier ) ) otherlv_1= 'group' ( (lv_name_2_0= ruleVar ) ) otherlv_3= '=' ( (lv_index_4_0= RULE_NUMINT ) ) otherlv_5= '{' ( (lv_elements_6_0= ruleMessageField ) )* otherlv_7= '}'
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1172:2: ( (lv_modifier_0_0= ruleModifier ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1173:1: (lv_modifier_0_0= ruleModifier )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1216:2: ( (lv_modifier_0_0= ruleModifier ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1217:1: (lv_modifier_0_0= ruleModifier )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1173:1: (lv_modifier_0_0= ruleModifier )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1174:3: lv_modifier_0_0= ruleModifier
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1217:1: (lv_modifier_0_0= ruleModifier )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1218:3: lv_modifier_0_0= ruleModifier
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getGroupAccess().getModifierModifierEnumRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleModifier_in_ruleGroup2822);
+            pushFollow(FOLLOW_ruleModifier_in_ruleGroup2938);
             lv_modifier_0_0=ruleModifier();
 
             state._fsp--;
@@ -3370,24 +3496,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleGroup2834); if (state.failed) return current;
+            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleGroup2950); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGroupAccess().getGroupKeyword_1());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1194:1: ( (lv_name_2_0= ruleVar ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1195:1: (lv_name_2_0= ruleVar )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1238:1: ( (lv_name_2_0= ruleVar ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1239:1: (lv_name_2_0= ruleVar )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1195:1: (lv_name_2_0= ruleVar )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1196:3: lv_name_2_0= ruleVar
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1239:1: (lv_name_2_0= ruleVar )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1240:3: lv_name_2_0= ruleVar
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getGroupAccess().getNameVarParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleVar_in_ruleGroup2855);
+            pushFollow(FOLLOW_ruleVar_in_ruleGroup2971);
             lv_name_2_0=ruleVar();
 
             state._fsp--;
@@ -3411,19 +3537,19 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleGroup2867); if (state.failed) return current;
+            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleGroup2983); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getGroupAccess().getEqualsSignKeyword_3());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1216:1: ( (lv_index_4_0= RULE_NUMINT ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1217:1: (lv_index_4_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1260:1: ( (lv_index_4_0= RULE_NUMINT ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1261:1: (lv_index_4_0= RULE_NUMINT )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1217:1: (lv_index_4_0= RULE_NUMINT )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1218:3: lv_index_4_0= RULE_NUMINT
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1261:1: (lv_index_4_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1262:3: lv_index_4_0= RULE_NUMINT
             {
-            lv_index_4_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleGroup2884); if (state.failed) return current;
+            lv_index_4_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleGroup3000); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_index_4_0, grammarAccess.getGroupAccess().getIndexNUMINTTerminalRuleCall_4_0()); 
@@ -3447,13 +3573,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleGroup2901); if (state.failed) return current;
+            otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleGroup3017); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getGroupAccess().getLeftCurlyBracketKeyword_5());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1238:1: ( (lv_elements_6_0= ruleMessageField ) )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1282:1: ( (lv_elements_6_0= ruleMessageField ) )*
             loop13:
             do {
                 int alt13=2;
@@ -3466,17 +3592,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1239:1: (lv_elements_6_0= ruleMessageField )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1283:1: (lv_elements_6_0= ruleMessageField )
             	    {
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1239:1: (lv_elements_6_0= ruleMessageField )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1240:3: lv_elements_6_0= ruleMessageField
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1283:1: (lv_elements_6_0= ruleMessageField )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1284:3: lv_elements_6_0= ruleMessageField
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGroupAccess().getElementsMessageFieldParserRuleCall_6_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleMessageField_in_ruleGroup2922);
+            	    pushFollow(FOLLOW_ruleMessageField_in_ruleGroup3038);
             	    lv_elements_6_0=ruleMessageField();
 
             	    state._fsp--;
@@ -3506,7 +3632,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,21,FOLLOW_21_in_ruleGroup2935); if (state.failed) return current;
+            otherlv_7=(Token)match(input,21,FOLLOW_21_in_ruleGroup3051); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_7, grammarAccess.getGroupAccess().getRightCurlyBracketKeyword_7());
@@ -3535,7 +3661,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1268:1: entryRuleTypeLink returns [EObject current=null] : iv_ruleTypeLink= ruleTypeLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1312:1: entryRuleTypeLink returns [EObject current=null] : iv_ruleTypeLink= ruleTypeLink EOF ;
     public final EObject entryRuleTypeLink() throws RecognitionException {
         EObject current = null;
 
@@ -3543,13 +3669,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1269:2: (iv_ruleTypeLink= ruleTypeLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1270:2: iv_ruleTypeLink= ruleTypeLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1313:2: (iv_ruleTypeLink= ruleTypeLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1314:2: iv_ruleTypeLink= ruleTypeLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTypeLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleTypeLink_in_entryRuleTypeLink2971);
+            pushFollow(FOLLOW_ruleTypeLink_in_entryRuleTypeLink3087);
             iv_ruleTypeLink=ruleTypeLink();
 
             state._fsp--;
@@ -3557,7 +3683,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleTypeLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeLink2981); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeLink3097); if (state.failed) return current;
 
             }
 
@@ -3575,7 +3701,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1277:1: ruleTypeLink returns [EObject current=null] : ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1321:1: ruleTypeLink returns [EObject current=null] : ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink ) ;
     public final EObject ruleTypeLink() throws RecognitionException {
         EObject current = null;
 
@@ -3587,25 +3713,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1280:28: ( ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:1: ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1324:28: ( ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:1: ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:1: ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:1: ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink )
             int alt14=2;
             alt14 = dfa14.predict(input);
             switch (alt14) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:2: ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:2: ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:2: ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:3: ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:2: ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:3: ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getTypeLinkAccess().getScalarTypeLinkParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleScalarTypeLink_in_ruleTypeLink3034);
+                    pushFollow(FOLLOW_ruleScalarTypeLink_in_ruleTypeLink3150);
                     this_ScalarTypeLink_0=ruleScalarTypeLink();
 
                     state._fsp--;
@@ -3623,14 +3749,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1292:5: this_ComplexTypeLink_1= ruleComplexTypeLink
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1336:5: this_ComplexTypeLink_1= ruleComplexTypeLink
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getTypeLinkAccess().getComplexTypeLinkParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleComplexTypeLink_in_ruleTypeLink3062);
+                    pushFollow(FOLLOW_ruleComplexTypeLink_in_ruleTypeLink3178);
                     this_ComplexTypeLink_1=ruleComplexTypeLink();
 
                     state._fsp--;
@@ -3667,7 +3793,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComplexTypeLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1308:1: entryRuleComplexTypeLink returns [EObject current=null] : iv_ruleComplexTypeLink= ruleComplexTypeLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1352:1: entryRuleComplexTypeLink returns [EObject current=null] : iv_ruleComplexTypeLink= ruleComplexTypeLink EOF ;
     public final EObject entryRuleComplexTypeLink() throws RecognitionException {
         EObject current = null;
 
@@ -3675,13 +3801,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1309:2: (iv_ruleComplexTypeLink= ruleComplexTypeLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1310:2: iv_ruleComplexTypeLink= ruleComplexTypeLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1353:2: (iv_ruleComplexTypeLink= ruleComplexTypeLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1354:2: iv_ruleComplexTypeLink= ruleComplexTypeLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getComplexTypeLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleComplexTypeLink_in_entryRuleComplexTypeLink3097);
+            pushFollow(FOLLOW_ruleComplexTypeLink_in_entryRuleComplexTypeLink3213);
             iv_ruleComplexTypeLink=ruleComplexTypeLink();
 
             state._fsp--;
@@ -3689,7 +3815,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleComplexTypeLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexTypeLink3107); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexTypeLink3223); if (state.failed) return current;
 
             }
 
@@ -3707,21 +3833,21 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComplexTypeLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1317:1: ruleComplexTypeLink returns [EObject current=null] : ( ( ruleVar_full ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1361:1: ruleComplexTypeLink returns [EObject current=null] : ( ( ruleVar_full ) ) ;
     public final EObject ruleComplexTypeLink() throws RecognitionException {
         EObject current = null;
 
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1320:28: ( ( ( ruleVar_full ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1321:1: ( ( ruleVar_full ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1364:28: ( ( ( ruleVar_full ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1365:1: ( ( ruleVar_full ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1321:1: ( ( ruleVar_full ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1322:1: ( ruleVar_full )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1365:1: ( ( ruleVar_full ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1366:1: ( ruleVar_full )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1322:1: ( ruleVar_full )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1323:3: ruleVar_full
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1366:1: ( ruleVar_full )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1367:3: ruleVar_full
             {
             if ( state.backtracking==0 ) {
 
@@ -3735,7 +3861,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getComplexTypeLinkAccess().getTargetComplexTypeCrossReference_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleVar_full_in_ruleComplexTypeLink3154);
+            pushFollow(FOLLOW_ruleVar_full_in_ruleComplexTypeLink3270);
             ruleVar_full();
 
             state._fsp--;
@@ -3771,7 +3897,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScalarTypeLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1344:1: entryRuleScalarTypeLink returns [EObject current=null] : iv_ruleScalarTypeLink= ruleScalarTypeLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1388:1: entryRuleScalarTypeLink returns [EObject current=null] : iv_ruleScalarTypeLink= ruleScalarTypeLink EOF ;
     public final EObject entryRuleScalarTypeLink() throws RecognitionException {
         EObject current = null;
 
@@ -3779,13 +3905,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1345:2: (iv_ruleScalarTypeLink= ruleScalarTypeLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1346:2: iv_ruleScalarTypeLink= ruleScalarTypeLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1389:2: (iv_ruleScalarTypeLink= ruleScalarTypeLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1390:2: iv_ruleScalarTypeLink= ruleScalarTypeLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScalarTypeLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleScalarTypeLink_in_entryRuleScalarTypeLink3189);
+            pushFollow(FOLLOW_ruleScalarTypeLink_in_entryRuleScalarTypeLink3305);
             iv_ruleScalarTypeLink=ruleScalarTypeLink();
 
             state._fsp--;
@@ -3793,7 +3919,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleScalarTypeLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleScalarTypeLink3199); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleScalarTypeLink3315); if (state.failed) return current;
 
             }
 
@@ -3811,7 +3937,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScalarTypeLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1353:1: ruleScalarTypeLink returns [EObject current=null] : ( (lv_target_0_0= ruleScalarType ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1397:1: ruleScalarTypeLink returns [EObject current=null] : ( (lv_target_0_0= ruleScalarType ) ) ;
     public final EObject ruleScalarTypeLink() throws RecognitionException {
         EObject current = null;
 
@@ -3821,21 +3947,21 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1356:28: ( ( (lv_target_0_0= ruleScalarType ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1357:1: ( (lv_target_0_0= ruleScalarType ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1400:28: ( ( (lv_target_0_0= ruleScalarType ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1401:1: ( (lv_target_0_0= ruleScalarType ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1357:1: ( (lv_target_0_0= ruleScalarType ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1358:1: (lv_target_0_0= ruleScalarType )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1401:1: ( (lv_target_0_0= ruleScalarType ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1402:1: (lv_target_0_0= ruleScalarType )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1358:1: (lv_target_0_0= ruleScalarType )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1359:3: lv_target_0_0= ruleScalarType
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1402:1: (lv_target_0_0= ruleScalarType )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1403:3: lv_target_0_0= ruleScalarType
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getScalarTypeLinkAccess().getTargetScalarTypeEnumRuleCall_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleScalarType_in_ruleScalarTypeLink3244);
+            pushFollow(FOLLOW_ruleScalarType_in_ruleScalarTypeLink3360);
             lv_target_0_0=ruleScalarType();
 
             state._fsp--;
@@ -3879,7 +4005,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFieldOptions"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1383:1: entryRuleFieldOptions returns [EObject current=null] : iv_ruleFieldOptions= ruleFieldOptions EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1427:1: entryRuleFieldOptions returns [EObject current=null] : iv_ruleFieldOptions= ruleFieldOptions EOF ;
     public final EObject entryRuleFieldOptions() throws RecognitionException {
         EObject current = null;
 
@@ -3887,13 +4013,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1384:2: (iv_ruleFieldOptions= ruleFieldOptions EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1385:2: iv_ruleFieldOptions= ruleFieldOptions EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1428:2: (iv_ruleFieldOptions= ruleFieldOptions EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1429:2: iv_ruleFieldOptions= ruleFieldOptions EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getFieldOptionsRule()); 
             }
-            pushFollow(FOLLOW_ruleFieldOptions_in_entryRuleFieldOptions3279);
+            pushFollow(FOLLOW_ruleFieldOptions_in_entryRuleFieldOptions3395);
             iv_ruleFieldOptions=ruleFieldOptions();
 
             state._fsp--;
@@ -3901,7 +4027,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleFieldOptions; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldOptions3289); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldOptions3405); if (state.failed) return current;
 
             }
 
@@ -3919,7 +4045,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFieldOptions"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1392:1: ruleFieldOptions returns [EObject current=null] : (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1436:1: ruleFieldOptions returns [EObject current=null] : (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' ) ;
     public final EObject ruleFieldOptions() throws RecognitionException {
         EObject current = null;
 
@@ -3934,30 +4060,30 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1395:28: ( (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1396:1: (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1439:28: ( (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1440:1: (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1396:1: (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1396:3: otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1440:1: (otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1440:3: otherlv_0= '[' ( (lv_options_1_0= ruleFieldOption ) ) (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )* otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleFieldOptions3326); if (state.failed) return current;
+            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleFieldOptions3442); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getFieldOptionsAccess().getLeftSquareBracketKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1400:1: ( (lv_options_1_0= ruleFieldOption ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1401:1: (lv_options_1_0= ruleFieldOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1444:1: ( (lv_options_1_0= ruleFieldOption ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1445:1: (lv_options_1_0= ruleFieldOption )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1401:1: (lv_options_1_0= ruleFieldOption )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1402:3: lv_options_1_0= ruleFieldOption
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1445:1: (lv_options_1_0= ruleFieldOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1446:3: lv_options_1_0= ruleFieldOption
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getFieldOptionsAccess().getOptionsFieldOptionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleFieldOption_in_ruleFieldOptions3347);
+            pushFollow(FOLLOW_ruleFieldOption_in_ruleFieldOptions3463);
             lv_options_1_0=ruleFieldOption();
 
             state._fsp--;
@@ -3981,7 +4107,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1418:2: (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1462:2: (otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -3994,26 +4120,26 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1418:4: otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1462:4: otherlv_2= ',' ( (lv_options_3_0= ruleFieldOption ) )
             	    {
-            	    otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleFieldOptions3360); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleFieldOptions3476); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getFieldOptionsAccess().getCommaKeyword_2_0());
             	          
             	    }
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1422:1: ( (lv_options_3_0= ruleFieldOption ) )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1423:1: (lv_options_3_0= ruleFieldOption )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1466:1: ( (lv_options_3_0= ruleFieldOption ) )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1467:1: (lv_options_3_0= ruleFieldOption )
             	    {
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1423:1: (lv_options_3_0= ruleFieldOption )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1424:3: lv_options_3_0= ruleFieldOption
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1467:1: (lv_options_3_0= ruleFieldOption )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1468:3: lv_options_3_0= ruleFieldOption
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getFieldOptionsAccess().getOptionsFieldOptionParserRuleCall_2_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleFieldOption_in_ruleFieldOptions3381);
+            	    pushFollow(FOLLOW_ruleFieldOption_in_ruleFieldOptions3497);
             	    lv_options_3_0=ruleFieldOption();
 
             	    state._fsp--;
@@ -4046,7 +4172,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,27,FOLLOW_27_in_ruleFieldOptions3395); if (state.failed) return current;
+            otherlv_4=(Token)match(input,27,FOLLOW_27_in_ruleFieldOptions3511); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getFieldOptionsAccess().getRightSquareBracketKeyword_3());
@@ -4075,7 +4201,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFieldOption"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1452:1: entryRuleFieldOption returns [EObject current=null] : iv_ruleFieldOption= ruleFieldOption EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1496:1: entryRuleFieldOption returns [EObject current=null] : iv_ruleFieldOption= ruleFieldOption EOF ;
     public final EObject entryRuleFieldOption() throws RecognitionException {
         EObject current = null;
 
@@ -4083,13 +4209,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1453:2: (iv_ruleFieldOption= ruleFieldOption EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1454:2: iv_ruleFieldOption= ruleFieldOption EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1497:2: (iv_ruleFieldOption= ruleFieldOption EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1498:2: iv_ruleFieldOption= ruleFieldOption EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getFieldOptionRule()); 
             }
-            pushFollow(FOLLOW_ruleFieldOption_in_entryRuleFieldOption3431);
+            pushFollow(FOLLOW_ruleFieldOption_in_entryRuleFieldOption3547);
             iv_ruleFieldOption=ruleFieldOption();
 
             state._fsp--;
@@ -4097,7 +4223,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleFieldOption; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldOption3441); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldOption3557); if (state.failed) return current;
 
             }
 
@@ -4115,7 +4241,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFieldOption"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1461:1: ruleFieldOption returns [EObject current=null] : ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1505:1: ruleFieldOption returns [EObject current=null] : ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption ) ;
     public final EObject ruleFieldOption() throws RecognitionException {
         EObject current = null;
 
@@ -4127,25 +4253,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1464:28: ( ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:1: ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1508:28: ( ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:1: ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:1: ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:1: ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption )
             int alt16=2;
             alt16 = dfa16.predict(input);
             switch (alt16) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:2: ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:2: ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:2: ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:3: ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:2: ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:3: ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getFieldOptionAccess().getDefaultValueFieldOptionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleDefaultValueFieldOption_in_ruleFieldOption3496);
+                    pushFollow(FOLLOW_ruleDefaultValueFieldOption_in_ruleFieldOption3612);
                     this_DefaultValueFieldOption_0=ruleDefaultValueFieldOption();
 
                     state._fsp--;
@@ -4163,14 +4289,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1477:5: this_NativeFieldOption_1= ruleNativeFieldOption
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1521:5: this_NativeFieldOption_1= ruleNativeFieldOption
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getFieldOptionAccess().getNativeFieldOptionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNativeFieldOption_in_ruleFieldOption3524);
+                    pushFollow(FOLLOW_ruleNativeFieldOption_in_ruleFieldOption3640);
                     this_NativeFieldOption_1=ruleNativeFieldOption();
 
                     state._fsp--;
@@ -4207,7 +4333,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDefaultValueFieldOption"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1493:1: entryRuleDefaultValueFieldOption returns [EObject current=null] : iv_ruleDefaultValueFieldOption= ruleDefaultValueFieldOption EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1537:1: entryRuleDefaultValueFieldOption returns [EObject current=null] : iv_ruleDefaultValueFieldOption= ruleDefaultValueFieldOption EOF ;
     public final EObject entryRuleDefaultValueFieldOption() throws RecognitionException {
         EObject current = null;
 
@@ -4215,13 +4341,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1494:2: (iv_ruleDefaultValueFieldOption= ruleDefaultValueFieldOption EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1495:2: iv_ruleDefaultValueFieldOption= ruleDefaultValueFieldOption EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1538:2: (iv_ruleDefaultValueFieldOption= ruleDefaultValueFieldOption EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1539:2: iv_ruleDefaultValueFieldOption= ruleDefaultValueFieldOption EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDefaultValueFieldOptionRule()); 
             }
-            pushFollow(FOLLOW_ruleDefaultValueFieldOption_in_entryRuleDefaultValueFieldOption3559);
+            pushFollow(FOLLOW_ruleDefaultValueFieldOption_in_entryRuleDefaultValueFieldOption3675);
             iv_ruleDefaultValueFieldOption=ruleDefaultValueFieldOption();
 
             state._fsp--;
@@ -4229,7 +4355,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDefaultValueFieldOption; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultValueFieldOption3569); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultValueFieldOption3685); if (state.failed) return current;
 
             }
 
@@ -4247,7 +4373,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefaultValueFieldOption"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1502:1: ruleDefaultValueFieldOption returns [EObject current=null] : ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1546:1: ruleDefaultValueFieldOption returns [EObject current=null] : ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
     public final EObject ruleDefaultValueFieldOption() throws RecognitionException {
         EObject current = null;
 
@@ -4259,16 +4385,16 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1505:28: ( ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1506:1: ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1549:28: ( ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1550:1: ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1506:1: ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1506:2: ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1550:1: ( ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1550:2: ( ( 'default' )=>otherlv_0= 'default' ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1506:2: ( ( 'default' )=>otherlv_0= 'default' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1506:3: ( 'default' )=>otherlv_0= 'default'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1550:2: ( ( 'default' )=>otherlv_0= 'default' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1550:3: ( 'default' )=>otherlv_0= 'default'
             {
-            otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleDefaultValueFieldOption3614); if (state.failed) return current;
+            otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleDefaultValueFieldOption3730); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getDefaultValueFieldOptionAccess().getDefaultKeyword_0());
@@ -4277,24 +4403,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleDefaultValueFieldOption3627); if (state.failed) return current;
+            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleDefaultValueFieldOption3743); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getDefaultValueFieldOptionAccess().getEqualsSignKeyword_1());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1515:1: ( (lv_value_2_0= ruleValue ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1516:1: (lv_value_2_0= ruleValue )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1559:1: ( (lv_value_2_0= ruleValue ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1560:1: (lv_value_2_0= ruleValue )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1516:1: (lv_value_2_0= ruleValue )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1517:3: lv_value_2_0= ruleValue
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1560:1: (lv_value_2_0= ruleValue )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1561:3: lv_value_2_0= ruleValue
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getDefaultValueFieldOptionAccess().getValueValueParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValue_in_ruleDefaultValueFieldOption3648);
+            pushFollow(FOLLOW_ruleValue_in_ruleDefaultValueFieldOption3764);
             lv_value_2_0=ruleValue();
 
             state._fsp--;
@@ -4341,7 +4467,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNativeFieldOption"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1541:1: entryRuleNativeFieldOption returns [EObject current=null] : iv_ruleNativeFieldOption= ruleNativeFieldOption EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1585:1: entryRuleNativeFieldOption returns [EObject current=null] : iv_ruleNativeFieldOption= ruleNativeFieldOption EOF ;
     public final EObject entryRuleNativeFieldOption() throws RecognitionException {
         EObject current = null;
 
@@ -4349,13 +4475,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1542:2: (iv_ruleNativeFieldOption= ruleNativeFieldOption EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1543:2: iv_ruleNativeFieldOption= ruleNativeFieldOption EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1586:2: (iv_ruleNativeFieldOption= ruleNativeFieldOption EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1587:2: iv_ruleNativeFieldOption= ruleNativeFieldOption EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNativeFieldOptionRule()); 
             }
-            pushFollow(FOLLOW_ruleNativeFieldOption_in_entryRuleNativeFieldOption3684);
+            pushFollow(FOLLOW_ruleNativeFieldOption_in_entryRuleNativeFieldOption3800);
             iv_ruleNativeFieldOption=ruleNativeFieldOption();
 
             state._fsp--;
@@ -4363,7 +4489,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNativeFieldOption; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNativeFieldOption3694); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNativeFieldOption3810); if (state.failed) return current;
 
             }
 
@@ -4381,7 +4507,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNativeFieldOption"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1550:1: ruleNativeFieldOption returns [EObject current=null] : ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1594:1: ruleNativeFieldOption returns [EObject current=null] : ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) ;
     public final EObject ruleNativeFieldOption() throws RecognitionException {
         EObject current = null;
 
@@ -4394,24 +4520,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1553:28: ( ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1554:1: ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1597:28: ( ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1598:1: ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1554:1: ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1554:2: ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1598:1: ( ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1598:2: ( (lv_source_0_0= ruleOptionSource ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValue ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1554:2: ( (lv_source_0_0= ruleOptionSource ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1555:1: (lv_source_0_0= ruleOptionSource )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1598:2: ( (lv_source_0_0= ruleOptionSource ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1599:1: (lv_source_0_0= ruleOptionSource )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1555:1: (lv_source_0_0= ruleOptionSource )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1556:3: lv_source_0_0= ruleOptionSource
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1599:1: (lv_source_0_0= ruleOptionSource )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1600:3: lv_source_0_0= ruleOptionSource
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getNativeFieldOptionAccess().getSourceOptionSourceParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleOptionSource_in_ruleNativeFieldOption3740);
+            pushFollow(FOLLOW_ruleOptionSource_in_ruleNativeFieldOption3856);
             lv_source_0_0=ruleOptionSource();
 
             state._fsp--;
@@ -4435,24 +4561,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleNativeFieldOption3752); if (state.failed) return current;
+            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleNativeFieldOption3868); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNativeFieldOptionAccess().getEqualsSignKeyword_1());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1576:1: ( (lv_value_2_0= ruleValue ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1577:1: (lv_value_2_0= ruleValue )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1620:1: ( (lv_value_2_0= ruleValue ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1621:1: (lv_value_2_0= ruleValue )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1577:1: (lv_value_2_0= ruleValue )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1578:3: lv_value_2_0= ruleValue
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1621:1: (lv_value_2_0= ruleValue )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1622:3: lv_value_2_0= ruleValue
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getNativeFieldOptionAccess().getValueValueParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValue_in_ruleNativeFieldOption3773);
+            pushFollow(FOLLOW_ruleValue_in_ruleNativeFieldOption3889);
             lv_value_2_0=ruleValue();
 
             state._fsp--;
@@ -4499,7 +4625,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOptionSource"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1602:1: entryRuleOptionSource returns [EObject current=null] : iv_ruleOptionSource= ruleOptionSource EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1646:1: entryRuleOptionSource returns [EObject current=null] : iv_ruleOptionSource= ruleOptionSource EOF ;
     public final EObject entryRuleOptionSource() throws RecognitionException {
         EObject current = null;
 
@@ -4507,13 +4633,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1603:2: (iv_ruleOptionSource= ruleOptionSource EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1604:2: iv_ruleOptionSource= ruleOptionSource EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1647:2: (iv_ruleOptionSource= ruleOptionSource EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1648:2: iv_ruleOptionSource= ruleOptionSource EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOptionSourceRule()); 
             }
-            pushFollow(FOLLOW_ruleOptionSource_in_entryRuleOptionSource3809);
+            pushFollow(FOLLOW_ruleOptionSource_in_entryRuleOptionSource3925);
             iv_ruleOptionSource=ruleOptionSource();
 
             state._fsp--;
@@ -4521,7 +4647,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleOptionSource; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOptionSource3819); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOptionSource3935); if (state.failed) return current;
 
             }
 
@@ -4539,21 +4665,21 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOptionSource"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1611:1: ruleOptionSource returns [EObject current=null] : ( ( ruleVar_full ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1655:1: ruleOptionSource returns [EObject current=null] : ( ( ruleVar_full ) ) ;
     public final EObject ruleOptionSource() throws RecognitionException {
         EObject current = null;
 
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1614:28: ( ( ( ruleVar_full ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1615:1: ( ( ruleVar_full ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1658:28: ( ( ( ruleVar_full ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1659:1: ( ( ruleVar_full ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1615:1: ( ( ruleVar_full ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1616:1: ( ruleVar_full )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1659:1: ( ( ruleVar_full ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1660:1: ( ruleVar_full )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1616:1: ( ruleVar_full )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1617:3: ruleVar_full
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1660:1: ( ruleVar_full )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1661:3: ruleVar_full
             {
             if ( state.backtracking==0 ) {
 
@@ -4567,7 +4693,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getOptionSourceAccess().getTargetIndexedElementCrossReference_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleVar_full_in_ruleOptionSource3866);
+            pushFollow(FOLLOW_ruleVar_full_in_ruleOptionSource3982);
             ruleVar_full();
 
             state._fsp--;
@@ -4603,7 +4729,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnum"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1638:1: entryRuleEnum returns [EObject current=null] : iv_ruleEnum= ruleEnum EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1682:1: entryRuleEnum returns [EObject current=null] : iv_ruleEnum= ruleEnum EOF ;
     public final EObject entryRuleEnum() throws RecognitionException {
         EObject current = null;
 
@@ -4611,13 +4737,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1639:2: (iv_ruleEnum= ruleEnum EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1640:2: iv_ruleEnum= ruleEnum EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1683:2: (iv_ruleEnum= ruleEnum EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1684:2: iv_ruleEnum= ruleEnum EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEnumRule()); 
             }
-            pushFollow(FOLLOW_ruleEnum_in_entryRuleEnum3901);
+            pushFollow(FOLLOW_ruleEnum_in_entryRuleEnum4017);
             iv_ruleEnum=ruleEnum();
 
             state._fsp--;
@@ -4625,7 +4751,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleEnum; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnum3911); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnum4027); if (state.failed) return current;
 
             }
 
@@ -4643,7 +4769,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnum"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1647:1: ruleEnum returns [EObject current=null] : (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1691:1: ruleEnum returns [EObject current=null] : (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' ) ;
     public final EObject ruleEnum() throws RecognitionException {
         EObject current = null;
 
@@ -4657,25 +4783,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1650:28: ( (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1651:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1694:28: ( (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1695:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1651:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1651:3: otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1695:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1695:3: otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleEnumElement ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleEnum3948); if (state.failed) return current;
+            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleEnum4064); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getEnumAccess().getEnumKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1655:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1656:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1699:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1700:1: (lv_name_1_0= RULE_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1656:1: (lv_name_1_0= RULE_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1657:3: lv_name_1_0= RULE_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1700:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1701:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnum3965); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnum4081); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_1_0, grammarAccess.getEnumAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -4699,13 +4825,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleEnum3982); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleEnum4098); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getEnumAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1677:1: ( (lv_elements_3_0= ruleEnumElement ) )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1721:1: ( (lv_elements_3_0= ruleEnumElement ) )*
             loop17:
             do {
                 int alt17=2;
@@ -4718,17 +4844,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1678:1: (lv_elements_3_0= ruleEnumElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1722:1: (lv_elements_3_0= ruleEnumElement )
             	    {
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1678:1: (lv_elements_3_0= ruleEnumElement )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1679:3: lv_elements_3_0= ruleEnumElement
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1722:1: (lv_elements_3_0= ruleEnumElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1723:3: lv_elements_3_0= ruleEnumElement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getEnumAccess().getElementsEnumElementParserRuleCall_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleEnumElement_in_ruleEnum4003);
+            	    pushFollow(FOLLOW_ruleEnumElement_in_ruleEnum4119);
             	    lv_elements_3_0=ruleEnumElement();
 
             	    state._fsp--;
@@ -4758,7 +4884,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleEnum4016); if (state.failed) return current;
+            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleEnum4132); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getEnumAccess().getRightCurlyBracketKeyword_4());
@@ -4787,7 +4913,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnumElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1707:1: entryRuleEnumElement returns [EObject current=null] : iv_ruleEnumElement= ruleEnumElement EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1751:1: entryRuleEnumElement returns [EObject current=null] : iv_ruleEnumElement= ruleEnumElement EOF ;
     public final EObject entryRuleEnumElement() throws RecognitionException {
         EObject current = null;
 
@@ -4795,13 +4921,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1708:2: (iv_ruleEnumElement= ruleEnumElement EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1709:2: iv_ruleEnumElement= ruleEnumElement EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1752:2: (iv_ruleEnumElement= ruleEnumElement EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1753:2: iv_ruleEnumElement= ruleEnumElement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEnumElementRule()); 
             }
-            pushFollow(FOLLOW_ruleEnumElement_in_entryRuleEnumElement4052);
+            pushFollow(FOLLOW_ruleEnumElement_in_entryRuleEnumElement4168);
             iv_ruleEnumElement=ruleEnumElement();
 
             state._fsp--;
@@ -4809,7 +4935,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleEnumElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumElement4062); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumElement4178); if (state.failed) return current;
 
             }
 
@@ -4827,7 +4953,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1716:1: ruleEnumElement returns [EObject current=null] : (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1760:1: ruleEnumElement returns [EObject current=null] : (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption ) ;
     public final EObject ruleEnumElement() throws RecognitionException {
         EObject current = null;
 
@@ -4839,10 +4965,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1719:28: ( (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1720:1: (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1763:28: ( (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1764:1: (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1720:1: (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1764:1: (this_EnumField_0= ruleEnumField | this_Option_1= ruleOption )
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -4861,14 +4987,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt18) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1721:5: this_EnumField_0= ruleEnumField
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1765:5: this_EnumField_0= ruleEnumField
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getEnumElementAccess().getEnumFieldParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleEnumField_in_ruleEnumElement4109);
+                    pushFollow(FOLLOW_ruleEnumField_in_ruleEnumElement4225);
                     this_EnumField_0=ruleEnumField();
 
                     state._fsp--;
@@ -4883,14 +5009,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1731:5: this_Option_1= ruleOption
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1775:5: this_Option_1= ruleOption
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getEnumElementAccess().getOptionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleOption_in_ruleEnumElement4136);
+                    pushFollow(FOLLOW_ruleOption_in_ruleEnumElement4252);
                     this_Option_1=ruleOption();
 
                     state._fsp--;
@@ -4927,7 +5053,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnumField"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1747:1: entryRuleEnumField returns [EObject current=null] : iv_ruleEnumField= ruleEnumField EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1791:1: entryRuleEnumField returns [EObject current=null] : iv_ruleEnumField= ruleEnumField EOF ;
     public final EObject entryRuleEnumField() throws RecognitionException {
         EObject current = null;
 
@@ -4935,13 +5061,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1748:2: (iv_ruleEnumField= ruleEnumField EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1749:2: iv_ruleEnumField= ruleEnumField EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1792:2: (iv_ruleEnumField= ruleEnumField EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1793:2: iv_ruleEnumField= ruleEnumField EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEnumFieldRule()); 
             }
-            pushFollow(FOLLOW_ruleEnumField_in_entryRuleEnumField4171);
+            pushFollow(FOLLOW_ruleEnumField_in_entryRuleEnumField4287);
             iv_ruleEnumField=ruleEnumField();
 
             state._fsp--;
@@ -4949,7 +5075,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleEnumField; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumField4181); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumField4297); if (state.failed) return current;
 
             }
 
@@ -4967,7 +5093,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumField"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1756:1: ruleEnumField returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1800:1: ruleEnumField returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' ) ;
     public final EObject ruleEnumField() throws RecognitionException {
         EObject current = null;
 
@@ -4986,19 +5112,19 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1759:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1760:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1803:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1804:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1760:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1760:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1804:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1804:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_index_2_0= RULE_NUMINT ) ) (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )? otherlv_8= ';'
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1760:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1761:1: (lv_name_0_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1804:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1805:1: (lv_name_0_0= RULE_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1761:1: (lv_name_0_0= RULE_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1762:3: lv_name_0_0= RULE_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1805:1: (lv_name_0_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1806:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumField4223); if (state.failed) return current;
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumField4339); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_0_0, grammarAccess.getEnumFieldAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -5022,19 +5148,19 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleEnumField4240); if (state.failed) return current;
+            otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleEnumField4356); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getEnumFieldAccess().getEqualsSignKeyword_1());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1782:1: ( (lv_index_2_0= RULE_NUMINT ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1783:1: (lv_index_2_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1826:1: ( (lv_index_2_0= RULE_NUMINT ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1827:1: (lv_index_2_0= RULE_NUMINT )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1783:1: (lv_index_2_0= RULE_NUMINT )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1784:3: lv_index_2_0= RULE_NUMINT
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1827:1: (lv_index_2_0= RULE_NUMINT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1828:3: lv_index_2_0= RULE_NUMINT
             {
-            lv_index_2_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleEnumField4257); if (state.failed) return current;
+            lv_index_2_0=(Token)match(input,RULE_NUMINT,FOLLOW_RULE_NUMINT_in_ruleEnumField4373); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_index_2_0, grammarAccess.getEnumFieldAccess().getIndexNUMINTTerminalRuleCall_2_0()); 
@@ -5058,7 +5184,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1800:2: (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1844:2: (otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']' )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -5067,26 +5193,26 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt20) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1800:4: otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1844:4: otherlv_3= '[' ( (lv_options_4_0= ruleFieldOption ) ) (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )* otherlv_7= ']'
                     {
-                    otherlv_3=(Token)match(input,25,FOLLOW_25_in_ruleEnumField4275); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,25,FOLLOW_25_in_ruleEnumField4391); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getEnumFieldAccess().getLeftSquareBracketKeyword_3_0());
                           
                     }
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1804:1: ( (lv_options_4_0= ruleFieldOption ) )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1805:1: (lv_options_4_0= ruleFieldOption )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1848:1: ( (lv_options_4_0= ruleFieldOption ) )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1849:1: (lv_options_4_0= ruleFieldOption )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1805:1: (lv_options_4_0= ruleFieldOption )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1806:3: lv_options_4_0= ruleFieldOption
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1849:1: (lv_options_4_0= ruleFieldOption )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1850:3: lv_options_4_0= ruleFieldOption
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getEnumFieldAccess().getOptionsFieldOptionParserRuleCall_3_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFieldOption_in_ruleEnumField4296);
+                    pushFollow(FOLLOW_ruleFieldOption_in_ruleEnumField4412);
                     lv_options_4_0=ruleFieldOption();
 
                     state._fsp--;
@@ -5110,7 +5236,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1822:2: (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )*
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1866:2: (otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) ) )*
                     loop19:
                     do {
                         int alt19=2;
@@ -5123,26 +5249,26 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1822:4: otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1866:4: otherlv_5= ',' ( (lv_options_6_0= ruleFieldOption ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,26,FOLLOW_26_in_ruleEnumField4309); if (state.failed) return current;
+                    	    otherlv_5=(Token)match(input,26,FOLLOW_26_in_ruleEnumField4425); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_5, grammarAccess.getEnumFieldAccess().getCommaKeyword_3_2_0());
                     	          
                     	    }
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1826:1: ( (lv_options_6_0= ruleFieldOption ) )
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1827:1: (lv_options_6_0= ruleFieldOption )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1870:1: ( (lv_options_6_0= ruleFieldOption ) )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1871:1: (lv_options_6_0= ruleFieldOption )
                     	    {
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1827:1: (lv_options_6_0= ruleFieldOption )
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1828:3: lv_options_6_0= ruleFieldOption
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1871:1: (lv_options_6_0= ruleFieldOption )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1872:3: lv_options_6_0= ruleFieldOption
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getEnumFieldAccess().getOptionsFieldOptionParserRuleCall_3_2_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleFieldOption_in_ruleEnumField4330);
+                    	    pushFollow(FOLLOW_ruleFieldOption_in_ruleEnumField4446);
                     	    lv_options_6_0=ruleFieldOption();
 
                     	    state._fsp--;
@@ -5175,7 +5301,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_7=(Token)match(input,27,FOLLOW_27_in_ruleEnumField4344); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,27,FOLLOW_27_in_ruleEnumField4460); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getEnumFieldAccess().getRightSquareBracketKeyword_3_3());
@@ -5187,7 +5313,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleEnumField4358); if (state.failed) return current;
+            otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleEnumField4474); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getEnumFieldAccess().getSemicolonKeyword_4());
@@ -5216,7 +5342,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleService"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1860:1: entryRuleService returns [EObject current=null] : iv_ruleService= ruleService EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1904:1: entryRuleService returns [EObject current=null] : iv_ruleService= ruleService EOF ;
     public final EObject entryRuleService() throws RecognitionException {
         EObject current = null;
 
@@ -5224,13 +5350,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1861:2: (iv_ruleService= ruleService EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1862:2: iv_ruleService= ruleService EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1905:2: (iv_ruleService= ruleService EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1906:2: iv_ruleService= ruleService EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getServiceRule()); 
             }
-            pushFollow(FOLLOW_ruleService_in_entryRuleService4394);
+            pushFollow(FOLLOW_ruleService_in_entryRuleService4510);
             iv_ruleService=ruleService();
 
             state._fsp--;
@@ -5238,7 +5364,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleService; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleService4404); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleService4520); if (state.failed) return current;
 
             }
 
@@ -5256,7 +5382,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleService"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1869:1: ruleService returns [EObject current=null] : (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1913:1: ruleService returns [EObject current=null] : (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? ) ;
     public final EObject ruleService() throws RecognitionException {
         EObject current = null;
 
@@ -5271,25 +5397,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1872:28: ( (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1873:1: (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1916:28: ( (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1917:1: (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1873:1: (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1873:3: otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1917:1: (otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )? )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1917:3: otherlv_0= 'service' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleServiceElement ) )+ otherlv_4= '}' (otherlv_5= ';' )?
             {
-            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleService4441); if (state.failed) return current;
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleService4557); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getServiceAccess().getServiceKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1877:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1878:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1921:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1922:1: (lv_name_1_0= RULE_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1878:1: (lv_name_1_0= RULE_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1879:3: lv_name_1_0= RULE_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1922:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1923:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleService4458); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleService4574); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_1_0, grammarAccess.getServiceAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -5313,13 +5439,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleService4475); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleService4591); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1899:1: ( (lv_elements_3_0= ruleServiceElement ) )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1943:1: ( (lv_elements_3_0= ruleServiceElement ) )+
             int cnt21=0;
             loop21:
             do {
@@ -5333,17 +5459,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt21) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1900:1: (lv_elements_3_0= ruleServiceElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1944:1: (lv_elements_3_0= ruleServiceElement )
             	    {
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1900:1: (lv_elements_3_0= ruleServiceElement )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1901:3: lv_elements_3_0= ruleServiceElement
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1944:1: (lv_elements_3_0= ruleServiceElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1945:3: lv_elements_3_0= ruleServiceElement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getServiceAccess().getElementsServiceElementParserRuleCall_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleServiceElement_in_ruleService4496);
+            	    pushFollow(FOLLOW_ruleServiceElement_in_ruleService4612);
             	    lv_elements_3_0=ruleServiceElement();
 
             	    state._fsp--;
@@ -5378,13 +5504,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                 cnt21++;
             } while (true);
 
-            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleService4509); if (state.failed) return current;
+            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleService4625); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_4());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1921:1: (otherlv_5= ';' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1965:1: (otherlv_5= ';' )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -5393,9 +5519,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt22) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1921:3: otherlv_5= ';'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1965:3: otherlv_5= ';'
                     {
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleService4522); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleService4638); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getServiceAccess().getSemicolonKeyword_5());
@@ -5430,7 +5556,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleServiceElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1933:1: entryRuleServiceElement returns [EObject current=null] : iv_ruleServiceElement= ruleServiceElement EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1977:1: entryRuleServiceElement returns [EObject current=null] : iv_ruleServiceElement= ruleServiceElement EOF ;
     public final EObject entryRuleServiceElement() throws RecognitionException {
         EObject current = null;
 
@@ -5438,13 +5564,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1934:2: (iv_ruleServiceElement= ruleServiceElement EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1935:2: iv_ruleServiceElement= ruleServiceElement EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1978:2: (iv_ruleServiceElement= ruleServiceElement EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1979:2: iv_ruleServiceElement= ruleServiceElement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getServiceElementRule()); 
             }
-            pushFollow(FOLLOW_ruleServiceElement_in_entryRuleServiceElement4560);
+            pushFollow(FOLLOW_ruleServiceElement_in_entryRuleServiceElement4676);
             iv_ruleServiceElement=ruleServiceElement();
 
             state._fsp--;
@@ -5452,7 +5578,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleServiceElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceElement4570); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceElement4686); if (state.failed) return current;
 
             }
 
@@ -5470,7 +5596,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleServiceElement"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1942:1: ruleServiceElement returns [EObject current=null] : (this_Rpc_0= ruleRpc | this_Option_1= ruleOption ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1986:1: ruleServiceElement returns [EObject current=null] : (this_Rpc_0= ruleRpc | this_Option_1= ruleOption ) ;
     public final EObject ruleServiceElement() throws RecognitionException {
         EObject current = null;
 
@@ -5482,10 +5608,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1945:28: ( (this_Rpc_0= ruleRpc | this_Option_1= ruleOption ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1946:1: (this_Rpc_0= ruleRpc | this_Option_1= ruleOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1989:28: ( (this_Rpc_0= ruleRpc | this_Option_1= ruleOption ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1990:1: (this_Rpc_0= ruleRpc | this_Option_1= ruleOption )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1946:1: (this_Rpc_0= ruleRpc | this_Option_1= ruleOption )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1990:1: (this_Rpc_0= ruleRpc | this_Option_1= ruleOption )
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -5504,14 +5630,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt23) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1947:5: this_Rpc_0= ruleRpc
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1991:5: this_Rpc_0= ruleRpc
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getServiceElementAccess().getRpcParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleRpc_in_ruleServiceElement4617);
+                    pushFollow(FOLLOW_ruleRpc_in_ruleServiceElement4733);
                     this_Rpc_0=ruleRpc();
 
                     state._fsp--;
@@ -5526,14 +5652,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1957:5: this_Option_1= ruleOption
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2001:5: this_Option_1= ruleOption
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getServiceElementAccess().getOptionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleOption_in_ruleServiceElement4644);
+                    pushFollow(FOLLOW_ruleOption_in_ruleServiceElement4760);
                     this_Option_1=ruleOption();
 
                     state._fsp--;
@@ -5570,7 +5696,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRpc"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1973:1: entryRuleRpc returns [EObject current=null] : iv_ruleRpc= ruleRpc EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2017:1: entryRuleRpc returns [EObject current=null] : iv_ruleRpc= ruleRpc EOF ;
     public final EObject entryRuleRpc() throws RecognitionException {
         EObject current = null;
 
@@ -5578,13 +5704,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1974:2: (iv_ruleRpc= ruleRpc EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1975:2: iv_ruleRpc= ruleRpc EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2018:2: (iv_ruleRpc= ruleRpc EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2019:2: iv_ruleRpc= ruleRpc EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getRpcRule()); 
             }
-            pushFollow(FOLLOW_ruleRpc_in_entryRuleRpc4679);
+            pushFollow(FOLLOW_ruleRpc_in_entryRuleRpc4795);
             iv_ruleRpc=ruleRpc();
 
             state._fsp--;
@@ -5592,7 +5718,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleRpc; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRpc4689); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRpc4805); if (state.failed) return current;
 
             }
 
@@ -5610,7 +5736,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRpc"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1982:1: ruleRpc returns [EObject current=null] : (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2026:1: ruleRpc returns [EObject current=null] : (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ ) ;
     public final EObject ruleRpc() throws RecognitionException {
         EObject current = null;
 
@@ -5634,25 +5760,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1985:28: ( (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1986:1: (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2029:28: ( (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2030:1: (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1986:1: (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1986:3: otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2030:1: (otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+ )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2030:3: otherlv_0= 'rpc' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_argType_3_0= ruleMessageLink ) ) otherlv_4= ')' otherlv_5= 'returns' otherlv_6= '(' ( (lv_returnType_7_0= ruleMessageLink ) ) otherlv_8= ')' (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )? (otherlv_12= ';' )+
             {
-            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleRpc4726); if (state.failed) return current;
+            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleRpc4842); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getRpcAccess().getRpcKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1990:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1991:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2034:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2035:1: (lv_name_1_0= RULE_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1991:1: (lv_name_1_0= RULE_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1992:3: lv_name_1_0= RULE_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2035:1: (lv_name_1_0= RULE_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2036:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRpc4743); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRpc4859); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_1_0, grammarAccess.getRpcAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -5676,24 +5802,24 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,32,FOLLOW_32_in_ruleRpc4760); if (state.failed) return current;
+            otherlv_2=(Token)match(input,32,FOLLOW_32_in_ruleRpc4876); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getRpcAccess().getLeftParenthesisKeyword_2());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2012:1: ( (lv_argType_3_0= ruleMessageLink ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2013:1: (lv_argType_3_0= ruleMessageLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2056:1: ( (lv_argType_3_0= ruleMessageLink ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2057:1: (lv_argType_3_0= ruleMessageLink )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2013:1: (lv_argType_3_0= ruleMessageLink )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2014:3: lv_argType_3_0= ruleMessageLink
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2057:1: (lv_argType_3_0= ruleMessageLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2058:3: lv_argType_3_0= ruleMessageLink
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getRpcAccess().getArgTypeMessageLinkParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleMessageLink_in_ruleRpc4781);
+            pushFollow(FOLLOW_ruleMessageLink_in_ruleRpc4897);
             lv_argType_3_0=ruleMessageLink();
 
             state._fsp--;
@@ -5717,36 +5843,36 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,33,FOLLOW_33_in_ruleRpc4793); if (state.failed) return current;
+            otherlv_4=(Token)match(input,33,FOLLOW_33_in_ruleRpc4909); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getRpcAccess().getRightParenthesisKeyword_4());
                   
             }
-            otherlv_5=(Token)match(input,34,FOLLOW_34_in_ruleRpc4805); if (state.failed) return current;
+            otherlv_5=(Token)match(input,34,FOLLOW_34_in_ruleRpc4921); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getRpcAccess().getReturnsKeyword_5());
                   
             }
-            otherlv_6=(Token)match(input,32,FOLLOW_32_in_ruleRpc4817); if (state.failed) return current;
+            otherlv_6=(Token)match(input,32,FOLLOW_32_in_ruleRpc4933); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getRpcAccess().getLeftParenthesisKeyword_6());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2042:1: ( (lv_returnType_7_0= ruleMessageLink ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2043:1: (lv_returnType_7_0= ruleMessageLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2086:1: ( (lv_returnType_7_0= ruleMessageLink ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2087:1: (lv_returnType_7_0= ruleMessageLink )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2043:1: (lv_returnType_7_0= ruleMessageLink )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2044:3: lv_returnType_7_0= ruleMessageLink
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2087:1: (lv_returnType_7_0= ruleMessageLink )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2088:3: lv_returnType_7_0= ruleMessageLink
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getRpcAccess().getReturnTypeMessageLinkParserRuleCall_7_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleMessageLink_in_ruleRpc4838);
+            pushFollow(FOLLOW_ruleMessageLink_in_ruleRpc4954);
             lv_returnType_7_0=ruleMessageLink();
 
             state._fsp--;
@@ -5770,13 +5896,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,33,FOLLOW_33_in_ruleRpc4850); if (state.failed) return current;
+            otherlv_8=(Token)match(input,33,FOLLOW_33_in_ruleRpc4966); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getRpcAccess().getRightParenthesisKeyword_8());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2064:1: (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2108:1: (otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}' )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -5785,15 +5911,15 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt25) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2064:3: otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2108:3: otherlv_9= '{' ( (lv_options_10_0= ruleOption ) )* otherlv_11= '}'
                     {
-                    otherlv_9=(Token)match(input,20,FOLLOW_20_in_ruleRpc4863); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,20,FOLLOW_20_in_ruleRpc4979); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_9, grammarAccess.getRpcAccess().getLeftCurlyBracketKeyword_9_0());
                           
                     }
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2068:1: ( (lv_options_10_0= ruleOption ) )*
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2112:1: ( (lv_options_10_0= ruleOption ) )*
                     loop24:
                     do {
                         int alt24=2;
@@ -5806,17 +5932,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                         switch (alt24) {
                     	case 1 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2069:1: (lv_options_10_0= ruleOption )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2113:1: (lv_options_10_0= ruleOption )
                     	    {
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2069:1: (lv_options_10_0= ruleOption )
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2070:3: lv_options_10_0= ruleOption
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2113:1: (lv_options_10_0= ruleOption )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2114:3: lv_options_10_0= ruleOption
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getRpcAccess().getOptionsOptionParserRuleCall_9_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleOption_in_ruleRpc4884);
+                    	    pushFollow(FOLLOW_ruleOption_in_ruleRpc5000);
                     	    lv_options_10_0=ruleOption();
 
                     	    state._fsp--;
@@ -5846,7 +5972,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_11=(Token)match(input,21,FOLLOW_21_in_ruleRpc4897); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,21,FOLLOW_21_in_ruleRpc5013); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_11, grammarAccess.getRpcAccess().getRightCurlyBracketKeyword_9_2());
@@ -5858,7 +5984,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2090:3: (otherlv_12= ';' )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2134:3: (otherlv_12= ';' )+
             int cnt26=0;
             loop26:
             do {
@@ -5872,9 +5998,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt26) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2090:5: otherlv_12= ';'
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2134:5: otherlv_12= ';'
             	    {
-            	    otherlv_12=(Token)match(input,15,FOLLOW_15_in_ruleRpc4912); if (state.failed) return current;
+            	    otherlv_12=(Token)match(input,15,FOLLOW_15_in_ruleRpc5028); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_12, grammarAccess.getRpcAccess().getSemicolonKeyword_10());
@@ -5917,7 +6043,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMessageLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2102:1: entryRuleMessageLink returns [EObject current=null] : iv_ruleMessageLink= ruleMessageLink EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2146:1: entryRuleMessageLink returns [EObject current=null] : iv_ruleMessageLink= ruleMessageLink EOF ;
     public final EObject entryRuleMessageLink() throws RecognitionException {
         EObject current = null;
 
@@ -5925,13 +6051,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2103:2: (iv_ruleMessageLink= ruleMessageLink EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2104:2: iv_ruleMessageLink= ruleMessageLink EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2147:2: (iv_ruleMessageLink= ruleMessageLink EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2148:2: iv_ruleMessageLink= ruleMessageLink EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMessageLinkRule()); 
             }
-            pushFollow(FOLLOW_ruleMessageLink_in_entryRuleMessageLink4950);
+            pushFollow(FOLLOW_ruleMessageLink_in_entryRuleMessageLink5066);
             iv_ruleMessageLink=ruleMessageLink();
 
             state._fsp--;
@@ -5939,7 +6065,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMessageLink; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMessageLink4960); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMessageLink5076); if (state.failed) return current;
 
             }
 
@@ -5957,21 +6083,21 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMessageLink"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2111:1: ruleMessageLink returns [EObject current=null] : ( ( ruleFULL_ID ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2155:1: ruleMessageLink returns [EObject current=null] : ( ( ruleFULL_ID ) ) ;
     public final EObject ruleMessageLink() throws RecognitionException {
         EObject current = null;
 
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2114:28: ( ( ( ruleFULL_ID ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2115:1: ( ( ruleFULL_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2158:28: ( ( ( ruleFULL_ID ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2159:1: ( ( ruleFULL_ID ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2115:1: ( ( ruleFULL_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2116:1: ( ruleFULL_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2159:1: ( ( ruleFULL_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2160:1: ( ruleFULL_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2116:1: ( ruleFULL_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2117:3: ruleFULL_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2160:1: ( ruleFULL_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2161:3: ruleFULL_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -5985,7 +6111,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getMessageLinkAccess().getTargetMessageCrossReference_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleFULL_ID_in_ruleMessageLink5007);
+            pushFollow(FOLLOW_ruleFULL_ID_in_ruleMessageLink5123);
             ruleFULL_ID();
 
             state._fsp--;
@@ -6021,7 +6147,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExtend"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2138:1: entryRuleExtend returns [EObject current=null] : iv_ruleExtend= ruleExtend EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2182:1: entryRuleExtend returns [EObject current=null] : iv_ruleExtend= ruleExtend EOF ;
     public final EObject entryRuleExtend() throws RecognitionException {
         EObject current = null;
 
@@ -6029,13 +6155,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2139:2: (iv_ruleExtend= ruleExtend EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2140:2: iv_ruleExtend= ruleExtend EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2183:2: (iv_ruleExtend= ruleExtend EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2184:2: iv_ruleExtend= ruleExtend EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExtendRule()); 
             }
-            pushFollow(FOLLOW_ruleExtend_in_entryRuleExtend5042);
+            pushFollow(FOLLOW_ruleExtend_in_entryRuleExtend5158);
             iv_ruleExtend=ruleExtend();
 
             state._fsp--;
@@ -6043,7 +6169,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExtend; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExtend5052); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExtend5168); if (state.failed) return current;
 
             }
 
@@ -6061,7 +6187,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExtend"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2147:1: ruleExtend returns [EObject current=null] : (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2191:1: ruleExtend returns [EObject current=null] : (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? ) ;
     public final EObject ruleExtend() throws RecognitionException {
         EObject current = null;
 
@@ -6075,23 +6201,23 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2150:28: ( (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2151:1: (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2194:28: ( (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2195:1: (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2151:1: (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2151:3: otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2195:1: (otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )? )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2195:3: otherlv_0= 'extend' ( ( ruleFULL_ID ) ) otherlv_2= '{' ( (lv_elements_3_0= ruleMessageElement ) )* otherlv_4= '}' (otherlv_5= ';' )?
             {
-            otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleExtend5089); if (state.failed) return current;
+            otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleExtend5205); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getExtendAccess().getExtendKeyword_0());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2155:1: ( ( ruleFULL_ID ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2156:1: ( ruleFULL_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2199:1: ( ( ruleFULL_ID ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2200:1: ( ruleFULL_ID )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2156:1: ( ruleFULL_ID )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2157:3: ruleFULL_ID
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2200:1: ( ruleFULL_ID )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2201:3: ruleFULL_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -6105,7 +6231,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getExtendAccess().getTypeMessageCrossReference_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleFULL_ID_in_ruleExtend5112);
+            pushFollow(FOLLOW_ruleFULL_ID_in_ruleExtend5228);
             ruleFULL_ID();
 
             state._fsp--;
@@ -6121,13 +6247,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleExtend5124); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleExtend5240); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getExtendAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2174:1: ( (lv_elements_3_0= ruleMessageElement ) )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2218:1: ( (lv_elements_3_0= ruleMessageElement ) )*
             loop27:
             do {
                 int alt27=2;
@@ -6140,17 +6266,17 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt27) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2175:1: (lv_elements_3_0= ruleMessageElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2219:1: (lv_elements_3_0= ruleMessageElement )
             	    {
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2175:1: (lv_elements_3_0= ruleMessageElement )
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2176:3: lv_elements_3_0= ruleMessageElement
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2219:1: (lv_elements_3_0= ruleMessageElement )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2220:3: lv_elements_3_0= ruleMessageElement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getExtendAccess().getElementsMessageElementParserRuleCall_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleMessageElement_in_ruleExtend5145);
+            	    pushFollow(FOLLOW_ruleMessageElement_in_ruleExtend5261);
             	    lv_elements_3_0=ruleMessageElement();
 
             	    state._fsp--;
@@ -6180,13 +6306,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleExtend5158); if (state.failed) return current;
+            otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleExtend5274); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getExtendAccess().getRightCurlyBracketKeyword_4());
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2196:1: (otherlv_5= ';' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2240:1: (otherlv_5= ';' )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -6195,9 +6321,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt28) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2196:3: otherlv_5= ';'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2240:3: otherlv_5= ';'
                     {
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleExtend5171); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleExtend5287); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getExtendAccess().getSemicolonKeyword_5());
@@ -6232,7 +6358,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVar_full"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2208:1: entryRuleVar_full returns [String current=null] : iv_ruleVar_full= ruleVar_full EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2252:1: entryRuleVar_full returns [String current=null] : iv_ruleVar_full= ruleVar_full EOF ;
     public final String entryRuleVar_full() throws RecognitionException {
         String current = null;
 
@@ -6240,13 +6366,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2209:2: (iv_ruleVar_full= ruleVar_full EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2210:2: iv_ruleVar_full= ruleVar_full EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2253:2: (iv_ruleVar_full= ruleVar_full EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2254:2: iv_ruleVar_full= ruleVar_full EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVar_fullRule()); 
             }
-            pushFollow(FOLLOW_ruleVar_full_in_entryRuleVar_full5210);
+            pushFollow(FOLLOW_ruleVar_full_in_entryRuleVar_full5326);
             iv_ruleVar_full=ruleVar_full();
 
             state._fsp--;
@@ -6254,7 +6380,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleVar_full.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVar_full5221); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVar_full5337); if (state.failed) return current;
 
             }
 
@@ -6272,7 +6398,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVar_full"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2217:1: ruleVar_full returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2261:1: ruleVar_full returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar ) ;
     public final AntlrDatatypeRuleToken ruleVar_full() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6284,10 +6410,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2220:28: ( (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2221:1: (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2264:28: ( (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2265:1: (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2221:1: (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2265:1: (this_FULL_ID_0= ruleFULL_ID | this_Var_1= ruleVar )
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -6320,14 +6446,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt29) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2222:5: this_FULL_ID_0= ruleFULL_ID
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2266:5: this_FULL_ID_0= ruleFULL_ID
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getVar_fullAccess().getFULL_IDParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFULL_ID_in_ruleVar_full5268);
+                    pushFollow(FOLLOW_ruleFULL_ID_in_ruleVar_full5384);
                     this_FULL_ID_0=ruleFULL_ID();
 
                     state._fsp--;
@@ -6346,14 +6472,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2234:5: this_Var_1= ruleVar
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2278:5: this_Var_1= ruleVar
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getVar_fullAccess().getVarParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleVar_in_ruleVar_full5301);
+                    pushFollow(FOLLOW_ruleVar_in_ruleVar_full5417);
                     this_Var_1=ruleVar();
 
                     state._fsp--;
@@ -6394,7 +6520,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVar"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2252:1: entryRuleVar returns [String current=null] : iv_ruleVar= ruleVar EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2296:1: entryRuleVar returns [String current=null] : iv_ruleVar= ruleVar EOF ;
     public final String entryRuleVar() throws RecognitionException {
         String current = null;
 
@@ -6402,13 +6528,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2253:2: (iv_ruleVar= ruleVar EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2254:2: iv_ruleVar= ruleVar EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2297:2: (iv_ruleVar= ruleVar EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2298:2: iv_ruleVar= ruleVar EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVarRule()); 
             }
-            pushFollow(FOLLOW_ruleVar_in_entryRuleVar5347);
+            pushFollow(FOLLOW_ruleVar_in_entryRuleVar5463);
             iv_ruleVar=ruleVar();
 
             state._fsp--;
@@ -6416,7 +6542,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleVar.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVar5358); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVar5474); if (state.failed) return current;
 
             }
 
@@ -6434,7 +6560,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVar"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2261:1: ruleVar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2305:1: ruleVar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved ) ;
     public final AntlrDatatypeRuleToken ruleVar() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6445,10 +6571,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2264:28: ( (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2265:1: (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2308:28: ( (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2309:1: (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2265:1: (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2309:1: (this_ID_0= RULE_ID | this_VarReserved_1= ruleVarReserved )
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -6467,9 +6593,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt30) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2265:6: this_ID_0= RULE_ID
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2309:6: this_ID_0= RULE_ID
                     {
-                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVar5398); if (state.failed) return current;
+                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVar5514); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_ID_0);
@@ -6484,14 +6610,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2274:5: this_VarReserved_1= ruleVarReserved
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2318:5: this_VarReserved_1= ruleVarReserved
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getVarAccess().getVarReservedParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleVarReserved_in_ruleVar5431);
+                    pushFollow(FOLLOW_ruleVarReserved_in_ruleVar5547);
                     this_VarReserved_1=ruleVarReserved();
 
                     state._fsp--;
@@ -6532,7 +6658,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFULL_ID"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2292:1: entryRuleFULL_ID returns [String current=null] : iv_ruleFULL_ID= ruleFULL_ID EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2336:1: entryRuleFULL_ID returns [String current=null] : iv_ruleFULL_ID= ruleFULL_ID EOF ;
     public final String entryRuleFULL_ID() throws RecognitionException {
         String current = null;
 
@@ -6540,13 +6666,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2293:2: (iv_ruleFULL_ID= ruleFULL_ID EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2294:2: iv_ruleFULL_ID= ruleFULL_ID EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2337:2: (iv_ruleFULL_ID= ruleFULL_ID EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2338:2: iv_ruleFULL_ID= ruleFULL_ID EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getFULL_IDRule()); 
             }
-            pushFollow(FOLLOW_ruleFULL_ID_in_entryRuleFULL_ID5477);
+            pushFollow(FOLLOW_ruleFULL_ID_in_entryRuleFULL_ID5593);
             iv_ruleFULL_ID=ruleFULL_ID();
 
             state._fsp--;
@@ -6554,7 +6680,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleFULL_ID.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFULL_ID5488); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFULL_ID5604); if (state.failed) return current;
 
             }
 
@@ -6572,7 +6698,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFULL_ID"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2301:1: ruleFULL_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2345:1: ruleFULL_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ ) ;
     public final AntlrDatatypeRuleToken ruleFULL_ID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6583,13 +6709,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2304:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2305:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2348:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2349:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2305:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2305:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2349:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+ )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2349:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )+
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFULL_ID5528); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFULL_ID5644); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -6600,7 +6726,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                   newLeafNode(this_ID_0, grammarAccess.getFULL_IDAccess().getIDTerminalRuleCall_0()); 
                   
             }
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2312:1: (kw= '.' this_ID_2= RULE_ID )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2356:1: (kw= '.' this_ID_2= RULE_ID )+
             int cnt31=0;
             loop31:
             do {
@@ -6614,16 +6740,16 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
                 switch (alt31) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2313:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2357:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,36,FOLLOW_36_in_ruleFULL_ID5547); if (state.failed) return current;
+            	    kw=(Token)match(input,36,FOLLOW_36_in_ruleFULL_ID5663); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
             	              newLeafNode(kw, grammarAccess.getFULL_IDAccess().getFullStopKeyword_1_0()); 
             	          
             	    }
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFULL_ID5562); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFULL_ID5678); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_ID_2);
@@ -6671,7 +6797,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVarReserved"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2333:1: entryRuleVarReserved returns [String current=null] : iv_ruleVarReserved= ruleVarReserved EOF ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2377:1: entryRuleVarReserved returns [String current=null] : iv_ruleVarReserved= ruleVarReserved EOF ;
     public final String entryRuleVarReserved() throws RecognitionException {
         String current = null;
 
@@ -6679,13 +6805,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2334:2: (iv_ruleVarReserved= ruleVarReserved EOF )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2335:2: iv_ruleVarReserved= ruleVarReserved EOF
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2378:2: (iv_ruleVarReserved= ruleVarReserved EOF )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2379:2: iv_ruleVarReserved= ruleVarReserved EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVarReservedRule()); 
             }
-            pushFollow(FOLLOW_ruleVarReserved_in_entryRuleVarReserved5610);
+            pushFollow(FOLLOW_ruleVarReserved_in_entryRuleVarReserved5726);
             iv_ruleVarReserved=ruleVarReserved();
 
             state._fsp--;
@@ -6693,7 +6819,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleVarReserved.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVarReserved5621); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVarReserved5737); if (state.failed) return current;
 
             }
 
@@ -6711,7 +6837,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVarReserved"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2342:1: ruleVarReserved returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2386:1: ruleVarReserved returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' ) ;
     public final AntlrDatatypeRuleToken ruleVarReserved() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6720,10 +6846,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2345:28: ( (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2346:1: (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2389:28: ( (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2390:1: (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2346:1: (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2390:1: (kw= 'to' | kw= 'package' | kw= 'syntax' | kw= 'import' | kw= 'option' | kw= 'message' | kw= 'service' | kw= 'enum' | kw= 'required' | kw= 'optional' | kw= 'repeated' | kw= 'extensions' | kw= 'extend' | kw= 'group' | kw= 'rpc' | kw= 'returns' | kw= 'int32' | kw= 'int64' | kw= 'uint32' | kw= 'uint64' | kw= 'sint32' | kw= 'sint64' | kw= 'fixed32' | kw= 'fixed64' | kw= 'sfixed32' | kw= 'sfixed64' | kw= 'float' | kw= 'double' | kw= 'bool' | kw= 'string' | kw= 'bytes' | kw= 'default' | kw= 'max' | kw= 'void' )
             int alt32=34;
             switch ( input.LA(1) ) {
             case 23:
@@ -6906,9 +7032,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             switch (alt32) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2347:2: kw= 'to'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2391:2: kw= 'to'
                     {
-                    kw=(Token)match(input,23,FOLLOW_23_in_ruleVarReserved5659); if (state.failed) return current;
+                    kw=(Token)match(input,23,FOLLOW_23_in_ruleVarReserved5775); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6919,9 +7045,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2354:2: kw= 'package'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2398:2: kw= 'package'
                     {
-                    kw=(Token)match(input,16,FOLLOW_16_in_ruleVarReserved5678); if (state.failed) return current;
+                    kw=(Token)match(input,16,FOLLOW_16_in_ruleVarReserved5794); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6932,9 +7058,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2361:2: kw= 'syntax'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2405:2: kw= 'syntax'
                     {
-                    kw=(Token)match(input,13,FOLLOW_13_in_ruleVarReserved5697); if (state.failed) return current;
+                    kw=(Token)match(input,13,FOLLOW_13_in_ruleVarReserved5813); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6945,9 +7071,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2368:2: kw= 'import'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2412:2: kw= 'import'
                     {
-                    kw=(Token)match(input,17,FOLLOW_17_in_ruleVarReserved5716); if (state.failed) return current;
+                    kw=(Token)match(input,17,FOLLOW_17_in_ruleVarReserved5832); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6958,9 +7084,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2375:2: kw= 'option'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2419:2: kw= 'option'
                     {
-                    kw=(Token)match(input,18,FOLLOW_18_in_ruleVarReserved5735); if (state.failed) return current;
+                    kw=(Token)match(input,18,FOLLOW_18_in_ruleVarReserved5851); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6971,9 +7097,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2382:2: kw= 'message'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2426:2: kw= 'message'
                     {
-                    kw=(Token)match(input,19,FOLLOW_19_in_ruleVarReserved5754); if (state.failed) return current;
+                    kw=(Token)match(input,19,FOLLOW_19_in_ruleVarReserved5870); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6984,9 +7110,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2389:2: kw= 'service'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2433:2: kw= 'service'
                     {
-                    kw=(Token)match(input,30,FOLLOW_30_in_ruleVarReserved5773); if (state.failed) return current;
+                    kw=(Token)match(input,30,FOLLOW_30_in_ruleVarReserved5889); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6997,9 +7123,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2396:2: kw= 'enum'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2440:2: kw= 'enum'
                     {
-                    kw=(Token)match(input,29,FOLLOW_29_in_ruleVarReserved5792); if (state.failed) return current;
+                    kw=(Token)match(input,29,FOLLOW_29_in_ruleVarReserved5908); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7010,9 +7136,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2403:2: kw= 'required'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2447:2: kw= 'required'
                     {
-                    kw=(Token)match(input,37,FOLLOW_37_in_ruleVarReserved5811); if (state.failed) return current;
+                    kw=(Token)match(input,37,FOLLOW_37_in_ruleVarReserved5927); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7023,9 +7149,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2410:2: kw= 'optional'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2454:2: kw= 'optional'
                     {
-                    kw=(Token)match(input,38,FOLLOW_38_in_ruleVarReserved5830); if (state.failed) return current;
+                    kw=(Token)match(input,38,FOLLOW_38_in_ruleVarReserved5946); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7036,9 +7162,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2417:2: kw= 'repeated'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2461:2: kw= 'repeated'
                     {
-                    kw=(Token)match(input,39,FOLLOW_39_in_ruleVarReserved5849); if (state.failed) return current;
+                    kw=(Token)match(input,39,FOLLOW_39_in_ruleVarReserved5965); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7049,9 +7175,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2424:2: kw= 'extensions'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2468:2: kw= 'extensions'
                     {
-                    kw=(Token)match(input,22,FOLLOW_22_in_ruleVarReserved5868); if (state.failed) return current;
+                    kw=(Token)match(input,22,FOLLOW_22_in_ruleVarReserved5984); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7062,9 +7188,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2431:2: kw= 'extend'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2475:2: kw= 'extend'
                     {
-                    kw=(Token)match(input,35,FOLLOW_35_in_ruleVarReserved5887); if (state.failed) return current;
+                    kw=(Token)match(input,35,FOLLOW_35_in_ruleVarReserved6003); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7075,9 +7201,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2438:2: kw= 'group'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2482:2: kw= 'group'
                     {
-                    kw=(Token)match(input,24,FOLLOW_24_in_ruleVarReserved5906); if (state.failed) return current;
+                    kw=(Token)match(input,24,FOLLOW_24_in_ruleVarReserved6022); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7088,9 +7214,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2445:2: kw= 'rpc'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2489:2: kw= 'rpc'
                     {
-                    kw=(Token)match(input,31,FOLLOW_31_in_ruleVarReserved5925); if (state.failed) return current;
+                    kw=(Token)match(input,31,FOLLOW_31_in_ruleVarReserved6041); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7101,9 +7227,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2452:2: kw= 'returns'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2496:2: kw= 'returns'
                     {
-                    kw=(Token)match(input,34,FOLLOW_34_in_ruleVarReserved5944); if (state.failed) return current;
+                    kw=(Token)match(input,34,FOLLOW_34_in_ruleVarReserved6060); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7114,9 +7240,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2459:2: kw= 'int32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2503:2: kw= 'int32'
                     {
-                    kw=(Token)match(input,40,FOLLOW_40_in_ruleVarReserved5963); if (state.failed) return current;
+                    kw=(Token)match(input,40,FOLLOW_40_in_ruleVarReserved6079); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7127,9 +7253,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 18 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2466:2: kw= 'int64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2510:2: kw= 'int64'
                     {
-                    kw=(Token)match(input,41,FOLLOW_41_in_ruleVarReserved5982); if (state.failed) return current;
+                    kw=(Token)match(input,41,FOLLOW_41_in_ruleVarReserved6098); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7140,9 +7266,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 19 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2473:2: kw= 'uint32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2517:2: kw= 'uint32'
                     {
-                    kw=(Token)match(input,42,FOLLOW_42_in_ruleVarReserved6001); if (state.failed) return current;
+                    kw=(Token)match(input,42,FOLLOW_42_in_ruleVarReserved6117); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7153,9 +7279,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 20 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2480:2: kw= 'uint64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2524:2: kw= 'uint64'
                     {
-                    kw=(Token)match(input,43,FOLLOW_43_in_ruleVarReserved6020); if (state.failed) return current;
+                    kw=(Token)match(input,43,FOLLOW_43_in_ruleVarReserved6136); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7166,9 +7292,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 21 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2487:2: kw= 'sint32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2531:2: kw= 'sint32'
                     {
-                    kw=(Token)match(input,44,FOLLOW_44_in_ruleVarReserved6039); if (state.failed) return current;
+                    kw=(Token)match(input,44,FOLLOW_44_in_ruleVarReserved6155); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7179,9 +7305,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 22 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2494:2: kw= 'sint64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2538:2: kw= 'sint64'
                     {
-                    kw=(Token)match(input,45,FOLLOW_45_in_ruleVarReserved6058); if (state.failed) return current;
+                    kw=(Token)match(input,45,FOLLOW_45_in_ruleVarReserved6174); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7192,9 +7318,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 23 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2501:2: kw= 'fixed32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2545:2: kw= 'fixed32'
                     {
-                    kw=(Token)match(input,46,FOLLOW_46_in_ruleVarReserved6077); if (state.failed) return current;
+                    kw=(Token)match(input,46,FOLLOW_46_in_ruleVarReserved6193); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7205,9 +7331,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 24 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2508:2: kw= 'fixed64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2552:2: kw= 'fixed64'
                     {
-                    kw=(Token)match(input,47,FOLLOW_47_in_ruleVarReserved6096); if (state.failed) return current;
+                    kw=(Token)match(input,47,FOLLOW_47_in_ruleVarReserved6212); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7218,9 +7344,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 25 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2515:2: kw= 'sfixed32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2559:2: kw= 'sfixed32'
                     {
-                    kw=(Token)match(input,48,FOLLOW_48_in_ruleVarReserved6115); if (state.failed) return current;
+                    kw=(Token)match(input,48,FOLLOW_48_in_ruleVarReserved6231); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7231,9 +7357,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 26 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2522:2: kw= 'sfixed64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2566:2: kw= 'sfixed64'
                     {
-                    kw=(Token)match(input,49,FOLLOW_49_in_ruleVarReserved6134); if (state.failed) return current;
+                    kw=(Token)match(input,49,FOLLOW_49_in_ruleVarReserved6250); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7244,9 +7370,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 27 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2529:2: kw= 'float'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2573:2: kw= 'float'
                     {
-                    kw=(Token)match(input,50,FOLLOW_50_in_ruleVarReserved6153); if (state.failed) return current;
+                    kw=(Token)match(input,50,FOLLOW_50_in_ruleVarReserved6269); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7257,9 +7383,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 28 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2536:2: kw= 'double'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2580:2: kw= 'double'
                     {
-                    kw=(Token)match(input,51,FOLLOW_51_in_ruleVarReserved6172); if (state.failed) return current;
+                    kw=(Token)match(input,51,FOLLOW_51_in_ruleVarReserved6288); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7270,9 +7396,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 29 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2543:2: kw= 'bool'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2587:2: kw= 'bool'
                     {
-                    kw=(Token)match(input,52,FOLLOW_52_in_ruleVarReserved6191); if (state.failed) return current;
+                    kw=(Token)match(input,52,FOLLOW_52_in_ruleVarReserved6307); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7283,9 +7409,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 30 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2550:2: kw= 'string'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2594:2: kw= 'string'
                     {
-                    kw=(Token)match(input,53,FOLLOW_53_in_ruleVarReserved6210); if (state.failed) return current;
+                    kw=(Token)match(input,53,FOLLOW_53_in_ruleVarReserved6326); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7296,9 +7422,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 31 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2557:2: kw= 'bytes'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2601:2: kw= 'bytes'
                     {
-                    kw=(Token)match(input,54,FOLLOW_54_in_ruleVarReserved6229); if (state.failed) return current;
+                    kw=(Token)match(input,54,FOLLOW_54_in_ruleVarReserved6345); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7309,9 +7435,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 32 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2564:2: kw= 'default'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2608:2: kw= 'default'
                     {
-                    kw=(Token)match(input,28,FOLLOW_28_in_ruleVarReserved6248); if (state.failed) return current;
+                    kw=(Token)match(input,28,FOLLOW_28_in_ruleVarReserved6364); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7322,9 +7448,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 33 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2571:2: kw= 'max'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2615:2: kw= 'max'
                     {
-                    kw=(Token)match(input,55,FOLLOW_55_in_ruleVarReserved6267); if (state.failed) return current;
+                    kw=(Token)match(input,55,FOLLOW_55_in_ruleVarReserved6383); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7335,9 +7461,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 34 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2578:2: kw= 'void'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2622:2: kw= 'void'
                     {
-                    kw=(Token)match(input,56,FOLLOW_56_in_ruleVarReserved6286); if (state.failed) return current;
+                    kw=(Token)match(input,56,FOLLOW_56_in_ruleVarReserved6402); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7370,7 +7496,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBOOL"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2593:1: ruleBOOL returns [Enumerator current=null] : ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2637:1: ruleBOOL returns [Enumerator current=null] : ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) ;
     public final Enumerator ruleBOOL() throws RecognitionException {
         Enumerator current = null;
 
@@ -7379,10 +7505,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2595:28: ( ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2596:1: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2639:28: ( ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:1: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2596:1: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:1: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
             int alt33=2;
             int LA33_0 = input.LA(1);
 
@@ -7401,12 +7527,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             }
             switch (alt33) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2596:2: (enumLiteral_0= 'true' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:2: (enumLiteral_0= 'true' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2596:2: (enumLiteral_0= 'true' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2596:4: enumLiteral_0= 'true'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:2: (enumLiteral_0= 'true' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:4: enumLiteral_0= 'true'
                     {
-                    enumLiteral_0=(Token)match(input,57,FOLLOW_57_in_ruleBOOL6342); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,57,FOLLOW_57_in_ruleBOOL6458); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getBOOLAccess().getTrueEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -7420,12 +7546,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2602:6: (enumLiteral_1= 'false' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2646:6: (enumLiteral_1= 'false' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2602:6: (enumLiteral_1= 'false' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2602:8: enumLiteral_1= 'false'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2646:6: (enumLiteral_1= 'false' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2646:8: enumLiteral_1= 'false'
                     {
-                    enumLiteral_1=(Token)match(input,58,FOLLOW_58_in_ruleBOOL6359); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,58,FOLLOW_58_in_ruleBOOL6475); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getBOOLAccess().getFalseEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -7461,7 +7587,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModifier"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2612:1: ruleModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2656:1: ruleModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) ) ;
     public final Enumerator ruleModifier() throws RecognitionException {
         Enumerator current = null;
 
@@ -7471,10 +7597,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2614:28: ( ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2615:1: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2658:28: ( ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2659:1: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2615:1: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2659:1: ( (enumLiteral_0= 'optional' ) | (enumLiteral_1= 'required' ) | (enumLiteral_2= 'repeated' ) )
             int alt34=3;
             switch ( input.LA(1) ) {
             case 38:
@@ -7502,12 +7628,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             switch (alt34) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2615:2: (enumLiteral_0= 'optional' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2659:2: (enumLiteral_0= 'optional' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2615:2: (enumLiteral_0= 'optional' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2615:4: enumLiteral_0= 'optional'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2659:2: (enumLiteral_0= 'optional' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2659:4: enumLiteral_0= 'optional'
                     {
-                    enumLiteral_0=(Token)match(input,38,FOLLOW_38_in_ruleModifier6404); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,38,FOLLOW_38_in_ruleModifier6520); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getModifierAccess().getOptionalEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -7521,12 +7647,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2621:6: (enumLiteral_1= 'required' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2665:6: (enumLiteral_1= 'required' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2621:6: (enumLiteral_1= 'required' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2621:8: enumLiteral_1= 'required'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2665:6: (enumLiteral_1= 'required' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2665:8: enumLiteral_1= 'required'
                     {
-                    enumLiteral_1=(Token)match(input,37,FOLLOW_37_in_ruleModifier6421); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,37,FOLLOW_37_in_ruleModifier6537); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getModifierAccess().getRequiredEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -7540,12 +7666,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2627:6: (enumLiteral_2= 'repeated' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2671:6: (enumLiteral_2= 'repeated' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2627:6: (enumLiteral_2= 'repeated' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2627:8: enumLiteral_2= 'repeated'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2671:6: (enumLiteral_2= 'repeated' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2671:8: enumLiteral_2= 'repeated'
                     {
-                    enumLiteral_2=(Token)match(input,39,FOLLOW_39_in_ruleModifier6438); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,39,FOLLOW_39_in_ruleModifier6554); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getModifierAccess().getRepeatedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -7581,7 +7707,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScalarType"
-    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2637:1: ruleScalarType returns [Enumerator current=null] : ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) ) ;
+    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2681:1: ruleScalarType returns [Enumerator current=null] : ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) ) ;
     public final Enumerator ruleScalarType() throws RecognitionException {
         Enumerator current = null;
 
@@ -7603,10 +7729,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2639:28: ( ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:1: ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2683:28: ( ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2684:1: ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:1: ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2684:1: ( (enumLiteral_0= 'int32' ) | (enumLiteral_1= 'int64' ) | (enumLiteral_2= 'uint32' ) | (enumLiteral_3= 'uint64' ) | (enumLiteral_4= 'sint32' ) | (enumLiteral_5= 'sint64' ) | (enumLiteral_6= 'fixed32' ) | (enumLiteral_7= 'fixed64' ) | (enumLiteral_8= 'sfixed32' ) | (enumLiteral_9= 'sfixed64' ) | (enumLiteral_10= 'float' ) | (enumLiteral_11= 'double' ) | (enumLiteral_12= 'bool' ) | (enumLiteral_13= 'string' ) | (enumLiteral_14= 'bytes' ) )
             int alt35=15;
             switch ( input.LA(1) ) {
             case 40:
@@ -7694,12 +7820,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
             switch (alt35) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:2: (enumLiteral_0= 'int32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2684:2: (enumLiteral_0= 'int32' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:2: (enumLiteral_0= 'int32' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2640:4: enumLiteral_0= 'int32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2684:2: (enumLiteral_0= 'int32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2684:4: enumLiteral_0= 'int32'
                     {
-                    enumLiteral_0=(Token)match(input,40,FOLLOW_40_in_ruleScalarType6483); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,40,FOLLOW_40_in_ruleScalarType6599); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getInt32EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -7713,12 +7839,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2646:6: (enumLiteral_1= 'int64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2690:6: (enumLiteral_1= 'int64' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2646:6: (enumLiteral_1= 'int64' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2646:8: enumLiteral_1= 'int64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2690:6: (enumLiteral_1= 'int64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2690:8: enumLiteral_1= 'int64'
                     {
-                    enumLiteral_1=(Token)match(input,41,FOLLOW_41_in_ruleScalarType6500); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,41,FOLLOW_41_in_ruleScalarType6616); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getInt64EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -7732,12 +7858,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2652:6: (enumLiteral_2= 'uint32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2696:6: (enumLiteral_2= 'uint32' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2652:6: (enumLiteral_2= 'uint32' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2652:8: enumLiteral_2= 'uint32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2696:6: (enumLiteral_2= 'uint32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2696:8: enumLiteral_2= 'uint32'
                     {
-                    enumLiteral_2=(Token)match(input,42,FOLLOW_42_in_ruleScalarType6517); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,42,FOLLOW_42_in_ruleScalarType6633); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getUint32EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -7751,12 +7877,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2658:6: (enumLiteral_3= 'uint64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2702:6: (enumLiteral_3= 'uint64' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2658:6: (enumLiteral_3= 'uint64' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2658:8: enumLiteral_3= 'uint64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2702:6: (enumLiteral_3= 'uint64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2702:8: enumLiteral_3= 'uint64'
                     {
-                    enumLiteral_3=(Token)match(input,43,FOLLOW_43_in_ruleScalarType6534); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,43,FOLLOW_43_in_ruleScalarType6650); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getUint64EnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -7770,12 +7896,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2664:6: (enumLiteral_4= 'sint32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2708:6: (enumLiteral_4= 'sint32' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2664:6: (enumLiteral_4= 'sint32' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2664:8: enumLiteral_4= 'sint32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2708:6: (enumLiteral_4= 'sint32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2708:8: enumLiteral_4= 'sint32'
                     {
-                    enumLiteral_4=(Token)match(input,44,FOLLOW_44_in_ruleScalarType6551); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,44,FOLLOW_44_in_ruleScalarType6667); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getSint32EnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -7789,12 +7915,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2670:6: (enumLiteral_5= 'sint64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2714:6: (enumLiteral_5= 'sint64' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2670:6: (enumLiteral_5= 'sint64' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2670:8: enumLiteral_5= 'sint64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2714:6: (enumLiteral_5= 'sint64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2714:8: enumLiteral_5= 'sint64'
                     {
-                    enumLiteral_5=(Token)match(input,45,FOLLOW_45_in_ruleScalarType6568); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,45,FOLLOW_45_in_ruleScalarType6684); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getSint64EnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -7808,12 +7934,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2676:6: (enumLiteral_6= 'fixed32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2720:6: (enumLiteral_6= 'fixed32' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2676:6: (enumLiteral_6= 'fixed32' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2676:8: enumLiteral_6= 'fixed32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2720:6: (enumLiteral_6= 'fixed32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2720:8: enumLiteral_6= 'fixed32'
                     {
-                    enumLiteral_6=(Token)match(input,46,FOLLOW_46_in_ruleScalarType6585); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,46,FOLLOW_46_in_ruleScalarType6701); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getFixed32EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -7827,12 +7953,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2682:6: (enumLiteral_7= 'fixed64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2726:6: (enumLiteral_7= 'fixed64' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2682:6: (enumLiteral_7= 'fixed64' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2682:8: enumLiteral_7= 'fixed64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2726:6: (enumLiteral_7= 'fixed64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2726:8: enumLiteral_7= 'fixed64'
                     {
-                    enumLiteral_7=(Token)match(input,47,FOLLOW_47_in_ruleScalarType6602); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,47,FOLLOW_47_in_ruleScalarType6718); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getFixed64EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -7846,12 +7972,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2688:6: (enumLiteral_8= 'sfixed32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2732:6: (enumLiteral_8= 'sfixed32' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2688:6: (enumLiteral_8= 'sfixed32' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2688:8: enumLiteral_8= 'sfixed32'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2732:6: (enumLiteral_8= 'sfixed32' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2732:8: enumLiteral_8= 'sfixed32'
                     {
-                    enumLiteral_8=(Token)match(input,48,FOLLOW_48_in_ruleScalarType6619); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,48,FOLLOW_48_in_ruleScalarType6735); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getSfixed32EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -7865,12 +7991,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2694:6: (enumLiteral_9= 'sfixed64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2738:6: (enumLiteral_9= 'sfixed64' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2694:6: (enumLiteral_9= 'sfixed64' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2694:8: enumLiteral_9= 'sfixed64'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2738:6: (enumLiteral_9= 'sfixed64' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2738:8: enumLiteral_9= 'sfixed64'
                     {
-                    enumLiteral_9=(Token)match(input,49,FOLLOW_49_in_ruleScalarType6636); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,49,FOLLOW_49_in_ruleScalarType6752); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getSfixed64EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -7884,12 +8010,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2700:6: (enumLiteral_10= 'float' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2744:6: (enumLiteral_10= 'float' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2700:6: (enumLiteral_10= 'float' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2700:8: enumLiteral_10= 'float'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2744:6: (enumLiteral_10= 'float' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2744:8: enumLiteral_10= 'float'
                     {
-                    enumLiteral_10=(Token)match(input,50,FOLLOW_50_in_ruleScalarType6653); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,50,FOLLOW_50_in_ruleScalarType6769); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getFloatEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -7903,12 +8029,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2706:6: (enumLiteral_11= 'double' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2750:6: (enumLiteral_11= 'double' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2706:6: (enumLiteral_11= 'double' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2706:8: enumLiteral_11= 'double'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2750:6: (enumLiteral_11= 'double' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2750:8: enumLiteral_11= 'double'
                     {
-                    enumLiteral_11=(Token)match(input,51,FOLLOW_51_in_ruleScalarType6670); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,51,FOLLOW_51_in_ruleScalarType6786); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getDoubleEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -7922,12 +8048,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2712:6: (enumLiteral_12= 'bool' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2756:6: (enumLiteral_12= 'bool' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2712:6: (enumLiteral_12= 'bool' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2712:8: enumLiteral_12= 'bool'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2756:6: (enumLiteral_12= 'bool' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2756:8: enumLiteral_12= 'bool'
                     {
-                    enumLiteral_12=(Token)match(input,52,FOLLOW_52_in_ruleScalarType6687); if (state.failed) return current;
+                    enumLiteral_12=(Token)match(input,52,FOLLOW_52_in_ruleScalarType6803); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getBoolEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
@@ -7941,12 +8067,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2718:6: (enumLiteral_13= 'string' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2762:6: (enumLiteral_13= 'string' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2718:6: (enumLiteral_13= 'string' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2718:8: enumLiteral_13= 'string'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2762:6: (enumLiteral_13= 'string' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2762:8: enumLiteral_13= 'string'
                     {
-                    enumLiteral_13=(Token)match(input,53,FOLLOW_53_in_ruleScalarType6704); if (state.failed) return current;
+                    enumLiteral_13=(Token)match(input,53,FOLLOW_53_in_ruleScalarType6820); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getStringEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
@@ -7960,12 +8086,12 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2724:6: (enumLiteral_14= 'bytes' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2768:6: (enumLiteral_14= 'bytes' )
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2724:6: (enumLiteral_14= 'bytes' )
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2724:8: enumLiteral_14= 'bytes'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2768:6: (enumLiteral_14= 'bytes' )
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:2768:8: enumLiteral_14= 'bytes'
                     {
-                    enumLiteral_14=(Token)match(input,54,FOLLOW_54_in_ruleScalarType6721); if (state.failed) return current;
+                    enumLiteral_14=(Token)match(input,54,FOLLOW_54_in_ruleScalarType6837); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getScalarTypeAccess().getBytesEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
@@ -8001,10 +8127,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalProtobuf
     public final void synpred1_InternalProtobuf_fragment() throws RecognitionException {   
-        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:3: ( ruleScalarTypeLink )
-        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1281:5: ruleScalarTypeLink
+        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:3: ( ruleScalarTypeLink )
+        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1325:5: ruleScalarTypeLink
         {
-        pushFollow(FOLLOW_ruleScalarTypeLink_in_synpred1_InternalProtobuf3018);
+        pushFollow(FOLLOW_ruleScalarTypeLink_in_synpred1_InternalProtobuf3134);
         ruleScalarTypeLink();
 
         state._fsp--;
@@ -8016,10 +8142,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred2_InternalProtobuf
     public final void synpred2_InternalProtobuf_fragment() throws RecognitionException {   
-        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:3: ( 'default' )
-        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1465:5: 'default'
+        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:3: ( 'default' )
+        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1509:5: 'default'
         {
-        match(input,28,FOLLOW_28_in_synpred2_InternalProtobuf3478); if (state.failed) return ;
+        match(input,28,FOLLOW_28_in_synpred2_InternalProtobuf3594); if (state.failed) return ;
 
         }
     }
@@ -8065,20 +8191,20 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     static final String DFA10_eofS =
         "\54\uffff";
     static final String DFA10_minS =
-        "\1\45\3\7\1\uffff\1\7\43\16\1\5\1\17\1\uffff";
+        "\1\45\4\5\1\uffff\43\16\1\6\1\17\1\uffff";
     static final String DFA10_maxS =
-        "\1\47\3\70\1\uffff\1\70\43\16\1\5\1\31\1\uffff";
+        "\1\47\4\70\1\uffff\43\16\1\6\1\31\1\uffff";
     static final String DFA10_acceptS =
-        "\4\uffff\1\1\46\uffff\1\2";
+        "\5\uffff\1\1\45\uffff\1\2";
     static final String DFA10_specialS =
         "\54\uffff}>";
     static final String[] DFA10_transitionS = {
             "\1\2\1\1\1\3",
-            "\1\4\5\uffff\1\4\2\uffff\4\4\2\uffff\2\4\1\5\3\uffff\4\4\2\uffff\2\4\1\uffff\24\4",
-            "\1\4\5\uffff\1\4\2\uffff\4\4\2\uffff\2\4\1\5\3\uffff\4\4\2\uffff\2\4\1\uffff\24\4",
-            "\1\4\5\uffff\1\4\2\uffff\4\4\2\uffff\2\4\1\5\3\uffff\4\4\2\uffff\2\4\1\uffff\24\4",
+            "\1\5\7\uffff\1\5\2\uffff\4\5\2\uffff\2\5\1\4\3\uffff\4\5\2\uffff\2\5\1\uffff\24\5",
+            "\1\5\7\uffff\1\5\2\uffff\4\5\2\uffff\2\5\1\4\3\uffff\4\5\2\uffff\2\5\1\uffff\24\5",
+            "\1\5\7\uffff\1\5\2\uffff\4\5\2\uffff\2\5\1\4\3\uffff\4\5\2\uffff\2\5\1\uffff\24\5",
+            "\1\6\7\uffff\1\11\2\uffff\1\10\1\12\1\13\1\14\2\uffff\1\22\1\7\1\24\3\uffff\1\46\1\16\1\15\1\25\2\uffff\1\26\1\23\1\uffff\1\17\1\20\1\21\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\47\1\50",
             "",
-            "\1\6\5\uffff\1\11\2\uffff\1\10\1\12\1\13\1\14\2\uffff\1\22\1\7\1\24\3\uffff\1\46\1\16\1\15\1\25\2\uffff\1\26\1\23\1\uffff\1\17\1\20\1\21\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\47\1\50",
             "\1\51",
             "\1\51",
             "\1\51",
@@ -8115,7 +8241,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             "\1\51",
             "\1\51",
             "\1\52",
-            "\1\4\4\uffff\1\53\4\uffff\1\4",
+            "\1\5\4\uffff\1\53\4\uffff\1\5",
             ""
     };
 
@@ -8149,7 +8275,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             this.transition = DFA10_transition;
         }
         public String getDescription() {
-            return "944:1: (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup )";
+            return "988:1: (this_MessageField_0= ruleMessageField | this_Group_1= ruleGroup )";
         }
     }
     static final String DFA14_eotS =
@@ -8157,15 +8283,15 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     static final String DFA14_eofS =
         "\22\uffff";
     static final String DFA14_minS =
-        "\1\7\17\0\2\uffff";
+        "\1\5\17\0\2\uffff";
     static final String DFA14_maxS =
         "\1\70\17\0\2\uffff";
     static final String DFA14_acceptS =
         "\20\uffff\1\2\1\1";
     static final String DFA14_specialS =
-        "\1\uffff\1\6\1\16\1\4\1\14\1\11\1\3\1\10\1\1\1\15\1\7\1\13\1\5\1\2\1\12\1\0\2\uffff}>";
+        "\1\uffff\1\0\1\11\1\6\1\16\1\4\1\14\1\12\1\3\1\10\1\1\1\15\1\7\1\13\1\5\1\2\2\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\1\20\5\uffff\1\20\2\uffff\4\20\2\uffff\3\20\3\uffff\4\20\2\uffff\2\20\1\uffff\3\20\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\2\20",
+            "\1\20\7\uffff\1\20\2\uffff\4\20\2\uffff\3\20\3\uffff\4\20\2\uffff\2\20\1\uffff\3\20\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\2\20",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -8215,103 +8341,13 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1281:1: ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink )";
+            return "1325:1: ( ( ( ruleScalarTypeLink )=>this_ScalarTypeLink_0= ruleScalarTypeLink ) | this_ComplexTypeLink_1= ruleComplexTypeLink )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA14_15 = input.LA(1);
-
-                         
-                        int index14_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
-
-                        else if ( (true) ) {s = 16;}
-
-                         
-                        input.seek(index14_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA14_8 = input.LA(1);
-
-                         
-                        int index14_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
-
-                        else if ( (true) ) {s = 16;}
-
-                         
-                        input.seek(index14_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA14_13 = input.LA(1);
-
-                         
-                        int index14_13 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
-
-                        else if ( (true) ) {s = 16;}
-
-                         
-                        input.seek(index14_13);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA14_6 = input.LA(1);
-
-                         
-                        int index14_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
-
-                        else if ( (true) ) {s = 16;}
-
-                         
-                        input.seek(index14_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA14_3 = input.LA(1);
-
-                         
-                        int index14_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
-
-                        else if ( (true) ) {s = 16;}
-
-                         
-                        input.seek(index14_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA14_12 = input.LA(1);
-
-                         
-                        int index14_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
-
-                        else if ( (true) ) {s = 16;}
-
-                         
-                        input.seek(index14_12);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
                         int LA14_1 = input.LA(1);
 
                          
@@ -8326,7 +8362,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index14_1);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 1 : 
                         int LA14_10 = input.LA(1);
 
                          
@@ -8341,11 +8377,11 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index14_10);
                         if ( s>=0 ) return s;
                         break;
-                    case 8 : 
-                        int LA14_7 = input.LA(1);
+                    case 2 : 
+                        int LA14_15 = input.LA(1);
 
                          
-                        int index14_7 = input.index();
+                        int index14_15 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred1_InternalProtobuf()) ) {s = 17;}
@@ -8353,10 +8389,25 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 16;}
 
                          
-                        input.seek(index14_7);
+                        input.seek(index14_15);
                         if ( s>=0 ) return s;
                         break;
-                    case 9 : 
+                    case 3 : 
+                        int LA14_8 = input.LA(1);
+
+                         
+                        int index14_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
+
+                        else if ( (true) ) {s = 16;}
+
+                         
+                        input.seek(index14_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
                         int LA14_5 = input.LA(1);
 
                          
@@ -8371,7 +8422,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index14_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 10 : 
+                    case 5 : 
                         int LA14_14 = input.LA(1);
 
                          
@@ -8386,11 +8437,11 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index14_14);
                         if ( s>=0 ) return s;
                         break;
-                    case 11 : 
-                        int LA14_11 = input.LA(1);
+                    case 6 : 
+                        int LA14_3 = input.LA(1);
 
                          
-                        int index14_11 = input.index();
+                        int index14_3 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred1_InternalProtobuf()) ) {s = 17;}
@@ -8398,14 +8449,14 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 16;}
 
                          
-                        input.seek(index14_11);
+                        input.seek(index14_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 12 : 
-                        int LA14_4 = input.LA(1);
+                    case 7 : 
+                        int LA14_12 = input.LA(1);
 
                          
-                        int index14_4 = input.index();
+                        int index14_12 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred1_InternalProtobuf()) ) {s = 17;}
@@ -8413,10 +8464,10 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 16;}
 
                          
-                        input.seek(index14_4);
+                        input.seek(index14_12);
                         if ( s>=0 ) return s;
                         break;
-                    case 13 : 
+                    case 8 : 
                         int LA14_9 = input.LA(1);
 
                          
@@ -8431,7 +8482,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index14_9);
                         if ( s>=0 ) return s;
                         break;
-                    case 14 : 
+                    case 9 : 
                         int LA14_2 = input.LA(1);
 
                          
@@ -8446,6 +8497,81 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index14_2);
                         if ( s>=0 ) return s;
                         break;
+                    case 10 : 
+                        int LA14_7 = input.LA(1);
+
+                         
+                        int index14_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
+
+                        else if ( (true) ) {s = 16;}
+
+                         
+                        input.seek(index14_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA14_13 = input.LA(1);
+
+                         
+                        int index14_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
+
+                        else if ( (true) ) {s = 16;}
+
+                         
+                        input.seek(index14_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA14_6 = input.LA(1);
+
+                         
+                        int index14_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
+
+                        else if ( (true) ) {s = 16;}
+
+                         
+                        input.seek(index14_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA14_11 = input.LA(1);
+
+                         
+                        int index14_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
+
+                        else if ( (true) ) {s = 16;}
+
+                         
+                        input.seek(index14_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA14_4 = input.LA(1);
+
+                         
+                        int index14_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred1_InternalProtobuf()) ) {s = 17;}
+
+                        else if ( (true) ) {s = 16;}
+
+                         
+                        input.seek(index14_4);
+                        if ( s>=0 ) return s;
+                        break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
@@ -8455,22 +8581,23 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
         }
     }
     static final String DFA16_eotS =
-        "\12\uffff";
+        "\13\uffff";
     static final String DFA16_eofS =
-        "\12\uffff";
+        "\13\uffff";
     static final String DFA16_minS =
-        "\1\7\1\16\1\uffff\1\4\5\0\1\uffff";
+        "\1\5\1\16\1\uffff\1\4\6\0\1\uffff";
     static final String DFA16_maxS =
-        "\1\70\1\16\1\uffff\1\72\5\0\1\uffff";
+        "\1\70\1\16\1\uffff\1\72\6\0\1\uffff";
     static final String DFA16_acceptS =
-        "\2\uffff\1\2\6\uffff\1\1";
+        "\2\uffff\1\2\7\uffff\1\1";
     static final String DFA16_specialS =
-        "\4\uffff\1\1\1\2\1\0\1\3\1\4\1\uffff}>";
+        "\4\uffff\1\2\1\4\1\5\1\0\1\3\1\1\1\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\1\2\5\uffff\1\2\2\uffff\4\2\2\uffff\3\2\3\uffff\1\1\3\2\2\uffff\2\2\1\uffff\24\2",
+            "\1\2\7\uffff\1\2\2\uffff\4\2\2\uffff\3\2\3\uffff\1\1\3\2\2\uffff\2\2\1\uffff\24\2",
             "\1\3",
             "",
-            "\1\10\1\4\1\5\62\uffff\1\6\1\7",
+            "\1\10\1\11\1\4\1\5\61\uffff\1\6\1\7",
+            "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -8509,65 +8636,20 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
             this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "1465:1: ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption )";
+            return "1509:1: ( ( ( 'default' )=>this_DefaultValueFieldOption_0= ruleDefaultValueFieldOption ) | this_NativeFieldOption_1= ruleNativeFieldOption )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA16_6 = input.LA(1);
-
-                         
-                        int index16_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred2_InternalProtobuf()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 2;}
-
-                         
-                        input.seek(index16_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA16_4 = input.LA(1);
-
-                         
-                        int index16_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred2_InternalProtobuf()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 2;}
-
-                         
-                        input.seek(index16_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA16_5 = input.LA(1);
-
-                         
-                        int index16_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred2_InternalProtobuf()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 2;}
-
-                         
-                        input.seek(index16_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
                         int LA16_7 = input.LA(1);
 
                          
                         int index16_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred2_InternalProtobuf()) ) {s = 9;}
+                        if ( (synpred2_InternalProtobuf()) ) {s = 10;}
 
                         else if ( (true) ) {s = 2;}
 
@@ -8575,19 +8657,79 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
                         input.seek(index16_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
+                    case 1 : 
+                        int LA16_9 = input.LA(1);
+
+                         
+                        int index16_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalProtobuf()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 2;}
+
+                         
+                        input.seek(index16_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA16_4 = input.LA(1);
+
+                         
+                        int index16_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalProtobuf()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 2;}
+
+                         
+                        input.seek(index16_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
                         int LA16_8 = input.LA(1);
 
                          
                         int index16_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred2_InternalProtobuf()) ) {s = 9;}
+                        if ( (synpred2_InternalProtobuf()) ) {s = 10;}
 
                         else if ( (true) ) {s = 2;}
 
                          
                         input.seek(index16_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA16_5 = input.LA(1);
+
+                         
+                        int index16_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalProtobuf()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 2;}
+
+                         
+                        input.seek(index16_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA16_6 = input.LA(1);
+
+                         
+                        int index16_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalProtobuf()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 2;}
+
+                         
+                        input.seek(index16_6);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -8620,7 +8762,7 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15_in_ruleSyntax510 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePackage_in_entryRulePackage546 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePackage556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rulePackage593 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
+    public static final BitSet FOLLOW_16_in_rulePackage593 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
     public static final BitSet FOLLOW_ruleVar_full_in_rulePackage614 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_rulePackage626 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImport_in_entryRuleImport662 = new BitSet(new long[]{0x0000000000000000L});
@@ -8630,9 +8772,9 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15_in_ruleImport743 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOption_in_entryRuleOption779 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOption789 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleOption826 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
+    public static final BitSet FOLLOW_18_in_ruleOption826 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
     public static final BitSet FOLLOW_ruleVar_full_in_ruleOption849 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleOption861 = new BitSet(new long[]{0x0600000000000070L});
+    public static final BitSet FOLLOW_14_in_ruleOption861 = new BitSet(new long[]{0x06000000000000F0L});
     public static final BitSet FOLLOW_ruleValue_in_ruleOption882 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleOption894 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValue_in_entryRuleValue930 = new BitSet(new long[]{0x0000000000000000L});
@@ -8643,240 +8785,244 @@ public class InternalProtobufParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleNumberLink_in_ruleSimpleValueLink1077 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBooleanLink_in_ruleSimpleValueLink1104 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStringLink_in_ruleSimpleValueLink1131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLink_in_entryRuleStringLink1166 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringLink1176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLink1217 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLink_in_entryRuleBooleanLink1257 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLink1267 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBOOL_in_ruleBooleanLink1312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLink_in_entryRuleNumberLink1347 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLink1357 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntLink_in_ruleNumberLink1404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDoubleLink_in_ruleNumberLink1431 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntLink_in_entryRuleIntLink1466 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntLink1476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleIntLink1517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDoubleLink_in_entryRuleDoubleLink1557 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDoubleLink1567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NUMDOUBLE_in_ruleDoubleLink1608 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexType_in_entryRuleComplexType1648 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComplexType1658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnum_in_ruleComplexType1705 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExtensibleType_in_ruleComplexType1732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExtensibleType_in_entryRuleExtensibleType1767 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExtensibleType1777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMessage_in_ruleExtensibleType1824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroup_in_ruleExtensibleType1851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMessage_in_entryRuleMessage1886 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMessage1896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleMessage1933 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMessage1950 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleMessage1967 = new BitSet(new long[]{0x000000E8606F0000L});
-    public static final BitSet FOLLOW_ruleMessageElement_in_ruleMessage1988 = new BitSet(new long[]{0x000000E8606F0000L});
-    public static final BitSet FOLLOW_21_in_ruleMessage2001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMessageElement_in_entryRuleMessageElement2037 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMessageElement2047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMessage_in_ruleMessageElement2094 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIndexedElement_in_ruleMessageElement2121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnum_in_ruleMessageElement2148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleService_in_ruleMessageElement2175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExtend_in_ruleMessageElement2202 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExtensionRange_in_ruleMessageElement2229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOption_in_ruleMessageElement2256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIndexedElement_in_entryRuleIndexedElement2291 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIndexedElement2301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMessageField_in_ruleIndexedElement2348 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroup_in_ruleIndexedElement2375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExtensionRange_in_entryRuleExtensionRange2410 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExtensionRange2420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleExtensionRange2457 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleExtensionRange2474 = new BitSet(new long[]{0x0000000000808000L});
-    public static final BitSet FOLLOW_23_in_ruleExtensionRange2492 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleExtensionRange2509 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleExtensionRange2528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMessageField_in_entryRuleMessageField2564 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMessageField2574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifier_in_ruleMessageField2620 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleTypeLink_in_ruleMessageField2641 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleVar_in_ruleMessageField2662 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleMessageField2674 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleMessageField2691 = new BitSet(new long[]{0x0000000002008000L});
-    public static final BitSet FOLLOW_ruleFieldOptions_in_ruleMessageField2717 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMessageField2730 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroup_in_entryRuleGroup2766 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGroup2776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifier_in_ruleGroup2822 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleGroup2834 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleVar_in_ruleGroup2855 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleGroup2867 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleGroup2884 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleGroup2901 = new BitSet(new long[]{0x000000E020280000L});
-    public static final BitSet FOLLOW_ruleMessageField_in_ruleGroup2922 = new BitSet(new long[]{0x000000E020280000L});
-    public static final BitSet FOLLOW_21_in_ruleGroup2935 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeLink_in_entryRuleTypeLink2971 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeLink2981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleScalarTypeLink_in_ruleTypeLink3034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexTypeLink_in_ruleTypeLink3062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexTypeLink_in_entryRuleComplexTypeLink3097 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComplexTypeLink3107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVar_full_in_ruleComplexTypeLink3154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleScalarTypeLink_in_entryRuleScalarTypeLink3189 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleScalarTypeLink3199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleScalarType_in_ruleScalarTypeLink3244 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFieldOptions_in_entryRuleFieldOptions3279 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFieldOptions3289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleFieldOptions3326 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleFieldOption_in_ruleFieldOptions3347 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_26_in_ruleFieldOptions3360 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleFieldOption_in_ruleFieldOptions3381 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_27_in_ruleFieldOptions3395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFieldOption_in_entryRuleFieldOption3431 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFieldOption3441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultValueFieldOption_in_ruleFieldOption3496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNativeFieldOption_in_ruleFieldOption3524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultValueFieldOption_in_entryRuleDefaultValueFieldOption3559 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultValueFieldOption3569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleDefaultValueFieldOption3614 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleDefaultValueFieldOption3627 = new BitSet(new long[]{0x0600000000000070L});
-    public static final BitSet FOLLOW_ruleValue_in_ruleDefaultValueFieldOption3648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNativeFieldOption_in_entryRuleNativeFieldOption3684 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNativeFieldOption3694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOptionSource_in_ruleNativeFieldOption3740 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleNativeFieldOption3752 = new BitSet(new long[]{0x0600000000000070L});
-    public static final BitSet FOLLOW_ruleValue_in_ruleNativeFieldOption3773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOptionSource_in_entryRuleOptionSource3809 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOptionSource3819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVar_full_in_ruleOptionSource3866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnum_in_entryRuleEnum3901 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnum3911 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleEnum3948 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnum3965 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleEnum3982 = new BitSet(new long[]{0x000000E8602F0080L});
-    public static final BitSet FOLLOW_ruleEnumElement_in_ruleEnum4003 = new BitSet(new long[]{0x000000E8602F0080L});
-    public static final BitSet FOLLOW_21_in_ruleEnum4016 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumElement_in_entryRuleEnumElement4052 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumElement4062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumField_in_ruleEnumElement4109 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOption_in_ruleEnumElement4136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumField_in_entryRuleEnumField4171 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumField4181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumField4223 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEnumField4240 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleEnumField4257 = new BitSet(new long[]{0x0000000002008000L});
-    public static final BitSet FOLLOW_25_in_ruleEnumField4275 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleFieldOption_in_ruleEnumField4296 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_26_in_ruleEnumField4309 = new BitSet(new long[]{0x01FFFFECF1CF2080L});
-    public static final BitSet FOLLOW_ruleFieldOption_in_ruleEnumField4330 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_27_in_ruleEnumField4344 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleEnumField4358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleService_in_entryRuleService4394 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleService4404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleService4441 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleService4458 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleService4475 = new BitSet(new long[]{0x000000E8E00F0000L});
-    public static final BitSet FOLLOW_ruleServiceElement_in_ruleService4496 = new BitSet(new long[]{0x000000E8E02F0000L});
-    public static final BitSet FOLLOW_21_in_ruleService4509 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleService4522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceElement_in_entryRuleServiceElement4560 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceElement4570 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRpc_in_ruleServiceElement4617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOption_in_ruleServiceElement4644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRpc_in_entryRuleRpc4679 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRpc4689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleRpc4726 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRpc4743 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleRpc4760 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleMessageLink_in_ruleRpc4781 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleRpc4793 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleRpc4805 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleRpc4817 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleMessageLink_in_ruleRpc4838 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleRpc4850 = new BitSet(new long[]{0x0000000000108000L});
-    public static final BitSet FOLLOW_20_in_ruleRpc4863 = new BitSet(new long[]{0x000000E8602F0000L});
-    public static final BitSet FOLLOW_ruleOption_in_ruleRpc4884 = new BitSet(new long[]{0x000000E8602F0000L});
-    public static final BitSet FOLLOW_21_in_ruleRpc4897 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleRpc4912 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_ruleMessageLink_in_entryRuleMessageLink4950 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMessageLink4960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFULL_ID_in_ruleMessageLink5007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExtend_in_entryRuleExtend5042 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExtend5052 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleExtend5089 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleFULL_ID_in_ruleExtend5112 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleExtend5124 = new BitSet(new long[]{0x000000E8606F0000L});
-    public static final BitSet FOLLOW_ruleMessageElement_in_ruleExtend5145 = new BitSet(new long[]{0x000000E8606F0000L});
-    public static final BitSet FOLLOW_21_in_ruleExtend5158 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleExtend5171 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVar_full_in_entryRuleVar_full5210 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVar_full5221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFULL_ID_in_ruleVar_full5268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVar_in_ruleVar_full5301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVar_in_entryRuleVar5347 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVar5358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleVar5398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarReserved_in_ruleVar5431 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFULL_ID_in_entryRuleFULL_ID5477 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFULL_ID5488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFULL_ID5528 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleFULL_ID5547 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFULL_ID5562 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_ruleVarReserved_in_entryRuleVarReserved5610 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVarReserved5621 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleVarReserved5659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleVarReserved5678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleVarReserved5697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleVarReserved5716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleVarReserved5735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleVarReserved5754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleVarReserved5773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleVarReserved5792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleVarReserved5811 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleVarReserved5830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleVarReserved5849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleVarReserved5868 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleVarReserved5887 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleVarReserved5906 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleVarReserved5925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleVarReserved5944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleVarReserved5963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleVarReserved5982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleVarReserved6001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleVarReserved6020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleVarReserved6039 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleVarReserved6058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleVarReserved6077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleVarReserved6096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleVarReserved6115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleVarReserved6134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleVarReserved6153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleVarReserved6172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleVarReserved6191 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleVarReserved6210 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleVarReserved6229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleVarReserved6248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleVarReserved6267 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleVarReserved6286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleBOOL6342 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleBOOL6359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleModifier6404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleModifier6421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleModifier6438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleScalarType6483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleScalarType6500 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleScalarType6517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleScalarType6534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleScalarType6551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleScalarType6568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleScalarType6585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleScalarType6602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleScalarType6619 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleScalarType6636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleScalarType6653 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleScalarType6670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleScalarType6687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleScalarType6704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleScalarType6721 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleScalarTypeLink_in_synpred1_InternalProtobuf3018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_synpred2_InternalProtobuf3478 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumLink_in_ruleSimpleValueLink1158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumLink_in_entryRuleEnumLink1193 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumLink1203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumLink1247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLink_in_entryRuleStringLink1282 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringLink1292 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLink1333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLink_in_entryRuleBooleanLink1373 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLink1383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBOOL_in_ruleBooleanLink1428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLink_in_entryRuleNumberLink1463 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLink1473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntLink_in_ruleNumberLink1520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDoubleLink_in_ruleNumberLink1547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntLink_in_entryRuleIntLink1582 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntLink1592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleIntLink1633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDoubleLink_in_entryRuleDoubleLink1673 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDoubleLink1683 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NUMDOUBLE_in_ruleDoubleLink1724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexType_in_entryRuleComplexType1764 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComplexType1774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnum_in_ruleComplexType1821 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExtensibleType_in_ruleComplexType1848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExtensibleType_in_entryRuleExtensibleType1883 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExtensibleType1893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMessage_in_ruleExtensibleType1940 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroup_in_ruleExtensibleType1967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMessage_in_entryRuleMessage2002 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMessage2012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleMessage2049 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleMessage2066 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleMessage2083 = new BitSet(new long[]{0x000000E8606F0000L});
+    public static final BitSet FOLLOW_ruleMessageElement_in_ruleMessage2104 = new BitSet(new long[]{0x000000E8606F0000L});
+    public static final BitSet FOLLOW_21_in_ruleMessage2117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMessageElement_in_entryRuleMessageElement2153 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMessageElement2163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMessage_in_ruleMessageElement2210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIndexedElement_in_ruleMessageElement2237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnum_in_ruleMessageElement2264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleService_in_ruleMessageElement2291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExtend_in_ruleMessageElement2318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExtensionRange_in_ruleMessageElement2345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOption_in_ruleMessageElement2372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIndexedElement_in_entryRuleIndexedElement2407 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIndexedElement2417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMessageField_in_ruleIndexedElement2464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroup_in_ruleIndexedElement2491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExtensionRange_in_entryRuleExtensionRange2526 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExtensionRange2536 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleExtensionRange2573 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleExtensionRange2590 = new BitSet(new long[]{0x0000000000808000L});
+    public static final BitSet FOLLOW_23_in_ruleExtensionRange2608 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleExtensionRange2625 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExtensionRange2644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMessageField_in_entryRuleMessageField2680 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMessageField2690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifier_in_ruleMessageField2736 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleTypeLink_in_ruleMessageField2757 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleVar_in_ruleMessageField2778 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleMessageField2790 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleMessageField2807 = new BitSet(new long[]{0x0000000002008000L});
+    public static final BitSet FOLLOW_ruleFieldOptions_in_ruleMessageField2833 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMessageField2846 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroup_in_entryRuleGroup2882 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGroup2892 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifier_in_ruleGroup2938 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleGroup2950 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleVar_in_ruleGroup2971 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleGroup2983 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleGroup3000 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleGroup3017 = new BitSet(new long[]{0x000000E020280000L});
+    public static final BitSet FOLLOW_ruleMessageField_in_ruleGroup3038 = new BitSet(new long[]{0x000000E020280000L});
+    public static final BitSet FOLLOW_21_in_ruleGroup3051 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeLink_in_entryRuleTypeLink3087 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTypeLink3097 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleScalarTypeLink_in_ruleTypeLink3150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexTypeLink_in_ruleTypeLink3178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexTypeLink_in_entryRuleComplexTypeLink3213 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComplexTypeLink3223 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVar_full_in_ruleComplexTypeLink3270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleScalarTypeLink_in_entryRuleScalarTypeLink3305 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleScalarTypeLink3315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleScalarType_in_ruleScalarTypeLink3360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFieldOptions_in_entryRuleFieldOptions3395 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFieldOptions3405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleFieldOptions3442 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleFieldOption_in_ruleFieldOptions3463 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_26_in_ruleFieldOptions3476 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleFieldOption_in_ruleFieldOptions3497 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_27_in_ruleFieldOptions3511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFieldOption_in_entryRuleFieldOption3547 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFieldOption3557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultValueFieldOption_in_ruleFieldOption3612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNativeFieldOption_in_ruleFieldOption3640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultValueFieldOption_in_entryRuleDefaultValueFieldOption3675 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultValueFieldOption3685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleDefaultValueFieldOption3730 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleDefaultValueFieldOption3743 = new BitSet(new long[]{0x06000000000000F0L});
+    public static final BitSet FOLLOW_ruleValue_in_ruleDefaultValueFieldOption3764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNativeFieldOption_in_entryRuleNativeFieldOption3800 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNativeFieldOption3810 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOptionSource_in_ruleNativeFieldOption3856 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleNativeFieldOption3868 = new BitSet(new long[]{0x06000000000000F0L});
+    public static final BitSet FOLLOW_ruleValue_in_ruleNativeFieldOption3889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOptionSource_in_entryRuleOptionSource3925 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOptionSource3935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVar_full_in_ruleOptionSource3982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnum_in_entryRuleEnum4017 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnum4027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleEnum4064 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnum4081 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleEnum4098 = new BitSet(new long[]{0x000000E8602F0020L});
+    public static final BitSet FOLLOW_ruleEnumElement_in_ruleEnum4119 = new BitSet(new long[]{0x000000E8602F0020L});
+    public static final BitSet FOLLOW_21_in_ruleEnum4132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumElement_in_entryRuleEnumElement4168 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumElement4178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumField_in_ruleEnumElement4225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOption_in_ruleEnumElement4252 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumField_in_entryRuleEnumField4287 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumField4297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumField4339 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleEnumField4356 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_NUMINT_in_ruleEnumField4373 = new BitSet(new long[]{0x0000000002008000L});
+    public static final BitSet FOLLOW_25_in_ruleEnumField4391 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleFieldOption_in_ruleEnumField4412 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_26_in_ruleEnumField4425 = new BitSet(new long[]{0x01FFFFECF1CF2020L});
+    public static final BitSet FOLLOW_ruleFieldOption_in_ruleEnumField4446 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_27_in_ruleEnumField4460 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleEnumField4474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleService_in_entryRuleService4510 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleService4520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleService4557 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleService4574 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleService4591 = new BitSet(new long[]{0x000000E8E00F0000L});
+    public static final BitSet FOLLOW_ruleServiceElement_in_ruleService4612 = new BitSet(new long[]{0x000000E8E02F0000L});
+    public static final BitSet FOLLOW_21_in_ruleService4625 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_ruleService4638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceElement_in_entryRuleServiceElement4676 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceElement4686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRpc_in_ruleServiceElement4733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOption_in_ruleServiceElement4760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRpc_in_entryRuleRpc4795 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRpc4805 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleRpc4842 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRpc4859 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleRpc4876 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleMessageLink_in_ruleRpc4897 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleRpc4909 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleRpc4921 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleRpc4933 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleMessageLink_in_ruleRpc4954 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleRpc4966 = new BitSet(new long[]{0x0000000000108000L});
+    public static final BitSet FOLLOW_20_in_ruleRpc4979 = new BitSet(new long[]{0x000000E8602F0000L});
+    public static final BitSet FOLLOW_ruleOption_in_ruleRpc5000 = new BitSet(new long[]{0x000000E8602F0000L});
+    public static final BitSet FOLLOW_21_in_ruleRpc5013 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleRpc5028 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_ruleMessageLink_in_entryRuleMessageLink5066 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMessageLink5076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFULL_ID_in_ruleMessageLink5123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExtend_in_entryRuleExtend5158 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExtend5168 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleExtend5205 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleFULL_ID_in_ruleExtend5228 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleExtend5240 = new BitSet(new long[]{0x000000E8606F0000L});
+    public static final BitSet FOLLOW_ruleMessageElement_in_ruleExtend5261 = new BitSet(new long[]{0x000000E8606F0000L});
+    public static final BitSet FOLLOW_21_in_ruleExtend5274 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_ruleExtend5287 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVar_full_in_entryRuleVar_full5326 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVar_full5337 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFULL_ID_in_ruleVar_full5384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVar_in_ruleVar_full5417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVar_in_entryRuleVar5463 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVar5474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVar5514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVarReserved_in_ruleVar5547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFULL_ID_in_entryRuleFULL_ID5593 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFULL_ID5604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFULL_ID5644 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleFULL_ID5663 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFULL_ID5678 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_ruleVarReserved_in_entryRuleVarReserved5726 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVarReserved5737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleVarReserved5775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_ruleVarReserved5794 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_ruleVarReserved5813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleVarReserved5832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleVarReserved5851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleVarReserved5870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleVarReserved5889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleVarReserved5908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleVarReserved5927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleVarReserved5946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleVarReserved5965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleVarReserved5984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleVarReserved6003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleVarReserved6022 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleVarReserved6041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleVarReserved6060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleVarReserved6079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleVarReserved6098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleVarReserved6117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleVarReserved6136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleVarReserved6155 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleVarReserved6174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleVarReserved6193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleVarReserved6212 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleVarReserved6231 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleVarReserved6250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleVarReserved6269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleVarReserved6288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleVarReserved6307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleVarReserved6326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleVarReserved6345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleVarReserved6364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleVarReserved6383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleVarReserved6402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleBOOL6458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleBOOL6475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleModifier6520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleModifier6537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleModifier6554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleScalarType6599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleScalarType6616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleScalarType6633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleScalarType6650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleScalarType6667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleScalarType6684 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleScalarType6701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleScalarType6718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleScalarType6735 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleScalarType6752 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleScalarType6769 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleScalarType6786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleScalarType6803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleScalarType6820 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleScalarType6837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleScalarTypeLink_in_synpred1_InternalProtobuf3134 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_synpred2_InternalProtobuf3594 = new BitSet(new long[]{0x0000000000000002L});
 
 }
