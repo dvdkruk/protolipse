@@ -3,16 +3,7 @@
  */
 package protolipse.scoping
 
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
-import protolipse.protobuf.ComplexTypeLink
-import protolipse.protobuf.Enum
-import protolipse.protobuf.EnumField
-import protolipse.protobuf.MessageField
-
-import static extension org.eclipse.xtext.EcoreUtil2.*
 
 /**
  * This class contains custom scoping description.
@@ -22,7 +13,6 @@ import static extension org.eclipse.xtext.EcoreUtil2.*
  * 
  */
 class ProtobufScopeProvider extends AbstractDeclarativeScopeProvider {
-
 //	def scope_EnumLink_target(EnumLink enumLink, EReference ref) {
 //		val msgField = enumLink.getContainerOfType(MessageField)
 //		if(msgField == null) return IScope.NULLSCOPE

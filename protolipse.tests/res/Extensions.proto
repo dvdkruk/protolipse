@@ -7,7 +7,7 @@ message Foo {
 
 extend Foo {
   //optional int32 bar = 126;
-}
+} 
 
 message Baz {
   extend Foo {

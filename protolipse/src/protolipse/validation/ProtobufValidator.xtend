@@ -3,23 +3,56 @@
  */
 package protolipse.validation
 
-//import org.eclipse.xtext.validation.Check
+import org.eclipse.xtext.validation.Check
+import protolipse.protobuf.BOOL
+import protolipse.protobuf.BooleanLink
+import protolipse.protobuf.CustomOption
+import protolipse.protobuf.Enum
+import protolipse.protobuf.EnumField
+import protolipse.protobuf.ProtobufPackage
+import protolipse.protobuf.Value
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class ProtobufValidator extends AbstractProtobufValidator {
 
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val DUPLICATE_ENUM_FIELD_INDEX = "DUPLICATE_ENUM_FIELD_INDEX"
+
+	@Check
+	def checkUniqueEnumFieldIndex(EnumField enumField) {
+		val enum = enumField.eContainer as Enum
+
+		if (enum == null) {
+			val excptNullMsg = String.format("Direct container of %s is not of type %s", enumField, Enum)
+			throw new ClassCastException(excptNullMsg)
+		}
+
+		if(enum.allowAlias) return; // If allow alias is on, duplicated indexes are allowed. 		
+		val enumFieldsWithTheSameIndex = enum.elements.filter(EnumField).filter [
+			it != enumField && it.index == enumField.index
+		]
+
+		if(enumFieldsWithTheSameIndex.isEmpty) return;
+
+		val msg = String.format("Index of enum field \"%s\" is not unique", enumField.name)
+		error(msg, ProtobufPackage.Literals.ENUM_FIELD__INDEX, DUPLICATE_ENUM_FIELD_INDEX)
+	}
+
+	def allowAlias(Enum protoEnum) {
+		val allowAliasOption = protoEnum.elements.filter(CustomOption).findFirst[it.source.equals("allow_alias")] // TODO: create constant for options
+		return allowAliasOption != null && allowAliasOption.value.booleanValue
+	}
+
+	def booleanValue(Value value) {
+		val booleanValue = value as BooleanLink
+		booleanValue != null && booleanValue.bool
+	}
+
+	def bool(BooleanLink booleanLink) {
+		booleanLink.target == BOOL.TRUE
+	}
+
 }
