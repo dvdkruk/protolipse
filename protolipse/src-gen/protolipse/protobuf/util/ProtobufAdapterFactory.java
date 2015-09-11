@@ -12,12 +12,12 @@ import org.eclipse.emf.ecore.EObject;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomIdLink;
 import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
-import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -34,8 +34,11 @@ import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.NativeFieldOption;
 import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
+import protolipse.protobuf.Oneof;
+import protolipse.protobuf.OneofField;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
+import protolipse.protobuf.PackedValueFieldOption;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
@@ -176,9 +179,9 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
         return createSimpleValueLinkAdapter();
       }
       @Override
-      public Adapter caseEnumLink(EnumLink object)
+      public Adapter caseCustomIdLink(CustomIdLink object)
       {
-        return createEnumLinkAdapter();
+        return createCustomIdLinkAdapter();
       }
       @Override
       public Adapter caseStringLink(StringLink object)
@@ -224,6 +227,16 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMessageElement(MessageElement object)
       {
         return createMessageElementAdapter();
+      }
+      @Override
+      public Adapter caseOneof(Oneof object)
+      {
+        return createOneofAdapter();
+      }
+      @Override
+      public Adapter caseOneofField(OneofField object)
+      {
+        return createOneofFieldAdapter();
       }
       @Override
       public Adapter caseIndexedElement(IndexedElement object)
@@ -274,6 +287,11 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFieldOption(FieldOption object)
       {
         return createFieldOptionAdapter();
+      }
+      @Override
+      public Adapter casePackedValueFieldOption(PackedValueFieldOption object)
+      {
+        return createPackedValueFieldOptionAdapter();
       }
       @Override
       public Adapter caseDefaultValueFieldOption(DefaultValueFieldOption object)
@@ -533,16 +551,16 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link protolipse.protobuf.EnumLink <em>Enum Link</em>}'.
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.CustomIdLink <em>Custom Id Link</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see protolipse.protobuf.EnumLink
+   * @see protolipse.protobuf.CustomIdLink
    * @generated
    */
-  public Adapter createEnumLinkAdapter()
+  public Adapter createCustomIdLinkAdapter()
   {
     return null;
   }
@@ -678,6 +696,36 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMessageElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.Oneof <em>Oneof</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.Oneof
+   * @generated
+   */
+  public Adapter createOneofAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.OneofField <em>Oneof Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.OneofField
+   * @generated
+   */
+  public Adapter createOneofFieldAdapter()
   {
     return null;
   }
@@ -828,6 +876,21 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFieldOptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.PackedValueFieldOption <em>Packed Value Field Option</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.PackedValueFieldOption
+   * @generated
+   */
+  public Adapter createPackedValueFieldOptionAdapter()
   {
     return null;
   }

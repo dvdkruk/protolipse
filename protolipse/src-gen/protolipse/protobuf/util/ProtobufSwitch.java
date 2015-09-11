@@ -10,12 +10,12 @@ import org.eclipse.emf.ecore.util.Switch;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomIdLink;
 import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
-import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -32,8 +32,11 @@ import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.NativeFieldOption;
 import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
+import protolipse.protobuf.Oneof;
+import protolipse.protobuf.OneofField;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
+import protolipse.protobuf.PackedValueFieldOption;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
@@ -172,7 +175,6 @@ public class ProtobufSwitch<T> extends Switch<T>
       {
         Option option = (Option)theEObject;
         T result = caseOption(option);
-        if (result == null) result = caseStatement(option);
         if (result == null) result = caseMessageElement(option);
         if (result == null) result = caseServiceElement(option);
         if (result == null) result = defaultCase(theEObject);
@@ -183,7 +185,6 @@ public class ProtobufSwitch<T> extends Switch<T>
         NativeOption nativeOption = (NativeOption)theEObject;
         T result = caseNativeOption(nativeOption);
         if (result == null) result = caseOption(nativeOption);
-        if (result == null) result = caseStatement(nativeOption);
         if (result == null) result = caseMessageElement(nativeOption);
         if (result == null) result = caseServiceElement(nativeOption);
         if (result == null) result = defaultCase(theEObject);
@@ -193,9 +194,9 @@ public class ProtobufSwitch<T> extends Switch<T>
       {
         CustomOption customOption = (CustomOption)theEObject;
         T result = caseCustomOption(customOption);
+        if (result == null) result = caseStatement(customOption);
         if (result == null) result = caseOption(customOption);
         if (result == null) result = caseEnumElement(customOption);
-        if (result == null) result = caseStatement(customOption);
         if (result == null) result = caseMessageElement(customOption);
         if (result == null) result = caseServiceElement(customOption);
         if (result == null) result = defaultCase(theEObject);
@@ -216,12 +217,12 @@ public class ProtobufSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ProtobufPackage.ENUM_LINK:
+      case ProtobufPackage.CUSTOM_ID_LINK:
       {
-        EnumLink enumLink = (EnumLink)theEObject;
-        T result = caseEnumLink(enumLink);
-        if (result == null) result = caseSimpleValueLink(enumLink);
-        if (result == null) result = caseValue(enumLink);
+        CustomIdLink customIdLink = (CustomIdLink)theEObject;
+        T result = caseCustomIdLink(customIdLink);
+        if (result == null) result = caseSimpleValueLink(customIdLink);
+        if (result == null) result = caseValue(customIdLink);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -307,6 +308,21 @@ public class ProtobufSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ProtobufPackage.ONEOF:
+      {
+        Oneof oneof = (Oneof)theEObject;
+        T result = caseOneof(oneof);
+        if (result == null) result = caseMessageElement(oneof);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.ONEOF_FIELD:
+      {
+        OneofField oneofField = (OneofField)theEObject;
+        T result = caseOneofField(oneofField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ProtobufPackage.INDEXED_ELEMENT:
       {
         IndexedElement indexedElement = (IndexedElement)theEObject;
@@ -385,6 +401,14 @@ public class ProtobufSwitch<T> extends Switch<T>
       {
         FieldOption fieldOption = (FieldOption)theEObject;
         T result = caseFieldOption(fieldOption);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.PACKED_VALUE_FIELD_OPTION:
+      {
+        PackedValueFieldOption packedValueFieldOption = (PackedValueFieldOption)theEObject;
+        T result = casePackedValueFieldOption(packedValueFieldOption);
+        if (result == null) result = caseFieldOption(packedValueFieldOption);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -673,17 +697,17 @@ public class ProtobufSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Enum Link</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Custom Id Link</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Enum Link</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Custom Id Link</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEnumLink(EnumLink object)
+  public T caseCustomIdLink(CustomIdLink object)
   {
     return null;
   }
@@ -828,6 +852,38 @@ public class ProtobufSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMessageElement(MessageElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Oneof</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Oneof</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOneof(Oneof object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Oneof Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Oneof Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOneofField(OneofField object)
   {
     return null;
   }
@@ -988,6 +1044,22 @@ public class ProtobufSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFieldOption(FieldOption object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Packed Value Field Option</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Packed Value Field Option</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackedValueFieldOption(PackedValueFieldOption object)
   {
     return null;
   }

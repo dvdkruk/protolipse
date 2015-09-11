@@ -51,7 +51,6 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldOptionAccess().getAlternatives(), "rule__FieldOption__Alternatives");
 					put(grammarAccess.getEnumElementAccess().getAlternatives(), "rule__EnumElement__Alternatives");
 					put(grammarAccess.getServiceElementAccess().getAlternatives(), "rule__ServiceElement__Alternatives");
-					put(grammarAccess.getExtendAccess().getTypeAlternatives_1_0(), "rule__Extend__TypeAlternatives_1_0");
 					put(grammarAccess.getVar_fullAccess().getAlternatives(), "rule__Var_full__Alternatives");
 					put(grammarAccess.getVarAccess().getAlternatives(), "rule__Var__Alternatives");
 					put(grammarAccess.getVarReservedAccess().getAlternatives(), "rule__VarReserved__Alternatives");
@@ -67,6 +66,8 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNativeOptionAccess().getGroup(), "rule__NativeOption__Group__0");
 					put(grammarAccess.getCustomOptionAccess().getGroup(), "rule__CustomOption__Group__0");
 					put(grammarAccess.getMessageAccess().getGroup(), "rule__Message__Group__0");
+					put(grammarAccess.getOneofAccess().getGroup(), "rule__Oneof__Group__0");
+					put(grammarAccess.getOneofFieldAccess().getGroup(), "rule__OneofField__Group__0");
 					put(grammarAccess.getExtensionRangeAccess().getGroup(), "rule__ExtensionRange__Group__0");
 					put(grammarAccess.getExtensionRangeAccess().getGroup_2(), "rule__ExtensionRange__Group_2__0");
 					put(grammarAccess.getRangeAccess().getGroup(), "rule__Range__Group__0");
@@ -75,6 +76,7 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGroupAccess().getGroup(), "rule__Group__Group__0");
 					put(grammarAccess.getFieldOptionsAccess().getGroup(), "rule__FieldOptions__Group__0");
 					put(grammarAccess.getFieldOptionsAccess().getGroup_2(), "rule__FieldOptions__Group_2__0");
+					put(grammarAccess.getPackedValueFieldOptionAccess().getGroup(), "rule__PackedValueFieldOption__Group__0");
 					put(grammarAccess.getDefaultValueFieldOptionAccess().getGroup(), "rule__DefaultValueFieldOption__Group__0");
 					put(grammarAccess.getNativeFieldOptionAccess().getGroup(), "rule__NativeFieldOption__Group__0");
 					put(grammarAccess.getEnumAccess().getGroup(), "rule__Enum__Group__0");
@@ -98,13 +100,19 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNativeOptionAccess().getValueAssignment_3(), "rule__NativeOption__ValueAssignment_3");
 					put(grammarAccess.getCustomOptionAccess().getSourceAssignment_1(), "rule__CustomOption__SourceAssignment_1");
 					put(grammarAccess.getCustomOptionAccess().getValueAssignment_3(), "rule__CustomOption__ValueAssignment_3");
-					put(grammarAccess.getEnumLinkAccess().getTargetAssignment(), "rule__EnumLink__TargetAssignment");
+					put(grammarAccess.getCustomIdLinkAccess().getTargetAssignment(), "rule__CustomIdLink__TargetAssignment");
 					put(grammarAccess.getStringLinkAccess().getTargetAssignment(), "rule__StringLink__TargetAssignment");
 					put(grammarAccess.getBooleanLinkAccess().getTargetAssignment(), "rule__BooleanLink__TargetAssignment");
 					put(grammarAccess.getIntLinkAccess().getTargetAssignment(), "rule__IntLink__TargetAssignment");
 					put(grammarAccess.getDoubleLinkAccess().getTargetAssignment(), "rule__DoubleLink__TargetAssignment");
 					put(grammarAccess.getMessageAccess().getNameAssignment_1(), "rule__Message__NameAssignment_1");
 					put(grammarAccess.getMessageAccess().getElementsAssignment_3(), "rule__Message__ElementsAssignment_3");
+					put(grammarAccess.getOneofAccess().getNameAssignment_1(), "rule__Oneof__NameAssignment_1");
+					put(grammarAccess.getOneofAccess().getFieldsAssignment_3(), "rule__Oneof__FieldsAssignment_3");
+					put(grammarAccess.getOneofFieldAccess().getTypeAssignment_0(), "rule__OneofField__TypeAssignment_0");
+					put(grammarAccess.getOneofFieldAccess().getNameAssignment_1(), "rule__OneofField__NameAssignment_1");
+					put(grammarAccess.getOneofFieldAccess().getIndexAssignment_3(), "rule__OneofField__IndexAssignment_3");
+					put(grammarAccess.getOneofFieldAccess().getOptionsAssignment_4(), "rule__OneofField__OptionsAssignment_4");
 					put(grammarAccess.getExtensionRangeAccess().getRangesAssignment_1(), "rule__ExtensionRange__RangesAssignment_1");
 					put(grammarAccess.getExtensionRangeAccess().getRangesAssignment_2_1(), "rule__ExtensionRange__RangesAssignment_2_1");
 					put(grammarAccess.getRangeAccess().getFromAssignment_0(), "rule__Range__FromAssignment_0");
@@ -123,6 +131,7 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScalarTypeLinkAccess().getTargetAssignment(), "rule__ScalarTypeLink__TargetAssignment");
 					put(grammarAccess.getFieldOptionsAccess().getOptionsAssignment_1(), "rule__FieldOptions__OptionsAssignment_1");
 					put(grammarAccess.getFieldOptionsAccess().getOptionsAssignment_2_1(), "rule__FieldOptions__OptionsAssignment_2_1");
+					put(grammarAccess.getPackedValueFieldOptionAccess().getValueAssignment_2(), "rule__PackedValueFieldOption__ValueAssignment_2");
 					put(grammarAccess.getDefaultValueFieldOptionAccess().getValueAssignment_2(), "rule__DefaultValueFieldOption__ValueAssignment_2");
 					put(grammarAccess.getNativeFieldOptionAccess().getSourceAssignment_0(), "rule__NativeFieldOption__SourceAssignment_0");
 					put(grammarAccess.getNativeFieldOptionAccess().getValueAssignment_2(), "rule__NativeFieldOption__ValueAssignment_2");

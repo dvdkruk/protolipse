@@ -5,45 +5,53 @@ package protolipse.protobuf.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import protolipse.protobuf.EnumField;
-import protolipse.protobuf.EnumLink;
+import protolipse.protobuf.CustomIdLink;
 import protolipse.protobuf.ProtobufPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Enum Link</b></em>'.
+ * An implementation of the model object '<em><b>Custom Id Link</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link protolipse.protobuf.impl.EnumLinkImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link protolipse.protobuf.impl.CustomIdLinkImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
+public class CustomIdLinkImpl extends SimpleValueLinkImpl implements CustomIdLink
 {
   /**
-   * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+   * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTarget()
    * @generated
    * @ordered
    */
-  protected EnumField target;
+  protected static final String TARGET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected String target = TARGET_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EnumLinkImpl()
+  protected CustomIdLinkImpl()
   {
     super();
   }
@@ -56,7 +64,7 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
   @Override
   protected EClass eStaticClass()
   {
-    return ProtobufPackage.Literals.ENUM_LINK;
+    return ProtobufPackage.Literals.CUSTOM_ID_LINK;
   }
 
   /**
@@ -64,27 +72,7 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
    * <!-- end-user-doc -->
    * @generated
    */
-  public EnumField getTarget()
-  {
-    if (target != null && target.eIsProxy())
-    {
-      InternalEObject oldTarget = (InternalEObject)target;
-      target = (EnumField)eResolveProxy(oldTarget);
-      if (target != oldTarget)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtobufPackage.ENUM_LINK__TARGET, oldTarget, target));
-      }
-    }
-    return target;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EnumField basicGetTarget()
+  public String getTarget()
   {
     return target;
   }
@@ -94,12 +82,12 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTarget(EnumField newTarget)
+  public void setTarget(String newTarget)
   {
-    EnumField oldTarget = target;
+    String oldTarget = target;
     target = newTarget;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ProtobufPackage.ENUM_LINK__TARGET, oldTarget, target));
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtobufPackage.CUSTOM_ID_LINK__TARGET, oldTarget, target));
   }
 
   /**
@@ -112,9 +100,8 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
   {
     switch (featureID)
     {
-      case ProtobufPackage.ENUM_LINK__TARGET:
-        if (resolve) return getTarget();
-        return basicGetTarget();
+      case ProtobufPackage.CUSTOM_ID_LINK__TARGET:
+        return getTarget();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +116,8 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
   {
     switch (featureID)
     {
-      case ProtobufPackage.ENUM_LINK__TARGET:
-        setTarget((EnumField)newValue);
+      case ProtobufPackage.CUSTOM_ID_LINK__TARGET:
+        setTarget((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +133,8 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
   {
     switch (featureID)
     {
-      case ProtobufPackage.ENUM_LINK__TARGET:
-        setTarget((EnumField)null);
+      case ProtobufPackage.CUSTOM_ID_LINK__TARGET:
+        setTarget(TARGET_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -163,10 +150,27 @@ public class EnumLinkImpl extends SimpleValueLinkImpl implements EnumLink
   {
     switch (featureID)
     {
-      case ProtobufPackage.ENUM_LINK__TARGET:
-        return target != null;
+      case ProtobufPackage.CUSTOM_ID_LINK__TARGET:
+        return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
     }
     return super.eIsSet(featureID);
   }
 
-} //EnumLinkImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (target: ");
+    result.append(target);
+    result.append(')');
+    return result.toString();
+  }
+
+} //CustomIdLinkImpl

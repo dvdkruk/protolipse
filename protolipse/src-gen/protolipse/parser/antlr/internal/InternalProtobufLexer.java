@@ -31,6 +31,7 @@ public class InternalProtobufLexer extends Lexer {
     public static final int T__54=54;
     public static final int RULE_NUMDOUBLE=7;
     public static final int T__60=60;
+    public static final int T__61=61;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -42,6 +43,7 @@ public class InternalProtobufLexer extends Lexer {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
+    public static final int T__62=62;
     public static final int T__20=20;
     public static final int T__21=21;
     public static final int RULE_STRING=4;
@@ -316,10 +318,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:22:7: ( 'extensions' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:22:9: 'extensions'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:22:7: ( 'oneof' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:22:9: 'oneof'
             {
-            match("extensions"); 
+            match("oneof"); 
 
 
             }
@@ -337,10 +339,11 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:23:7: ( ',' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:23:9: ','
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:23:7: ( 'extensions' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:23:9: 'extensions'
             {
-            match(','); 
+            match("extensions"); 
+
 
             }
 
@@ -357,11 +360,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:24:7: ( 'to' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:24:9: 'to'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:24:7: ( ',' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:24:9: ','
             {
-            match("to"); 
-
+            match(','); 
 
             }
 
@@ -378,10 +380,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:25:7: ( 'max' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:25:9: 'max'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:25:7: ( 'to' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:25:9: 'to'
             {
-            match("max"); 
+            match("to"); 
 
 
             }
@@ -399,10 +401,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:26:7: ( 'group' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:26:9: 'group'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:26:7: ( 'max' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:26:9: 'max'
             {
-            match("group"); 
+            match("max"); 
 
 
             }
@@ -420,10 +422,11 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:27:7: ( '[' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:27:9: '['
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:27:7: ( 'group' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:27:9: 'group'
             {
-            match('['); 
+            match("group"); 
+
 
             }
 
@@ -440,10 +443,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:28:7: ( ']' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:28:9: ']'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:28:7: ( '[' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:28:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -460,11 +463,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:29:7: ( 'default' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:29:9: 'default'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:29:7: ( ']' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:29:9: ']'
             {
-            match("default"); 
-
+            match(']'); 
 
             }
 
@@ -481,10 +483,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:30:7: ( 'enum' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:30:9: 'enum'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:30:7: ( 'packed' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:30:9: 'packed'
             {
-            match("enum"); 
+            match("packed"); 
 
 
             }
@@ -502,10 +504,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:31:7: ( 'service' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:31:9: 'service'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:31:7: ( 'default' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:31:9: 'default'
             {
-            match("service"); 
+            match("default"); 
 
 
             }
@@ -523,10 +525,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:32:7: ( 'rpc' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:32:9: 'rpc'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:32:7: ( 'enum' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:32:9: 'enum'
             {
-            match("rpc"); 
+            match("enum"); 
 
 
             }
@@ -544,10 +546,11 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:33:7: ( '(' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:33:9: '('
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:33:7: ( 'service' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:33:9: 'service'
             {
-            match('('); 
+            match("service"); 
+
 
             }
 
@@ -564,10 +567,11 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:34:7: ( ')' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:34:9: ')'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:34:7: ( 'rpc' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:34:9: 'rpc'
             {
-            match(')'); 
+            match("rpc"); 
+
 
             }
 
@@ -584,11 +588,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:35:7: ( 'returns' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:35:9: 'returns'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:35:7: ( '(' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:35:9: '('
             {
-            match("returns"); 
-
+            match('('); 
 
             }
 
@@ -605,11 +608,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:36:7: ( 'extend' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:36:9: 'extend'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:36:7: ( ')' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:36:9: ')'
             {
-            match("extend"); 
-
+            match(')'); 
 
             }
 
@@ -626,10 +628,11 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:37:7: ( '.' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:37:9: '.'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:37:7: ( 'returns' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:37:9: 'returns'
             {
-            match('.'); 
+            match("returns"); 
+
 
             }
 
@@ -646,10 +649,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:38:7: ( 'required' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:38:9: 'required'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:38:7: ( 'extend' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:38:9: 'extend'
             {
-            match("required"); 
+            match("extend"); 
 
 
             }
@@ -667,11 +670,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:39:7: ( 'optional' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:39:9: 'optional'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:39:7: ( '.' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:39:9: '.'
             {
-            match("optional"); 
-
+            match('.'); 
 
             }
 
@@ -688,10 +690,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:40:7: ( 'repeated' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:40:9: 'repeated'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:40:7: ( 'required' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:40:9: 'required'
             {
-            match("repeated"); 
+            match("required"); 
 
 
             }
@@ -709,10 +711,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:41:7: ( 'int32' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:41:9: 'int32'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:41:7: ( 'optional' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:41:9: 'optional'
             {
-            match("int32"); 
+            match("optional"); 
 
 
             }
@@ -730,10 +732,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:42:7: ( 'int64' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:42:9: 'int64'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:42:7: ( 'repeated' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:42:9: 'repeated'
             {
-            match("int64"); 
+            match("repeated"); 
 
 
             }
@@ -751,10 +753,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:43:7: ( 'uint32' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:43:9: 'uint32'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:43:7: ( 'int32' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:43:9: 'int32'
             {
-            match("uint32"); 
+            match("int32"); 
 
 
             }
@@ -772,10 +774,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:44:7: ( 'uint64' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:44:9: 'uint64'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:44:7: ( 'int64' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:44:9: 'int64'
             {
-            match("uint64"); 
+            match("int64"); 
 
 
             }
@@ -793,10 +795,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:45:7: ( 'sint32' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:45:9: 'sint32'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:45:7: ( 'uint32' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:45:9: 'uint32'
             {
-            match("sint32"); 
+            match("uint32"); 
 
 
             }
@@ -814,10 +816,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:46:7: ( 'sint64' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:46:9: 'sint64'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:46:7: ( 'uint64' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:46:9: 'uint64'
             {
-            match("sint64"); 
+            match("uint64"); 
 
 
             }
@@ -835,10 +837,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:47:7: ( 'fixed32' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:47:9: 'fixed32'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:47:7: ( 'sint32' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:47:9: 'sint32'
             {
-            match("fixed32"); 
+            match("sint32"); 
 
 
             }
@@ -856,10 +858,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:48:7: ( 'fixed64' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:48:9: 'fixed64'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:48:7: ( 'sint64' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:48:9: 'sint64'
             {
-            match("fixed64"); 
+            match("sint64"); 
 
 
             }
@@ -877,10 +879,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:49:7: ( 'sfixed32' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:49:9: 'sfixed32'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:49:7: ( 'fixed32' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:49:9: 'fixed32'
             {
-            match("sfixed32"); 
+            match("fixed32"); 
 
 
             }
@@ -898,10 +900,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:50:7: ( 'sfixed64' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:50:9: 'sfixed64'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:50:7: ( 'fixed64' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:50:9: 'fixed64'
             {
-            match("sfixed64"); 
+            match("fixed64"); 
 
 
             }
@@ -919,10 +921,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:51:7: ( 'float' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:51:9: 'float'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:51:7: ( 'sfixed32' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:51:9: 'sfixed32'
             {
-            match("float"); 
+            match("sfixed32"); 
 
 
             }
@@ -940,10 +942,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:52:7: ( 'double' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:52:9: 'double'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:52:7: ( 'sfixed64' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:52:9: 'sfixed64'
             {
-            match("double"); 
+            match("sfixed64"); 
 
 
             }
@@ -961,10 +963,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:53:7: ( 'bool' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:53:9: 'bool'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:53:7: ( 'float' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:53:9: 'float'
             {
-            match("bool"); 
+            match("float"); 
 
 
             }
@@ -982,10 +984,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:54:7: ( 'string' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:54:9: 'string'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:54:7: ( 'double' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:54:9: 'double'
             {
-            match("string"); 
+            match("double"); 
 
 
             }
@@ -1003,10 +1005,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:55:7: ( 'bytes' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:55:9: 'bytes'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:55:7: ( 'bool' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:55:9: 'bool'
             {
-            match("bytes"); 
+            match("bool"); 
 
 
             }
@@ -1024,10 +1026,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:56:7: ( 'void' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:56:9: 'void'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:56:7: ( 'string' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:56:9: 'string'
             {
-            match("void"); 
+            match("string"); 
 
 
             }
@@ -1045,10 +1047,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:57:7: ( 'true' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:57:9: 'true'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:57:7: ( 'bytes' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:57:9: 'bytes'
             {
-            match("true"); 
+            match("bytes"); 
 
 
             }
@@ -1066,10 +1068,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:58:7: ( 'false' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:58:9: 'false'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:58:7: ( 'void' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:58:9: 'void'
             {
-            match("false"); 
+            match("void"); 
 
 
             }
@@ -1082,13 +1084,55 @@ public class InternalProtobufLexer extends Lexer {
     }
     // $ANTLR end "T__60"
 
+    // $ANTLR start "T__61"
+    public final void mT__61() throws RecognitionException {
+        try {
+            int _type = T__61;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:59:7: ( 'true' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:59:9: 'true'
+            {
+            match("true"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__61"
+
+    // $ANTLR start "T__62"
+    public final void mT__62() throws RecognitionException {
+        try {
+            int _type = T__62;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:60:7: ( 'false' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:60:9: 'false'
+            {
+            match("false"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__62"
+
     // $ANTLR start "RULE_NUMDOUBLE"
     public final void mRULE_NUMDOUBLE() throws RecognitionException {
         try {
             int _type = RULE_NUMDOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3070:16: ( RULE_NUMINT '.' RULE_INT )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3070:18: RULE_NUMINT '.' RULE_INT
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3317:16: ( RULE_NUMINT '.' RULE_INT )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3317:18: RULE_NUMINT '.' RULE_INT
             {
             mRULE_NUMINT(); 
             match('.'); 
@@ -1109,10 +1153,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_NUMINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:13: ( ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:13: ( ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1130,16 +1174,16 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:16: '0'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:16: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:20: ( '-' )? '1' .. '9' ( RULE_INT )*
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:20: ( '-' )? '1' .. '9' ( RULE_INT )*
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:20: ( '-' )?
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:20: ( '-' )?
                     int alt1=2;
                     int LA1_0 = input.LA(1);
 
@@ -1148,7 +1192,7 @@ public class InternalProtobufLexer extends Lexer {
                     }
                     switch (alt1) {
                         case 1 :
-                            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:20: '-'
+                            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:20: '-'
                             {
                             match('-'); 
 
@@ -1158,7 +1202,7 @@ public class InternalProtobufLexer extends Lexer {
                     }
 
                     matchRange('1','9'); 
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:34: ( RULE_INT )*
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:34: ( RULE_INT )*
                     loop2:
                     do {
                         int alt2=2;
@@ -1171,7 +1215,7 @@ public class InternalProtobufLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3072:34: RULE_INT
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3319:34: RULE_INT
                     	    {
                     	    mRULE_INT(); 
 
@@ -1205,10 +1249,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3074:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3074:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3321:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3321:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3074:11: ( '^' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3321:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1217,7 +1261,7 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3074:11: '^'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3321:11: '^'
                     {
                     match('^'); 
 
@@ -1235,7 +1279,7 @@ public class InternalProtobufLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3074:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3321:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -1284,10 +1328,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3076:10: ( ( '0' .. '9' )+ )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3076:12: ( '0' .. '9' )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3323:10: ( ( '0' .. '9' )+ )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3323:12: ( '0' .. '9' )+
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3076:12: ( '0' .. '9' )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3323:12: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -1301,7 +1345,7 @@ public class InternalProtobufLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3076:13: '0' .. '9'
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3323:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1333,10 +1377,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1354,10 +1398,10 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -1373,7 +1417,7 @@ public class InternalProtobufLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:21: '\\\\' .
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1381,7 +1425,7 @@ public class InternalProtobufLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1406,10 +1450,10 @@ public class InternalProtobufLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -1425,7 +1469,7 @@ public class InternalProtobufLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:54: '\\\\' .
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1433,7 +1477,7 @@ public class InternalProtobufLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3078:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3325:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1476,12 +1520,12 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3080:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3080:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3327:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3327:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3080:24: ( options {greedy=false; } : . )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3327:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -1506,7 +1550,7 @@ public class InternalProtobufLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3080:52: .
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3327:52: .
             	    {
             	    matchAny(); 
 
@@ -1536,12 +1580,12 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -1554,7 +1598,7 @@ public class InternalProtobufLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1574,7 +1618,7 @@ public class InternalProtobufLexer extends Lexer {
                 }
             } while (true);
 
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:40: ( ( '\\r' )? '\\n' )?
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1583,9 +1627,9 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:41: ( '\\r' )? '\\n'
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:41: ( '\\r' )? '\\n'
                     {
-                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:41: ( '\\r' )?
+                    // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -1594,7 +1638,7 @@ public class InternalProtobufLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3082:41: '\\r'
+                            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3329:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1626,10 +1670,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3084:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3084:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3331:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3331:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3084:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3331:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -1683,8 +1727,8 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3086:16: ( . )
-            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3086:18: .
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3333:16: ( . )
+            // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:3333:18: .
             {
             matchAny(); 
 
@@ -1699,8 +1743,8 @@ public class InternalProtobufLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | RULE_NUMDOUBLE | RULE_NUMINT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt15=57;
+        // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | RULE_NUMDOUBLE | RULE_NUMINT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt15=59;
         alt15 = dfa15.predict(input);
         switch (alt15) {
             case 1 :
@@ -2040,63 +2084,77 @@ public class InternalProtobufLexer extends Lexer {
                 }
                 break;
             case 49 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:298: RULE_NUMDOUBLE
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:298: T__61
+                {
+                mT__61(); 
+
+                }
+                break;
+            case 50 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:304: T__62
+                {
+                mT__62(); 
+
+                }
+                break;
+            case 51 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:310: RULE_NUMDOUBLE
                 {
                 mRULE_NUMDOUBLE(); 
 
                 }
                 break;
-            case 50 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:313: RULE_NUMINT
+            case 52 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:325: RULE_NUMINT
                 {
                 mRULE_NUMINT(); 
 
                 }
                 break;
-            case 51 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:325: RULE_ID
+            case 53 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:337: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 52 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:333: RULE_INT
+            case 54 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:345: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 53 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:342: RULE_STRING
+            case 55 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:354: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 54 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:354: RULE_ML_COMMENT
+            case 56 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:366: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 55 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:370: RULE_SL_COMMENT
+            case 57 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:382: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 56 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:386: RULE_WS
+            case 58 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:398: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 57 :
-                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:394: RULE_ANY_OTHER
+            case 59 :
+                // ../protolipse/src-gen/protolipse/parser/antlr/internal/InternalProtobuf.g:1:406: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2110,17 +2168,17 @@ public class InternalProtobufLexer extends Lexer {
 
     protected DFA15 dfa15 = new DFA15(this);
     static final String DFA15_eotS =
-        "\1\uffff\1\51\2\uffff\5\51\2\uffff\1\51\1\uffff\2\51\2\uffff\2\51\3\uffff\4\51\1\114\1\43\1\114\1\43\1\uffff\3\43\2\uffff\5\51\3\uffff\10\51\2\uffff\2\51\1\uffff\1\144\2\51\2\uffff\4\51\3\uffff\7\51\3\uffff\2\114\4\uffff\14\51\1\u0082\2\51\1\uffff\4\51\1\u0089\12\51\1\114\12\51\1\u009f\2\51\1\uffff\1\51\1\u00a3\1\u00a4\3\51\1\uffff\7\51\1\u00b0\1\51\1\u00b2\11\51\1\u00bc\1\u00bd\1\uffff\3\51\2\uffff\1\u00c2\10\51\1\u00cc\1\u00cd\1\uffff\1\u00ce\1\uffff\1\u00cf\1\51\1\u00d1\1\u00d2\1\51\1\u00d5\1\51\1\u00d7\1\u00d8\2\uffff\1\u00da\2\51\1\u00dd\1\uffff\1\51\1\u00df\3\51\1\u00e3\1\u00e4\2\51\4\uffff\1\u00e7\2\uffff\2\51\1\uffff\1\u00ea\2\uffff\1\51\1\uffff\1\u00ec\1\51\1\uffff\1\u00ee\1\uffff\1\u00ef\2\51\2\uffff\1\u00f2\1\u00f3\1\uffff\1\u00f4\1\u00f5\1\uffff\1\u00f6\1\uffff\1\51\2\uffff\1\u00f8\1\u00f9\5\uffff\1\51\2\uffff\1\u00fb\1\uffff";
+        "\1\uffff\1\51\2\uffff\5\51\2\uffff\1\51\1\uffff\2\51\2\uffff\2\51\3\uffff\4\51\1\115\1\43\1\115\1\43\1\uffff\3\43\2\uffff\5\51\3\uffff\11\51\2\uffff\2\51\1\uffff\1\146\2\51\2\uffff\4\51\3\uffff\7\51\3\uffff\2\115\4\uffff\15\51\1\u0085\2\51\1\uffff\4\51\1\u008c\12\51\1\115\12\51\1\u00a3\3\51\1\uffff\1\51\1\u00a8\1\u00a9\3\51\1\uffff\7\51\1\u00b5\1\51\1\u00b7\12\51\1\u00c2\1\u00c3\1\uffff\1\51\1\u00c5\2\51\2\uffff\1\u00c9\10\51\1\u00d3\1\u00d4\1\uffff\1\u00d5\1\uffff\1\u00d6\1\51\1\u00d8\1\u00d9\1\51\1\u00dc\1\51\1\u00de\1\u00df\1\u00e0\2\uffff\1\u00e2\1\uffff\2\51\1\u00e5\1\uffff\1\51\1\u00e7\3\51\1\u00eb\1\u00ec\2\51\4\uffff\1\u00ef\2\uffff\2\51\1\uffff\1\u00f2\3\uffff\1\51\1\uffff\1\u00f4\1\51\1\uffff\1\u00f6\1\uffff\1\u00f7\2\51\2\uffff\1\u00fa\1\u00fb\1\uffff\1\u00fc\1\u00fd\1\uffff\1\u00fe\1\uffff\1\51\2\uffff\1\u0100\1\u0101\5\uffff\1\51\2\uffff\1\u0103\1\uffff";
     static final String DFA15_eofS =
-        "\u00fc\uffff";
+        "\u0104\uffff";
     static final String DFA15_minS =
-        "\1\0\1\145\2\uffff\1\141\1\155\1\145\1\160\1\141\2\uffff\1\156\1\uffff\1\157\1\162\2\uffff\2\145\3\uffff\1\151\1\141\2\157\1\56\1\61\1\56\1\101\1\uffff\2\0\1\52\2\uffff\1\156\1\162\1\156\1\151\1\162\3\uffff\1\143\1\142\1\160\1\164\1\141\1\164\1\163\1\170\2\uffff\1\164\1\165\1\uffff\1\60\1\165\1\157\2\uffff\1\146\1\165\1\143\1\160\3\uffff\1\156\1\170\1\157\1\154\1\157\1\164\1\151\3\uffff\2\56\4\uffff\1\164\1\166\1\164\1\170\1\151\1\153\1\154\1\157\1\63\1\153\1\151\1\163\1\60\1\145\1\155\1\uffff\1\145\1\165\1\141\1\142\1\60\2\165\1\145\1\164\1\145\1\141\1\163\1\154\1\145\1\144\1\56\1\141\1\151\1\63\1\145\1\156\1\141\1\151\1\162\1\62\1\64\1\60\1\157\1\141\1\uffff\1\156\2\60\1\160\1\165\1\154\1\uffff\1\162\1\151\1\141\1\63\1\144\1\164\1\145\1\60\1\163\1\60\1\170\1\143\1\62\1\64\1\144\2\147\1\143\1\164\2\60\1\uffff\1\156\1\147\1\144\2\uffff\1\60\1\154\1\145\1\156\1\162\1\164\1\62\1\64\1\63\2\60\1\uffff\1\60\1\uffff\1\60\1\145\2\60\1\63\1\60\1\145\2\60\2\uffff\1\60\1\145\1\151\1\60\1\uffff\1\164\1\60\1\163\2\145\2\60\1\62\1\64\4\uffff\1\60\2\uffff\1\62\1\64\1\uffff\1\60\2\uffff\1\154\1\uffff\1\60\1\157\1\uffff\1\60\1\uffff\1\60\2\144\2\uffff\2\60\1\uffff\2\60\1\uffff\1\60\1\uffff\1\156\2\uffff\2\60\5\uffff\1\163\2\uffff\1\60\1\uffff";
+        "\1\0\1\145\2\uffff\1\141\1\155\1\145\1\156\1\141\2\uffff\1\156\1\uffff\1\157\1\162\2\uffff\2\145\3\uffff\1\151\1\141\2\157\1\56\1\61\1\56\1\101\1\uffff\2\0\1\52\2\uffff\1\156\1\162\1\156\1\151\1\162\3\uffff\1\143\1\142\1\160\1\164\1\141\1\164\1\145\1\163\1\170\2\uffff\1\164\1\165\1\uffff\1\60\1\165\1\157\2\uffff\1\146\1\165\1\143\1\160\3\uffff\1\156\1\170\1\157\1\154\1\157\1\164\1\151\3\uffff\2\56\4\uffff\1\164\1\166\1\164\1\170\1\151\1\153\1\154\1\157\1\63\1\153\1\151\1\157\1\163\1\60\1\145\1\155\1\uffff\1\145\1\165\1\141\1\142\1\60\2\165\1\145\1\164\1\145\1\141\1\163\1\154\1\145\1\144\1\56\1\141\1\151\1\63\1\145\1\156\1\141\1\151\1\162\1\62\1\64\1\60\1\157\1\146\1\141\1\uffff\1\156\2\60\1\160\1\165\1\154\1\uffff\1\162\1\151\1\141\1\63\1\144\1\164\1\145\1\60\1\163\1\60\1\170\1\143\1\62\1\64\1\144\2\147\1\144\1\143\1\164\2\60\1\uffff\1\156\1\60\1\147\1\144\2\uffff\1\60\1\154\1\145\1\156\1\162\1\164\1\62\1\64\1\63\2\60\1\uffff\1\60\1\uffff\1\60\1\145\2\60\1\63\1\60\1\145\3\60\2\uffff\1\60\1\uffff\1\145\1\151\1\60\1\uffff\1\164\1\60\1\163\2\145\2\60\1\62\1\64\4\uffff\1\60\2\uffff\1\62\1\64\1\uffff\1\60\3\uffff\1\154\1\uffff\1\60\1\157\1\uffff\1\60\1\uffff\1\60\2\144\2\uffff\2\60\1\uffff\2\60\1\uffff\1\60\1\uffff\1\156\2\uffff\2\60\5\uffff\1\163\2\uffff\1\60\1\uffff";
     static final String DFA15_maxS =
-        "\1\uffff\1\171\2\uffff\1\165\1\156\1\145\1\160\1\145\2\uffff\1\170\1\uffff\2\162\2\uffff\1\157\1\160\3\uffff\1\151\1\154\1\171\1\157\3\71\1\172\1\uffff\2\uffff\1\57\2\uffff\1\156\1\162\1\156\1\151\1\162\3\uffff\1\143\1\142\1\160\1\164\1\141\1\164\1\163\1\170\2\uffff\1\164\1\165\1\uffff\1\172\1\165\1\157\2\uffff\1\146\1\165\1\143\1\164\3\uffff\1\156\1\170\1\157\1\154\1\157\1\164\1\151\3\uffff\2\71\4\uffff\1\164\1\166\1\164\1\170\1\151\1\153\1\154\1\157\1\66\1\153\1\151\1\163\1\172\1\145\1\155\1\uffff\1\145\1\165\1\141\1\142\1\172\2\165\1\145\1\164\1\145\1\141\1\163\1\154\1\145\1\144\1\71\1\141\1\151\1\66\1\145\1\156\1\141\1\151\1\162\1\62\1\64\1\172\1\157\1\141\1\uffff\1\156\2\172\1\160\1\165\1\154\1\uffff\1\162\1\151\1\141\1\66\1\144\1\164\1\145\1\172\1\163\1\172\1\170\1\143\1\62\1\64\1\144\2\147\1\143\1\164\2\172\1\uffff\1\156\1\147\1\163\2\uffff\1\172\1\154\1\145\1\156\1\162\1\164\1\62\1\64\1\66\2\172\1\uffff\1\172\1\uffff\1\172\1\145\2\172\1\66\1\172\1\145\2\172\2\uffff\1\172\1\145\1\151\1\172\1\uffff\1\164\1\172\1\163\2\145\2\172\1\62\1\64\4\uffff\1\172\2\uffff\1\62\1\64\1\uffff\1\172\2\uffff\1\154\1\uffff\1\172\1\157\1\uffff\1\172\1\uffff\1\172\2\144\2\uffff\2\172\1\uffff\2\172\1\uffff\1\172\1\uffff\1\156\2\uffff\2\172\5\uffff\1\163\2\uffff\1\172\1\uffff";
+        "\1\uffff\1\171\2\uffff\1\165\1\156\1\145\1\160\1\145\2\uffff\1\170\1\uffff\2\162\2\uffff\1\157\1\160\3\uffff\1\151\1\154\1\171\1\157\3\71\1\172\1\uffff\2\uffff\1\57\2\uffff\1\156\1\162\1\156\1\151\1\162\3\uffff\1\143\1\142\1\160\1\164\1\141\1\164\1\145\1\163\1\170\2\uffff\1\164\1\165\1\uffff\1\172\1\165\1\157\2\uffff\1\146\1\165\1\143\1\164\3\uffff\1\156\1\170\1\157\1\154\1\157\1\164\1\151\3\uffff\2\71\4\uffff\1\164\1\166\1\164\1\170\1\151\1\153\1\154\1\157\1\66\1\153\1\151\1\157\1\163\1\172\1\145\1\155\1\uffff\1\145\1\165\1\141\1\142\1\172\2\165\1\145\1\164\1\145\1\141\1\163\1\154\1\145\1\144\1\71\1\141\1\151\1\66\1\145\1\156\1\145\1\151\1\162\1\62\1\64\1\172\1\157\1\146\1\141\1\uffff\1\156\2\172\1\160\1\165\1\154\1\uffff\1\162\1\151\1\141\1\66\1\144\1\164\1\145\1\172\1\163\1\172\1\170\1\143\1\62\1\64\1\144\2\147\1\144\1\143\1\164\2\172\1\uffff\1\156\1\172\1\147\1\163\2\uffff\1\172\1\154\1\145\1\156\1\162\1\164\1\62\1\64\1\66\2\172\1\uffff\1\172\1\uffff\1\172\1\145\2\172\1\66\1\172\1\145\3\172\2\uffff\1\172\1\uffff\1\145\1\151\1\172\1\uffff\1\164\1\172\1\163\2\145\2\172\1\62\1\64\4\uffff\1\172\2\uffff\1\62\1\64\1\uffff\1\172\3\uffff\1\154\1\uffff\1\172\1\157\1\uffff\1\172\1\uffff\1\172\2\144\2\uffff\2\172\1\uffff\2\172\1\uffff\1\172\1\uffff\1\156\2\uffff\2\172\5\uffff\1\163\2\uffff\1\172\1\uffff";
     static final String DFA15_acceptS =
-        "\2\uffff\1\2\1\3\5\uffff\1\12\1\13\1\uffff\1\15\2\uffff\1\21\1\22\2\uffff\1\27\1\30\1\33\10\uffff\1\63\3\uffff\1\70\1\71\5\uffff\1\63\1\2\1\3\10\uffff\1\12\1\13\2\uffff\1\15\3\uffff\1\21\1\22\4\uffff\1\27\1\30\1\33\7\uffff\1\62\1\64\1\61\2\uffff\1\65\1\66\1\67\1\70\17\uffff\1\16\35\uffff\1\17\6\uffff\1\26\25\uffff\1\7\3\uffff\1\24\1\57\13\uffff\1\53\1\uffff\1\56\11\uffff\1\37\1\40\4\uffff\1\20\11\uffff\1\51\1\60\1\55\1\1\1\uffff\1\43\1\44\2\uffff\1\54\1\uffff\1\6\1\5\1\uffff\1\10\2\uffff\1\32\1\uffff\1\52\3\uffff\1\41\1\42\2\uffff\1\25\2\uffff\1\4\1\uffff\1\11\1\uffff\1\23\1\31\2\uffff\1\45\1\46\1\47\1\50\1\35\1\uffff\1\34\1\36\1\uffff\1\14";
+        "\2\uffff\1\2\1\3\5\uffff\1\12\1\13\1\uffff\1\16\2\uffff\1\22\1\23\2\uffff\1\31\1\32\1\35\10\uffff\1\65\3\uffff\1\72\1\73\5\uffff\1\65\1\2\1\3\11\uffff\1\12\1\13\2\uffff\1\16\3\uffff\1\22\1\23\4\uffff\1\31\1\32\1\35\7\uffff\1\64\1\66\1\63\2\uffff\1\67\1\70\1\71\1\72\20\uffff\1\17\36\uffff\1\20\6\uffff\1\30\26\uffff\1\7\4\uffff\1\26\1\61\13\uffff\1\55\1\uffff\1\60\12\uffff\1\41\1\42\1\uffff\1\14\3\uffff\1\21\11\uffff\1\53\1\62\1\57\1\1\1\uffff\1\45\1\46\2\uffff\1\56\1\uffff\1\24\1\6\1\5\1\uffff\1\10\2\uffff\1\34\1\uffff\1\54\3\uffff\1\43\1\44\2\uffff\1\27\2\uffff\1\4\1\uffff\1\11\1\uffff\1\25\1\33\2\uffff\1\47\1\50\1\51\1\52\1\37\1\uffff\1\36\1\40\1\uffff\1\15";
     static final String DFA15_specialS =
-        "\1\0\36\uffff\1\1\1\2\u00db\uffff}>";
+        "\1\2\36\uffff\1\0\1\1\u00e3\uffff}>";
     static final String[] DFA15_transitionS = {
             "\11\43\2\42\2\43\1\42\22\43\1\42\1\43\1\37\4\43\1\40\1\23\1\24\2\43\1\14\1\33\1\25\1\41\1\32\11\34\1\43\1\3\1\43\1\2\3\43\32\36\1\17\1\43\1\20\1\35\1\36\1\43\1\36\1\30\1\36\1\21\1\13\1\27\1\16\1\36\1\5\3\36\1\10\1\36\1\7\1\4\1\36\1\22\1\1\1\15\1\26\1\31\1\6\3\36\1\11\1\43\1\12\uff82\43",
             "\1\45\1\47\2\uffff\1\46\12\uffff\1\50\4\uffff\1\44",
@@ -2129,44 +2187,43 @@ public class InternalProtobufLexer extends Lexer {
             "\1\54\23\uffff\1\55",
             "\1\56\1\57",
             "\1\60",
-            "\1\61",
-            "\1\63\3\uffff\1\62",
+            "\1\62\1\uffff\1\61",
+            "\1\64\3\uffff\1\63",
             "",
             "",
-            "\1\67\11\uffff\1\66",
+            "\1\70\11\uffff\1\67",
             "",
-            "\1\71\2\uffff\1\72",
-            "\1\73",
-            "",
-            "",
-            "\1\76\11\uffff\1\77",
-            "\1\101\12\uffff\1\100",
+            "\1\72\2\uffff\1\73",
+            "\1\74",
             "",
             "",
+            "\1\77\11\uffff\1\100",
+            "\1\102\12\uffff\1\101",
             "",
-            "\1\105",
-            "\1\110\7\uffff\1\106\2\uffff\1\107",
-            "\1\111\11\uffff\1\112",
-            "\1\113",
-            "\1\116\1\uffff\12\115",
-            "\11\117",
-            "\1\116\1\uffff\12\120",
+            "",
+            "",
+            "\1\106",
+            "\1\111\7\uffff\1\107\2\uffff\1\110",
+            "\1\112\11\uffff\1\113",
+            "\1\114",
+            "\1\117\1\uffff\12\116",
+            "\11\120",
+            "\1\117\1\uffff\12\121",
             "\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\0\121",
-            "\0\121",
-            "\1\122\4\uffff\1\123",
+            "\0\122",
+            "\0\122",
+            "\1\123\4\uffff\1\124",
             "",
             "",
-            "\1\125",
             "\1\126",
             "\1\127",
             "\1\130",
             "\1\131",
-            "",
-            "",
-            "",
             "\1\132",
+            "",
+            "",
+            "",
             "\1\133",
             "\1\134",
             "\1\135",
@@ -2174,63 +2231,63 @@ public class InternalProtobufLexer extends Lexer {
             "\1\137",
             "\1\140",
             "\1\141",
-            "",
-            "",
             "\1\142",
             "\1\143",
             "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\1\144",
             "\1\145",
-            "\1\146",
             "",
-            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\147",
             "\1\150",
+            "",
+            "",
             "\1\151",
-            "\1\154\1\153\2\uffff\1\152",
+            "\1\152",
+            "\1\153",
+            "\1\156\1\155\2\uffff\1\154",
             "",
             "",
             "",
-            "\1\155",
-            "\1\156",
             "\1\157",
             "\1\160",
             "\1\161",
             "\1\162",
             "\1\163",
-            "",
-            "",
-            "",
-            "\1\116\1\uffff\12\164",
-            "\1\116\1\uffff\12\120",
-            "",
-            "",
-            "",
-            "",
+            "\1\164",
             "\1\165",
-            "\1\166",
+            "",
+            "",
+            "",
+            "\1\117\1\uffff\12\166",
+            "\1\117\1\uffff\12\121",
+            "",
+            "",
+            "",
+            "",
             "\1\167",
             "\1\170",
             "\1\171",
             "\1\172",
             "\1\173",
             "\1\174",
-            "\1\175\2\uffff\1\176",
-            "\1\177",
-            "\1\u0080",
+            "\1\175",
+            "\1\176",
+            "\1\177\2\uffff\1\u0080",
             "\1\u0081",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0082",
             "\1\u0083",
             "\1\u0084",
-            "",
-            "\1\u0085",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u0086",
             "\1\u0087",
+            "",
             "\1\u0088",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0089",
             "\1\u008a",
             "\1\u008b",
-            "\1\u008c",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u008d",
             "\1\u008e",
             "\1\u008f",
@@ -2238,118 +2295,127 @@ public class InternalProtobufLexer extends Lexer {
             "\1\u0091",
             "\1\u0092",
             "\1\u0093",
-            "\1\116\1\uffff\12\164",
             "\1\u0094",
             "\1\u0095",
-            "\1\u0096\2\uffff\1\u0097",
+            "\1\u0096",
+            "\1\117\1\uffff\12\166",
+            "\1\u0097",
             "\1\u0098",
-            "\1\u0099",
-            "\1\u009a",
+            "\1\u0099\2\uffff\1\u009a",
             "\1\u009b",
             "\1\u009c",
-            "\1\u009d",
-            "\1\u009e",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u009d\3\uffff\1\u009e",
+            "\1\u009f",
             "\1\u00a0",
             "\1\u00a1",
-            "",
             "\1\u00a2",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00a4",
             "\1\u00a5",
             "\1\u00a6",
-            "\1\u00a7",
             "",
-            "\1\u00a8",
-            "\1\u00a9",
+            "\1\u00a7",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00aa",
-            "\1\u00ab\2\uffff\1\u00ac",
+            "\1\u00ab",
+            "\1\u00ac",
+            "",
             "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00b1",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00b0\2\uffff\1\u00b1",
+            "\1\u00b2",
             "\1\u00b3",
             "\1\u00b4",
-            "\1\u00b5",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00b6",
-            "\1\u00b7",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00b8",
             "\1\u00b9",
             "\1\u00ba",
             "\1\u00bb",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "",
+            "\1\u00bc",
+            "\1\u00bd",
             "\1\u00be",
             "\1\u00bf",
-            "\1\u00c1\16\uffff\1\u00c0",
-            "",
-            "",
+            "\1\u00c0",
+            "\1\u00c1",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00c3",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
             "\1\u00c4",
-            "\1\u00c5",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00c6",
-            "\1\u00c7",
-            "\1\u00c8",
-            "\1\u00c9",
-            "\1\u00ca\2\uffff\1\u00cb",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00c8\16\uffff\1\u00c7",
+            "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00ca",
+            "\1\u00cb",
+            "\1\u00cc",
+            "\1\u00cd",
+            "\1\u00ce",
+            "\1\u00cf",
             "\1\u00d0",
+            "\1\u00d1\2\uffff\1\u00d2",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00d3\2\uffff\1\u00d4",
+            "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00d6",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00d7",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00da\2\uffff\1\u00db",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00dd",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\1\u00d9\31\51",
-            "\1\u00db",
-            "\1\u00dc",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\1\u00e1\31\51",
+            "",
+            "\1\u00e3",
+            "\1\u00e4",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\1\u00de",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00e0",
-            "\1\u00e1",
-            "\1\u00e2",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00e5",
             "\1\u00e6",
-            "",
-            "",
-            "",
-            "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "",
-            "",
             "\1\u00e8",
             "\1\u00e9",
-            "",
+            "\1\u00ea",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "",
-            "",
-            "\1\u00eb",
-            "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00ed",
+            "\1\u00ee",
+            "",
+            "",
+            "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
             "\1\u00f0",
             "\1\u00f1",
             "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "",
+            "",
+            "\1\u00f3",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00f5",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00f8",
+            "\1\u00f9",
+            "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
@@ -2359,7 +2425,7 @@ public class InternalProtobufLexer extends Lexer {
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\1\u00f7",
+            "\1\u00ff",
             "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
@@ -2369,7 +2435,7 @@ public class InternalProtobufLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u00fa",
+            "\1\u0102",
             "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
@@ -2406,13 +2472,33 @@ public class InternalProtobufLexer extends Lexer {
             this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | RULE_NUMDOUBLE | RULE_NUMINT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | RULE_NUMDOUBLE | RULE_NUMINT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA15_31 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA15_31>='\u0000' && LA15_31<='\uFFFF')) ) {s = 82;}
+
+                        else s = 35;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA15_32 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA15_32>='\u0000' && LA15_32<='\uFFFF')) ) {s = 82;}
+
+                        else s = 35;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA15_0 = input.LA(1);
 
                         s = -1;
@@ -2485,26 +2571,6 @@ public class InternalProtobufLexer extends Lexer {
                         else if ( ((LA15_0>='\t' && LA15_0<='\n')||LA15_0=='\r'||LA15_0==' ') ) {s = 34;}
 
                         else if ( ((LA15_0>='\u0000' && LA15_0<='\b')||(LA15_0>='\u000B' && LA15_0<='\f')||(LA15_0>='\u000E' && LA15_0<='\u001F')||LA15_0=='!'||(LA15_0>='#' && LA15_0<='&')||(LA15_0>='*' && LA15_0<='+')||LA15_0==':'||LA15_0=='<'||(LA15_0>='>' && LA15_0<='@')||LA15_0=='\\'||LA15_0=='`'||LA15_0=='|'||(LA15_0>='~' && LA15_0<='\uFFFF')) ) {s = 35;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA15_31 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA15_31>='\u0000' && LA15_31<='\uFFFF')) ) {s = 81;}
-
-                        else s = 35;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA15_32 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA15_32>='\u0000' && LA15_32<='\uFFFF')) ) {s = 81;}
-
-                        else s = 35;
 
                         if ( s>=0 ) return s;
                         break;

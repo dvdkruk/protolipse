@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomIdLink;
 import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
-import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -36,8 +36,11 @@ import protolipse.protobuf.Modifier;
 import protolipse.protobuf.NativeFieldOption;
 import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
+import protolipse.protobuf.Oneof;
+import protolipse.protobuf.OneofField;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
+import protolipse.protobuf.PackedValueFieldOption;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufFactory;
 import protolipse.protobuf.ProtobufPackage;
@@ -153,7 +156,7 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass enumLinkEClass = null;
+  private EClass customIdLinkEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -217,6 +220,20 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass messageElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass oneofEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass oneofFieldEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -287,6 +304,13 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass fieldOptionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packedValueFieldOptionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -654,9 +678,9 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEnumLink()
+  public EClass getCustomIdLink()
   {
-    return enumLinkEClass;
+    return customIdLinkEClass;
   }
 
   /**
@@ -664,9 +688,9 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEnumLink_Target()
+  public EAttribute getCustomIdLink_Target()
   {
-    return (EReference)enumLinkEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)customIdLinkEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -817,6 +841,86 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
   public EClass getMessageElement()
   {
     return messageElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOneof()
+  {
+    return oneofEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOneof_Name()
+  {
+    return (EAttribute)oneofEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOneof_Fields()
+  {
+    return (EReference)oneofEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOneofField()
+  {
+    return oneofFieldEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOneofField_Type()
+  {
+    return (EReference)oneofFieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOneofField_Name()
+  {
+    return (EAttribute)oneofFieldEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOneofField_Index()
+  {
+    return (EAttribute)oneofFieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOneofField_Options()
+  {
+    return (EReference)oneofFieldEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1057,6 +1161,16 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
   public EReference getFieldOption_Value()
   {
     return (EReference)fieldOptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackedValueFieldOption()
+  {
+    return packedValueFieldOptionEClass;
   }
 
   /**
@@ -1421,8 +1535,8 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     simpleValueLinkEClass = createEClass(SIMPLE_VALUE_LINK);
 
-    enumLinkEClass = createEClass(ENUM_LINK);
-    createEReference(enumLinkEClass, ENUM_LINK__TARGET);
+    customIdLinkEClass = createEClass(CUSTOM_ID_LINK);
+    createEAttribute(customIdLinkEClass, CUSTOM_ID_LINK__TARGET);
 
     stringLinkEClass = createEClass(STRING_LINK);
     createEAttribute(stringLinkEClass, STRING_LINK__TARGET);
@@ -1447,6 +1561,16 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     createEReference(messageEClass, MESSAGE__ELEMENTS);
 
     messageElementEClass = createEClass(MESSAGE_ELEMENT);
+
+    oneofEClass = createEClass(ONEOF);
+    createEAttribute(oneofEClass, ONEOF__NAME);
+    createEReference(oneofEClass, ONEOF__FIELDS);
+
+    oneofFieldEClass = createEClass(ONEOF_FIELD);
+    createEReference(oneofFieldEClass, ONEOF_FIELD__TYPE);
+    createEAttribute(oneofFieldEClass, ONEOF_FIELD__NAME);
+    createEAttribute(oneofFieldEClass, ONEOF_FIELD__INDEX);
+    createEReference(oneofFieldEClass, ONEOF_FIELD__OPTIONS);
 
     indexedElementEClass = createEClass(INDEXED_ELEMENT);
     createEAttribute(indexedElementEClass, INDEXED_ELEMENT__MODIFIER);
@@ -1481,6 +1605,8 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     fieldOptionEClass = createEClass(FIELD_OPTION);
     createEReference(fieldOptionEClass, FIELD_OPTION__VALUE);
+
+    packedValueFieldOptionEClass = createEClass(PACKED_VALUE_FIELD_OPTION);
 
     defaultValueFieldOptionEClass = createEClass(DEFAULT_VALUE_FIELD_OPTION);
 
@@ -1559,14 +1685,14 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     importEClass.getESuperTypes().add(this.getStatement());
     publicImportEClass.getESuperTypes().add(this.getImport());
     weakImportEClass.getESuperTypes().add(this.getImport());
-    optionEClass.getESuperTypes().add(this.getStatement());
     optionEClass.getESuperTypes().add(this.getMessageElement());
     optionEClass.getESuperTypes().add(this.getServiceElement());
     nativeOptionEClass.getESuperTypes().add(this.getOption());
+    customOptionEClass.getESuperTypes().add(this.getStatement());
     customOptionEClass.getESuperTypes().add(this.getOption());
     customOptionEClass.getESuperTypes().add(this.getEnumElement());
     simpleValueLinkEClass.getESuperTypes().add(this.getValue());
-    enumLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
+    customIdLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     stringLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     booleanLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     numberLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
@@ -1576,6 +1702,7 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     extensibleTypeEClass.getESuperTypes().add(this.getComplexType());
     messageEClass.getESuperTypes().add(this.getExtensibleType());
     messageEClass.getESuperTypes().add(this.getMessageElement());
+    oneofEClass.getESuperTypes().add(this.getMessageElement());
     indexedElementEClass.getESuperTypes().add(this.getMessageElement());
     extensionRangeEClass.getESuperTypes().add(this.getMessageElement());
     messageFieldEClass.getESuperTypes().add(this.getIndexedElement());
@@ -1583,6 +1710,7 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     groupEClass.getESuperTypes().add(this.getIndexedElement());
     complexTypeLinkEClass.getESuperTypes().add(this.getTypeLink());
     scalarTypeLinkEClass.getESuperTypes().add(this.getTypeLink());
+    packedValueFieldOptionEClass.getESuperTypes().add(this.getFieldOption());
     defaultValueFieldOptionEClass.getESuperTypes().add(this.getFieldOption());
     nativeFieldOptionEClass.getESuperTypes().add(this.getFieldOption());
     enumEClass.getESuperTypes().add(this.getComplexType());
@@ -1627,8 +1755,8 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     initEClass(simpleValueLinkEClass, SimpleValueLink.class, "SimpleValueLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(enumLinkEClass, EnumLink.class, "EnumLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEnumLink_Target(), this.getEnumField(), null, "target", null, 0, 1, EnumLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(customIdLinkEClass, CustomIdLink.class, "CustomIdLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCustomIdLink_Target(), ecorePackage.getEString(), "target", null, 0, 1, CustomIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringLinkEClass, StringLink.class, "StringLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLink_Target(), ecorePackage.getEString(), "target", null, 0, 1, StringLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1653,6 +1781,16 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     initEReference(getMessage_Elements(), this.getMessageElement(), null, "elements", null, 0, -1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageElementEClass, MessageElement.class, "MessageElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(oneofEClass, Oneof.class, "Oneof", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOneof_Name(), ecorePackage.getEString(), "name", null, 0, 1, Oneof.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOneof_Fields(), this.getOneofField(), null, "fields", null, 0, -1, Oneof.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(oneofFieldEClass, OneofField.class, "OneofField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOneofField_Type(), this.getTypeLink(), null, "type", null, 0, 1, OneofField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOneofField_Name(), ecorePackage.getEString(), "name", null, 0, 1, OneofField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOneofField_Index(), ecorePackage.getEInt(), "index", null, 0, 1, OneofField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOneofField_Options(), this.getFieldOptions(), null, "options", null, 0, 1, OneofField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(indexedElementEClass, IndexedElement.class, "IndexedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIndexedElement_Modifier(), this.getModifier(), "modifier", null, 0, 1, IndexedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1687,6 +1825,8 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     initEClass(fieldOptionEClass, FieldOption.class, "FieldOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFieldOption_Value(), this.getValue(), null, "value", null, 0, 1, FieldOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packedValueFieldOptionEClass, PackedValueFieldOption.class, "PackedValueFieldOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(defaultValueFieldOptionEClass, DefaultValueFieldOption.class, "DefaultValueFieldOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -19,7 +19,7 @@ package protolipse.protobuf;
  * @model
  * @generated
  */
-public interface CustomOption extends Option, EnumElement
+public interface CustomOption extends Statement, Option, EnumElement
 {
   /**
    * Returns the value of the '<em><b>Source</b></em>' attribute.

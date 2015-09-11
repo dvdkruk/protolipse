@@ -19,20 +19,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PublicImport" eSuperTypes="#//Import"/>
   <eClassifiers xsi:type="ecore:EClass" name="WeakImport" eSuperTypes="#//Import"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//Statement #//MessageElement #//ServiceElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//MessageElement #//ServiceElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NativeOption" eSuperTypes="#//Option">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//MessageField"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CustomOption" eSuperTypes="#//Option #//EnumElement">
+  <eClassifiers xsi:type="ecore:EClass" name="CustomOption" eSuperTypes="#//Statement #//Option #//EnumElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleValueLink" eSuperTypes="#//Value"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumLink" eSuperTypes="#//SimpleValueLink">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//EnumField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomIdLink" eSuperTypes="#//SimpleValueLink">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringLink" eSuperTypes="#//SimpleValueLink">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -59,6 +59,19 @@
         eType="#//MessageElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Oneof" eSuperTypes="#//MessageElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//OneofField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OneofField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeLink"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//FieldOptions"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndexedElement" eSuperTypes="#//MessageElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier" eType="#//Modifier"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -120,6 +133,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackedValueFieldOption" eSuperTypes="#//FieldOption"/>
   <eClassifiers xsi:type="ecore:EClass" name="DefaultValueFieldOption" eSuperTypes="#//FieldOption"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativeFieldOption" eSuperTypes="#//FieldOption">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//OptionSource"

@@ -15,12 +15,12 @@ import protolipse.protobuf.BOOL;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomIdLink;
 import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
 import protolipse.protobuf.EnumField;
-import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensibleType;
 import protolipse.protobuf.ExtensionRange;
@@ -38,8 +38,11 @@ import protolipse.protobuf.Modifier;
 import protolipse.protobuf.NativeFieldOption;
 import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
+import protolipse.protobuf.Oneof;
+import protolipse.protobuf.OneofField;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
+import protolipse.protobuf.PackedValueFieldOption;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufFactory;
 import protolipse.protobuf.ProtobufPackage;
@@ -122,7 +125,7 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.CUSTOM_OPTION: return createCustomOption();
       case ProtobufPackage.VALUE: return createValue();
       case ProtobufPackage.SIMPLE_VALUE_LINK: return createSimpleValueLink();
-      case ProtobufPackage.ENUM_LINK: return createEnumLink();
+      case ProtobufPackage.CUSTOM_ID_LINK: return createCustomIdLink();
       case ProtobufPackage.STRING_LINK: return createStringLink();
       case ProtobufPackage.BOOLEAN_LINK: return createBooleanLink();
       case ProtobufPackage.NUMBER_LINK: return createNumberLink();
@@ -132,6 +135,8 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.EXTENSIBLE_TYPE: return createExtensibleType();
       case ProtobufPackage.MESSAGE: return createMessage();
       case ProtobufPackage.MESSAGE_ELEMENT: return createMessageElement();
+      case ProtobufPackage.ONEOF: return createOneof();
+      case ProtobufPackage.ONEOF_FIELD: return createOneofField();
       case ProtobufPackage.INDEXED_ELEMENT: return createIndexedElement();
       case ProtobufPackage.EXTENSION_RANGE: return createExtensionRange();
       case ProtobufPackage.RANGE: return createRange();
@@ -142,6 +147,7 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.SCALAR_TYPE_LINK: return createScalarTypeLink();
       case ProtobufPackage.FIELD_OPTIONS: return createFieldOptions();
       case ProtobufPackage.FIELD_OPTION: return createFieldOption();
+      case ProtobufPackage.PACKED_VALUE_FIELD_OPTION: return createPackedValueFieldOption();
       case ProtobufPackage.DEFAULT_VALUE_FIELD_OPTION: return createDefaultValueFieldOption();
       case ProtobufPackage.NATIVE_FIELD_OPTION: return createNativeFieldOption();
       case ProtobufPackage.OPTION_SOURCE: return createOptionSource();
@@ -337,10 +343,10 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public EnumLink createEnumLink()
+  public CustomIdLink createCustomIdLink()
   {
-    EnumLinkImpl enumLink = new EnumLinkImpl();
-    return enumLink;
+    CustomIdLinkImpl customIdLink = new CustomIdLinkImpl();
+    return customIdLink;
   }
 
   /**
@@ -440,6 +446,28 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     MessageElementImpl messageElement = new MessageElementImpl();
     return messageElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Oneof createOneof()
+  {
+    OneofImpl oneof = new OneofImpl();
+    return oneof;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OneofField createOneofField()
+  {
+    OneofFieldImpl oneofField = new OneofFieldImpl();
+    return oneofField;
   }
 
   /**
@@ -550,6 +578,17 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     FieldOptionImpl fieldOption = new FieldOptionImpl();
     return fieldOption;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackedValueFieldOption createPackedValueFieldOption()
+  {
+    PackedValueFieldOptionImpl packedValueFieldOption = new PackedValueFieldOptionImpl();
+    return packedValueFieldOption;
   }
 
   /**

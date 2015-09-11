@@ -19,7 +19,7 @@ package protolipse.protobuf;
  * @model
  * @generated
  */
-public interface Option extends Statement, MessageElement, ServiceElement
+public interface Option extends MessageElement, ServiceElement
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

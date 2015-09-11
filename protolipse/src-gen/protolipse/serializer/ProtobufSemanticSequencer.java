@@ -18,11 +18,11 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomIdLink;
 import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumField;
-import protolipse.protobuf.EnumLink;
 import protolipse.protobuf.Extend;
 import protolipse.protobuf.ExtensionRange;
 import protolipse.protobuf.FieldOptions;
@@ -33,7 +33,10 @@ import protolipse.protobuf.MessageField;
 import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.NativeFieldOption;
 import protolipse.protobuf.NativeOption;
+import protolipse.protobuf.Oneof;
+import protolipse.protobuf.OneofField;
 import protolipse.protobuf.OptionSource;
+import protolipse.protobuf.PackedValueFieldOption;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
@@ -61,6 +64,9 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case ProtobufPackage.COMPLEX_TYPE_LINK:
 				sequence_ComplexTypeLink(context, (ComplexTypeLink) semanticObject); 
 				return; 
+			case ProtobufPackage.CUSTOM_ID_LINK:
+				sequence_CustomIdLink(context, (CustomIdLink) semanticObject); 
+				return; 
 			case ProtobufPackage.CUSTOM_OPTION:
 				sequence_CustomOption(context, (CustomOption) semanticObject); 
 				return; 
@@ -75,9 +81,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case ProtobufPackage.ENUM_FIELD:
 				sequence_EnumField(context, (EnumField) semanticObject); 
-				return; 
-			case ProtobufPackage.ENUM_LINK:
-				sequence_EnumLink(context, (EnumLink) semanticObject); 
 				return; 
 			case ProtobufPackage.EXTEND:
 				sequence_Extend(context, (Extend) semanticObject); 
@@ -109,11 +112,20 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case ProtobufPackage.NATIVE_OPTION:
 				sequence_NativeOption(context, (NativeOption) semanticObject); 
 				return; 
+			case ProtobufPackage.ONEOF:
+				sequence_Oneof(context, (Oneof) semanticObject); 
+				return; 
+			case ProtobufPackage.ONEOF_FIELD:
+				sequence_OneofField(context, (OneofField) semanticObject); 
+				return; 
 			case ProtobufPackage.OPTION_SOURCE:
 				sequence_OptionSource(context, (OptionSource) semanticObject); 
 				return; 
 			case ProtobufPackage.PACKAGE:
 				sequence_Package(context, (protolipse.protobuf.Package) semanticObject); 
+				return; 
+			case ProtobufPackage.PACKED_VALUE_FIELD_OPTION:
+				sequence_PackedValueFieldOption(context, (PackedValueFieldOption) semanticObject); 
 				return; 
 			case ProtobufPackage.PROTO:
 				sequence_Proto(context, (Proto) semanticObject); 
@@ -180,6 +192,22 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
+	 *     target=ID
+	 */
+	protected void sequence_CustomIdLink(EObject context, CustomIdLink semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.CUSTOM_ID_LINK__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.CUSTOM_ID_LINK__TARGET));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCustomIdLinkAccess().getTargetIDTerminalRuleCall_0(), semanticObject.getTarget());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (source=ID value=Value)
 	 */
 	protected void sequence_CustomOption(EObject context, CustomOption semanticObject) {
@@ -240,22 +268,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     target=[EnumField|ID]
-	 */
-	protected void sequence_EnumLink(EObject context, EnumLink semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.ENUM_LINK__TARGET) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.ENUM_LINK__TARGET));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getEnumLinkAccess().getTargetEnumFieldIDTerminalRuleCall_0_1(), semanticObject.getTarget());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID elements+=EnumElement*)
 	 */
 	protected void sequence_Enum(EObject context, protolipse.protobuf.Enum semanticObject) {
@@ -265,7 +277,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     ((type=[Message|ID] | type=[Message|FULL_ID]) elements+=MessageElement*)
+	 *     (type=[Message|Var_full] elements+=MessageElement*)
 	 */
 	protected void sequence_Extend(EObject context, Extend semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -326,7 +338,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     target=[Message|FULL_ID]
+	 *     target=[Message|Var_full]
 	 */
 	protected void sequence_MessageLink(EObject context, MessageLink semanticObject) {
 		if(errorAcceptor != null) {
@@ -335,7 +347,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMessageLinkAccess().getTargetMessageFULL_IDParserRuleCall_0_1(), semanticObject.getTarget());
+		feeder.accept(grammarAccess.getMessageLinkAccess().getTargetMessageVar_fullParserRuleCall_0_1(), semanticObject.getTarget());
 		feeder.finish();
 	}
 	
@@ -389,6 +401,24 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
+	 *     (type=TypeLink name=Var index=NUMINT options=FieldOptions?)
+	 */
+	protected void sequence_OneofField(EObject context, OneofField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID fields+=OneofField*)
+	 */
+	protected void sequence_Oneof(EObject context, Oneof semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     target=[IndexedElement|Var_full]
 	 */
 	protected void sequence_OptionSource(EObject context, OptionSource semanticObject) {
@@ -415,6 +445,22 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getPackageAccess().getNameVar_fullParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=Value
+	 */
+	protected void sequence_PackedValueFieldOption(EObject context, PackedValueFieldOption semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.FIELD_OPTION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.FIELD_OPTION__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPackedValueFieldOptionAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -480,7 +526,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (name=ID elements+=ServiceElement+)
+	 *     (name=ID elements+=ServiceElement*)
 	 */
 	protected void sequence_Service(EObject context, Service semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

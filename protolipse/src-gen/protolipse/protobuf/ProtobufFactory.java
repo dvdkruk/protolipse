@@ -131,13 +131,13 @@ public interface ProtobufFactory extends EFactory
   SimpleValueLink createSimpleValueLink();
 
   /**
-   * Returns a new object of class '<em>Enum Link</em>'.
+   * Returns a new object of class '<em>Custom Id Link</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enum Link</em>'.
+   * @return a new object of class '<em>Custom Id Link</em>'.
    * @generated
    */
-  EnumLink createEnumLink();
+  CustomIdLink createCustomIdLink();
 
   /**
    * Returns a new object of class '<em>String Link</em>'.
@@ -219,6 +219,24 @@ public interface ProtobufFactory extends EFactory
    * @generated
    */
   MessageElement createMessageElement();
+
+  /**
+   * Returns a new object of class '<em>Oneof</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Oneof</em>'.
+   * @generated
+   */
+  Oneof createOneof();
+
+  /**
+   * Returns a new object of class '<em>Oneof Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Oneof Field</em>'.
+   * @generated
+   */
+  OneofField createOneofField();
 
   /**
    * Returns a new object of class '<em>Indexed Element</em>'.
@@ -309,6 +327,15 @@ public interface ProtobufFactory extends EFactory
    * @generated
    */
   FieldOption createFieldOption();
+
+  /**
+   * Returns a new object of class '<em>Packed Value Field Option</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Packed Value Field Option</em>'.
+   * @generated
+   */
+  PackedValueFieldOption createPackedValueFieldOption();
 
   /**
    * Returns a new object of class '<em>Default Value Field Option</em>'.

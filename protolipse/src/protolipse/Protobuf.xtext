@@ -9,7 +9,7 @@ Proto:
 	(statements+=Statement)*;
 
 Statement:
-	Package | Import | ComplexType | Extend | Service | Option; //TODO: annotation_entry | doc_entry 
+	Package | Import | ComplexType | Extend | Service | CustomOption; //TODO: annotation_entry | doc_entry 
 
 
 //annotation_entry
@@ -47,10 +47,13 @@ Value://TODO: groups
 	SimpleValueLink;
 
 SimpleValueLink:
-	NumberLink | BooleanLink | StringLink | EnumLink;
+	NumberLink | BooleanLink | StringLink | CustomIdLink;
 
-EnumLink:
-	target=[EnumField|ID];
+CustomIdLink:
+	target=ID;
+
+//EnumLink:
+//	target=[EnumField|ID];
 
 StringLink:
 	target=STRING;
@@ -80,7 +83,13 @@ Message:
 	'message' name=ID '{' elements+=MessageElement* '}';
 
 MessageElement:
-	Message | IndexedElement | Enum | Service | Extend | ExtensionRange | Option; //TODO: | annotation_entry | doc_entry 
+	Message | IndexedElement | Oneof | Enum | Service | Extend | ExtensionRange | Option; //TODO: map field
+
+Oneof:
+	"oneof" name=ID "{" fields+=OneofField* "}";
+
+OneofField:
+	type=TypeLink name=Var "=" index=NUMINT options=FieldOptions? ";"; 
 	
 IndexedElement:
 	MessageField | Group;
@@ -93,7 +102,7 @@ Range:
 ;
 	
 MessageField:
-	modifier=Modifier type=TypeLink name=Var '=' index=NUMINT options=FieldOptions? ';'; //TODO: ignore_block
+	modifier=Modifier type=TypeLink name=Var '=' index=NUMINT options=FieldOptions? ';';
 	
 Group:
 	modifier=Modifier 'group' name=Var '=' index=NUMINT '{' elements+=MessageField* '}';
@@ -118,7 +127,10 @@ FieldOptions:
 	'[' options+=FieldOption (',' options+=FieldOption)* ']';
 
 FieldOption:
-	DefaultValueFieldOption | NativeFieldOption;
+	PackedValueFieldOption | DefaultValueFieldOption | NativeFieldOption;
+
+PackedValueFieldOption:
+	=> 'packed' '=' value=Value;
 	
 DefaultValueFieldOption:
 	=> 'default' '=' value=Value;
@@ -130,7 +142,7 @@ OptionSource:
 	target=[IndexedElement|Var_full];
 
 Enum:
-	'enum' name=ID '{' elements+=EnumElement* '}';
+	'enum' name=ID '{' elements+=EnumElement* '}' (';')?;
 
 EnumElement:
 	EnumField | CustomOption;
@@ -139,19 +151,19 @@ EnumField:
 	name=ID '=' index=NUMINT ('[' options+=FieldOption (',' options+=FieldOption)* ']')? ';';
 
 Service:
-	'service' name=ID '{' elements+=ServiceElement+ '}' (';')?;
+	'service' name=ID '{' elements+=ServiceElement* '}';
 
 ServiceElement:
 	Rpc | Option;
 
 Rpc:
-	'rpc' name=ID '(' argType=MessageLink ')' 'returns' '(' returnType=MessageLink ')' ('{' options+=Option* '}')? ';';
+	=>'rpc' name=ID '(' argType=MessageLink ')' 'returns' '(' returnType=MessageLink ')' ('{' options+=Option* '}')? ';';
 
 MessageLink:
-	target=[Message|FULL_ID]; //TODO: VOID 'void'
+	target=[Message|Var_full]; //TODO: VOID 'void'
 	
 Extend:
-	=>'extend' type=([Message|ID]|[Message|FULL_ID]) '{' elements+=MessageElement* '}'; //TODO: type group?
+	=>'extend' type=([Message|Var_full]) '{' elements+=MessageElement* '}'; //TODO: type group?
 	
 Var_full:
 	FULL_ID | Var;
@@ -166,7 +178,7 @@ VarReserved:
 	'to' | 'package' | 'syntax' | 'import' | 'option' | 'message' | 'service' | 'enum' | 'required' | 'optional' |
 	'repeated' | 'extensions' | 'extend' | 'group' | 'rpc' | 'returns' | 'int32' | 'int64' | 'uint32' | 'uint64' |
 	'sint32' | 'sint64' | 'fixed32' | 'fixed64' | 'sfixed32' | 'sfixed64' | 'float' | 'double' | 'bool' | 'string' |
-	'bytes' | 'default' | 'max' | 'void';
+	'bytes' | 'default' | 'max' | 'void' | 'weak' | 'packed';
 
 terminal NUMDOUBLE returns ecore::EDouble:
 	NUMINT '.' INT;

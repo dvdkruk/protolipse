@@ -60,8 +60,8 @@
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//Value"/>
     <genClasses ecoreClass="Protobuf.ecore#//SimpleValueLink"/>
-    <genClasses ecoreClass="Protobuf.ecore#//EnumLink">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//EnumLink/target"/>
+    <genClasses ecoreClass="Protobuf.ecore#//CustomIdLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//CustomIdLink/target"/>
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//StringLink">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//StringLink/target"/>
@@ -83,6 +83,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Message/elements"/>
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//MessageElement"/>
+    <genClasses ecoreClass="Protobuf.ecore#//Oneof">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Oneof/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Oneof/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//OneofField">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//OneofField/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//OneofField/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//OneofField/index"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//OneofField/options"/>
+    </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//IndexedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IndexedElement/modifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IndexedElement/name"/>
@@ -116,6 +126,7 @@
     <genClasses ecoreClass="Protobuf.ecore#//FieldOption">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//FieldOption/value"/>
     </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//PackedValueFieldOption"/>
     <genClasses ecoreClass="Protobuf.ecore#//DefaultValueFieldOption"/>
     <genClasses ecoreClass="Protobuf.ecore#//NativeFieldOption">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//NativeFieldOption/source"/>

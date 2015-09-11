@@ -254,6 +254,25 @@ public interface ProtobufPackage extends EPackage
   int WEAK_IMPORT_FEATURE_COUNT = IMPORT_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link protolipse.protobuf.impl.MessageElementImpl <em>Message Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see protolipse.protobuf.impl.MessageElementImpl
+   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageElement()
+   * @generated
+   */
+  int MESSAGE_ELEMENT = 21;
+
+  /**
+   * The number of structural features of the '<em>Message Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MESSAGE_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link protolipse.protobuf.impl.OptionImpl <em>Option</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -270,7 +289,7 @@ public interface ProtobufPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPTION__VALUE = STATEMENT_FEATURE_COUNT + 0;
+  int OPTION__VALUE = MESSAGE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Option</em>' class.
@@ -279,7 +298,7 @@ public interface ProtobufPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int OPTION_FEATURE_COUNT = MESSAGE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.impl.NativeOptionImpl <em>Native Option</em>}' class.
@@ -335,7 +354,7 @@ public interface ProtobufPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_OPTION__VALUE = OPTION__VALUE;
+  int CUSTOM_OPTION__VALUE = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -344,7 +363,7 @@ public interface ProtobufPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_OPTION__SOURCE = OPTION_FEATURE_COUNT + 0;
+  int CUSTOM_OPTION__SOURCE = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Custom Option</em>' class.
@@ -353,7 +372,7 @@ public interface ProtobufPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_OPTION_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
+  int CUSTOM_OPTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.impl.ValueImpl <em>Value</em>}' class.
@@ -394,32 +413,32 @@ public interface ProtobufPackage extends EPackage
   int SIMPLE_VALUE_LINK_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link protolipse.protobuf.impl.EnumLinkImpl <em>Enum Link</em>}' class.
+   * The meta object id for the '{@link protolipse.protobuf.impl.CustomIdLinkImpl <em>Custom Id Link</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see protolipse.protobuf.impl.EnumLinkImpl
-   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumLink()
+   * @see protolipse.protobuf.impl.CustomIdLinkImpl
+   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getCustomIdLink()
    * @generated
    */
-  int ENUM_LINK = 12;
+  int CUSTOM_ID_LINK = 12;
 
   /**
-   * The feature id for the '<em><b>Target</b></em>' reference.
+   * The feature id for the '<em><b>Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_LINK__TARGET = SIMPLE_VALUE_LINK_FEATURE_COUNT + 0;
+  int CUSTOM_ID_LINK__TARGET = SIMPLE_VALUE_LINK_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Enum Link</em>' class.
+   * The number of structural features of the '<em>Custom Id Link</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_LINK_FEATURE_COUNT = SIMPLE_VALUE_LINK_FEATURE_COUNT + 1;
+  int CUSTOM_ID_LINK_FEATURE_COUNT = SIMPLE_VALUE_LINK_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.impl.StringLinkImpl <em>String Link</em>}' class.
@@ -628,23 +647,96 @@ public interface ProtobufPackage extends EPackage
   int MESSAGE_FEATURE_COUNT = EXTENSIBLE_TYPE_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link protolipse.protobuf.impl.MessageElementImpl <em>Message Element</em>}' class.
+   * The meta object id for the '{@link protolipse.protobuf.impl.OneofImpl <em>Oneof</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see protolipse.protobuf.impl.MessageElementImpl
-   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageElement()
+   * @see protolipse.protobuf.impl.OneofImpl
+   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getOneof()
    * @generated
    */
-  int MESSAGE_ELEMENT = 21;
+  int ONEOF = 22;
 
   /**
-   * The number of structural features of the '<em>Message Element</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MESSAGE_ELEMENT_FEATURE_COUNT = 0;
+  int ONEOF__NAME = MESSAGE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF__FIELDS = MESSAGE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Oneof</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF_FEATURE_COUNT = MESSAGE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link protolipse.protobuf.impl.OneofFieldImpl <em>Oneof Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see protolipse.protobuf.impl.OneofFieldImpl
+   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getOneofField()
+   * @generated
+   */
+  int ONEOF_FIELD = 23;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF_FIELD__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF_FIELD__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF_FIELD__INDEX = 2;
+
+  /**
+   * The feature id for the '<em><b>Options</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF_FIELD__OPTIONS = 3;
+
+  /**
+   * The number of structural features of the '<em>Oneof Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONEOF_FIELD_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.impl.IndexedElementImpl <em>Indexed Element</em>}' class.
@@ -654,7 +746,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getIndexedElement()
    * @generated
    */
-  int INDEXED_ELEMENT = 22;
+  int INDEXED_ELEMENT = 24;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -700,7 +792,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getExtensionRange()
    * @generated
    */
-  int EXTENSION_RANGE = 23;
+  int EXTENSION_RANGE = 25;
 
   /**
    * The feature id for the '<em><b>Ranges</b></em>' containment reference list.
@@ -728,7 +820,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getRange()
    * @generated
    */
-  int RANGE = 24;
+  int RANGE = 26;
 
   /**
    * The feature id for the '<em><b>From</b></em>' attribute.
@@ -774,7 +866,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageField()
    * @generated
    */
-  int MESSAGE_FIELD = 25;
+  int MESSAGE_FIELD = 27;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -838,7 +930,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getGroup()
    * @generated
    */
-  int GROUP = 26;
+  int GROUP = 28;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -893,7 +985,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getTypeLink()
    * @generated
    */
-  int TYPE_LINK = 27;
+  int TYPE_LINK = 29;
 
   /**
    * The number of structural features of the '<em>Type Link</em>' class.
@@ -912,7 +1004,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getComplexTypeLink()
    * @generated
    */
-  int COMPLEX_TYPE_LINK = 28;
+  int COMPLEX_TYPE_LINK = 30;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -940,7 +1032,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getScalarTypeLink()
    * @generated
    */
-  int SCALAR_TYPE_LINK = 29;
+  int SCALAR_TYPE_LINK = 31;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -968,7 +1060,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getFieldOptions()
    * @generated
    */
-  int FIELD_OPTIONS = 30;
+  int FIELD_OPTIONS = 32;
 
   /**
    * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -996,7 +1088,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getFieldOption()
    * @generated
    */
-  int FIELD_OPTION = 31;
+  int FIELD_OPTION = 33;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1017,6 +1109,34 @@ public interface ProtobufPackage extends EPackage
   int FIELD_OPTION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link protolipse.protobuf.impl.PackedValueFieldOptionImpl <em>Packed Value Field Option</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see protolipse.protobuf.impl.PackedValueFieldOptionImpl
+   * @see protolipse.protobuf.impl.ProtobufPackageImpl#getPackedValueFieldOption()
+   * @generated
+   */
+  int PACKED_VALUE_FIELD_OPTION = 34;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKED_VALUE_FIELD_OPTION__VALUE = FIELD_OPTION__VALUE;
+
+  /**
+   * The number of structural features of the '<em>Packed Value Field Option</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKED_VALUE_FIELD_OPTION_FEATURE_COUNT = FIELD_OPTION_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link protolipse.protobuf.impl.DefaultValueFieldOptionImpl <em>Default Value Field Option</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1024,7 +1144,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getDefaultValueFieldOption()
    * @generated
    */
-  int DEFAULT_VALUE_FIELD_OPTION = 32;
+  int DEFAULT_VALUE_FIELD_OPTION = 35;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1052,7 +1172,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getNativeFieldOption()
    * @generated
    */
-  int NATIVE_FIELD_OPTION = 33;
+  int NATIVE_FIELD_OPTION = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1089,7 +1209,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getOptionSource()
    * @generated
    */
-  int OPTION_SOURCE = 34;
+  int OPTION_SOURCE = 37;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1117,7 +1237,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnum()
    * @generated
    */
-  int ENUM = 35;
+  int ENUM = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1154,7 +1274,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumElement()
    * @generated
    */
-  int ENUM_ELEMENT = 36;
+  int ENUM_ELEMENT = 39;
 
   /**
    * The number of structural features of the '<em>Enum Element</em>' class.
@@ -1173,7 +1293,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumField()
    * @generated
    */
-  int ENUM_FIELD = 37;
+  int ENUM_FIELD = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1219,7 +1339,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 38;
+  int SERVICE = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1256,7 +1376,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getServiceElement()
    * @generated
    */
-  int SERVICE_ELEMENT = 39;
+  int SERVICE_ELEMENT = 42;
 
   /**
    * The number of structural features of the '<em>Service Element</em>' class.
@@ -1275,7 +1395,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getRpc()
    * @generated
    */
-  int RPC = 40;
+  int RPC = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1330,7 +1450,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getMessageLink()
    * @generated
    */
-  int MESSAGE_LINK = 41;
+  int MESSAGE_LINK = 44;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1358,7 +1478,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getExtend()
    * @generated
    */
-  int EXTEND = 42;
+  int EXTEND = 45;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1395,7 +1515,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getBOOL()
    * @generated
    */
-  int BOOL = 43;
+  int BOOL = 46;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.Modifier <em>Modifier</em>}' enum.
@@ -1405,7 +1525,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getModifier()
    * @generated
    */
-  int MODIFIER = 44;
+  int MODIFIER = 47;
 
   /**
    * The meta object id for the '{@link protolipse.protobuf.ScalarType <em>Scalar Type</em>}' enum.
@@ -1415,7 +1535,7 @@ public interface ProtobufPackage extends EPackage
    * @see protolipse.protobuf.impl.ProtobufPackageImpl#getScalarType()
    * @generated
    */
-  int SCALAR_TYPE = 45;
+  int SCALAR_TYPE = 48;
 
 
   /**
@@ -1627,25 +1747,25 @@ public interface ProtobufPackage extends EPackage
   EClass getSimpleValueLink();
 
   /**
-   * Returns the meta object for class '{@link protolipse.protobuf.EnumLink <em>Enum Link</em>}'.
+   * Returns the meta object for class '{@link protolipse.protobuf.CustomIdLink <em>Custom Id Link</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enum Link</em>'.
-   * @see protolipse.protobuf.EnumLink
+   * @return the meta object for class '<em>Custom Id Link</em>'.
+   * @see protolipse.protobuf.CustomIdLink
    * @generated
    */
-  EClass getEnumLink();
+  EClass getCustomIdLink();
 
   /**
-   * Returns the meta object for the reference '{@link protolipse.protobuf.EnumLink#getTarget <em>Target</em>}'.
+   * Returns the meta object for the attribute '{@link protolipse.protobuf.CustomIdLink#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Target</em>'.
-   * @see protolipse.protobuf.EnumLink#getTarget()
-   * @see #getEnumLink()
+   * @return the meta object for the attribute '<em>Target</em>'.
+   * @see protolipse.protobuf.CustomIdLink#getTarget()
+   * @see #getCustomIdLink()
    * @generated
    */
-  EReference getEnumLink_Target();
+  EAttribute getCustomIdLink_Target();
 
   /**
    * Returns the meta object for class '{@link protolipse.protobuf.StringLink <em>String Link</em>}'.
@@ -1802,6 +1922,92 @@ public interface ProtobufPackage extends EPackage
    * @generated
    */
   EClass getMessageElement();
+
+  /**
+   * Returns the meta object for class '{@link protolipse.protobuf.Oneof <em>Oneof</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Oneof</em>'.
+   * @see protolipse.protobuf.Oneof
+   * @generated
+   */
+  EClass getOneof();
+
+  /**
+   * Returns the meta object for the attribute '{@link protolipse.protobuf.Oneof#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see protolipse.protobuf.Oneof#getName()
+   * @see #getOneof()
+   * @generated
+   */
+  EAttribute getOneof_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link protolipse.protobuf.Oneof#getFields <em>Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fields</em>'.
+   * @see protolipse.protobuf.Oneof#getFields()
+   * @see #getOneof()
+   * @generated
+   */
+  EReference getOneof_Fields();
+
+  /**
+   * Returns the meta object for class '{@link protolipse.protobuf.OneofField <em>Oneof Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Oneof Field</em>'.
+   * @see protolipse.protobuf.OneofField
+   * @generated
+   */
+  EClass getOneofField();
+
+  /**
+   * Returns the meta object for the containment reference '{@link protolipse.protobuf.OneofField#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see protolipse.protobuf.OneofField#getType()
+   * @see #getOneofField()
+   * @generated
+   */
+  EReference getOneofField_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link protolipse.protobuf.OneofField#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see protolipse.protobuf.OneofField#getName()
+   * @see #getOneofField()
+   * @generated
+   */
+  EAttribute getOneofField_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link protolipse.protobuf.OneofField#getIndex <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Index</em>'.
+   * @see protolipse.protobuf.OneofField#getIndex()
+   * @see #getOneofField()
+   * @generated
+   */
+  EAttribute getOneofField_Index();
+
+  /**
+   * Returns the meta object for the containment reference '{@link protolipse.protobuf.OneofField#getOptions <em>Options</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Options</em>'.
+   * @see protolipse.protobuf.OneofField#getOptions()
+   * @see #getOneofField()
+   * @generated
+   */
+  EReference getOneofField_Options();
 
   /**
    * Returns the meta object for class '{@link protolipse.protobuf.IndexedElement <em>Indexed Element</em>}'.
@@ -2056,6 +2262,16 @@ public interface ProtobufPackage extends EPackage
    * @generated
    */
   EReference getFieldOption_Value();
+
+  /**
+   * Returns the meta object for class '{@link protolipse.protobuf.PackedValueFieldOption <em>Packed Value Field Option</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Packed Value Field Option</em>'.
+   * @see protolipse.protobuf.PackedValueFieldOption
+   * @generated
+   */
+  EClass getPackedValueFieldOption();
 
   /**
    * Returns the meta object for class '{@link protolipse.protobuf.DefaultValueFieldOption <em>Default Value Field Option</em>}'.
@@ -2581,22 +2797,22 @@ public interface ProtobufPackage extends EPackage
     EClass SIMPLE_VALUE_LINK = eINSTANCE.getSimpleValueLink();
 
     /**
-     * The meta object literal for the '{@link protolipse.protobuf.impl.EnumLinkImpl <em>Enum Link</em>}' class.
+     * The meta object literal for the '{@link protolipse.protobuf.impl.CustomIdLinkImpl <em>Custom Id Link</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see protolipse.protobuf.impl.EnumLinkImpl
-     * @see protolipse.protobuf.impl.ProtobufPackageImpl#getEnumLink()
+     * @see protolipse.protobuf.impl.CustomIdLinkImpl
+     * @see protolipse.protobuf.impl.ProtobufPackageImpl#getCustomIdLink()
      * @generated
      */
-    EClass ENUM_LINK = eINSTANCE.getEnumLink();
+    EClass CUSTOM_ID_LINK = eINSTANCE.getCustomIdLink();
 
     /**
-     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENUM_LINK__TARGET = eINSTANCE.getEnumLink_Target();
+    EAttribute CUSTOM_ID_LINK__TARGET = eINSTANCE.getCustomIdLink_Target();
 
     /**
      * The meta object literal for the '{@link protolipse.protobuf.impl.StringLinkImpl <em>String Link</em>}' class.
@@ -2735,6 +2951,74 @@ public interface ProtobufPackage extends EPackage
      * @generated
      */
     EClass MESSAGE_ELEMENT = eINSTANCE.getMessageElement();
+
+    /**
+     * The meta object literal for the '{@link protolipse.protobuf.impl.OneofImpl <em>Oneof</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see protolipse.protobuf.impl.OneofImpl
+     * @see protolipse.protobuf.impl.ProtobufPackageImpl#getOneof()
+     * @generated
+     */
+    EClass ONEOF = eINSTANCE.getOneof();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ONEOF__NAME = eINSTANCE.getOneof_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONEOF__FIELDS = eINSTANCE.getOneof_Fields();
+
+    /**
+     * The meta object literal for the '{@link protolipse.protobuf.impl.OneofFieldImpl <em>Oneof Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see protolipse.protobuf.impl.OneofFieldImpl
+     * @see protolipse.protobuf.impl.ProtobufPackageImpl#getOneofField()
+     * @generated
+     */
+    EClass ONEOF_FIELD = eINSTANCE.getOneofField();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONEOF_FIELD__TYPE = eINSTANCE.getOneofField_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ONEOF_FIELD__NAME = eINSTANCE.getOneofField_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ONEOF_FIELD__INDEX = eINSTANCE.getOneofField_Index();
+
+    /**
+     * The meta object literal for the '<em><b>Options</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONEOF_FIELD__OPTIONS = eINSTANCE.getOneofField_Options();
 
     /**
      * The meta object literal for the '{@link protolipse.protobuf.impl.IndexedElementImpl <em>Indexed Element</em>}' class.
@@ -2947,6 +3231,16 @@ public interface ProtobufPackage extends EPackage
      * @generated
      */
     EReference FIELD_OPTION__VALUE = eINSTANCE.getFieldOption_Value();
+
+    /**
+     * The meta object literal for the '{@link protolipse.protobuf.impl.PackedValueFieldOptionImpl <em>Packed Value Field Option</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see protolipse.protobuf.impl.PackedValueFieldOptionImpl
+     * @see protolipse.protobuf.impl.ProtobufPackageImpl#getPackedValueFieldOption()
+     * @generated
+     */
+    EClass PACKED_VALUE_FIELD_OPTION = eINSTANCE.getPackedValueFieldOption();
 
     /**
      * The meta object literal for the '{@link protolipse.protobuf.impl.DefaultValueFieldOptionImpl <em>Default Value Field Option</em>}' class.

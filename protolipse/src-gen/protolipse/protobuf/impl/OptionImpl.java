@@ -27,7 +27,7 @@ import protolipse.protobuf.Value;
  *
  * @generated
  */
-public class OptionImpl extends StatementImpl implements Option
+public class OptionImpl extends MessageElementImpl implements Option
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.

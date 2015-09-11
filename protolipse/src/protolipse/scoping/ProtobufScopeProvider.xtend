@@ -10,7 +10,6 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import protolipse.protobuf.ComplexTypeLink
 import protolipse.protobuf.Enum
 import protolipse.protobuf.EnumField
-import protolipse.protobuf.EnumLink
 import protolipse.protobuf.MessageField
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
@@ -24,16 +23,16 @@ import static extension org.eclipse.xtext.EcoreUtil2.*
  */
 class ProtobufScopeProvider extends AbstractDeclarativeScopeProvider {
 
-	def scope_EnumLink_target(EnumLink enumLink, EReference ref) {
-		val msgField = enumLink.getContainerOfType(MessageField)
-		if(msgField == null) return IScope.NULLSCOPE
-
-		val cplxTypeLink = msgField.type as ComplexTypeLink
-		if(cplxTypeLink == null) return IScope.NULLSCOPE
-
-		val enum = cplxTypeLink.target as Enum
-		if(enum == null) return IScope.NULLSCOPE
-
-		return Scopes.scopeFor(enum.elements.filter(EnumField))
-	}
+//	def scope_EnumLink_target(EnumLink enumLink, EReference ref) {
+//		val msgField = enumLink.getContainerOfType(MessageField)
+//		if(msgField == null) return IScope.NULLSCOPE
+//
+//		val cplxTypeLink = msgField.type as ComplexTypeLink
+//		if(cplxTypeLink == null) return IScope.NULLSCOPE
+//
+//		val enum = cplxTypeLink.target as Enum
+//		if(enum == null) return IScope.NULLSCOPE
+//
+//		return Scopes.scopeFor(enum.elements.filter(EnumField))
+//	}
 }
