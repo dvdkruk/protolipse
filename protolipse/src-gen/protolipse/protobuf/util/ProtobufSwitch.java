@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
@@ -29,12 +30,14 @@ import protolipse.protobuf.MessageElement;
 import protolipse.protobuf.MessageField;
 import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.NativeFieldOption;
+import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
+import protolipse.protobuf.Range;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
@@ -171,8 +174,30 @@ public class ProtobufSwitch<T> extends Switch<T>
         T result = caseOption(option);
         if (result == null) result = caseStatement(option);
         if (result == null) result = caseMessageElement(option);
-        if (result == null) result = caseEnumElement(option);
         if (result == null) result = caseServiceElement(option);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.NATIVE_OPTION:
+      {
+        NativeOption nativeOption = (NativeOption)theEObject;
+        T result = caseNativeOption(nativeOption);
+        if (result == null) result = caseOption(nativeOption);
+        if (result == null) result = caseStatement(nativeOption);
+        if (result == null) result = caseMessageElement(nativeOption);
+        if (result == null) result = caseServiceElement(nativeOption);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.CUSTOM_OPTION:
+      {
+        CustomOption customOption = (CustomOption)theEObject;
+        T result = caseCustomOption(customOption);
+        if (result == null) result = caseOption(customOption);
+        if (result == null) result = caseEnumElement(customOption);
+        if (result == null) result = caseStatement(customOption);
+        if (result == null) result = caseMessageElement(customOption);
+        if (result == null) result = caseServiceElement(customOption);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -295,6 +320,13 @@ public class ProtobufSwitch<T> extends Switch<T>
         ExtensionRange extensionRange = (ExtensionRange)theEObject;
         T result = caseExtensionRange(extensionRange);
         if (result == null) result = caseMessageElement(extensionRange);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtobufPackage.RANGE:
+      {
+        Range range = (Range)theEObject;
+        T result = caseRange(range);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -577,6 +609,38 @@ public class ProtobufSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Native Option</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Native Option</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNativeOption(NativeOption object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Custom Option</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Custom Option</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCustomOption(CustomOption object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -796,6 +860,22 @@ public class ProtobufSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExtensionRange(ExtensionRange object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Range</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Range</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRange(Range object)
   {
     return null;
   }

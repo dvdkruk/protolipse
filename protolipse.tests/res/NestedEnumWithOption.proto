@@ -13,5 +13,19 @@ message SearchRequest {
     PRODUCTS = 5;
     VIDEO = 6;
   }
+  
   optional Corpus corpus = 4 [default = UNIVERSAL];
+  
+  enum EnumAllowingAlias {
+  	option allow_alias = true; //TODO: test and scoping
+  	UNKNOWN = 0;
+  	STARTED = 1;
+  	RUNNING = 1;
+  }
+  
+  enum EnumNotAllowingAlias {
+  	UNKNOWN = 0;
+  	STARTED = 1;
+ 	// RUNNING = 1;  // Uncommenting this line will cause a compile error inside Google and a warning message outside.
+  }
 }

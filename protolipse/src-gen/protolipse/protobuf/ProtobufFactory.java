@@ -95,6 +95,24 @@ public interface ProtobufFactory extends EFactory
   Option createOption();
 
   /**
+   * Returns a new object of class '<em>Native Option</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Native Option</em>'.
+   * @generated
+   */
+  NativeOption createNativeOption();
+
+  /**
+   * Returns a new object of class '<em>Custom Option</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Custom Option</em>'.
+   * @generated
+   */
+  CustomOption createCustomOption();
+
+  /**
    * Returns a new object of class '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -219,6 +237,15 @@ public interface ProtobufFactory extends EFactory
    * @generated
    */
   ExtensionRange createExtensionRange();
+
+  /**
+   * Returns a new object of class '<em>Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Range</em>'.
+   * @generated
+   */
+  Range createRange();
 
   /**
    * Returns a new object of class '<em>Message Field</em>'.

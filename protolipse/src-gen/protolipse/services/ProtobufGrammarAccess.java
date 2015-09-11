@@ -211,16 +211,16 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//WeakImport:
-		//	"import" "weak" importURI=STRING ";";
+		//	"import" "weak"? importURI=STRING ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"import" "weak" importURI=STRING ";"
+		//"import" "weak"? importURI=STRING ";"
 		public Group getGroup() { return cGroup; }
 
 		//"import"
 		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
 
-		//"weak"
+		//"weak"?
 		public Keyword getWeakKeyword_1() { return cWeakKeyword_1; }
 
 		//importURI=STRING
@@ -235,6 +235,26 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class OptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Option");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cNativeOptionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCustomOptionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Option:
+		//	NativeOption | CustomOption;
+		@Override public ParserRule getRule() { return rule; }
+
+		//=> NativeOption | CustomOption
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//=> NativeOption
+		public RuleCall getNativeOptionParserRuleCall_0() { return cNativeOptionParserRuleCall_0; }
+
+		//CustomOption
+		public RuleCall getCustomOptionParserRuleCall_1() { return cCustomOptionParserRuleCall_1; }
+	}
+
+	public class NativeOptionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NativeOption");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cSourceAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -246,7 +266,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		////TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |
-		//Option:
+		//NativeOption:
 		//	"option" source=[MessageField|Var_full] "=" value=Value ";";
 		@Override public ParserRule getRule() { return rule; }
 
@@ -264,6 +284,46 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Var_full
 		public RuleCall getSourceMessageFieldVar_fullParserRuleCall_1_0_1() { return cSourceMessageFieldVar_fullParserRuleCall_1_0_1; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//value=Value
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+
+		//Value
+		public RuleCall getValueValueParserRuleCall_3_0() { return cValueValueParserRuleCall_3_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+
+	public class CustomOptionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CustomOption");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cOptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSourceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSourceIDTerminalRuleCall_1_0 = (RuleCall)cSourceAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueValueParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//CustomOption:
+		//	"option" source=ID "=" value=Value ";";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"option" source=ID "=" value=Value ";"
+		public Group getGroup() { return cGroup; }
+
+		//"option"
+		public Keyword getOptionKeyword_0() { return cOptionKeyword_0; }
+
+		//source=ID
+		public Assignment getSourceAssignment_1() { return cSourceAssignment_1; }
+
+		//ID
+		public RuleCall getSourceIDTerminalRuleCall_1_0() { return cSourceIDTerminalRuleCall_1_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
@@ -568,45 +628,92 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExtensionRange");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExtensionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFromAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFromNUMINTTerminalRuleCall_1_0 = (RuleCall)cFromAssignment_1.eContents().get(0);
+		private final Assignment cRangesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRangesRangeParserRuleCall_1_0 = (RuleCall)cRangesAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cToKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cToAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cToNUMINTTerminalRuleCall_2_1_0 = (RuleCall)cToAssignment_2_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cRangesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cRangesRangeParserRuleCall_2_1_0 = (RuleCall)cRangesAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		////TODO: to='max'
 		//ExtensionRange:
-		//	"extensions" from=NUMINT ("to" to=NUMINT)? ";";
+		//	"extensions" ranges+=Range ("," ranges+=Range)* ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"extensions" from=NUMINT ("to" to=NUMINT)? ";"
+		//"extensions" ranges+=Range ("," ranges+=Range)* ";"
 		public Group getGroup() { return cGroup; }
 
 		//"extensions"
 		public Keyword getExtensionsKeyword_0() { return cExtensionsKeyword_0; }
 
-		//from=NUMINT
-		public Assignment getFromAssignment_1() { return cFromAssignment_1; }
+		//ranges+=Range
+		public Assignment getRangesAssignment_1() { return cRangesAssignment_1; }
 
-		//NUMINT
-		public RuleCall getFromNUMINTTerminalRuleCall_1_0() { return cFromNUMINTTerminalRuleCall_1_0; }
+		//Range
+		public RuleCall getRangesRangeParserRuleCall_1_0() { return cRangesRangeParserRuleCall_1_0; }
 
-		//("to" to=NUMINT)?
+		//("," ranges+=Range)*
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"to"
-		public Keyword getToKeyword_2_0() { return cToKeyword_2_0; }
+		//","
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 
-		//to=NUMINT
-		public Assignment getToAssignment_2_1() { return cToAssignment_2_1; }
+		//ranges+=Range
+		public Assignment getRangesAssignment_2_1() { return cRangesAssignment_2_1; }
 
-		//NUMINT
-		public RuleCall getToNUMINTTerminalRuleCall_2_1_0() { return cToNUMINTTerminalRuleCall_2_1_0; }
+		//Range
+		public RuleCall getRangesRangeParserRuleCall_2_1_0() { return cRangesRangeParserRuleCall_2_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class RangeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Range");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cFromAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cFromNUMINTTerminalRuleCall_0_0 = (RuleCall)cFromAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cToKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Assignment cToAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cToNUMINTTerminalRuleCall_1_1_0_0 = (RuleCall)cToAssignment_1_1_0.eContents().get(0);
+		private final Assignment cMaxAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final Keyword cMaxMaxKeyword_1_1_1_0 = (Keyword)cMaxAssignment_1_1_1.eContents().get(0);
+		
+		//Range:
+		//	from=NUMINT ("to" (to=NUMINT | max?="max"))?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//from=NUMINT ("to" (to=NUMINT | max?="max"))?
+		public Group getGroup() { return cGroup; }
+
+		//from=NUMINT
+		public Assignment getFromAssignment_0() { return cFromAssignment_0; }
+
+		//NUMINT
+		public RuleCall getFromNUMINTTerminalRuleCall_0_0() { return cFromNUMINTTerminalRuleCall_0_0; }
+
+		//("to" (to=NUMINT | max?="max"))?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"to"
+		public Keyword getToKeyword_1_0() { return cToKeyword_1_0; }
+
+		//to=NUMINT | max?="max"
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+
+		//to=NUMINT
+		public Assignment getToAssignment_1_1_0() { return cToAssignment_1_1_0; }
+
+		//NUMINT
+		public RuleCall getToNUMINTTerminalRuleCall_1_1_0_0() { return cToNUMINTTerminalRuleCall_1_1_0_0; }
+
+		//max?="max"
+		public Assignment getMaxAssignment_1_1_1() { return cMaxAssignment_1_1_1; }
+
+		//"max"
+		public Keyword getMaxMaxKeyword_1_1_1_0() { return cMaxMaxKeyword_1_1_1_0; }
 	}
 
 	public class MessageFieldElements extends AbstractParserRuleElementFinder {
@@ -974,20 +1081,20 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EnumElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cEnumFieldParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOptionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCustomOptionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//EnumElement:
-		//	EnumField | Option;
+		//	EnumField | CustomOption;
 		@Override public ParserRule getRule() { return rule; }
 
-		//EnumField | Option
+		//EnumField | CustomOption
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//EnumField
 		public RuleCall getEnumFieldParserRuleCall_0() { return cEnumFieldParserRuleCall_0; }
 
-		//Option
-		public RuleCall getOptionParserRuleCall_1() { return cOptionParserRuleCall_1; }
+		//CustomOption
+		public RuleCall getCustomOptionParserRuleCall_1() { return cCustomOptionParserRuleCall_1; }
 	}
 
 	public class EnumFieldElements extends AbstractParserRuleElementFinder {
@@ -1149,10 +1256,10 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Rpc:
-		//	"rpc" name=ID "(" argType=MessageLink ")" "returns" "(" returnType=MessageLink ")" ("{" options+=Option* "}")? ";"+;
+		//	"rpc" name=ID "(" argType=MessageLink ")" "returns" "(" returnType=MessageLink ")" ("{" options+=Option* "}")? ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"rpc" name=ID "(" argType=MessageLink ")" "returns" "(" returnType=MessageLink ")" ("{" options+=Option* "}")? ";"+
+		//"rpc" name=ID "(" argType=MessageLink ")" "returns" "(" returnType=MessageLink ")" ("{" options+=Option* "}")? ";"
 		public Group getGroup() { return cGroup; }
 
 		//"rpc"
@@ -1206,7 +1313,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9_2() { return cRightCurlyBracketKeyword_9_2; }
 
-		//";"+
+		//";"
 		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
 	}
 
@@ -1236,33 +1343,44 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExtendKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTypeMessageCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
-		private final RuleCall cTypeMessageFULL_IDParserRuleCall_1_0_1 = (RuleCall)cTypeMessageCrossReference_1_0.eContents().get(1);
+		private final Alternatives cTypeAlternatives_1_0 = (Alternatives)cTypeAssignment_1.eContents().get(0);
+		private final CrossReference cTypeMessageCrossReference_1_0_0 = (CrossReference)cTypeAlternatives_1_0.eContents().get(0);
+		private final RuleCall cTypeMessageIDTerminalRuleCall_1_0_0_1 = (RuleCall)cTypeMessageCrossReference_1_0_0.eContents().get(1);
+		private final CrossReference cTypeMessageCrossReference_1_0_1 = (CrossReference)cTypeAlternatives_1_0.eContents().get(1);
+		private final RuleCall cTypeMessageFULL_IDParserRuleCall_1_0_1_1 = (RuleCall)cTypeMessageCrossReference_1_0_1.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cElementsMessageElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		////TODO: type group?
 		//Extend:
-		//	"extend" type=[Message|FULL_ID] "{" elements+=MessageElement* "}" ";"?;
+		//	"extend" type=([Message] | [Message|FULL_ID]) "{" elements+=MessageElement* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"extend" type=[Message|FULL_ID] "{" elements+=MessageElement* "}" ";"?
+		//=> "extend" type=([Message] | [Message|FULL_ID]) "{" elements+=MessageElement* "}"
 		public Group getGroup() { return cGroup; }
 
-		//"extend"
+		//=> "extend"
 		public Keyword getExtendKeyword_0() { return cExtendKeyword_0; }
 
-		//type=[Message|FULL_ID]
+		//type=([Message] | [Message|FULL_ID])
 		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
 
+		//([Message] | [Message|FULL_ID])
+		public Alternatives getTypeAlternatives_1_0() { return cTypeAlternatives_1_0; }
+
+		//[Message]
+		public CrossReference getTypeMessageCrossReference_1_0_0() { return cTypeMessageCrossReference_1_0_0; }
+
+		//ID
+		public RuleCall getTypeMessageIDTerminalRuleCall_1_0_0_1() { return cTypeMessageIDTerminalRuleCall_1_0_0_1; }
+
 		//[Message|FULL_ID]
-		public CrossReference getTypeMessageCrossReference_1_0() { return cTypeMessageCrossReference_1_0; }
+		public CrossReference getTypeMessageCrossReference_1_0_1() { return cTypeMessageCrossReference_1_0_1; }
 
 		//FULL_ID
-		public RuleCall getTypeMessageFULL_IDParserRuleCall_1_0_1() { return cTypeMessageFULL_IDParserRuleCall_1_0_1; }
+		public RuleCall getTypeMessageFULL_IDParserRuleCall_1_0_1_1() { return cTypeMessageFULL_IDParserRuleCall_1_0_1_1; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -1275,9 +1393,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-
-		//";"?
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class Var_fullElements extends AbstractParserRuleElementFinder {
@@ -1742,6 +1857,8 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	private final PublicImportElements pPublicImport;
 	private final WeakImportElements pWeakImport;
 	private final OptionElements pOption;
+	private final NativeOptionElements pNativeOption;
+	private final CustomOptionElements pCustomOption;
 	private final ValueElements pValue;
 	private final SimpleValueLinkElements pSimpleValueLink;
 	private final EnumLinkElements pEnumLink;
@@ -1757,6 +1874,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	private final MessageElementElements pMessageElement;
 	private final IndexedElementElements pIndexedElement;
 	private final ExtensionRangeElements pExtensionRange;
+	private final RangeElements pRange;
 	private final MessageFieldElements pMessageField;
 	private final GroupElements pGroup;
 	private final ModifierElements unknownRuleModifier;
@@ -1802,6 +1920,8 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPublicImport = new PublicImportElements();
 		this.pWeakImport = new WeakImportElements();
 		this.pOption = new OptionElements();
+		this.pNativeOption = new NativeOptionElements();
+		this.pCustomOption = new CustomOptionElements();
 		this.pValue = new ValueElements();
 		this.pSimpleValueLink = new SimpleValueLinkElements();
 		this.pEnumLink = new EnumLinkElements();
@@ -1817,6 +1937,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMessageElement = new MessageElementElements();
 		this.pIndexedElement = new IndexedElementElements();
 		this.pExtensionRange = new ExtensionRangeElements();
+		this.pRange = new RangeElements();
 		this.pMessageField = new MessageFieldElements();
 		this.pGroup = new GroupElements();
 		this.unknownRuleModifier = new ModifierElements();
@@ -1941,7 +2062,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WeakImport:
-	//	"import" "weak" importURI=STRING ";";
+	//	"import" "weak"? importURI=STRING ";";
 	public WeakImportElements getWeakImportAccess() {
 		return pWeakImport;
 	}
@@ -1950,15 +2071,35 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		return getWeakImportAccess().getRule();
 	}
 
-	////TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |
 	//Option:
-	//	"option" source=[MessageField|Var_full] "=" value=Value ";";
+	//	NativeOption | CustomOption;
 	public OptionElements getOptionAccess() {
 		return pOption;
 	}
 	
 	public ParserRule getOptionRule() {
 		return getOptionAccess().getRule();
+	}
+
+	////TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |
+	//NativeOption:
+	//	"option" source=[MessageField|Var_full] "=" value=Value ";";
+	public NativeOptionElements getNativeOptionAccess() {
+		return pNativeOption;
+	}
+	
+	public ParserRule getNativeOptionRule() {
+		return getNativeOptionAccess().getRule();
+	}
+
+	//CustomOption:
+	//	"option" source=ID "=" value=Value ";";
+	public CustomOptionElements getCustomOptionAccess() {
+		return pCustomOption;
+	}
+	
+	public ParserRule getCustomOptionRule() {
+		return getCustomOptionAccess().getRule();
 	}
 
 	////TODO: groups
@@ -2103,15 +2244,24 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		return getIndexedElementAccess().getRule();
 	}
 
-	////TODO: to='max'
 	//ExtensionRange:
-	//	"extensions" from=NUMINT ("to" to=NUMINT)? ";";
+	//	"extensions" ranges+=Range ("," ranges+=Range)* ";";
 	public ExtensionRangeElements getExtensionRangeAccess() {
 		return pExtensionRange;
 	}
 	
 	public ParserRule getExtensionRangeRule() {
 		return getExtensionRangeAccess().getRule();
+	}
+
+	//Range:
+	//	from=NUMINT ("to" (to=NUMINT | max?="max"))?;
+	public RangeElements getRangeAccess() {
+		return pRange;
+	}
+	
+	public ParserRule getRangeRule() {
+		return getRangeAccess().getRule();
 	}
 
 	////TODO: ignore_block
@@ -2247,7 +2397,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EnumElement:
-	//	EnumField | Option;
+	//	EnumField | CustomOption;
 	public EnumElementElements getEnumElementAccess() {
 		return pEnumElement;
 	}
@@ -2287,7 +2437,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Rpc:
-	//	"rpc" name=ID "(" argType=MessageLink ")" "returns" "(" returnType=MessageLink ")" ("{" options+=Option* "}")? ";"+;
+	//	"rpc" name=ID "(" argType=MessageLink ")" "returns" "(" returnType=MessageLink ")" ("{" options+=Option* "}")? ";";
 	public RpcElements getRpcAccess() {
 		return pRpc;
 	}
@@ -2309,7 +2459,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 	////TODO: type group?
 	//Extend:
-	//	"extend" type=[Message|FULL_ID] "{" elements+=MessageElement* "}" ";"?;
+	//	"extend" type=([Message] | [Message|FULL_ID]) "{" elements+=MessageElement* "}";
 	public ExtendElements getExtendAccess() {
 		return pExtend;
 	}

@@ -1,0 +1,14 @@
+syntax="proto2";
+
+message Foo {
+  extensions 1000 to max;
+}
+
+message Baz {
+  //...
+}
+
+// This can even be in a different file.
+extend Foo {
+  optional Baz foo_baz_ext = 127;
+}

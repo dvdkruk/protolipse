@@ -1,0 +1,9 @@
+syntax="proto2";
+
+message SearchResponse {
+  repeated group Result = 1 {
+    required string url = 2;
+    optional string title = 3;
+    repeated string snippets = 4;
+  }
+}

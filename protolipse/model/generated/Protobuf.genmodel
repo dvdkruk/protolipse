@@ -50,8 +50,13 @@
     <genClasses ecoreClass="Protobuf.ecore#//PublicImport"/>
     <genClasses ecoreClass="Protobuf.ecore#//WeakImport"/>
     <genClasses ecoreClass="Protobuf.ecore#//Option">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Option/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Option/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//NativeOption">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protobuf.ecore#//NativeOption/source"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//CustomOption">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//CustomOption/source"/>
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//Value"/>
     <genClasses ecoreClass="Protobuf.ecore#//SimpleValueLink"/>
@@ -84,8 +89,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//IndexedElement/index"/>
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//ExtensionRange">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//ExtensionRange/from"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//ExtensionRange/to"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//ExtensionRange/ranges"/>
+    </genClasses>
+    <genClasses ecoreClass="Protobuf.ecore#//Range">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Range/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Range/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Range/max"/>
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//MessageField">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//MessageField/type"/>

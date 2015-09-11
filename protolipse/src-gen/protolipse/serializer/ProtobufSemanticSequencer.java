@@ -18,6 +18,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumField;
@@ -31,11 +32,12 @@ import protolipse.protobuf.Message;
 import protolipse.protobuf.MessageField;
 import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.NativeFieldOption;
-import protolipse.protobuf.Option;
+import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
+import protolipse.protobuf.Range;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
@@ -58,6 +60,9 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case ProtobufPackage.COMPLEX_TYPE_LINK:
 				sequence_ComplexTypeLink(context, (ComplexTypeLink) semanticObject); 
+				return; 
+			case ProtobufPackage.CUSTOM_OPTION:
+				sequence_CustomOption(context, (CustomOption) semanticObject); 
 				return; 
 			case ProtobufPackage.DEFAULT_VALUE_FIELD_OPTION:
 				sequence_DefaultValueFieldOption(context, (DefaultValueFieldOption) semanticObject); 
@@ -101,8 +106,8 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case ProtobufPackage.NATIVE_FIELD_OPTION:
 				sequence_NativeFieldOption(context, (NativeFieldOption) semanticObject); 
 				return; 
-			case ProtobufPackage.OPTION:
-				sequence_Option(context, (Option) semanticObject); 
+			case ProtobufPackage.NATIVE_OPTION:
+				sequence_NativeOption(context, (NativeOption) semanticObject); 
 				return; 
 			case ProtobufPackage.OPTION_SOURCE:
 				sequence_OptionSource(context, (OptionSource) semanticObject); 
@@ -115,6 +120,9 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case ProtobufPackage.PUBLIC_IMPORT:
 				sequence_PublicImport(context, (PublicImport) semanticObject); 
+				return; 
+			case ProtobufPackage.RANGE:
+				sequence_Range(context, (Range) semanticObject); 
 				return; 
 			case ProtobufPackage.RPC:
 				sequence_Rpc(context, (Rpc) semanticObject); 
@@ -166,6 +174,25 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getComplexTypeLinkAccess().getTargetComplexTypeVar_fullParserRuleCall_0_1(), semanticObject.getTarget());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (source=ID value=Value)
+	 */
+	protected void sequence_CustomOption(EObject context, CustomOption semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.OPTION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.OPTION__VALUE));
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.CUSTOM_OPTION__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.CUSTOM_OPTION__SOURCE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCustomOptionAccess().getSourceIDTerminalRuleCall_1_0(), semanticObject.getSource());
+		feeder.accept(grammarAccess.getCustomOptionAccess().getValueValueParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -238,7 +265,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (type=[Message|FULL_ID] elements+=MessageElement*)
+	 *     ((type=[Message|ID] | type=[Message|FULL_ID]) elements+=MessageElement*)
 	 */
 	protected void sequence_Extend(EObject context, Extend semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -247,7 +274,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (from=NUMINT to=NUMINT?)
+	 *     (ranges+=Range ranges+=Range*)
 	 */
 	protected void sequence_ExtensionRange(EObject context, ExtensionRange semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -343,6 +370,25 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
+	 *     (source=[MessageField|Var_full] value=Value)
+	 */
+	protected void sequence_NativeOption(EObject context, NativeOption semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.OPTION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.OPTION__VALUE));
+			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.NATIVE_OPTION__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.NATIVE_OPTION__SOURCE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getNativeOptionAccess().getSourceMessageFieldVar_fullParserRuleCall_1_0_1(), semanticObject.getSource());
+		feeder.accept(grammarAccess.getNativeOptionAccess().getValueValueParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     target=[IndexedElement|Var_full]
 	 */
 	protected void sequence_OptionSource(EObject context, OptionSource semanticObject) {
@@ -353,25 +399,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getOptionSourceAccess().getTargetIndexedElementVar_fullParserRuleCall_0_1(), semanticObject.getTarget());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (source=[MessageField|Var_full] value=Value)
-	 */
-	protected void sequence_Option(EObject context, Option semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.OPTION__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.OPTION__SOURCE));
-			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.OPTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.OPTION__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getOptionAccess().getSourceMessageFieldVar_fullParserRuleCall_1_0_1(), semanticObject.getSource());
-		feeder.accept(grammarAccess.getOptionAccess().getValueValueParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -414,6 +441,15 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getPublicImportAccess().getImportURISTRINGTerminalRuleCall_2_0(), semanticObject.getImportURI());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (from=NUMINT (to=NUMINT | max?='max')?)
+	 */
+	protected void sequence_Range(EObject context, Range semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

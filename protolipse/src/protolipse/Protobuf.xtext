@@ -31,13 +31,19 @@ PublicImport:
 	'import' 'public' importURI=STRING ';';
 	
 WeakImport:
-	'import' 'weak' importURI=STRING ';';	
+	'import' ('weak')? importURI=STRING ';';	
 	
 
 Option:
+	=>NativeOption | CustomOption;
+	
+NativeOption:
 	'option' source=[MessageField|Var_full] '=' value=Value ';'; //TODO: '('? name=Var_full ')'? AND complexTypes VarReserved | ID | FULL_ID |
-//TODO: groups
-Value:
+	
+CustomOption:
+	'option' source=ID '=' value=Value ';';
+	
+Value://TODO: groups
 	SimpleValueLink;
 
 SimpleValueLink:
@@ -80,7 +86,11 @@ IndexedElement:
 	MessageField | Group;
 
 ExtensionRange:
-	'extensions' from=NUMINT ('to' to=NUMINT)? ';'; //TODO: to='max'
+	'extensions' ranges+=Range ("," ranges+=Range)* ';';
+
+Range:
+	from=NUMINT ('to' (to=NUMINT|max?="max") )?
+;
 	
 MessageField:
 	modifier=Modifier type=TypeLink name=Var '=' index=NUMINT options=FieldOptions? ';'; //TODO: ignore_block
@@ -123,7 +133,7 @@ Enum:
 	'enum' name=ID '{' elements+=EnumElement* '}';
 
 EnumElement:
-	EnumField | Option;
+	EnumField | CustomOption;
 
 EnumField:
 	name=ID '=' index=NUMINT ('[' options+=FieldOption (',' options+=FieldOption)* ']')? ';';
@@ -135,13 +145,13 @@ ServiceElement:
 	Rpc | Option;
 
 Rpc:
-	'rpc' name=ID '(' argType=MessageLink ')' 'returns' '(' returnType=MessageLink ')' ('{' options+=Option* '}')? (';')+;
+	'rpc' name=ID '(' argType=MessageLink ')' 'returns' '(' returnType=MessageLink ')' ('{' options+=Option* '}')? ';';
 
 MessageLink:
 	target=[Message|FULL_ID]; //TODO: VOID 'void'
 	
 Extend:
-	'extend' type=[Message|FULL_ID] '{' elements+=MessageElement* '}' (';')?; //TODO: type group?
+	=>'extend' type=([Message|ID]|[Message|FULL_ID]) '{' elements+=MessageElement* '}'; //TODO: type group?
 	
 Var_full:
 	FULL_ID | Var;

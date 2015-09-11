@@ -19,10 +19,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PublicImport" eSuperTypes="#//Import"/>
   <eClassifiers xsi:type="ecore:EClass" name="WeakImport" eSuperTypes="#//Import"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//Statement #//MessageElement #//EnumElement #//ServiceElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//MessageField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//Statement #//MessageElement #//ServiceElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NativeOption" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//MessageField"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomOption" eSuperTypes="#//Option #//EnumElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleValueLink" eSuperTypes="#//Value"/>
@@ -60,8 +65,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtensionRange" eSuperTypes="#//MessageElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ranges" upperBound="-1"
+        eType="#//Range" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageField" eSuperTypes="#//IndexedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeLink"

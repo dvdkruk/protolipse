@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
@@ -31,12 +32,14 @@ import protolipse.protobuf.MessageElement;
 import protolipse.protobuf.MessageField;
 import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.NativeFieldOption;
+import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
+import protolipse.protobuf.Range;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
@@ -153,6 +156,16 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
         return createOptionAdapter();
       }
       @Override
+      public Adapter caseNativeOption(NativeOption object)
+      {
+        return createNativeOptionAdapter();
+      }
+      @Override
+      public Adapter caseCustomOption(CustomOption object)
+      {
+        return createCustomOptionAdapter();
+      }
+      @Override
       public Adapter caseValue(Value object)
       {
         return createValueAdapter();
@@ -221,6 +234,11 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
       public Adapter caseExtensionRange(ExtensionRange object)
       {
         return createExtensionRangeAdapter();
+      }
+      @Override
+      public Adapter caseRange(Range object)
+      {
+        return createRangeAdapter();
       }
       @Override
       public Adapter caseMessageField(MessageField object)
@@ -455,6 +473,36 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.NativeOption <em>Native Option</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.NativeOption
+   * @generated
+   */
+  public Adapter createNativeOptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.CustomOption <em>Custom Option</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.CustomOption
+   * @generated
+   */
+  public Adapter createCustomOptionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link protolipse.protobuf.Value <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -660,6 +708,21 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExtensionRangeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link protolipse.protobuf.Range <em>Range</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see protolipse.protobuf.Range
+   * @generated
+   */
+  public Adapter createRangeAdapter()
   {
     return null;
   }

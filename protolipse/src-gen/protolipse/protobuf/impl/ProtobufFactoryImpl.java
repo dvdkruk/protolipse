@@ -15,6 +15,7 @@ import protolipse.protobuf.BOOL;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
@@ -35,6 +36,7 @@ import protolipse.protobuf.MessageField;
 import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.Modifier;
 import protolipse.protobuf.NativeFieldOption;
+import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
@@ -42,6 +44,7 @@ import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufFactory;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
+import protolipse.protobuf.Range;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarType;
 import protolipse.protobuf.ScalarTypeLink;
@@ -115,6 +118,8 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.PUBLIC_IMPORT: return createPublicImport();
       case ProtobufPackage.WEAK_IMPORT: return createWeakImport();
       case ProtobufPackage.OPTION: return createOption();
+      case ProtobufPackage.NATIVE_OPTION: return createNativeOption();
+      case ProtobufPackage.CUSTOM_OPTION: return createCustomOption();
       case ProtobufPackage.VALUE: return createValue();
       case ProtobufPackage.SIMPLE_VALUE_LINK: return createSimpleValueLink();
       case ProtobufPackage.ENUM_LINK: return createEnumLink();
@@ -129,6 +134,7 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.MESSAGE_ELEMENT: return createMessageElement();
       case ProtobufPackage.INDEXED_ELEMENT: return createIndexedElement();
       case ProtobufPackage.EXTENSION_RANGE: return createExtensionRange();
+      case ProtobufPackage.RANGE: return createRange();
       case ProtobufPackage.MESSAGE_FIELD: return createMessageField();
       case ProtobufPackage.GROUP: return createGroup();
       case ProtobufPackage.TYPE_LINK: return createTypeLink();
@@ -287,6 +293,28 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public NativeOption createNativeOption()
+  {
+    NativeOptionImpl nativeOption = new NativeOptionImpl();
+    return nativeOption;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CustomOption createCustomOption()
+  {
+    CustomOptionImpl customOption = new CustomOptionImpl();
+    return customOption;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Value createValue()
   {
     ValueImpl value = new ValueImpl();
@@ -434,6 +462,17 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     ExtensionRangeImpl extensionRange = new ExtensionRangeImpl();
     return extensionRange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Range createRange()
+  {
+    RangeImpl range = new RangeImpl();
+    return range;
   }
 
   /**

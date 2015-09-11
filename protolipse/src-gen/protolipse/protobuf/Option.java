@@ -12,7 +12,6 @@ package protolipse.protobuf;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link protolipse.protobuf.Option#getSource <em>Source</em>}</li>
  *   <li>{@link protolipse.protobuf.Option#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -20,34 +19,8 @@ package protolipse.protobuf;
  * @model
  * @generated
  */
-public interface Option extends Statement, MessageElement, EnumElement, ServiceElement
+public interface Option extends Statement, MessageElement, ServiceElement
 {
-  /**
-   * Returns the value of the '<em><b>Source</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Source</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Source</em>' reference.
-   * @see #setSource(MessageField)
-   * @see protolipse.protobuf.ProtobufPackage#getOption_Source()
-   * @model
-   * @generated
-   */
-  MessageField getSource();
-
-  /**
-   * Sets the value of the '{@link protolipse.protobuf.Option#getSource <em>Source</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source</em>' reference.
-   * @see #getSource()
-   * @generated
-   */
-  void setSource(MessageField value);
-
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import protolipse.protobuf.BooleanLink;
 import protolipse.protobuf.ComplexType;
 import protolipse.protobuf.ComplexTypeLink;
+import protolipse.protobuf.CustomOption;
 import protolipse.protobuf.DefaultValueFieldOption;
 import protolipse.protobuf.DoubleLink;
 import protolipse.protobuf.EnumElement;
@@ -33,6 +34,7 @@ import protolipse.protobuf.MessageField;
 import protolipse.protobuf.MessageLink;
 import protolipse.protobuf.Modifier;
 import protolipse.protobuf.NativeFieldOption;
+import protolipse.protobuf.NativeOption;
 import protolipse.protobuf.NumberLink;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.OptionSource;
@@ -40,6 +42,7 @@ import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufFactory;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.PublicImport;
+import protolipse.protobuf.Range;
 import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarType;
 import protolipse.protobuf.ScalarTypeLink;
@@ -116,6 +119,20 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass optionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nativeOptionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass customOptionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -214,6 +231,13 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass extensionRangeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rangeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -560,7 +584,7 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOption_Source()
+  public EReference getOption_Value()
   {
     return (EReference)optionEClass.getEStructuralFeatures().get(0);
   }
@@ -570,9 +594,39 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOption_Value()
+  public EClass getNativeOption()
   {
-    return (EReference)optionEClass.getEStructuralFeatures().get(1);
+    return nativeOptionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNativeOption_Source()
+  {
+    return (EReference)nativeOptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCustomOption()
+  {
+    return customOptionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCustomOption_Source()
+  {
+    return (EAttribute)customOptionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -820,9 +874,9 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExtensionRange_From()
+  public EReference getExtensionRange_Ranges()
   {
-    return (EAttribute)extensionRangeEClass.getEStructuralFeatures().get(0);
+    return (EReference)extensionRangeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -830,9 +884,39 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExtensionRange_To()
+  public EClass getRange()
   {
-    return (EAttribute)extensionRangeEClass.getEStructuralFeatures().get(1);
+    return rangeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRange_From()
+  {
+    return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRange_To()
+  {
+    return (EAttribute)rangeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRange_Max()
+  {
+    return (EAttribute)rangeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1325,8 +1409,13 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     weakImportEClass = createEClass(WEAK_IMPORT);
 
     optionEClass = createEClass(OPTION);
-    createEReference(optionEClass, OPTION__SOURCE);
     createEReference(optionEClass, OPTION__VALUE);
+
+    nativeOptionEClass = createEClass(NATIVE_OPTION);
+    createEReference(nativeOptionEClass, NATIVE_OPTION__SOURCE);
+
+    customOptionEClass = createEClass(CUSTOM_OPTION);
+    createEAttribute(customOptionEClass, CUSTOM_OPTION__SOURCE);
 
     valueEClass = createEClass(VALUE);
 
@@ -1365,8 +1454,12 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     createEAttribute(indexedElementEClass, INDEXED_ELEMENT__INDEX);
 
     extensionRangeEClass = createEClass(EXTENSION_RANGE);
-    createEAttribute(extensionRangeEClass, EXTENSION_RANGE__FROM);
-    createEAttribute(extensionRangeEClass, EXTENSION_RANGE__TO);
+    createEReference(extensionRangeEClass, EXTENSION_RANGE__RANGES);
+
+    rangeEClass = createEClass(RANGE);
+    createEAttribute(rangeEClass, RANGE__FROM);
+    createEAttribute(rangeEClass, RANGE__TO);
+    createEAttribute(rangeEClass, RANGE__MAX);
 
     messageFieldEClass = createEClass(MESSAGE_FIELD);
     createEReference(messageFieldEClass, MESSAGE_FIELD__TYPE);
@@ -1468,8 +1561,10 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     weakImportEClass.getESuperTypes().add(this.getImport());
     optionEClass.getESuperTypes().add(this.getStatement());
     optionEClass.getESuperTypes().add(this.getMessageElement());
-    optionEClass.getESuperTypes().add(this.getEnumElement());
     optionEClass.getESuperTypes().add(this.getServiceElement());
+    nativeOptionEClass.getESuperTypes().add(this.getOption());
+    customOptionEClass.getESuperTypes().add(this.getOption());
+    customOptionEClass.getESuperTypes().add(this.getEnumElement());
     simpleValueLinkEClass.getESuperTypes().add(this.getValue());
     enumLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
     stringLinkEClass.getESuperTypes().add(this.getSimpleValueLink());
@@ -1520,8 +1615,13 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     initEClass(weakImportEClass, WeakImport.class, "WeakImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOption_Source(), this.getMessageField(), null, "source", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOption_Value(), this.getValue(), null, "value", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nativeOptionEClass, NativeOption.class, "NativeOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNativeOption_Source(), this.getMessageField(), null, "source", null, 0, 1, NativeOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(customOptionEClass, CustomOption.class, "CustomOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCustomOption_Source(), ecorePackage.getEString(), "source", null, 0, 1, CustomOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1560,8 +1660,12 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
     initEAttribute(getIndexedElement_Index(), ecorePackage.getEInt(), "index", null, 0, 1, IndexedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(extensionRangeEClass, ExtensionRange.class, "ExtensionRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExtensionRange_From(), ecorePackage.getEInt(), "from", null, 0, 1, ExtensionRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExtensionRange_To(), ecorePackage.getEInt(), "to", null, 0, 1, ExtensionRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExtensionRange_Ranges(), this.getRange(), null, "ranges", null, 0, -1, ExtensionRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRange_From(), ecorePackage.getEInt(), "from", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRange_To(), ecorePackage.getEInt(), "to", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRange_Max(), ecorePackage.getEBoolean(), "max", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageFieldEClass, MessageField.class, "MessageField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMessageField_Type(), this.getTypeLink(), null, "type", null, 0, 1, MessageField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

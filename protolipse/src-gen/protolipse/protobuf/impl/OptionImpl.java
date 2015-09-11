@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import protolipse.protobuf.MessageField;
 import protolipse.protobuf.Option;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.Value;
@@ -23,7 +22,6 @@ import protolipse.protobuf.Value;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link protolipse.protobuf.impl.OptionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link protolipse.protobuf.impl.OptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -31,16 +29,6 @@ import protolipse.protobuf.Value;
  */
 public class OptionImpl extends StatementImpl implements Option
 {
-  /**
-   * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSource()
-   * @generated
-   * @ordered
-   */
-  protected MessageField source;
-
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -70,49 +58,6 @@ public class OptionImpl extends StatementImpl implements Option
   protected EClass eStaticClass()
   {
     return ProtobufPackage.Literals.OPTION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MessageField getSource()
-  {
-    if (source != null && source.eIsProxy())
-    {
-      InternalEObject oldSource = (InternalEObject)source;
-      source = (MessageField)eResolveProxy(oldSource);
-      if (source != oldSource)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtobufPackage.OPTION__SOURCE, oldSource, source));
-      }
-    }
-    return source;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MessageField basicGetSource()
-  {
-    return source;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSource(MessageField newSource)
-  {
-    MessageField oldSource = source;
-    source = newSource;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ProtobufPackage.OPTION__SOURCE, oldSource, source));
   }
 
   /**
@@ -189,9 +134,6 @@ public class OptionImpl extends StatementImpl implements Option
   {
     switch (featureID)
     {
-      case ProtobufPackage.OPTION__SOURCE:
-        if (resolve) return getSource();
-        return basicGetSource();
       case ProtobufPackage.OPTION__VALUE:
         return getValue();
     }
@@ -208,9 +150,6 @@ public class OptionImpl extends StatementImpl implements Option
   {
     switch (featureID)
     {
-      case ProtobufPackage.OPTION__SOURCE:
-        setSource((MessageField)newValue);
-        return;
       case ProtobufPackage.OPTION__VALUE:
         setValue((Value)newValue);
         return;
@@ -228,9 +167,6 @@ public class OptionImpl extends StatementImpl implements Option
   {
     switch (featureID)
     {
-      case ProtobufPackage.OPTION__SOURCE:
-        setSource((MessageField)null);
-        return;
       case ProtobufPackage.OPTION__VALUE:
         setValue((Value)null);
         return;
@@ -248,8 +184,6 @@ public class OptionImpl extends StatementImpl implements Option
   {
     switch (featureID)
     {
-      case ProtobufPackage.OPTION__SOURCE:
-        return source != null;
       case ProtobufPackage.OPTION__VALUE:
         return value != null;
     }

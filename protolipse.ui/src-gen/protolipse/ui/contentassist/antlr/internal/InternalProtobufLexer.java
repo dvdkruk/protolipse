@@ -967,10 +967,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:53:7: ( '[' )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:53:9: '['
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:53:7: ( ',' )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:53:9: ','
             {
-            match('['); 
+            match(','); 
 
             }
 
@@ -987,10 +987,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:54:7: ( ']' )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:54:9: ']'
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:54:7: ( '[' )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:54:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -1007,10 +1007,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:55:7: ( ',' )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:55:9: ','
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:55:7: ( ']' )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:55:9: ']'
             {
-            match(','); 
+            match(']'); 
 
             }
 
@@ -1087,8 +1087,8 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_NUMDOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6343:16: ( RULE_NUMINT '.' RULE_INT )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6343:18: RULE_NUMINT '.' RULE_INT
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6819:16: ( RULE_NUMINT '.' RULE_INT )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6819:18: RULE_NUMINT '.' RULE_INT
             {
             mRULE_NUMINT(); 
             match('.'); 
@@ -1109,10 +1109,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_NUMINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:13: ( ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* ) )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:13: ( ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* ) )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
             {
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:15: ( '0' | ( '-' )? '1' .. '9' ( RULE_INT )* )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1130,16 +1130,16 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:16: '0'
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:16: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:20: ( '-' )? '1' .. '9' ( RULE_INT )*
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:20: ( '-' )? '1' .. '9' ( RULE_INT )*
                     {
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:20: ( '-' )?
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:20: ( '-' )?
                     int alt1=2;
                     int LA1_0 = input.LA(1);
 
@@ -1148,7 +1148,7 @@ public class InternalProtobufLexer extends Lexer {
                     }
                     switch (alt1) {
                         case 1 :
-                            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:20: '-'
+                            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:20: '-'
                             {
                             match('-'); 
 
@@ -1158,7 +1158,7 @@ public class InternalProtobufLexer extends Lexer {
                     }
 
                     matchRange('1','9'); 
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:34: ( RULE_INT )*
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:34: ( RULE_INT )*
                     loop2:
                     do {
                         int alt2=2;
@@ -1171,7 +1171,7 @@ public class InternalProtobufLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6345:34: RULE_INT
+                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6821:34: RULE_INT
                     	    {
                     	    mRULE_INT(); 
 
@@ -1205,10 +1205,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6347:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6347:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6823:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6823:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6347:11: ( '^' )?
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6823:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1217,7 +1217,7 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6347:11: '^'
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6823:11: '^'
                     {
                     match('^'); 
 
@@ -1235,7 +1235,7 @@ public class InternalProtobufLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6347:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6823:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -1284,10 +1284,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6349:10: ( ( '0' .. '9' )+ )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6349:12: ( '0' .. '9' )+
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6825:10: ( ( '0' .. '9' )+ )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6825:12: ( '0' .. '9' )+
             {
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6349:12: ( '0' .. '9' )+
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6825:12: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -1301,7 +1301,7 @@ public class InternalProtobufLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6349:13: '0' .. '9'
+            	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6825:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1333,10 +1333,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1354,10 +1354,10 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -1373,7 +1373,7 @@ public class InternalProtobufLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:21: '\\\\' .
+                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1381,7 +1381,7 @@ public class InternalProtobufLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1406,10 +1406,10 @@ public class InternalProtobufLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -1425,7 +1425,7 @@ public class InternalProtobufLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:54: '\\\\' .
+                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1433,7 +1433,7 @@ public class InternalProtobufLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6351:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6827:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1476,12 +1476,12 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6353:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6353:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6829:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6829:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6353:24: ( options {greedy=false; } : . )*
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6829:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -1506,7 +1506,7 @@ public class InternalProtobufLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6353:52: .
+            	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6829:52: .
             	    {
             	    matchAny(); 
 
@@ -1536,12 +1536,12 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -1554,7 +1554,7 @@ public class InternalProtobufLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1574,7 +1574,7 @@ public class InternalProtobufLexer extends Lexer {
                 }
             } while (true);
 
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:40: ( ( '\\r' )? '\\n' )?
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1583,9 +1583,9 @@ public class InternalProtobufLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:41: ( '\\r' )? '\\n'
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:41: ( '\\r' )? '\\n'
                     {
-                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:41: ( '\\r' )?
+                    // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -1594,7 +1594,7 @@ public class InternalProtobufLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6355:41: '\\r'
+                            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6831:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1626,10 +1626,10 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6357:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6357:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6833:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6833:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6357:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6833:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -1683,8 +1683,8 @@ public class InternalProtobufLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6359:16: ( . )
-            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6359:18: .
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6835:16: ( . )
+            // ../protolipse.ui/src-gen/protolipse/ui/contentassist/antlr/internal/InternalProtobuf.g:6835:18: .
             {
             matchAny(); 
 
@@ -2122,7 +2122,7 @@ public class InternalProtobufLexer extends Lexer {
     static final String DFA15_specialS =
         "\1\0\36\uffff\1\1\1\2\u00db\uffff}>";
     static final String[] DFA15_transitionS = {
-            "\11\43\2\42\2\43\1\42\22\43\1\42\1\43\1\37\4\43\1\40\1\27\1\30\2\43\1\26\1\33\1\31\1\41\1\32\11\34\1\43\1\20\1\43\1\17\3\43\32\36\1\24\1\43\1\25\1\35\1\36\1\43\1\36\1\15\1\36\1\14\1\7\1\13\1\11\1\36\1\4\3\36\1\6\1\36\1\5\1\2\1\36\1\10\1\3\1\1\1\12\1\16\1\21\3\36\1\22\1\43\1\23\uff82\43",
+            "\11\43\2\42\2\43\1\42\22\43\1\42\1\43\1\37\4\43\1\40\1\27\1\30\2\43\1\24\1\33\1\31\1\41\1\32\11\34\1\43\1\20\1\43\1\17\3\43\32\36\1\25\1\43\1\26\1\35\1\36\1\43\1\36\1\15\1\36\1\14\1\7\1\13\1\11\1\36\1\4\3\36\1\6\1\36\1\5\1\2\1\36\1\10\1\3\1\1\1\12\1\16\1\21\3\36\1\22\1\43\1\23\uff82\43",
             "\1\44\2\uffff\1\45",
             "\1\47\23\uffff\1\50",
             "\1\52\1\54\2\uffff\1\53\12\uffff\1\55\4\uffff\1\51",
@@ -2454,11 +2454,11 @@ public class InternalProtobufLexer extends Lexer {
 
                         else if ( (LA15_0=='}') ) {s = 19;}
 
-                        else if ( (LA15_0=='[') ) {s = 20;}
+                        else if ( (LA15_0==',') ) {s = 20;}
 
-                        else if ( (LA15_0==']') ) {s = 21;}
+                        else if ( (LA15_0=='[') ) {s = 21;}
 
-                        else if ( (LA15_0==',') ) {s = 22;}
+                        else if ( (LA15_0==']') ) {s = 22;}
 
                         else if ( (LA15_0=='(') ) {s = 23;}
 

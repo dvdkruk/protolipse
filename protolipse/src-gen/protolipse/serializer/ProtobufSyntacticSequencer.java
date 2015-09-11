@@ -21,18 +21,16 @@ import protolipse.services.ProtobufGrammarAccess;
 public class ProtobufSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ProtobufGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Extend_SemicolonKeyword_5_q;
-	protected AbstractElementAlias match_Rpc_SemicolonKeyword_10_p;
 	protected AbstractElementAlias match_Rpc___LeftCurlyBracketKeyword_9_0_RightCurlyBracketKeyword_9_2__q;
 	protected AbstractElementAlias match_Service_SemicolonKeyword_5_q;
+	protected AbstractElementAlias match_WeakImport_WeakKeyword_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ProtobufGrammarAccess) access;
-		match_Extend_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getExtendAccess().getSemicolonKeyword_5());
-		match_Rpc_SemicolonKeyword_10_p = new TokenAlias(true, false, grammarAccess.getRpcAccess().getSemicolonKeyword_10());
 		match_Rpc___LeftCurlyBracketKeyword_9_0_RightCurlyBracketKeyword_9_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRpcAccess().getLeftCurlyBracketKeyword_9_0()), new TokenAlias(false, false, grammarAccess.getRpcAccess().getRightCurlyBracketKeyword_9_2()));
 		match_Service_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getServiceAccess().getSemicolonKeyword_5());
+		match_WeakImport_WeakKeyword_1_q = new TokenAlias(false, true, grammarAccess.getWeakImportAccess().getWeakKeyword_1());
 	}
 	
 	@Override
@@ -47,48 +45,22 @@ public class ProtobufSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Extend_SemicolonKeyword_5_q.equals(syntax))
-				emit_Extend_SemicolonKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Rpc_SemicolonKeyword_10_p.equals(syntax))
-				emit_Rpc_SemicolonKeyword_10_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Rpc___LeftCurlyBracketKeyword_9_0_RightCurlyBracketKeyword_9_2__q.equals(syntax))
+			if(match_Rpc___LeftCurlyBracketKeyword_9_0_RightCurlyBracketKeyword_9_2__q.equals(syntax))
 				emit_Rpc___LeftCurlyBracketKeyword_9_0_RightCurlyBracketKeyword_9_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Service_SemicolonKeyword_5_q.equals(syntax))
 				emit_Service_SemicolonKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_WeakImport_WeakKeyword_1_q.equals(syntax))
+				emit_WeakImport_WeakKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     ';'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     elements+=MessageElement '}' (ambiguity) (rule end)
-	 *     type=[Message|FULL_ID] '{' '}' (ambiguity) (rule end)
-	 */
-	protected void emit_Extend_SemicolonKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ';'+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     options+=Option '}' (ambiguity) (rule end)
-	 *     returnType=MessageLink ')' ('{' '}')? (ambiguity) (rule end)
-	 */
-	protected void emit_Rpc_SemicolonKeyword_10_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     returnType=MessageLink ')' (ambiguity) ';'+ (rule end)
+	 *     returnType=MessageLink ')' (ambiguity) ';' (rule end)
 	 */
 	protected void emit_Rpc___LeftCurlyBracketKeyword_9_0_RightCurlyBracketKeyword_9_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -102,6 +74,17 @@ public class ProtobufSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     elements+=ServiceElement '}' (ambiguity) (rule end)
 	 */
 	protected void emit_Service_SemicolonKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'weak'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'import' (ambiguity) importURI=STRING
+	 */
+	protected void emit_WeakImport_WeakKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
