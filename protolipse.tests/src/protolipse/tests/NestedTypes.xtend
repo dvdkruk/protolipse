@@ -1,4 +1,4 @@
-package protolipse.tests 
+package protolipse.tests
 
 import com.google.inject.Inject
 import org.eclipse.emf.common.util.URI
@@ -10,13 +10,9 @@ import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.junit.Test
 import org.junit.runner.RunWith
 import protolipse.ProtobufInjectorProvider
-import protolipse.protobuf.Import
 import protolipse.protobuf.Proto
-import protolipse.protobuf.PublicImport
 
-import static org.junit.Assert.*
-import protolipse.protobuf.WeakImport
-
+//import static org.junit.Assert.*
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(ProtobufInjectorProvider))
 class NestedTypesTest {
@@ -29,7 +25,6 @@ class NestedTypesTest {
 	def noErrors() {
 		res.assertNoErrors
 	}
-
 
 	def getProto() {
 		getRes.getproto

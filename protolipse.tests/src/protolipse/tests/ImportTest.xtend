@@ -52,6 +52,8 @@ class ImportTest {
 	}
 
 	def getRes() {
+		//getResource(URI.createURI("res/NestedEnumWithOption.proto"), true)
+		//getResource(URI.createURI("res/SimpleMessage.proto"), true)
 		getResource(URI.createURI("res/Import.proto"), true)
 	}
 
