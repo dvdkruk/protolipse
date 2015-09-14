@@ -116,7 +116,6 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
       case ProtobufPackage.PROTO: return createProto();
       case ProtobufPackage.STATEMENT: return createStatement();
       case ProtobufPackage.SYNTAX: return createSyntax();
-      case ProtobufPackage.PACKAGE: return createPackage();
       case ProtobufPackage.IMPORT: return createImport();
       case ProtobufPackage.PUBLIC_IMPORT: return createPublicImport();
       case ProtobufPackage.WEAK_IMPORT: return createWeakImport();
@@ -237,17 +236,6 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     SyntaxImpl syntax = new SyntaxImpl();
     return syntax;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public protolipse.protobuf.Package createPackage()
-  {
-    PackageImpl package_ = new PackageImpl();
-    return package_;
   }
 
   /**

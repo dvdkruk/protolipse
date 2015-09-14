@@ -23,14 +23,21 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSyntaxAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cSyntaxSyntaxParserRuleCall_0_0 = (RuleCall)cSyntaxAssignment_0.eContents().get(0);
-		private final Assignment cStatementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStatementsStatementParserRuleCall_1_0 = (RuleCall)cStatementsAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportsImportParserRuleCall_1_0 = (RuleCall)cImportsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cPackageKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cNameVar_fullParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatementsStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
 		
 		//Proto:
-		//	syntax=Syntax? statements+=Statement*;
+		//	syntax=Syntax? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//syntax=Syntax? statements+=Statement*
+		//syntax=Syntax? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*
 		public Group getGroup() { return cGroup; }
 
 		//syntax=Syntax?
@@ -39,48 +46,61 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		//Syntax
 		public RuleCall getSyntaxSyntaxParserRuleCall_0_0() { return cSyntaxSyntaxParserRuleCall_0_0; }
 
+		//imports+=Import*
+		public Assignment getImportsAssignment_1() { return cImportsAssignment_1; }
+
+		//Import
+		public RuleCall getImportsImportParserRuleCall_1_0() { return cImportsImportParserRuleCall_1_0; }
+
+		//("package" name=Var_full ";")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"package"
+		public Keyword getPackageKeyword_2_0() { return cPackageKeyword_2_0; }
+
+		//name=Var_full
+		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
+
+		//Var_full
+		public RuleCall getNameVar_fullParserRuleCall_2_1_0() { return cNameVar_fullParserRuleCall_2_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_2() { return cSemicolonKeyword_2_2; }
+
 		//statements+=Statement*
-		public Assignment getStatementsAssignment_1() { return cStatementsAssignment_1; }
+		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
 
 		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_1_0() { return cStatementsStatementParserRuleCall_1_0; }
+		public RuleCall getStatementsStatementParserRuleCall_3_0() { return cStatementsStatementParserRuleCall_3_0; }
 	}
 
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Statement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cPackageParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cImportParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cComplexTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cExtendParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cServiceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cCustomOptionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cComplexTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cExtendParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cServiceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCustomOptionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		////TODO: annotation_entry | doc_entry 
 		//Statement:
-		//	Package | Import | ComplexType | Extend | Service | CustomOption;
+		//	ComplexType | Extend | Service | CustomOption;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Package | Import | ComplexType | Extend | Service | CustomOption
+		//ComplexType | Extend | Service | CustomOption
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Package
-		public RuleCall getPackageParserRuleCall_0() { return cPackageParserRuleCall_0; }
-
-		//Import
-		public RuleCall getImportParserRuleCall_1() { return cImportParserRuleCall_1; }
-
 		//ComplexType
-		public RuleCall getComplexTypeParserRuleCall_2() { return cComplexTypeParserRuleCall_2; }
+		public RuleCall getComplexTypeParserRuleCall_0() { return cComplexTypeParserRuleCall_0; }
 
 		//Extend
-		public RuleCall getExtendParserRuleCall_3() { return cExtendParserRuleCall_3; }
+		public RuleCall getExtendParserRuleCall_1() { return cExtendParserRuleCall_1; }
 
 		//Service
-		public RuleCall getServiceParserRuleCall_4() { return cServiceParserRuleCall_4; }
+		public RuleCall getServiceParserRuleCall_2() { return cServiceParserRuleCall_2; }
 
 		//CustomOption
-		public RuleCall getCustomOptionParserRuleCall_5() { return cCustomOptionParserRuleCall_5; }
+		public RuleCall getCustomOptionParserRuleCall_3() { return cCustomOptionParserRuleCall_3; }
 	}
 
 	public class SyntaxElements extends AbstractParserRuleElementFinder {
@@ -119,34 +139,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-
-	public class PackageElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Package");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameVar_fullParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		
-		//Package:
-		//	"package" name=Var_full ";";
-		@Override public ParserRule getRule() { return rule; }
-
-		//"package" name=Var_full ";"
-		public Group getGroup() { return cGroup; }
-
-		//"package"
-		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
-
-		//name=Var_full
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//Var_full
-		public RuleCall getNameVar_fullParserRuleCall_1_0() { return cNameVar_fullParserRuleCall_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 
 	public class ImportElements extends AbstractParserRuleElementFinder {
@@ -1973,7 +1965,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	private final ProtoElements pProto;
 	private final StatementElements pStatement;
 	private final SyntaxElements pSyntax;
-	private final PackageElements pPackage;
 	private final ImportElements pImport;
 	private final PublicImportElements pPublicImport;
 	private final WeakImportElements pWeakImport;
@@ -2039,7 +2030,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		this.pProto = new ProtoElements();
 		this.pStatement = new StatementElements();
 		this.pSyntax = new SyntaxElements();
-		this.pPackage = new PackageElements();
 		this.pImport = new ImportElements();
 		this.pPublicImport = new PublicImportElements();
 		this.pWeakImport = new WeakImportElements();
@@ -2122,7 +2112,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Proto:
-	//	syntax=Syntax? statements+=Statement*;
+	//	syntax=Syntax? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*;
 	public ProtoElements getProtoAccess() {
 		return pProto;
 	}
@@ -2133,7 +2123,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 	////TODO: annotation_entry | doc_entry 
 	//Statement:
-	//	Package | Import | ComplexType | Extend | Service | CustomOption;
+	//	ComplexType | Extend | Service | CustomOption;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -2156,16 +2146,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSyntaxRule() {
 		return getSyntaxAccess().getRule();
-	}
-
-	//Package:
-	//	"package" name=Var_full ";";
-	public PackageElements getPackageAccess() {
-		return pPackage;
-	}
-	
-	public ParserRule getPackageRule() {
-		return getPackageAccess().getRule();
 	}
 
 	//Import:

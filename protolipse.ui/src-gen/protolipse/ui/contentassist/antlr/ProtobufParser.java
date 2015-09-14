@@ -59,8 +59,8 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModifierAccess().getAlternatives(), "rule__Modifier__Alternatives");
 					put(grammarAccess.getScalarTypeAccess().getAlternatives(), "rule__ScalarType__Alternatives");
 					put(grammarAccess.getProtoAccess().getGroup(), "rule__Proto__Group__0");
+					put(grammarAccess.getProtoAccess().getGroup_2(), "rule__Proto__Group_2__0");
 					put(grammarAccess.getSyntaxAccess().getGroup(), "rule__Syntax__Group__0");
-					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getPublicImportAccess().getGroup(), "rule__PublicImport__Group__0");
 					put(grammarAccess.getWeakImportAccess().getGroup(), "rule__WeakImport__Group__0");
 					put(grammarAccess.getNativeOptionAccess().getGroup(), "rule__NativeOption__Group__0");
@@ -91,9 +91,10 @@ public class ProtobufParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFULL_IDAccess().getGroup_1(), "rule__FULL_ID__Group_1__0");
 					put(grammarAccess.getEXPAccess().getGroup(), "rule__EXP__Group__0");
 					put(grammarAccess.getProtoAccess().getSyntaxAssignment_0(), "rule__Proto__SyntaxAssignment_0");
-					put(grammarAccess.getProtoAccess().getStatementsAssignment_1(), "rule__Proto__StatementsAssignment_1");
+					put(grammarAccess.getProtoAccess().getImportsAssignment_1(), "rule__Proto__ImportsAssignment_1");
+					put(grammarAccess.getProtoAccess().getNameAssignment_2_1(), "rule__Proto__NameAssignment_2_1");
+					put(grammarAccess.getProtoAccess().getStatementsAssignment_3(), "rule__Proto__StatementsAssignment_3");
 					put(grammarAccess.getSyntaxAccess().getNameAssignment_2(), "rule__Syntax__NameAssignment_2");
-					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
 					put(grammarAccess.getPublicImportAccess().getImportURIAssignment_2(), "rule__PublicImport__ImportURIAssignment_2");
 					put(grammarAccess.getWeakImportAccess().getImportURIAssignment_2(), "rule__WeakImport__ImportURIAssignment_2");
 					put(grammarAccess.getNativeOptionAccess().getSourceAssignment_1(), "rule__NativeOption__SourceAssignment_1");

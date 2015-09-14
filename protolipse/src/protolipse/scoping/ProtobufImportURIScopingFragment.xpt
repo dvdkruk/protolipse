@@ -1,0 +1,11 @@
+«IMPORT org::eclipse::xtext»
+
+«DEFINE addToPluginXmlRt(String scopeProviderSuperClassName, Boolean generateStub, Boolean generateXtendStub) FOR Grammar»«ENDDEFINE»
+
+«DEFINE addToPluginXmlUi(String scopeProviderSuperClassName, Boolean generateStub, Boolean generateXtendStub) FOR Grammar»«ENDDEFINE»
+
+«DEFINE addToStandaloneSetup(String scopeProviderSuperClassName, Boolean generateStub, Boolean generateXtendStub) FOR Grammar»«ENDDEFINE»
+
+«DEFINE generate(String scopeProviderSuperClassName, Boolean generateStub, Boolean generateXtendStub) FOR Grammar»
+	«EXPAND org::eclipse::xtext::generator::scoping::AbstractScopingFragment::generateScopeProvider(scopeProviderSuperClassName, generateStub, generateXtendStub)»
+«ENDDEFINE»

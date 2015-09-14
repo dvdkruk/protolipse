@@ -2,6 +2,7 @@
  */
 package protolipse.protobuf;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package protolipse.protobuf;
  * @model
  * @generated
  */
-public interface Import extends Statement
+public interface Import extends EObject
 {
   /**
    * Returns the value of the '<em><b>Import URI</b></em>' attribute.

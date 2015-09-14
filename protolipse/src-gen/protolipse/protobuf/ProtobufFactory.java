@@ -50,15 +50,6 @@ public interface ProtobufFactory extends EFactory
   Syntax createSyntax();
 
   /**
-   * Returns a new object of class '<em>Package</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package</em>'.
-   * @generated
-   */
-  Package createPackage();
-
-  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

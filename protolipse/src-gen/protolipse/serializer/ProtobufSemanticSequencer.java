@@ -121,9 +121,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case ProtobufPackage.OPTION_SOURCE:
 				sequence_OptionSource(context, (OptionSource) semanticObject); 
 				return; 
-			case ProtobufPackage.PACKAGE:
-				sequence_Package(context, (protolipse.protobuf.Package) semanticObject); 
-				return; 
 			case ProtobufPackage.PACKED_VALUE_FIELD_OPTION:
 				sequence_PackedValueFieldOption(context, (PackedValueFieldOption) semanticObject); 
 				return; 
@@ -435,22 +432,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     name=Var_full
-	 */
-	protected void sequence_Package(EObject context, protolipse.protobuf.Package semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.PACKAGE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.PACKAGE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPackageAccess().getNameVar_fullParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     value=Value
 	 */
 	protected void sequence_PackedValueFieldOption(EObject context, PackedValueFieldOption semanticObject) {
@@ -467,7 +448,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (syntax=Syntax? statements+=Statement*)
+	 *     (syntax=Syntax? imports+=Import* name=Var_full? statements+=Statement*)
 	 */
 	protected void sequence_Proto(EObject context, Proto semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

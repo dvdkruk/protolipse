@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import protolipse.protobuf.Import;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.Statement;
@@ -32,6 +33,8 @@ import protolipse.protobuf.Syntax;
  * </p>
  * <ul>
  *   <li>{@link protolipse.protobuf.impl.ProtoImpl#getSyntax <em>Syntax</em>}</li>
+ *   <li>{@link protolipse.protobuf.impl.ProtoImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link protolipse.protobuf.impl.ProtoImpl#getName <em>Name</em>}</li>
  *   <li>{@link protolipse.protobuf.impl.ProtoImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
@@ -48,6 +51,36 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
    * @ordered
    */
   protected Syntax syntax;
+
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -133,6 +166,43 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, ProtobufPackage.PROTO__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtobufPackage.PROTO__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Statement> getStatements()
   {
     if (statements == null)
@@ -154,6 +224,8 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     {
       case ProtobufPackage.PROTO__SYNTAX:
         return basicSetSyntax(null, msgs);
+      case ProtobufPackage.PROTO__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case ProtobufPackage.PROTO__STATEMENTS:
         return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
@@ -172,6 +244,10 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     {
       case ProtobufPackage.PROTO__SYNTAX:
         return getSyntax();
+      case ProtobufPackage.PROTO__IMPORTS:
+        return getImports();
+      case ProtobufPackage.PROTO__NAME:
+        return getName();
       case ProtobufPackage.PROTO__STATEMENTS:
         return getStatements();
     }
@@ -191,6 +267,13 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     {
       case ProtobufPackage.PROTO__SYNTAX:
         setSyntax((Syntax)newValue);
+        return;
+      case ProtobufPackage.PROTO__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
+      case ProtobufPackage.PROTO__NAME:
+        setName((String)newValue);
         return;
       case ProtobufPackage.PROTO__STATEMENTS:
         getStatements().clear();
@@ -213,6 +296,12 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
       case ProtobufPackage.PROTO__SYNTAX:
         setSyntax((Syntax)null);
         return;
+      case ProtobufPackage.PROTO__IMPORTS:
+        getImports().clear();
+        return;
+      case ProtobufPackage.PROTO__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case ProtobufPackage.PROTO__STATEMENTS:
         getStatements().clear();
         return;
@@ -232,10 +321,31 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     {
       case ProtobufPackage.PROTO__SYNTAX:
         return syntax != null;
+      case ProtobufPackage.PROTO__IMPORTS:
+        return imports != null && !imports.isEmpty();
+      case ProtobufPackage.PROTO__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ProtobufPackage.PROTO__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ProtoImpl

@@ -134,11 +134,6 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
         return createSyntaxAdapter();
       }
       @Override
-      public Adapter casePackage(protolipse.protobuf.Package object)
-      {
-        return createPackageAdapter();
-      }
-      @Override
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
@@ -411,21 +406,6 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSyntaxAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link protolipse.protobuf.Package <em>Package</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see protolipse.protobuf.Package
-   * @generated
-   */
-  public Adapter createPackageAdapter()
   {
     return null;
   }

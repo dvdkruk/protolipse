@@ -6,11 +6,12 @@ generate protobuf "http://protolipse/Protobuf"
 
 Proto:
 	(syntax=Syntax)?
+	(imports+=Import)*
+	('package' name=Var_full ';')?
 	(statements+=Statement)*;
 
 Statement:
-	Package | Import | ComplexType | Extend | Service | CustomOption; //TODO: annotation_entry | doc_entry 
-
+	ComplexType | Extend | Service | CustomOption; //TODO: annotation_entry | doc_entry 
 
 //annotation_entry
 //         :AT Var ( '(' annotation_keyval ( ',' annotation_keyval )* ')' )?
@@ -20,9 +21,6 @@ Statement:
 //         :DOC
 Syntax:
 	'syntax' '=' name=STRING ';';
-
-Package:
-	'package' name=Var_full ';';
 
 Import:
 	PublicImport | WeakImport;

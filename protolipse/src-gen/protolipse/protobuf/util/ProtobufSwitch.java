@@ -137,19 +137,10 @@ public class ProtobufSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ProtobufPackage.PACKAGE:
-      {
-        protolipse.protobuf.Package package_ = (protolipse.protobuf.Package)theEObject;
-        T result = casePackage(package_);
-        if (result == null) result = caseStatement(package_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ProtobufPackage.IMPORT:
       {
         Import import_ = (Import)theEObject;
         T result = caseImport(import_);
-        if (result == null) result = caseStatement(import_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -158,7 +149,6 @@ public class ProtobufSwitch<T> extends Switch<T>
         PublicImport publicImport = (PublicImport)theEObject;
         T result = casePublicImport(publicImport);
         if (result == null) result = caseImport(publicImport);
-        if (result == null) result = caseStatement(publicImport);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,7 +157,6 @@ public class ProtobufSwitch<T> extends Switch<T>
         WeakImport weakImport = (WeakImport)theEObject;
         T result = caseWeakImport(weakImport);
         if (result == null) result = caseImport(weakImport);
-        if (result == null) result = caseStatement(weakImport);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -548,22 +537,6 @@ public class ProtobufSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSyntax(Syntax object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePackage(protolipse.protobuf.Package object)
   {
     return null;
   }
