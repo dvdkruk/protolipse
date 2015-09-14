@@ -10,12 +10,11 @@ import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.junit.Test
 import org.junit.runner.RunWith
 import protolipse.ProtobufInjectorProvider
-import protolipse.protobuf.Import
 import protolipse.protobuf.Proto
 import protolipse.protobuf.PublicImport
+import protolipse.protobuf.WeakImport
 
 import static org.junit.Assert.*
-import protolipse.protobuf.WeakImport
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(ProtobufInjectorProvider))
@@ -36,24 +35,26 @@ class ImportTest {
 		assertNotNull("No import found with uri \"NestedEnumWithOption.proto\"", publicImport);
 		assertTrue("First import is not instanceof PublicImport", publicImport instanceof PublicImport)
 	}
-	
+
 	@Test
 	def weakImportTest() {
 		val weakImport = proto.imports.findFirst[it.importURI.equals("SimpleMessage.proto")]
 		assertNotNull("No import found with uri \"SimpleMessage.proto\"", weakImport);
 		assertTrue("Second import is not instanceof WeakImport", weakImport instanceof WeakImport)
 	}
-	
-	//TODO: optional weak import test
-	//TODO: implement uri resolver with weak and public imports
 
+	// TODO: optional weak import test
+	// TODO: implement uri resolver with weak and public imports
 	def getProto() {
 		getRes.getproto
 	}
 
 	def getRes() {
-		//getResource(URI.createURI("res/NestedEnumWithOption.proto"), true)
-		//getResource(URI.createURI("res/SimpleMessage.proto"), true)
+		val res1 = getResource(URI.createURI("res/NestedEnumWithOption.proto"), true);
+		res1.URI = URI.createURI("NestedEnumWithOption.proto");
+		val res2 = getResource(URI.createURI("res/SimpleMessage.proto"), true);
+		res2.URI = URI.createURI("SimpleMessage.proto");
+		
 		getResource(URI.createURI("res/Import.proto"), true)
 	}
 
