@@ -6,4 +6,5 @@ message SearchResponse {
     optional string title = 3;
     repeated string snippets = 4;
   }
+  
 }

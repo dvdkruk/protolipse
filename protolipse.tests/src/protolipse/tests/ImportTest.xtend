@@ -32,14 +32,14 @@ class ImportTest {
 
 	@Test
 	def publicImportTest() {
-		val publicImport = proto.statements.filter(Import).findFirst[it.importURI.equals("NestedEnumWithOption.proto")]
+		val publicImport = proto.imports.findFirst[it.importURI.equals("NestedEnumWithOption.proto")]
 		assertNotNull("No import found with uri \"NestedEnumWithOption.proto\"", publicImport);
 		assertTrue("First import is not instanceof PublicImport", publicImport instanceof PublicImport)
 	}
 	
 	@Test
 	def weakImportTest() {
-		val weakImport = proto.statements.filter(Import).findFirst[it.importURI.equals("SimpleMessage.proto")]
+		val weakImport = proto.imports.findFirst[it.importURI.equals("SimpleMessage.proto")]
 		assertNotNull("No import found with uri \"SimpleMessage.proto\"", weakImport);
 		assertTrue("Second import is not instanceof WeakImport", weakImport instanceof WeakImport)
 	}
