@@ -14,7 +14,7 @@ import com.google.inject.name.Names;
  * Manual modifications go to {protolipse.ProtobufRuntimeModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractProtobufRuntimeModule extends org.eclipse.xtext.common.types.DefaultCommonTypesRuntimeModule {
+public abstract class AbstractProtobufRuntimeModule extends org.eclipse.xtext.service.DefaultRuntimeModule {
 
 	protected Properties properties = null;
 
@@ -98,6 +98,11 @@ public abstract class AbstractProtobufRuntimeModule extends org.eclipse.xtext.co
 		return protolipse.validation.ProtobufValidator.class;
 	}
 
+	// contributed by org.eclipse.xtext.generator.exporting.SimpleNamesFragment
+	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
+		return org.eclipse.xtext.naming.SimpleNameProvider.class;
+	}
+
 	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
 	public Class<? extends org.eclipse.xtext.scoping.IScopeProvider> bindIScopeProvider() {
 		return protolipse.scoping.ProtobufScopeProvider.class;
@@ -109,13 +114,13 @@ public abstract class AbstractProtobufRuntimeModule extends org.eclipse.xtext.co
 	}
 
 	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
-	public void configureIgnoreCaseLinking(com.google.inject.Binder binder) {
-		binder.bindConstant().annotatedWith(org.eclipse.xtext.scoping.IgnoreCaseLinking.class).to(false);
+	public Class<? extends org.eclipse.xtext.scoping.IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return org.eclipse.xtext.scoping.impl.DefaultGlobalScopeProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.exporting.QualifiedNamesFragment
-	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
-		return org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider.class;
+	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
+	public void configureIgnoreCaseLinking(com.google.inject.Binder binder) {
+		binder.bindConstant().annotatedWith(org.eclipse.xtext.scoping.IgnoreCaseLinking.class).to(false);
 	}
 
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
@@ -146,11 +151,6 @@ public abstract class AbstractProtobufRuntimeModule extends org.eclipse.xtext.co
 	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
 	public Class<? extends org.eclipse.xtext.formatting.IFormatter> bindIFormatter() {
 		return protolipse.formatting.ProtobufFormatter.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.scoping.IGlobalScopeProvider> bindIGlobalScopeProvider() {
-		return org.eclipse.xtext.common.types.xtext.TypesAwareDefaultGlobalScopeProvider.class;
 	}
 
 }

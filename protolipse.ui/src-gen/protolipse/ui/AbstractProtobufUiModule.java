@@ -10,7 +10,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  * Manual modifications go to {protolipse.ui.ProtobufUiModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractProtobufUiModule extends org.eclipse.xtext.common.types.ui.DefaultCommonTypesUiModule {
+public abstract class AbstractProtobufUiModule extends org.eclipse.xtext.ui.DefaultUiModule {
 	
 	public AbstractProtobufUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
@@ -37,7 +37,7 @@ public abstract class AbstractProtobufUiModule extends org.eclipse.xtext.common.
 		binder.bind(org.eclipse.xtext.parser.antlr.ITokenDefProvider.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.exporting.QualifiedNamesFragment
+	// contributed by org.eclipse.xtext.generator.exporting.SimpleNamesFragment
 	public Class<? extends org.eclipse.xtext.ui.refactoring.IDependentElementsCalculator> bindIDependentElementsCalculator() {
 		return org.eclipse.xtext.ui.refactoring.impl.DefaultDependentElementsCalculator.class;
 	}
@@ -155,11 +155,6 @@ public abstract class AbstractProtobufUiModule extends org.eclipse.xtext.common.
 	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment
 	public Class<? extends org.eclipse.xtext.ui.refactoring.ui.IRenameSupport.Factory> bindIRenameSupport$Factory() {
 		return org.eclipse.xtext.ui.refactoring.ui.DefaultRenameSupport.Factory.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher> bindPrefixMatcher() {
-		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.templates.CodetemplatesGeneratorFragment
