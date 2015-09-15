@@ -21,8 +21,12 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	public class ProtoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Proto");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSyntaxAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSyntaxSyntaxParserRuleCall_0_0 = (RuleCall)cSyntaxAssignment_0.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cSyntaxKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cSyntaxAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cSyntaxSTRINGTerminalRuleCall_0_2_0 = (RuleCall)cSyntaxAssignment_0_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
 		private final Assignment cImportsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportsImportParserRuleCall_1_0 = (RuleCall)cImportsAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -34,17 +38,29 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatementsStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
 		
 		//Proto:
-		//	syntax=Syntax? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*;
+		//	("syntax" "=" syntax=STRING ";")? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//syntax=Syntax? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*
+		//("syntax" "=" syntax=STRING ";")? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*
 		public Group getGroup() { return cGroup; }
 
-		//syntax=Syntax?
-		public Assignment getSyntaxAssignment_0() { return cSyntaxAssignment_0; }
+		//("syntax" "=" syntax=STRING ";")?
+		public Group getGroup_0() { return cGroup_0; }
 
-		//Syntax
-		public RuleCall getSyntaxSyntaxParserRuleCall_0_0() { return cSyntaxSyntaxParserRuleCall_0_0; }
+		//"syntax"
+		public Keyword getSyntaxKeyword_0_0() { return cSyntaxKeyword_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_0_1() { return cEqualsSignKeyword_0_1; }
+
+		//syntax=STRING
+		public Assignment getSyntaxAssignment_0_2() { return cSyntaxAssignment_0_2; }
+
+		//STRING
+		public RuleCall getSyntaxSTRINGTerminalRuleCall_0_2_0() { return cSyntaxSTRINGTerminalRuleCall_0_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_0_3() { return cSemicolonKeyword_0_3; }
 
 		//imports+=Import*
 		public Assignment getImportsAssignment_1() { return cImportsAssignment_1; }
@@ -103,14 +119,11 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getCustomOptionParserRuleCall_3() { return cCustomOptionParserRuleCall_3; }
 	}
 
-	public class SyntaxElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Syntax");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSyntaxKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPublicImportParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cWeakImportParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		////annotation_entry
 		////         :AT Var ( '(' annotation_keyval ( ',' annotation_keyval )* ')' )?
@@ -118,35 +131,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		////         :Var_full '=' ( VarReserved | ID | FULL_ID | NUMFLOAT | NUMINT | NUMDOUBLE | 'true' | FALSE | STRING )
 		////doc_entry
 		////         :DOC
-		//Syntax:
-		//	"syntax" "=" name=STRING ";";
-		@Override public ParserRule getRule() { return rule; }
-
-		//"syntax" "=" name=STRING ";"
-		public Group getGroup() { return cGroup; }
-
-		//"syntax"
-		public Keyword getSyntaxKeyword_0() { return cSyntaxKeyword_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
-
-		//name=STRING
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-
-	public class ImportElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cPublicImportParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cWeakImportParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
 		//Import:
 		//	PublicImport | WeakImport;
 		@Override public ParserRule getRule() { return rule; }
@@ -1964,7 +1948,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ProtoElements pProto;
 	private final StatementElements pStatement;
-	private final SyntaxElements pSyntax;
 	private final ImportElements pImport;
 	private final PublicImportElements pPublicImport;
 	private final WeakImportElements pWeakImport;
@@ -2029,7 +2012,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pProto = new ProtoElements();
 		this.pStatement = new StatementElements();
-		this.pSyntax = new SyntaxElements();
 		this.pImport = new ImportElements();
 		this.pPublicImport = new PublicImportElements();
 		this.pWeakImport = new WeakImportElements();
@@ -2112,7 +2094,7 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Proto:
-	//	syntax=Syntax? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*;
+	//	("syntax" "=" syntax=STRING ";")? imports+=Import* ("package" name=Var_full ";")? statements+=Statement*;
 	public ProtoElements getProtoAccess() {
 		return pProto;
 	}
@@ -2138,16 +2120,6 @@ public class ProtobufGrammarAccess extends AbstractGrammarElementFinder {
 	////         :Var_full '=' ( VarReserved | ID | FULL_ID | NUMFLOAT | NUMINT | NUMDOUBLE | 'true' | FALSE | STRING )
 	////doc_entry
 	////         :DOC
-	//Syntax:
-	//	"syntax" "=" name=STRING ";";
-	public SyntaxElements getSyntaxAccess() {
-		return pSyntax;
-	}
-	
-	public ParserRule getSyntaxRule() {
-		return getSyntaxAccess().getRule();
-	}
-
 	//Import:
 	//	PublicImport | WeakImport;
 	public ImportElements getImportAccess() {

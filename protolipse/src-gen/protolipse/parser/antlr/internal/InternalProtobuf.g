@@ -78,81 +78,93 @@ ruleProto returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+((	otherlv_0='syntax' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getProtoAccess().getSyntaxKeyword_0_0());
+    }
+	otherlv_1='=' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getProtoAccess().getEqualsSignKeyword_0_1());
+    }
 (
-		{ 
-	        newCompositeNode(grammarAccess.getProtoAccess().getSyntaxSyntaxParserRuleCall_0_0()); 
-	    }
-		lv_syntax_0_0=ruleSyntax		{
+(
+		lv_syntax_2_0=RULE_STRING
+		{
+			newLeafNode(lv_syntax_2_0, grammarAccess.getProtoAccess().getSyntaxSTRINGTerminalRuleCall_0_2_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getProtoRule());
+	            $current = createModelElement(grammarAccess.getProtoRule());
 	        }
-       		set(
+       		setWithLastConsumed(
        			$current, 
        			"syntax",
-        		lv_syntax_0_0, 
-        		"Syntax");
-	        afterParserOrEnumRuleCall();
+        		lv_syntax_2_0, 
+        		"STRING");
 	    }
 
 )
+)	otherlv_3=';' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getProtoAccess().getSemicolonKeyword_0_3());
+    }
 )?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getProtoAccess().getImportsImportParserRuleCall_1_0()); 
 	    }
-		lv_imports_1_0=ruleImport		{
+		lv_imports_4_0=ruleImport		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProtoRule());
 	        }
        		add(
        			$current, 
        			"imports",
-        		lv_imports_1_0, 
+        		lv_imports_4_0, 
         		"Import");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(	otherlv_2='package' 
+)*(	otherlv_5='package' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getProtoAccess().getPackageKeyword_2_0());
+    	newLeafNode(otherlv_5, grammarAccess.getProtoAccess().getPackageKeyword_2_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getProtoAccess().getNameVar_fullParserRuleCall_2_1_0()); 
 	    }
-		lv_name_3_0=ruleVar_full		{
+		lv_name_6_0=ruleVar_full		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProtoRule());
 	        }
        		set(
        			$current, 
        			"name",
-        		lv_name_3_0, 
+        		lv_name_6_0, 
         		"Var_full");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_4=';' 
+)	otherlv_7=';' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getProtoAccess().getSemicolonKeyword_2_2());
+    	newLeafNode(otherlv_7, grammarAccess.getProtoAccess().getSemicolonKeyword_2_2());
     }
 )?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getProtoAccess().getStatementsStatementParserRuleCall_3_0()); 
 	    }
-		lv_statements_5_0=ruleStatement		{
+		lv_statements_8_0=ruleStatement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProtoRule());
 	        }
        		add(
        			$current, 
        			"statements",
-        		lv_statements_5_0, 
+        		lv_statements_8_0, 
         		"Statement");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -218,57 +230,6 @@ ruleStatement returns [EObject current=null]
     { 
         $current = $this_CustomOption_3.current; 
         afterParserOrEnumRuleCall();
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleSyntax
-entryRuleSyntax returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getSyntaxRule()); }
-	 iv_ruleSyntax=ruleSyntax 
-	 { $current=$iv_ruleSyntax.current; } 
-	 EOF 
-;
-
-// Rule Syntax
-ruleSyntax returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='syntax' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getSyntaxAccess().getSyntaxKeyword_0());
-    }
-	otherlv_1='=' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getSyntaxAccess().getEqualsSignKeyword_1());
-    }
-(
-(
-		lv_name_2_0=RULE_STRING
-		{
-			newLeafNode(lv_name_2_0, grammarAccess.getSyntaxAccess().getNameSTRINGTerminalRuleCall_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSyntaxRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_2_0, 
-        		"STRING");
-	    }
-
-)
-)	otherlv_3=';' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getSyntaxAccess().getSemicolonKeyword_3());
     }
 )
 ;

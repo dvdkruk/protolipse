@@ -34,15 +34,12 @@
       <genEnumLiterals ecoreEnumLiteral="Protobuf.ecore#//ScalarType/bytes"/>
     </genEnums>
     <genClasses ecoreClass="Protobuf.ecore#//Proto">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Proto/syntax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Proto/syntax"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Proto/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Proto/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protobuf.ecore#//Proto/statements"/>
     </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//Statement"/>
-    <genClasses ecoreClass="Protobuf.ecore#//Syntax">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Syntax/name"/>
-    </genClasses>
     <genClasses ecoreClass="Protobuf.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protobuf.ecore#//Import/importURI"/>
     </genClasses>

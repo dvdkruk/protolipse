@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Proto extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Syntax</b></em>' containment reference.
+   * Returns the value of the '<em><b>Syntax</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Syntax</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Syntax</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Syntax</em>' containment reference.
-   * @see #setSyntax(Syntax)
+   * @return the value of the '<em>Syntax</em>' attribute.
+   * @see #setSyntax(String)
    * @see protolipse.protobuf.ProtobufPackage#getProto_Syntax()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Syntax getSyntax();
+  String getSyntax();
 
   /**
-   * Sets the value of the '{@link protolipse.protobuf.Proto#getSyntax <em>Syntax</em>}' containment reference.
+   * Sets the value of the '{@link protolipse.protobuf.Proto#getSyntax <em>Syntax</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Syntax</em>' containment reference.
+   * @param value the new value of the '<em>Syntax</em>' attribute.
    * @see #getSyntax()
    * @generated
    */
-  void setSyntax(Syntax value);
+  void setSyntax(String value);
 
   /**
    * Returns the value of the '<em><b>Imports</b></em>' containment reference list.

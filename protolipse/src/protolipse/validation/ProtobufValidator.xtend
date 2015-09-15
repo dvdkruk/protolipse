@@ -11,6 +11,7 @@ import protolipse.protobuf.Enum
 import protolipse.protobuf.EnumField
 import protolipse.protobuf.ProtobufPackage
 import protolipse.protobuf.Value
+import protolipse.protobuf.Proto
 
 /**
  * This class contains custom validation rules. 
@@ -20,6 +21,14 @@ import protolipse.protobuf.Value
 class ProtobufValidator extends AbstractProtobufValidator {
 
 	public static val DUPLICATE_ENUM_FIELD_INDEX = "DUPLICATE_ENUM_FIELD_INDEX"
+	
+	public static val SYNTAX_IS_NOT_PROTO2 = "SYNTAX_IS_NOT_PROTO2"
+	
+	@Check
+	def checkSyntaxIsProto2(Proto proto) {
+		if(!proto.syntax.isNullOrEmpty && proto.syntax.equals("proto2")) return;
+		error("Syntax must be \"proto2\"", ProtobufPackage.Literals.PROTO__SYNTAX, SYNTAX_IS_NOT_PROTO2)
+	}
 
 	@Check
 	def checkUniqueEnumFieldIndex(EnumField enumField) {

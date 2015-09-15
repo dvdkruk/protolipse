@@ -2,8 +2,8 @@
 ')'=38
 ','=26
 '.'=41
-';'=14
-'='=16
+';'=15
+'='=14
 '['=30
 ']'=31
 'bool'=57
@@ -26,7 +26,7 @@
 'oneof'=24
 'option'=20
 'optional'=43
-'package'=13
+'package'=16
 'packed'=32
 'public'=18
 'repeated'=44
@@ -39,7 +39,7 @@
 'sint32'=49
 'sint64'=50
 'string'=58
-'syntax'=15
+'syntax'=13
 'to'=27
 'true'=61
 'uint32'=47

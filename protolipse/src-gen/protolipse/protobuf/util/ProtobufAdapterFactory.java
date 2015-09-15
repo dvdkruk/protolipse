@@ -50,7 +50,6 @@ import protolipse.protobuf.ServiceElement;
 import protolipse.protobuf.SimpleValueLink;
 import protolipse.protobuf.Statement;
 import protolipse.protobuf.StringLink;
-import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
 import protolipse.protobuf.WeakImport;
@@ -127,11 +126,6 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStatement(Statement object)
       {
         return createStatementAdapter();
-      }
-      @Override
-      public Adapter caseSyntax(Syntax object)
-      {
-        return createSyntaxAdapter();
       }
       @Override
       public Adapter caseImport(Import object)
@@ -391,21 +385,6 @@ public class ProtobufAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link protolipse.protobuf.Syntax <em>Syntax</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see protolipse.protobuf.Syntax
-   * @generated
-   */
-  public Adapter createSyntaxAdapter()
   {
     return null;
   }

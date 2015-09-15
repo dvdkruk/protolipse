@@ -30,7 +30,7 @@ class SimpleMessageTest {
 
 	@Test
 	def SyntaxIsProto2() {
-		proto.syntax.name.assertEquals("proto2")
+		proto.syntax.assertEquals("proto2")
 	}
 
 	@Test

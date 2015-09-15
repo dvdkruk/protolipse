@@ -56,7 +56,6 @@ import protolipse.protobuf.ServiceElement;
 import protolipse.protobuf.SimpleValueLink;
 import protolipse.protobuf.Statement;
 import protolipse.protobuf.StringLink;
-import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
 import protolipse.protobuf.WeakImport;
@@ -115,7 +114,6 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
     {
       case ProtobufPackage.PROTO: return createProto();
       case ProtobufPackage.STATEMENT: return createStatement();
-      case ProtobufPackage.SYNTAX: return createSyntax();
       case ProtobufPackage.IMPORT: return createImport();
       case ProtobufPackage.PUBLIC_IMPORT: return createPublicImport();
       case ProtobufPackage.WEAK_IMPORT: return createWeakImport();
@@ -225,17 +223,6 @@ public class ProtobufFactoryImpl extends EFactoryImpl implements ProtobufFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Syntax createSyntax()
-  {
-    SyntaxImpl syntax = new SyntaxImpl();
-    return syntax;
   }
 
   /**

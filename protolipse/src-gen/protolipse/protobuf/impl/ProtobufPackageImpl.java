@@ -54,7 +54,6 @@ import protolipse.protobuf.ServiceElement;
 import protolipse.protobuf.SimpleValueLink;
 import protolipse.protobuf.Statement;
 import protolipse.protobuf.StringLink;
-import protolipse.protobuf.Syntax;
 import protolipse.protobuf.TypeLink;
 import protolipse.protobuf.Value;
 import protolipse.protobuf.WeakImport;
@@ -80,13 +79,6 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * @generated
    */
   private EClass statementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass syntaxEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -481,9 +473,9 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProto_Syntax()
+  public EAttribute getProto_Syntax()
   {
-    return (EReference)protoEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)protoEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -524,26 +516,6 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
   public EClass getStatement()
   {
     return statementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSyntax()
-  {
-    return syntaxEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSyntax_Name()
-  {
-    return (EAttribute)syntaxEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1497,15 +1469,12 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     // Create classes and their features
     protoEClass = createEClass(PROTO);
-    createEReference(protoEClass, PROTO__SYNTAX);
+    createEAttribute(protoEClass, PROTO__SYNTAX);
     createEReference(protoEClass, PROTO__IMPORTS);
     createEAttribute(protoEClass, PROTO__NAME);
     createEReference(protoEClass, PROTO__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
-
-    syntaxEClass = createEClass(SYNTAX);
-    createEAttribute(syntaxEClass, SYNTAX__NAME);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORT_URI);
@@ -1714,15 +1683,12 @@ public class ProtobufPackageImpl extends EPackageImpl implements ProtobufPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(protoEClass, Proto.class, "Proto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getProto_Syntax(), this.getSyntax(), null, "syntax", null, 0, 1, Proto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProto_Syntax(), ecorePackage.getEString(), "syntax", null, 0, 1, Proto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProto_Imports(), this.getImport(), null, "imports", null, 0, -1, Proto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProto_Name(), ecorePackage.getEString(), "name", null, 0, 1, Proto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProto_Statements(), this.getStatement(), null, "statements", null, 0, -1, Proto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(syntaxEClass, Syntax.class, "Syntax", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSyntax_Name(), ecorePackage.getEString(), "name", null, 0, 1, Syntax.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

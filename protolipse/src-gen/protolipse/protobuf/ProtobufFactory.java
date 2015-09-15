@@ -41,15 +41,6 @@ public interface ProtobufFactory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Syntax</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Syntax</em>'.
-   * @generated
-   */
-  Syntax createSyntax();
-
-  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

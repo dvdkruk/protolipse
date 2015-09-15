@@ -22,7 +22,6 @@ import protolipse.protobuf.Import;
 import protolipse.protobuf.Proto;
 import protolipse.protobuf.ProtobufPackage;
 import protolipse.protobuf.Statement;
-import protolipse.protobuf.Syntax;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,14 +42,24 @@ import protolipse.protobuf.Syntax;
 public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
 {
   /**
-   * The cached value of the '{@link #getSyntax() <em>Syntax</em>}' containment reference.
+   * The default value of the '{@link #getSyntax() <em>Syntax</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSyntax()
    * @generated
    * @ordered
    */
-  protected Syntax syntax;
+  protected static final String SYNTAX_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSyntax() <em>Syntax</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSyntax()
+   * @generated
+   * @ordered
+   */
+  protected String syntax = SYNTAX_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
@@ -118,7 +127,7 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Syntax getSyntax()
+  public String getSyntax()
   {
     return syntax;
   }
@@ -128,37 +137,12 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSyntax(Syntax newSyntax, NotificationChain msgs)
+  public void setSyntax(String newSyntax)
   {
-    Syntax oldSyntax = syntax;
+    String oldSyntax = syntax;
     syntax = newSyntax;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtobufPackage.PROTO__SYNTAX, oldSyntax, newSyntax);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSyntax(Syntax newSyntax)
-  {
-    if (newSyntax != syntax)
-    {
-      NotificationChain msgs = null;
-      if (syntax != null)
-        msgs = ((InternalEObject)syntax).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtobufPackage.PROTO__SYNTAX, null, msgs);
-      if (newSyntax != null)
-        msgs = ((InternalEObject)newSyntax).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtobufPackage.PROTO__SYNTAX, null, msgs);
-      msgs = basicSetSyntax(newSyntax, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ProtobufPackage.PROTO__SYNTAX, newSyntax, newSyntax));
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtobufPackage.PROTO__SYNTAX, oldSyntax, syntax));
   }
 
   /**
@@ -222,8 +206,6 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
   {
     switch (featureID)
     {
-      case ProtobufPackage.PROTO__SYNTAX:
-        return basicSetSyntax(null, msgs);
       case ProtobufPackage.PROTO__IMPORTS:
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case ProtobufPackage.PROTO__STATEMENTS:
@@ -266,7 +248,7 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     switch (featureID)
     {
       case ProtobufPackage.PROTO__SYNTAX:
-        setSyntax((Syntax)newValue);
+        setSyntax((String)newValue);
         return;
       case ProtobufPackage.PROTO__IMPORTS:
         getImports().clear();
@@ -294,7 +276,7 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     switch (featureID)
     {
       case ProtobufPackage.PROTO__SYNTAX:
-        setSyntax((Syntax)null);
+        setSyntax(SYNTAX_EDEFAULT);
         return;
       case ProtobufPackage.PROTO__IMPORTS:
         getImports().clear();
@@ -320,7 +302,7 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     switch (featureID)
     {
       case ProtobufPackage.PROTO__SYNTAX:
-        return syntax != null;
+        return SYNTAX_EDEFAULT == null ? syntax != null : !SYNTAX_EDEFAULT.equals(syntax);
       case ProtobufPackage.PROTO__IMPORTS:
         return imports != null && !imports.isEmpty();
       case ProtobufPackage.PROTO__NAME:
@@ -342,7 +324,9 @@ public class ProtoImpl extends MinimalEObjectImpl.Container implements Proto
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (syntax: ");
+    result.append(syntax);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

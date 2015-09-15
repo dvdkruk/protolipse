@@ -45,7 +45,6 @@ import protolipse.protobuf.Rpc;
 import protolipse.protobuf.ScalarTypeLink;
 import protolipse.protobuf.Service;
 import protolipse.protobuf.StringLink;
-import protolipse.protobuf.Syntax;
 import protolipse.protobuf.WeakImport;
 import protolipse.services.ProtobufGrammarAccess;
 
@@ -144,9 +143,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case ProtobufPackage.STRING_LINK:
 				sequence_StringLink(context, (StringLink) semanticObject); 
-				return; 
-			case ProtobufPackage.SYNTAX:
-				sequence_Syntax(context, (Syntax) semanticObject); 
 				return; 
 			case ProtobufPackage.WEAK_IMPORT:
 				sequence_WeakImport(context, (WeakImport) semanticObject); 
@@ -448,7 +444,7 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (syntax=Syntax? imports+=Import* name=Var_full? statements+=Statement*)
+	 *     (syntax=STRING? imports+=Import* name=Var_full? statements+=Statement*)
 	 */
 	protected void sequence_Proto(EObject context, Proto semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -526,22 +522,6 @@ public class ProtobufSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getStringLinkAccess().getTargetSTRINGTerminalRuleCall_0(), semanticObject.getTarget());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=STRING
-	 */
-	protected void sequence_Syntax(EObject context, Syntax semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ProtobufPackage.Literals.SYNTAX__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ProtobufPackage.Literals.SYNTAX__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSyntaxAccess().getNameSTRINGTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
