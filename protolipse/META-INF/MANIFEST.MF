@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: protolipse
-Bundle-Vendor: My Company
 Bundle-Version: 0.0.1.qualifier
 Bundle-SymbolicName: protolipse; singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -13,9 +12,9 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.generator;bundle-version="2.8.3"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: protolipse,
  protolipse.services,
  protolipse.protobuf,
@@ -28,3 +27,4 @@ Export-Package: protolipse,
  protolipse.scoping,
  protolipse.generator,
  protolipse.formatting
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

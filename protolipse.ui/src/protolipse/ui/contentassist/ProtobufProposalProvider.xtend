@@ -14,7 +14,7 @@ import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import protolipse.protobuf.ComplexTypeLink
+import protolipse.protobuf.ComplexTypeLink 
 import protolipse.protobuf.Enum
 import protolipse.protobuf.EnumField
 import protolipse.protobuf.IndexedElement

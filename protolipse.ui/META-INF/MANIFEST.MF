@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: protolipse.ui
-Bundle-Vendor: My Company
 Bundle-Version: 0.0.1.qualifier
 Bundle-SymbolicName: protolipse.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -17,9 +16,9 @@ Require-Bundle: protolipse;visibility:=reexport,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: protolipse.ui.quickfix,
  protolipse.ui.contentassist,
  protolipse.ui.internal,
  protolipse.ui.contentassist.antlr
 Bundle-Activator: protolipse.ui.internal.ProtobufActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

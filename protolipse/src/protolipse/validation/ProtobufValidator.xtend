@@ -9,11 +9,13 @@ import protolipse.protobuf.BooleanLink
 import protolipse.protobuf.CustomOption
 import protolipse.protobuf.Enum
 import protolipse.protobuf.EnumField
-import protolipse.protobuf.ProtobufPackage
-import protolipse.protobuf.Value
-import protolipse.protobuf.Proto
+import protolipse.protobuf.Extend
+import protolipse.protobuf.Group
 import protolipse.protobuf.IndexedElement
 import protolipse.protobuf.Message
+import protolipse.protobuf.Proto
+import protolipse.protobuf.ProtobufPackage
+import protolipse.protobuf.Value
 
 /**
  * This class contains custom validation rules. 
@@ -23,30 +25,36 @@ import protolipse.protobuf.Message
 class ProtobufValidator extends AbstractProtobufValidator {
 
 	public static val DUPLICATE_ENUM_FIELD_INDEX = "DUPLICATE_ENUM_FIELD_INDEX"
-	
+
 	public static val SYNTAX_IS_NOT_PROTO2 = "SYNTAX_IS_NOT_PROTO2"
-	
+
 	public static val DUPLICATE_INDEXED_ELEMENT_INDEX = "DUPLICATE_INDEXED_ELEMENT_INDEX"
-	
+
 	@Check
 	def checkUniqueIndexedElementIndex(IndexedElement indexedElement) {
-		val message = indexedElement.eContainer as Message
-		
-		if(message == null) {
-			val excptNullMsg = String.format("Direct container/parent of %s is not of type %s", indexedElement, Message)
-			throw new ClassCastException(excptNullMsg)
+		val elements = switch container : indexedElement.eContainer {
+			Message:
+				container.elements.filter(IndexedElement)
+			Group:
+				container.elements
+			Extend:
+				container.elements.filter(IndexedElement)
+			default:
+				throw new ClassCastException(
+					String.format("Invalid container of type \"%s\", excepted a container of type \"%s\", \"%s\" or \"%s\"",
+						container.class, Message, Group, Extend))
 		}
-		
-		val elementsWithSameIndex = message.elements.filter(IndexedElement).filter[
+
+		val elementsWithSameIndex = elements.filter [
 			it != indexedElement && it.index == indexedElement.index
 		]
-		
+
 		if(elementsWithSameIndex.isEmpty) return;
-		
+
 		val msg = String.format("Index of element \"%s\" is not unique", indexedElement.name)
 		error(msg, ProtobufPackage.Literals.INDEXED_ELEMENT__INDEX, DUPLICATE_INDEXED_ELEMENT_INDEX)
 	}
-	
+
 	@Check
 	def checkSyntaxIsProto2(Proto proto) {
 		if(!proto.syntax.isNullOrEmpty && proto.syntax.equals("proto2")) return;
