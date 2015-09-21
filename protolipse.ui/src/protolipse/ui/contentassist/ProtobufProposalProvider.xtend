@@ -17,16 +17,41 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import protolipse.protobuf.ComplexTypeLink
 import protolipse.protobuf.Enum
 import protolipse.protobuf.EnumField
+import protolipse.protobuf.IndexedElement
+import protolipse.protobuf.Message
 import protolipse.protobuf.MessageField
+import protolipse.protobuf.ScalarTypeLink
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
-import protolipse.protobuf.ScalarTypeLink
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class ProtobufProposalProvider extends AbstractProtobufProposalProvider {
+
+	override completeMessageField_Index(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val message = model.eContainer as Message
+		acceptor.accept(createCompletionProposal(message.nextIndex.toString, context))
+	}
+
+	override completeGroup_Index(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val message = model.eContainer as Message
+		acceptor.accept(createCompletionProposal(message.nextIndex.toString, context))
+	}
+
+	def int nextIndex(Message message) {
+		var nextIndex = 1
+
+		val indexedElements = message.elements.filter(IndexedElement)
+		if (indexedElements.size > 1) {
+			nextIndex = Collections.max(indexedElements.map[it.index].toSet) + 1
+		}
+
+		return nextIndex
+	}
 
 	override completeEnumField_Index(EObject model, Assignment assignment, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
