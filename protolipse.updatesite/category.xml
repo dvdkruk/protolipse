@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/protolipse.sdk_0.0.0.jar" id="protolipse.sdk" version="0.0.0">
+      <category name="protolipse"/>
+   </feature>
+   <category-def name="protolipse" label="Protolipse"/>
+</site>
