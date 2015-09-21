@@ -3,11 +3,89 @@
  */
 package protolipse.ui.contentassist
 
-import protolipse.ui.contentassist.AbstractProtobufProposalProvider
+import com.google.common.collect.Sets
+import java.util.ArrayList
+import java.util.Collections
+import java.util.List
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.jface.text.contentassist.ICompletionProposal
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.Keyword
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import protolipse.protobuf.ComplexTypeLink
+import protolipse.protobuf.Enum
+import protolipse.protobuf.EnumField
+import protolipse.protobuf.MessageField
+
+import static extension org.eclipse.xtext.EcoreUtil2.*
+import protolipse.protobuf.ScalarTypeLink
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class ProtobufProposalProvider extends AbstractProtobufProposalProvider {
+
+	override completeEnumField_Index(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val enum = model.eContainer as Enum
+
+		var String nextIndex = "0";
+
+		if (enum.elements.filter(EnumField).size > 1) {
+			nextIndex = (Collections.max(enum.elements.filter(EnumField).map[it.index].toList) + 1).toString
+		}
+
+		acceptor.accept(createCompletionProposal(nextIndex, context))
+	}
+
+	public static final val FILTERED_KEYWORDS = Sets.newHashSet("true", "false") // ignore these (default) keywords in auto completion
+
+	override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
+		ICompletionProposalAcceptor acceptor) {
+		if (FILTERED_KEYWORDS.contains(keyword.value)) {
+			return;
+		}
+
+		super.completeKeyword(keyword, contentAssistContext, acceptor)
+	}
+
+	override complete_ID(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		// ignore
+	}
+
+	override complete_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		// ignore
+	}
+
+	override completeDefaultValueFieldOption_Value(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val typeLink = model.getContainerOfType(MessageField).type
+
+		var proposals = typeLink.getProposalEObjects(context);
+
+		if(proposals.isNullOrEmpty) return;
+
+		proposals.forEach[acceptor.accept(it)]
+	}
+
+	def dispatch List<ICompletionProposal> getProposalEObjects(ComplexTypeLink link, ContentAssistContext context) {
+		link.target.getProposalEObjects(context) // TODO: implement other types than enum
+	}
+
+	def dispatch List<ICompletionProposal> getProposalEObjects(ScalarTypeLink link, ContentAssistContext context) {
+		new ArrayList<ICompletionProposal> // TODO: implement
+	}
+
+	def dispatch List<ICompletionProposal> getProposalEObjects(Enum type, ContentAssistContext context) {
+		val proposals = new ArrayList<ICompletionProposal>
+		for (enumField : type.elements.filter(EnumField)) {
+			proposals.add(createCompletionProposal(enumField.name, context))
+		}
+		return proposals
+	}
 }

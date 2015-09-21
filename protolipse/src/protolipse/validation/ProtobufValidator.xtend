@@ -12,6 +12,8 @@ import protolipse.protobuf.EnumField
 import protolipse.protobuf.ProtobufPackage
 import protolipse.protobuf.Value
 import protolipse.protobuf.Proto
+import protolipse.protobuf.IndexedElement
+import protolipse.protobuf.Message
 
 /**
  * This class contains custom validation rules. 
@@ -24,6 +26,27 @@ class ProtobufValidator extends AbstractProtobufValidator {
 	
 	public static val SYNTAX_IS_NOT_PROTO2 = "SYNTAX_IS_NOT_PROTO2"
 	
+	public static val DUPLICATE_INDEXED_ELEMENT_INDEX = "DUPLICATE_INDEXED_ELEMENT_INDEX"
+	
+	@Check
+	def checkUniqueIndexedElementIndex(IndexedElement indexedElement) {
+		val message = indexedElement.eContainer as Message
+		
+		if(message == null) {
+			val excptNullMsg = String.format("Direct container/parent of %s is not of type %s", indexedElement, Message)
+			throw new ClassCastException(excptNullMsg)
+		}
+		
+		val elementsWithSameIndex = message.elements.filter(IndexedElement).filter[
+			it != indexedElement && it.index == indexedElement.index
+		]
+		
+		if(elementsWithSameIndex.isEmpty) return;
+		
+		val msg = String.format("Index of element \"%s\" is not unique", indexedElement.name)
+		error(msg, ProtobufPackage.Literals.INDEXED_ELEMENT__INDEX, DUPLICATE_INDEXED_ELEMENT_INDEX)
+	}
+	
 	@Check
 	def checkSyntaxIsProto2(Proto proto) {
 		if(!proto.syntax.isNullOrEmpty && proto.syntax.equals("proto2")) return;
@@ -35,16 +58,16 @@ class ProtobufValidator extends AbstractProtobufValidator {
 		val enum = enumField.eContainer as Enum
 
 		if (enum == null) {
-			val excptNullMsg = String.format("Direct container of %s is not of type %s", enumField, Enum)
+			val excptNullMsg = String.format("Direct container/parent of %s is not of type %s", enumField, Enum)
 			throw new ClassCastException(excptNullMsg)
 		}
 
 		if(enum.allowAlias) return; // If allow alias is on, duplicated indexes are allowed. 		
-		val enumFieldsWithTheSameIndex = enum.elements.filter(EnumField).filter [
+		val fieldsWithSameIndex = enum.elements.filter(EnumField).filter [
 			it != enumField && it.index == enumField.index
 		]
 
-		if(enumFieldsWithTheSameIndex.isEmpty) return;
+		if(fieldsWithSameIndex.isEmpty) return;
 
 		val msg = String.format("Index of enum field \"%s\" is not unique", enumField.name)
 		error(msg, ProtobufPackage.Literals.ENUM_FIELD__INDEX, DUPLICATE_ENUM_FIELD_INDEX)
