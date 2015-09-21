@@ -1,4 +1,4 @@
-# Protolipse
+# Protolipse [![Build Status](https://travis-ci.org/dvdkruk/protolipse.svg?branch=master)](https://travis-ci.org/dvdkruk/protolipse)
 Protolipse is an Eclipse editor plugin for working with Google's [Protocol Buffers](http://developers.google.com/protocol-buffers/) (proto2).
 
 Version: 0.0.1 (in dev)
