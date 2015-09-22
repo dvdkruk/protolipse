@@ -11,6 +11,9 @@ Used techniques/tools:
 * Xtend 2.8.3
 * Java 1.7
 
+## Install Protolipse
+Lastest release: [0.0.1-SNAPSHOT](https://github.com/dvdkruk/protolipse/releases/tag/0.0.1)
+
 ## Getting Started (Development)
 1. Download and install [Eclipse IDE for Java and DSL Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/marsr) for your OS.
 2. Clone this repository.
